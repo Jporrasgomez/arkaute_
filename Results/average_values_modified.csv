@@ -1,0 +1,4 @@
+,Top temperature (ºC),Bottom temperature (ºC),Ground temperature (ºC),Soil moisture (?)
+OTC,7.27 ± 0.03,8.42 ± 0.02,8.95 ± 0.01,2822.14 ± 1.34
+Control,6.82 ± 0.03,7.22 ± 0.03,8.23 ± 0.01,2688.12 ± 1.03
+Difference (OTC-Control),0.46 ± 0.01,1.2 ± 0.02,0.73 ± 0.01,NA
