@@ -22,10 +22,10 @@ library(readr)
 library(ggpubr)
 library(tidyverse)
 library(gridExtra)
-source('Scripts/basicFun.R')
+source('code/basicFun.R')
 
 # Opening and transforming data ####
-flora_raw <- read.csv("Data/flora_db.csv")
+flora_raw <- read.csv("data/flora_db.csv")
 summary(flora_raw)
 str(flora_raw)
 
@@ -109,7 +109,7 @@ View(flora_raw %>%
 
 
 #Añadir la fecha. De momento no sé si es necesario. 
-sampling_dates <- read.csv("Data/sampling_dates.csv")
+sampling_dates <- read.csv("data/sampling_dates.csv")
 summary(sampling_dates)
 str(sampling_dates)
 sampling_dates$datenew <-  ymd(sampling_dates$date)

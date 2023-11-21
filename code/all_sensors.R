@@ -32,13 +32,13 @@ library(readr)
 library(ggpubr)
 library(tidyverse)
 library(gridExtra)
-source('Scripts/basicFun.R')
+source("code/tools/basicFun.R")
 
 
 
 
 # Organising sensors/plots names --------------
-plots <- read.csv("Data/Plots.csv")
+plots <- read.csv("data/plots.csv")
 #IMPORTANT! Change the value of the DATE everytime a new set of data is opened.It depends on the day you took the data from the sensors. 
 plots$file_code <- paste0("data_", plots$sensor_code, "_2023_07_12_0.csv")
 
@@ -51,7 +51,7 @@ file_code_values <- plots$file_code
 plots_list <- list()
 
 for (i in seq_along(file_code_values)) {
-  file_path <- file.path("Data/data_sensors", file_code_values[i])
+  file_path <- file.path("data/data_sensors", file_code_values[i])
   new_name <- plots$plot_code[i]
   ttreat_value <- plots$ttreat[i]  # Get ttreat value for the current plot_code
   data <- read_delim(file_path, 
@@ -636,7 +636,7 @@ average_values <- data.frame(TTOP, TBOTTOM, TGROUND, SOILMOIST)
 rownames(average_values) <- c("Warming", "Control", "Difference (Warming-Control)")
 colnames(average_values) <- c("Top temperature (ºC)", "Bottom temperature (ºC)", "Ground temperature (ºC)", "Soil moisture (?)")
 
-average_values %>% write.csv("Results/average_values.csv")
+average_values %>% write.csv("results/average_values.csv")
 
 
 

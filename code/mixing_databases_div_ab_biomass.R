@@ -8,11 +8,11 @@ library(readr)
 library(ggpubr)
 library(tidyverse)
 library(gridExtra)
-source('Scripts/basicFun.R')
+source('code/basicFun.R')
 
 
-div_ab <- read.csv("Data/div_ab.csv")
-biomass <- read.csv("Data/biomass.csv")
+div_ab <- read.csv("data/div_ab.csv")
+biomass <- read.csv("data/biomass.csv")
 
 div_ab <- subset(div_ab, select = -date)
 div_ab <- subset(div_ab, select = -OBS)
@@ -43,7 +43,7 @@ flora_db$treatment <- as.factor(flora_db$treatment)
 
 summary(flora_db)
 
-flora_db %>% write.csv("Data/flora_db.csv")
+flora_db %>% write.csv("data/flora_db.csv")
 #Miro los NA's de abundancias y Heights en excel y voy mirando los plots. 
 
 
