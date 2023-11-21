@@ -40,7 +40,7 @@ source('Scripts/basicFun.R')
 # Organising sensors/plots names --------------
 plots <- read.csv("Data/Plots.csv")
 #IMPORTANT! Change the value of the DATE everytime a new set of data is opened.It depends on the day you took the data from the sensors. 
-plots$file_code <- paste0("data_", plots$sensor_code, "_2023_06_14_0.csv")
+plots$file_code <- paste0("data_", plots$sensor_code, "_2023_07_12_0.csv")
 
 
 
@@ -63,7 +63,7 @@ for (i in seq_along(file_code_values)) {
 
 rm(data)
 
-View(plots_list[[1]])
+#View(plots_list[[1]])
 
 # Naming data and changing variables--------------------
 #Elegir la fecha a partir de la cual quiero filtrar los datos en "item <- subset(item, datenew >= "2023/01/01")"
@@ -306,13 +306,22 @@ ggt24h_diff <- ggplot(allplots_temp_24h_diff) +
   geom_line(aes(x = time, y = t_top_diff, group = 1, color = "Top"), linetype = "solid") +
   geom_line(aes(x = time, y = t_bottom_diff, group = 1, color = "Bottom"), linetype = "solid") +
   geom_line(aes(x = time, y = t_ground_diff, group = 1, color = "Ground"), linetype = "solid") +
-  labs(x = "January - May", y = "Temperature difference (warming-control) ºC") +
+  labs(x = "24 hours (January - July)", y = "Temperature difference (warming-control) ºC") +
   geom_hline(yintercept = 0, linetype = "dotted", color = "black") +
   scale_x_discrete(breaks = allplots_temp_24h_diff$time[c(1, seq(24, length(allplots_temp_24h_diff$time), length.out = 5))]) +
   scale_color_manual(values = c("Top" = "red", "Bottom" = "blue", "Ground" = "green"),
                      name = "Temperature type") +
   theme_bw()
 
+
+ggt24h_diff_justtop <- ggplot(allplots_temp_24h_diff) +
+  geom_line(aes(x = time, y = t_top_diff, group = 1, color = "red"), linetype = "solid") +
+  labs(x = "24 hours (January - July)", y = "Temperature difference (warming-control) ºC") +
+  geom_hline(yintercept = 0, linetype = "dotted", color = "black") +
+  scale_x_discrete(breaks = allplots_temp_24h_diff$time[c(1, seq(24, length(allplots_temp_24h_diff$time), length.out = 5))]) +
+  theme_bw()
+
+ggt24h_diff_justtop
 
 # CONTROL vs WARMING: Soil moisture difference in 24 h
 
