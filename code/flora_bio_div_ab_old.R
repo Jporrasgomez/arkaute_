@@ -4,6 +4,7 @@
 #MIrar si hay correlaciones entre alturas y circunferencias 
 #Hacer un loop con distintos valores de Z para ver las diferencias. Explorar cómo cambian los datos
 #utilizando distintos valores de z. 
+#Mandar correo a los autores 
 #Mirar si podemos utilizar varias ecuaciones en función de la especie. 
 #Mirar diferencias en la distribución de los datos de biomasa una vez aplicada la ecuación
 #y después de calcular las biomasas por especie y plot. Lo esperable es que una vez estimada la biomasa en base a la abundancia
@@ -22,7 +23,7 @@ library(readr)
 library(ggpubr)
 library(tidyverse)
 library(gridExtra)
-source('code/tools/basicFun.R')
+source('code/basicFun.R')
 
 # Opening and transforming data ####
 flora_raw <- read.csv("data/flora_db.csv")
@@ -37,6 +38,8 @@ desired_order <- c("sampling 0", "sampling 1", "sampling 2", "sampling 3", "samp
                    "sampling 7", "sampling 8", "sampling 9", "sampling 10")
 
 flora_raw$sampling <- factor(flora_raw$sampling, levels = desired_order)
+
+
 
 
 #mirar histogramas. Son datos asimétricos - Distribucion log normal. ¿Transformar?
@@ -55,47 +58,48 @@ hist(log(flora_raw$Cb))
 hist(log(flora_raw$Dm))
 hist(log(flora_raw$Db))
 
-
-gghistab <- ggplot(flora_raw, aes(x = abundance)) +
+ggab <- ggplot(flora_raw, aes(x = abundance)) +
   geom_histogram(binwidth = 1, fill = "blue", color = "black") +
   labs(x = "", y = "Frequency") +
   ggtitle("Abundance") + 
   theme_minimal()
 
-gghisth <- ggplot(flora_raw, aes(x = height)) +
+gghe <- ggplot(flora_raw, aes(x = height)) +
   geom_histogram(binwidth = 1, fill = "blue", color = "black") +
   labs(x = "", y = "Frequency") +
   ggtitle("Height") + 
   theme_minimal()
 
-gghistcb <- (flora_raw, aes(x = Cb)) +
+ggcb <- ggplot(flora_raw, aes(x = Cb)) +
   geom_histogram(binwidth = 1, fill = "blue", color = "black") +
   labs(x = "", y = "Frequency") +
   ggtitle("Cb") + 
   coord_cartesian(xlim = c(0, 20)) +
   theme_minimal()
 
-gghistcm <- ggplot(flora_raw, aes(x = Cm)) +
+ggcm <- ggplot(flora_raw, aes(x = Cm)) +
   geom_histogram(binwidth = 1, fill = "blue", color = "black") +
   labs(x = "", y = "Frequency") +
   ggtitle("Cm") + 
   coord_cartesian(xlim = c(0, 10)) +
   theme_minimal()
 
-gghistdb <- ggplot(flora_raw, aes(x = Db)) +
+ggdb <- ggplot(flora_raw, aes(x = Db)) +
   geom_histogram(binwidth = 1, fill = "blue", color = "black") +
   labs(x = "", y = "Frequency") +
   ggtitle("Db") + 
   theme_minimal()
 
-gghistdm <- ggplot(flora_raw, aes(x = Dm)) +
+ggdm <- ggplot(flora_raw, aes(x = Dm)) +
   geom_histogram(binwidth = 1, fill = "blue", color = "black") +
   labs(x = "", y = "Frequency") +
   ggtitle("Dm") + 
   theme_minimal()
 
-
-
+gghists <- ggarrange(ggab, gghe, ggcb, ggcm, ggdb, ggdm,
+                     labels = c("A", "B", "C", "D", "E", "F"),
+                     ncol = 3, nrow = 2)
+gghists
 
 
 #Sumar 0.01 cm a los diámetros por el error del calibre con el que medimos
@@ -134,7 +138,6 @@ flora <- flora_raw %>% select(sampling, plot, treatment, species, abundance, hei
 #Esto era necesario antes porque aplicabamos el criterio de "Si el numero de individuos es menor o igual que 4, la biomasa total
 #de la especie será la suma de las biomasas unitarias de cada individuo. Si es mayor de 4, se calculará estimando con la abundancia"
 
-
 flora <- flora %>%
   group_by(plot, sampling, species) %>%
   mutate(n_individuals = n()) %>%
@@ -166,25 +169,24 @@ flora <- flora %>%
   distinct(sampling, datenew, month, plot, treatment, abundance, species, biomass)
 #Mirar si la distribución de los datos de biomasa tienen sentido una vez aplicada la estimacion en base a la abundancia
 
-#Transformo en NA los valores 0 de biomasa, que corresponden a los datos de los samplings 0, 1, 2 y los 26 datos del 3. 
+#Transformo en NA los valores 0 de biomasa, que corresponden a los datos de los samplings 0, 1, 2 y los 26 datos del 3.
 #Esto es para el gráfico, pero hay que ver las correlaciones entre H, cb, cm...
 flora$biomass <- ifelse(flora$biomass == 0, NA, flora$biomass)
 
 # Bases de datos nuevas ####
 #Añado el numero de especies por sampling y plot
-flora <- flora %>%
+flora_species <- flora %>%
   group_by(plot, sampling) %>%
   mutate(n_species = n()) %>%
   ungroup()
 
-flora_samplings <-  flora %>%
+flora_samplings <-  flora_species %>%
   group_by(sampling, datenew, month, treatment, plot) %>%
   reframe(biomass = sum(biomass, na.rm = T), 
           n_species = n_species, 
           abundance = sum(abundance, na.rm = T)) %>%
   distinct(sampling, datenew, month, plot, treatment, biomass, n_species, abundance)
 #Hacer comprobaciones de los datos en esta base de datos
-
 
 flora_treatments <-  flora_samplings %>%
   group_by(treatment) %>%
