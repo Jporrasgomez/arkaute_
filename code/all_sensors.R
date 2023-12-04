@@ -1,16 +1,16 @@
 
 ##TO DO's :------------------
 #T ground tiene aguos datos missing EN ggtdailtdiff
-#LA HORA DE LOS SENSORES ESTÁ RETRASADA 3 HORAS!! (EN VERANO) 
+#LA HORA DE LOS SENSORES ESTÁ RETRASADA 2 HORAS!! (EN VERANO) 
 #No hay datos de plot 10
 #Mirar qué pasa con los histogramas
 #Mirar qué pasa con los boxplot
-#ver cómo influye soil_moisture en los datos de temperatura.
+#ver cómo influye soil_moisture en los datos de temperatura. Hay que calibrar los datos de soil moisture con la información de textura del suelo. 
 #Añadir un cálculo más para la diferencia de temperatura
 #Hacer esto con R-markdown así puedo generar pdfs rápido con los gráficos
 
 #Comments----------------
-##Hay anomalías en las mediciones. Debería decir a R que me busque datos en los que haya una diferencia superior a 8 grados entre el dato y la medida anterior
+#Hay anomalías en las mediciones. Debería decir a R que me busque datos en los que haya una diferencia superior a 8 grados entre el dato y la medida anterior
 
 #cambie
 #Anomalías detectadas: c1 (2022.06.21 12:45, t:ground) de 48ºC  // c2 (2022.06.21 12:45, t_ground) de 60ºC, SON LAS DOS A LA MISMA HORA Y DIA!
@@ -40,7 +40,7 @@ source("code/tools/basicFun.R")
 # Organising sensors/plots names --------------
 plots <- read.csv("data/plots.csv")
 #IMPORTANT! Change the value of the DATE everytime a new set of data is opened.It depends on the day you took the data from the sensors. 
-plots$file_code <- paste0("data_", plots$sensor_code, "_2023_07_12_0.csv")
+plots$file_code <- paste0("data_", plots$sensor_code, "_2023_11_23_0.csv")
 
 
 
@@ -91,8 +91,8 @@ for (i in seq_along(plots_list)) {
 }
 
 rm(item)
-View(plots_list[[2]])
-View(plots_list[[4]])
+#View(plots_list[[2]])
+#View(plots_list[[4]])
 
 
 # Data characteristics and histograms----------------
@@ -161,6 +161,7 @@ all_plots <- merge(controls, ws, all = TRUE)
 
 
 #Temperature and soil moisture
+
 dailygraph_list <- list()
 dailygraph_list <- lapply(plots_list, function(item) {
   ggplot(item, aes(x = datetimenew)) +
@@ -176,6 +177,7 @@ dailygraph_list <- lapply(plots_list, function(item) {
       plot.title = element_text(color = "black", size = 12, face = "bold.italic"))
 })
 
+# AVISO: tarda mucho en cargar!!
 #grid.arrange(grobs = dailygraph_list, ncol = 4)
 
 
@@ -211,24 +213,8 @@ for (item in plots_list) {
   dailygraph_temp_list[[length(dailygraph_temp_list) + 1]] <- ggitem
 }
 
+# AVISO: tarda mucho en cargar!!
 #grid.arrange(grobs = dailygraph_temp_list, nrow = 4, ncol = 4)
-
-
-#Temperature
-dailygraph_temp_list1 <- list()
-dailygraph_temp_list1 <- lapply(plots_list, function(item) {
-  ggplot(item, aes(x = datetimenew)) +
-    geom_line(aes(y = T_top), group = 1, color = "darkred") +
-    geom_line(aes(y = T_bottom), group = 1, color = "blue") +
-    geom_line(aes(y = T_ground), group = 1, color = "green") +
-    theme_bw() +
-    labs(x = NULL, y = NULL) +
-    ggtitle(as.character(item$plot)) +
-    theme(
-      plot.title = element_text(color = "black", size = 12, face = "bold.italic"))
-})
-
-#grid.arrange(grobs = dailygraph_temp_list1, ncol = 4)
 
 
 
@@ -243,6 +229,7 @@ dailygraph_sm_list <- lapply(plots_list, function(item) {
     theme(plot.title = element_text(color="black", size=12, face="bold.italic"))
 })
 
+# AVISO: tarda mucho en cargar!
 #grid.arrange(grobs = dailygraph_sm_list, ncol = 4)
 
 
@@ -321,7 +308,8 @@ ggt24h_diff_justtop <- ggplot(allplots_temp_24h_diff) +
   scale_x_discrete(breaks = allplots_temp_24h_diff$time[c(1, seq(24, length(allplots_temp_24h_diff$time), length.out = 5))]) +
   theme_bw()
 
-ggt24h_diff_justtop
+
+
 
 # CONTROL vs WARMING: Soil moisture difference in 24 h
 
@@ -341,17 +329,18 @@ allplots_sm_24h_diff <- allplots_sm_24h_diff %>% slice(1:(nrow(allplots_sm_24h_d
 ggsm24h_diff <- ggplot(allplots_sm_24h_diff) +
   geom_line(aes(x = time, y = sm_diff, group = 1), color = "black", linetype = "solid") +
   labs(x = "January - May", y = "Soil moisture difference (warming-control) raw signal data") +
+  geom_hline(yintercept = 0, linetype = "dotted", color = "black") +
   scale_x_discrete(breaks = allplots_sm_24h_diff$time[c(1, seq(24, length(allplots_sm_24h_diff$time), length.out = 5))])+
   theme_bw()
 
 
 
-#Plots
+
+#Plots 24h 
 
 gg24hdiff <- ggarrange(ggt24h_diff, ggsm24h_diff, 
                     labels = c("A", "B"),
                     ncol = 2, nrow = 1)
-
 
 
 
@@ -404,7 +393,7 @@ ggtdailtdiff <- ggarrange(ggtdailydiff_top, ggtdailydiff_bottom, ggtdailydiff_gr
                          labels = c("A", "B", "C"),
                          ncol = 1, nrow =3 )
 
-ggtdailtdiff
+
 
 #CONTROL vs WARMING: soil_moisture daily difference throughout the year
 
@@ -427,8 +416,6 @@ ggsmdailydiff <- ggplot(allplots_sm_day_diff) +
   geom_hline(yintercept = 0, linetype = "dotted", color = "black")+
   scale_x_datetime(breaks = scales::date_breaks("3 weeks"), labels = scales::date_format("%Y-%m-%d"))+
   theme_bw()
-
-
 
 
 
@@ -637,6 +624,9 @@ rownames(average_values) <- c("Warming", "Control", "Difference (Warming-Control
 colnames(average_values) <- c("Top temperature (ºC)", "Bottom temperature (ºC)", "Ground temperature (ºC)", "Soil moisture (?)")
 
 average_values %>% write.csv("results/average_values.csv")
+
+
+# Statistical test #####
 
 
 

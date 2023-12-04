@@ -24,7 +24,7 @@ library(tidyverse)
 library(gridExtra)
 source('code/tools/basicFun.R')
 
-# Opening and transforming data ####
+# Opening and transforming data(opening_floradata.R) ####
 flora_raw <- read.csv("data/flora_db.csv")
 summary(flora_raw)
 str(flora_raw)
@@ -39,65 +39,52 @@ desired_order <- c("sampling 0", "sampling 1", "sampling 2", "sampling 3", "samp
 flora_raw$sampling <- factor(flora_raw$sampling, levels = desired_order)
 
 
-#mirar histogramas. Son datos asimétricos - Distribucion log normal. ¿Transformar?
-#Escalar eje X para ver mejor los histogramas
-hist(flora_raw$abundance)
-hist(flora_raw$height)
-hist(flora_raw$Cm)
-hist(flora_raw$Cb)
-hist(flora_raw$Dm)
-hist(flora_raw$Db)
-
-hist(log(flora_raw$abundance))
-hist(log(flora_raw$height))
-hist(log(flora_raw$Cm))
-hist(log(flora_raw$Cb))
-hist(log(flora_raw$Dm))
-hist(log(flora_raw$Db))
-
-
-gghistab <- ggplot(flora_raw, aes(x = abundance)) +
-  geom_histogram(binwidth = 1, fill = "blue", color = "black") +
-  labs(x = "", y = "Frequency") +
-  ggtitle("Abundance") + 
-  theme_minimal()
-
-gghisth <- ggplot(flora_raw, aes(x = height)) +
-  geom_histogram(binwidth = 1, fill = "blue", color = "black") +
-  labs(x = "", y = "Frequency") +
-  ggtitle("Height") + 
-  theme_minimal()
-
-gghistcb <- (flora_raw, aes(x = Cb)) +
-  geom_histogram(binwidth = 1, fill = "blue", color = "black") +
-  labs(x = "", y = "Frequency") +
-  ggtitle("Cb") + 
-  coord_cartesian(xlim = c(0, 20)) +
-  theme_minimal()
-
-gghistcm <- ggplot(flora_raw, aes(x = Cm)) +
-  geom_histogram(binwidth = 1, fill = "blue", color = "black") +
-  labs(x = "", y = "Frequency") +
-  ggtitle("Cm") + 
-  coord_cartesian(xlim = c(0, 10)) +
-  theme_minimal()
-
-gghistdb <- ggplot(flora_raw, aes(x = Db)) +
-  geom_histogram(binwidth = 1, fill = "blue", color = "black") +
-  labs(x = "", y = "Frequency") +
-  ggtitle("Db") + 
-  theme_minimal()
-
-gghistdm <- ggplot(flora_raw, aes(x = Dm)) +
-  geom_histogram(binwidth = 1, fill = "blue", color = "black") +
-  labs(x = "", y = "Frequency") +
-  ggtitle("Dm") + 
-  theme_minimal()
+# hisograms with ggplot
+print(ggarrange(
+  
+  ggplot(flora_raw, aes(x = abundance)) +
+    geom_histogram(binwidth = 1, fill = "blue", color = "black") +
+    labs(x = "", y = "Frequency") +
+    ggtitle("Abundance") + 
+    theme_minimal(),
+  
+  ggplot(flora_raw, aes(x = height)) +
+    geom_histogram(binwidth = 1, fill = "blue", color = "black") +
+    labs(x = "", y = "Frequency") +
+    ggtitle("Height") + 
+    theme_minimal(),
+  
+  ggplot(flora_raw, aes(x = Cb)) +
+    geom_histogram(binwidth = 1, fill = "blue", color = "black") +
+    labs(x = "", y = "Frequency") +
+    ggtitle("Cb") + 
+    coord_cartesian(xlim = c(0, 20)) +
+    theme_minimal(),
+  
+  ggplot(flora_raw, aes(x = Cm)) +
+    geom_histogram(binwidth = 1, fill = "blue", color = "black") +
+    labs(x = "", y = "Frequency") +
+    ggtitle("Cm") + 
+    coord_cartesian(xlim = c(0, 10)) +
+    theme_minimal(),
+  
+  ggplot(flora_raw, aes(x = Db)) +
+    geom_histogram(binwidth = 1, fill = "blue", color = "black") +
+    labs(x = "", y = "Frequency") +
+    ggtitle("Db") + 
+    theme_minimal(),
+  
+  ggplot(flora_raw, aes(x = Dm)) +
+    geom_histogram(binwidth = 1, fill = "blue", color = "black") +
+    labs(x = "", y = "Frequency") +
+    ggtitle("Dm") + 
+    theme_minimal(),
+  
+  labels = c("A", "B", "C", "D", "E", "F"),
+  ncol = 3, nrow = 2))
 
 
-
-
-
+# Modifying database
 #Sumar 0.01 cm a los diámetros por el error del calibre con el que medimos
 flora_raw$Dm <- flora_raw$Dm + 0.01
 flora_raw$Db <- flora_raw$Db + 0.01
@@ -118,7 +105,7 @@ summary(sampling_dates)
 str(sampling_dates)
 sampling_dates$datenew <-  ymd(sampling_dates$date)
 sampling_dates$month <- month(sampling_dates$datenew)
-sampling_dates$date <- NULL
+sampling_dates(O$date <- NULL
 sampling_dates$micro.sampling <- NULL
 sampling_dates$N.micro <- NULL
 
@@ -133,7 +120,6 @@ flora <- flora_raw %>% select(sampling, plot, treatment, species, abundance, hei
 #Añadir el numero de individuos que hay por sampling, plot y species. 
 #Esto era necesario antes porque aplicabamos el criterio de "Si el numero de individuos es menor o igual que 4, la biomasa total
 #de la especie será la suma de las biomasas unitarias de cada individuo. Si es mayor de 4, se calculará estimando con la abundancia"
-
 
 flora <- flora %>%
   group_by(plot, sampling, species) %>%

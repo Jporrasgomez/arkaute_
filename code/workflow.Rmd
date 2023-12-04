@@ -11,9 +11,10 @@ output:
 - Por qué me aparece ahora en el Knit todas las respuestas de la consola de R? si pone "(echo = FALSE)"
 
 ## Cosas qué hacer
-- Rank abundance distribution
+- Ir organizando el workflow de este .Rmd. 
 - Mirar si hay correlaciones entre alturas y circunferencias para completar los datos de biomasa de muestreos 0, 1 y 2. 
 - Sensitivity test de Z
+- Rank abundance distribution analysis
 - Mirar si podemos utilizar varias ecuaciones en función de la especie. 
 - Mirar diferencias en la distribución de los datos de biomasa una vez aplicada la ecuación y después de calcular las biomasas por especie y plot. Lo esperable es que una vez estimada la biomasa en base a la abundancia el histograma sea más "alargado" en la cola.
 
@@ -36,17 +37,16 @@ source("code/tools/basicFun.R")
 ```
 
 
-## Opening and checking data
+## Opening and checking flora data
 
+In this script we take a look to the shape of our collected data. 
 
-```{r cars}
-summary(cars)
-
-
-
-
+```{r opening and checking data, include = TRUE}
+source("code/codes_rmd_workflow/opening_floradata.R")
 
 ```
+
+We have asymmetric data. 
 
 ## Including Plots
 
