@@ -17,6 +17,7 @@ output:
 - Rank abundance distribution analysis
 - Mirar si podemos utilizar varias ecuaciones en función de la especie. 
 - Mirar diferencias en la distribución de los datos de biomasa una vez aplicada la ecuación y después de calcular las biomasas por especie y plot. Lo esperable es que una vez estimada la biomasa en base a la abundancia el histograma sea más "alargado" en la cola.
+- Cambiar la forma de visualizar el plot
 
 
 ```{r setup, echo = FALSE}
