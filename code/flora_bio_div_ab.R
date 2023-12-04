@@ -8,6 +8,9 @@
 #Mirar diferencias en la distribución de los datos de biomasa una vez aplicada la ecuación
 #y después de calcular las biomasas por especie y plot. Lo esperable es que una vez estimada la biomasa en base a la abundancia
 # el histograma sea más "alargado" en la cola.
+#Hacer comprobaciones de los datos cada vez que se transformen las bases de datos
+#Cambiar los nombres de "sampling X" por "sX_month"
+#Buscar otra manera de representar las dinámicas sin boxplots. 
 
 #Explorar a nivel de plot, muestreos y tratamientos la variabilidad de biomasa, abundancia y diversidad
 

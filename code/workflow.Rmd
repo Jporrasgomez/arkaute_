@@ -48,12 +48,98 @@ source("code/codes_rmd_workflow/opening_floradata.R")
 
 We have asymmetric data. 
 
-## Including Plots
+## Transforming data
 
-You can also embed plots, for example:
+```{r}
+source("code/codes_rmd_workflow/preparing_floradata.R")
 
-```{r pressure}
-plot(pressure)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## Graphs for dynamics
+
+Graph of biomass, diversity and abundance along samplings. Each boxplot contains 4 points (4 replicates per treatment): 
+
+- Biomass: the total biomass (addition of all individual data of biomass at species level)
+- Diversity: the total number of species per replicate. 
+- Abundance: The addition of all abundance data in order to know the total coverage of each replicate. No species-level information here. 
+
+```{r dynamic graphs}
+print(ggarrange(
+
+ggsamplings_biomass <- 
+  
+ggplot(flora_samplings, aes(x = sampling, y = biomass, color = treatment)) +
+  geom_boxplot() +
+  labs(x = " ", y = "Biomass") +
+  scale_color_manual(values = c("c" = "blue", "p" = "green", "w" = "red", "wp" = "purple")) +
+  theme_minimal() +
+  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
+  theme(legend.position = "none", 
+        axis.text = element_text(size = 12)) +
+    coord_cartesian(ylim = c(0, 500)),
+
+ggsamplings_diversity <-
+  
+  ggplot(flora_samplings, aes(x = sampling, y = n_species, color = treatment)) +
+  geom_boxplot() +
+  labs(x = " ", y = "Diversity") +
+  scale_color_manual(values = c("c" = "blue", "p" = "green", "w" = "red", "wp" = "purple")) + 
+  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
+  theme_minimal() +
+  theme(legend.position = "none", 
+        axis.text = element_text(size = 12)),
+
+ggsamplings_abundance <- 
+ 
+ ggplot(flora_samplings, aes(x = sampling, y = abundance, color = treatment)) +
+  geom_boxplot() +
+  labs(x = " ", y = "Abundance") +
+  scale_color_manual(values = c("c" = "blue", "p" = "green", "w" = "red", "wp" = "purple")) +
+  theme_minimal() +
+  theme(legend.position = "none", 
+        axis.text = element_text(size = 12)) +
+  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
+
+labels = c("A", "B", "C"),
+ncol = 1, nrow = 3))
+
+
+```
+
+In the next graph we can see the aggregated differences between treatments: 
+
+```{r Graph for treatments}
+
+print(ggarrange(
+  
+  ggtreat_biomass <-
+  ggplot(flora_samplings, aes(x = treatment, y = biomass, color = treatment)) +
+  geom_boxplot() +
+  labs(x = " ", y = "Biomass") +
+  scale_color_manual(values = c("c" = "blue", "p" = "green", "w" = "red", "wp" = "purple")) +
+  theme_minimal() + 
+  coord_cartesian(ylim = c(0, 700))+
+  theme(legend.position = "none"),
+
+ggtreat_diversity <- 
+  ggplot(flora_samplings, aes(x = treatment, y = n_species, color = treatment)) +
+  geom_boxplot() +
+  labs(x = " ", y = "Diversity") +
+  scale_color_manual(values = c("c" = "blue", "p" = "green", "w" = "red", "wp" = "purple")) +
+  theme_minimal()+
+  theme(legend.position = "none"),
+
+ggtreat_abundance <- 
+  ggplot(flora_samplings, aes(x = treatment, y = abundance, color = treatment)) +
+  geom_boxplot() +
+  labs(x = " ", y = "Abundance") +
+  scale_color_manual(values = c("c" = "blue", "p" = "green", "w" = "red", "wp" = "purple")) +
+  theme_minimal()+
+  theme(legend.position = "none"),
+
+labels = c("A", "B", "C"),
+ncol = 3, nrow = 1))
+
+```
+
