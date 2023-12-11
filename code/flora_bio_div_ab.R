@@ -11,6 +11,7 @@
 #Hacer comprobaciones de los datos cada vez que se transformen las bases de datos
 #Cambiar los nombres de "sampling X" por "sX_month"
 #Buscar otra manera de representar las dinámicas sin boxplots. 
+#Quitar amarantus"
 
 #Explorar a nivel de plot, muestreos y tratamientos la variabilidad de biomasa, abundancia y diversidad
 
@@ -145,6 +146,14 @@ flora$Ab <- ((flora$cb)^2)/4*pi
 d <- 1.96
 z <- 2/3
 flora$biomass <- d*(((flora$height/2)*(flora$Ab + flora$Ah))^z)
+
+summary(flora)
+#There is a HUGE jump in the max value for biomass. This is mainly due to 1 species (Amaranthus sp. (am) in the plot 15)). 
+#We have decided to deleted. 
+
+##############HACER!!
+
+View(flora[, species == "am"])
 
 #Agrupar por sampling, plot y treatment primero. 
 #Aquí se aplica, para biomasa, el siguiente criterio: se estima la biomasa de cada especie multiplicando su abundancia por 
