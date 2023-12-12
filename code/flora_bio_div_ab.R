@@ -313,7 +313,8 @@ ggplot(flora_samplings, aes(x = n_species, y = abundance, color = treatment)) +
 # Diferencias estadísticas ####
 
 #La distribución de los datos no es normal, y el test ANOVA asume normalidad de los datos.
-# O transformar los datos o utilizar test estadisticos no paramétricos. 
+# O transformar los datos o utilizar test estadisticos no paramétricos. Los tests no paramétricos suelen usar la mediana y no la media, ya que la primera es mucho
+# más indicativa de la distribucion cuando ésta no es normal. Algunos ejemplos son Mann-Whitney, Wilcoxon...
 
 #Between treatments
 summary(aov(biomass ~ treatment, data = flora_samplings))
