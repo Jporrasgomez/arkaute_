@@ -1,6 +1,6 @@
 
 #Crear una lista con las especies de los muestreos 0, 1 y 2 de las que no se tienen datos. Para centrarme en esas especies
-#no Está funcionando!
+#
 
 library(stringr)
 library(ggplot2)
@@ -9,7 +9,6 @@ library(reshape2)
 library(readr)
 library(ggpubr)
 library(tidyverse)
-source('code/tools/basicFun.R')
 library(ggplot2)
 library(gridExtra)
 
@@ -18,6 +17,7 @@ flora_raw<- read.csv("data/flora_db_new.csv")
 flora_raw <- flora_raw %>%
   mutate(across(where(is.character), as.factor))
 str(flora_raw)
+length(unique(flora_raw$species))
 
 flora_raw$Dm <- flora_raw$Dm + 0.01
 flora_raw$Db <- flora_raw$Db + 0.01
@@ -36,26 +36,26 @@ flora <- flora_raw %>% select("species", "sampling", "height", "cb", "cm")
 #flora_filtered <- flora %>% filter(!is.na(height) & !is.na(cb) & !is.na(cb))
 
 # Count the number of rows for each species and delete those that have less than 2 rows (2 measurements) 
-species_counts<- flora_filtered %>%
+species_counts<- flora %>%
   group_by(species) %>%
   summarise(row_count = n()) %>%
   filter(row_count < 2)
 
 
-flora_filtered <- anti_join(flora_filtered, species_counts, by = "species")
+flora <- anti_join(flora, species_counts, by = "species")
 
-str(flora_filtered)
-length(levels(flora_filtered$species))
-(levels(flora_filtered$species))
-#Salen 110 especies. Es por todas las "ni"
+length(unique(flora$species))
+
 
 #List of species from samplings 0, 1 and 2: ¿Por qué me salen 110 levels de species para todos los subsets?
 
-flora_s0 <- subset(flora_filtered, sampling == "sampling 0")
-str(flora_s0)
-flora_s1 <- subset(flora_filtered, sampling ==  "sampling 1")
-str(flora_s1)
-flora_s2 <- subset(flora_filtered, sampling == "sampling 2")
+flora_s0 <- subset(flora, sampling == "sampling 0")
+length(unique(flora_s0$species))
+flora_s1 <- subset(flora, sampling ==  "sampling 1")
+length(unique(flora_s1$species))
+flora_s2 <- subset(flora, sampling == "sampling 2")
+length(unique(flora_s2$species))
+
 
 flora_s012 <- merge(flora_s0, flora_s1, all = T)
 flora_s012 <- merge (flora_s012, flora_s2, all = T)
@@ -65,12 +65,14 @@ rm(flora_s1)
 rm(flora_s2)
 
 #Comprobacion numero de especies. SALE 110. Algo está MAL a la hora de merge
+length(unique(flora_s012$species))
 length(levels(flora_s012$species))
 
+flora_s012_listofspecies <- unique(flora_s012$species)
 
-#Extracting species_s012 from "flora_filtered"NO ESTÁ BIEN HECHO!!!!!!!!
-flora_species_s012 <- right_join(flora_filtered, species_s012, by = "species") %>% 
-  filter(!is.na(height) & !is.na(cb) & !is.na(cb))
+
+#Extracting rows from "flora" that matches with the species found within flora_s012
+flora_species_s012 <- right_join(flora, flora_s012)
 #Comprobacion numero de especies. SAle 110. MAL
 length(levels(flora_species_s012$species))
 
@@ -83,7 +85,7 @@ library(purrr)
 
 # Define a function to extract information for a given species
 get_species_info <- function(species) {
-  subset_data <- filter(flora_species_s012, species == !!species)
+  subset_data <- filter(flora, species == !!species)
   lm_model <- lm(height ~ cb, data = subset_data)
   
   data.frame(
@@ -95,7 +97,7 @@ get_species_info <- function(species) {
 }
 
 # Get the unique species levels
-species_levels <- levels(flora_species_s012$species)
+species_levels <- levels(flora$species)
 
 # Apply the function to each species level and bind the results
 results_df <- map_dfr(species_levels, get_species_info)
@@ -135,7 +137,7 @@ plots_cb_species <- lapply(levels(flora_filtered$species), function(s) {
   subset_data <- flora_filtered[flora_filtered$species == s, ]  # Subset data for the current species
   
   lm_model <- lm(height ~ cb , data = subset_data)
-    
+  
   r_squared <- summary(lm_model)$r.squared
   p_value <- summary(lm_model)$coefficients[2, 4] 
   num_measurements <- nrow(subset_data)  # Get the number of measurements
@@ -155,7 +157,7 @@ cb_plots <- do.call(gridExtra::grid.arrange, plots_cb_species)
 print(cb_plots)
 
 
- #CM vs HEIGHT
+#CM vs HEIGHT
 
 plots_cm_species <- lapply(levels(flora$species), function(s) {
   subset_data <- flora[flora$species == s, ]  # Subset data for the current species
@@ -183,4 +185,3 @@ print(cm_plots)
 
 library(ggplot2)
 library(gridExtra)
-
