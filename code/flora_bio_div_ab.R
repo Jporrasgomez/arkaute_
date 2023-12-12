@@ -42,6 +42,13 @@ desired_order <- c("sampling 0", "sampling 1", "sampling 2", "sampling 3", "samp
 
 flora_raw$sampling <- factor(flora_raw$sampling, levels = desired_order)
 
+hist(log(flora_raw$abundance))
+hist(log(flora_raw$height))
+hist(log(flora_raw$Cb))
+hist(log(flora_raw$Cm))
+hist(log(flora_raw$Db))
+hist(log(flora_raw$Dm))
+
 
 # histograms with ggplot
 print(ggarrange(
@@ -147,13 +154,20 @@ d <- 1.96
 z <- 2/3
 flora$biomass <- d*(((flora$height/2)*(flora$Ab + flora$Ah))^z)
 
+
 summary(flora)
 #There is a HUGE jump in the max value for biomass. This is mainly due to 1 species (Amaranthus sp. (am) in the plot 15)). 
 #We have decided to deleted. 
 
-##############HACER!!
+flora <- flora[flora$species != "am", ]
 
-View(flora[, species == "am"])
+par(mfrow = c(2, 2))
+hist(log(flora$height))
+hist(log(flora$Ah))
+hist(log(flora$Ab))
+hist(log(flora$biomass))
+
+
 
 #Agrupar por sampling, plot y treatment primero. 
 #Aquí se aplica, para biomasa, el siguiente criterio: se estima la biomasa de cada especie multiplicando su abundancia por 
@@ -164,7 +178,7 @@ flora <- flora %>%
   reframe(biomass = mean(biomass, na.rm = TRUE) * abundance) %>%
   distinct(sampling, datenew, month, plot, treatment, abundance, species, biomass)
 #Mirar si la distribución de los datos de biomasa tienen sentido una vez aplicada la estimacion en base a la abundancia
-
+hist(log(flora$biomass))
 
 #Transformo en NA los valores 0 de biomasa, que corresponden a los datos de los samplings 0, 1, 2 y los 26 datos del 3. 
 #Esto es para el gráfico, pero hay que ver las correlaciones entre H, cb, cm...
@@ -208,7 +222,7 @@ ggplot(flora_samplings, aes(x = sampling, y = biomass, color = treatment)) +
   geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
   theme(legend.position = "none", 
         axis.text = element_text(size = 12)) +
-    coord_cartesian(ylim = c(0, 500)),
+    coord_cartesian(ylim = c(0, 700)),
 
 ggsamplings_diversity <-
   
