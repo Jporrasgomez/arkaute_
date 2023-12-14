@@ -1,0 +1,129 @@
+---
+title: "Sensitivity analysis of model parameters"
+date: "`r Sys.Date()`"
+output: html_document
+bibliography: references.bib
+csl: citation_style/ecology.csl
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, error = FALSE, message = FALSE)
+```
+
+### Model
+
+The allometric model described by is the following:
+
+$$
+B = d \left [ \frac{H}{2} \left ( A_{basal} + A_{half} \right ) \right ]^{z},
+$$ where $B$ is the biomass calculated by the allometric equation, $d$ is the bulk density of the plant species, $H$ is the measured height of the plant, $A_{basal}$ and $A_{half}$ are the basal area and the area at half the height of the plant, respectively; and $z$ is the power coefficient of a power law.
+
+### Problem
+
+In @perronne2020, the authors assign a value of 1.96 to $d$ and a value of $2/3$ to $z$; however, we do not know how those parameters interact with each other.
+
+### Approach
+
+To solve this, we perform a sensitivity analysis in which we modify the values of $d$ and $z$ within a certain range, described below. Importantly, to simplify the allometric equation and do a clear sensitivity analyses that works independently of the field data, we opt to include the parameter $x$ as:
+
+$$
+x = \left [ \frac{H}{2} \left ( A_{basal} + A_{half} \right ) \right ],
+$$ meaning that all allometric measurements are summarized now by $x$. Thus, the equation used for our sensitivity analysis is the following:
+
+$$
+B = dx^{z}
+$$
+
+```{r load_x}
+x_data <- read.table("data/x_values.txt", header = TRUE, sep = "\t")
+```
+
+At this point, we assign the following values to the different parameters in the model:
+
+```{r values}
+d <- seq(0.98, 3.92, 0.49)
+x <- seq(round(min(x_data$x), 0), round(max(x_data$x), 0), 25)
+z <- seq(0.1, 1, 0.01)
+```
+
+-   for $d$, values of `r d`;
+-   for $x$, values of `r x`;
+-   for $z$, values of `r z`.
+
+```{r df}
+df <- expand.grid(d, x, z)
+colnames(df) <- c("d", "x", "z")
+df$biomass <- df$d * (df$x ^ df$z)
+```
+
+And we create a data frame including all the combinations between the values of each parameter (`r nrow(df)` different cases) and their predicted value of biomass, $B$.
+
+### Dataviz
+
+Now, some visualizations to understand the relationship between the different parameters.
+
+```{r libraries}
+library(tidyverse)
+library(ggpubr)
+```
+
+#### $x$ and $z$
+
+The relationship between $x$ and $z$ for values of $d$ = `r min(df$d)`, $d$ = 1.96, and $d$ = `r max(df$d)`, looks like this:
+
+```{r tilexz}
+dvalue <- 0.98
+tilexz <- 
+  ggplot(df[which(df$d == dvalue),], aes(x = x, y = z)) +
+  geom_tile(aes(fill = biomass)) +
+  labs(fill = "Biomass", title = paste("d", "=", dvalue, sep = " ")) +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()
+```
+
+```{r tilexz_mind}
+dvalue <- 1.96
+tilexz_mind <- 
+  ggplot(df[which(df$d == dvalue),], aes(x = x, y = z)) +
+  geom_tile(aes(fill = biomass)) +
+  labs(fill = "Biomass", title = paste("d", "=", dvalue, sep = " ")) +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()
+```
+
+```{r tilexz_maxd}
+dvalue <- 3.92
+tilexz_maxd <- 
+  ggplot(df[which(df$d == dvalue),], aes(x = x, y = z)) +
+  geom_tile(aes(fill = biomass)) +
+  labs(fill = "Biomass", title = paste("d", "=", dvalue, sep = " ")) +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_bw()
+```
+
+```{r arrange_d}
+ggarrange(tilexz, tilexz_mind, tilexz_maxd)
+```
+
+(...)
+
+```{r d_biomass}
+dvalue <- 1.96
+ggplot(df[which(df$d == dvalue),], aes(x = z, y = biomass, color = as.factor(x))) +
+  labs(color = "x", title = paste("d", "=", dvalue, sep = " ")) +
+  geom_vline(xintercept = 2/3, linetype = "dashed") +
+  geom_point() +
+  theme_classic()
+```
+
+(...)
+
+### References
+
+::: {#refs}
+:::
+
+<br>
