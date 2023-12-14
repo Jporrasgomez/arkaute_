@@ -146,27 +146,61 @@ flora$cb <- round(ifelse(!is.na(flora$Db), flora$Db * pi, flora$Cb), 2)
 flora$Ah <- ((flora$cm)^2)/4*pi
 flora$Ab <- ((flora$cb)^2)/4*pi
 
-#Application of equation proposed by paper 
-#Me invento unos valores de d y z. Es importante el valor de z porque al ser un coeficiente de potencia
-#puede alterar mucho las diferencias que haya entre los valores de biomasa
-#Hacer un loop con distintos valores de Z para ver las diferencias
-d <- 1.96
-z <- 2/3
-flora$biomass <- d*(((flora$height/2)*(flora$Ab + flora$Ah))^z)
 
-
-summary(flora)
 #There is a HUGE jump in the max value for biomass. This is mainly due to 1 species (Amaranthus sp. (am) in the plot 15)). 
 #We have decided to deleted. 
 
-flora <- flora[flora$species != "am", ]
+flora <- flora[-which(flora$species == "am"),]
+
+#Application of equation proposed by paper Perrone R. et al. 2020
+
+d <- 1.96
+z <- 2/3
+flora$x <- (flora$height/2)*(flora$Ab + flora$Ah)
+flora$biomass <- d*(flora$x^z)
+
+hist(flora1$x)
+summary(flora$x)
+
+median(flora$x, na.rm = TRUE)
+
+quantile(flora$x, na.rm = TRUE, probs = 0.9)
+
+summary(flora)
+
+
+flora1 <- flora[which(flora$x < (as.numeric(quantile(flora$x, na.rm = TRUE)[4] + (1.5 * IQR(flora$x, na.rm = TRUE))))),] 
+flora3 <- flora[which(flora$x < (as.numeric(quantile(flora$x, na.rm = TRUE)[4] + (3 * IQR(flora$x, na.rm = TRUE))))),] 
+
+flora1_outl <- flora[which(flora$x > (as.numeric(quantile(flora$x, na.rm = TRUE)[4] + (1.5 * IQR(flora$x, na.rm = TRUE))))),] 
+flora3_outl <- flora[which(flora$x > (as.numeric(quantile(flora$x, na.rm = TRUE)[4] + (3 * IQR(flora$x, na.rm = TRUE))))),] 
+unique(flora1$species)
+unique(flora3$species)
+
+ggplot(flora, aes(x = 1, y = x)) +
+  geom_boxplot()
+
+ggplot(flora1, aes(x = 1, y = x)) +
+  geom_boxplot()
+
+ggplot(flora3, aes(x = 1, y = x)) +
+  geom_boxplot()
+
+unique(flora1$species)
+
+length(which(flora$x > (as.numeric(quantile(flora$x, na.rm = TRUE)[4] + (3 * IQR(flora$x, na.rm = TRUE)))))) /
+  nrow(flora) * 100
+
+
+write.table(flora1$x, "data/x_values.txt", sep = "\t", row.names = FALSE)
+
+
 
 par(mfrow = c(2, 2))
 hist(log(flora$height))
 hist(log(flora$Ah))
 hist(log(flora$Ab))
 hist(log(flora$biomass))
-
 
 
 #Agrupar por sampling, plot y treatment primero. 
