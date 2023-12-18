@@ -1,17 +1,14 @@
 
 # Cosas que hacer ####
-#Rank abundance distribution
 #MIrar si hay correlaciones entre alturas y circunferencias 
-#Hacer un loop con distintos valores de Z para ver las diferencias. Explorar cómo cambian los datos
-#utilizando distintos valores de z. 
-#Mirar si podemos utilizar varias ecuaciones en función de la especie. 
-#Mirar diferencias en la distribución de los datos de biomasa una vez aplicada la ecuación
-#y después de calcular las biomasas por especie y plot. Lo esperable es que una vez estimada la biomasa en base a la abundancia
-# el histograma sea más "alargado" en la cola.
 #Hacer comprobaciones de los datos cada vez que se transformen las bases de datos
 #Cambiar los nombres de "sampling X" por "sX_month"
 #Buscar otra manera de representar las dinámicas sin boxplots. 
-#Quitar amarantus"
+#Dividir la base de datos en Biomasa, Diversidad y Abundancia o algo así para que
+#el tratamiento de los gaps en la base de biomasa no afecte a los demás
+
+
+
 
 #Explorar a nivel de plot, muestreos y tratamientos la variabilidad de biomasa, abundancia y diversidad
 
@@ -104,8 +101,8 @@ flora_raw$Db <- flora_raw$Db + 0.01
 flora_raw$abundance <- round(flora_raw$abundance/100, 3)
 
 #Checking if we have mistakes (missing more than 2 variables with NA's)
-View(flora_raw %>%
-  filter(rowSums(is.na(select(., Dm, Db, Cm, Cb))) > 2))
+#View(flora_raw %>%
+#  filter(rowSums(is.na(select(., Dm, Db, Cm, Cb))) > 2))
 #Estan todos los datos de los muestreos 0, 1 y 2 y los 
 #26 datos del muestreo 3 donde no cogíamos medidas si la abundancia era menor de 5.
 
@@ -147,10 +144,6 @@ flora$Ah <- ((flora$cm)^2)/4*pi
 flora$Ab <- ((flora$cb)^2)/4*pi
 
 
-#There is a HUGE jump in the max value for biomass. This is mainly due to 1 species (Amaranthus sp. (am) in the plot 15)). 
-#We have decided to deleted. 
-
-flora <- flora[-which(flora$species == "am"),]
 
 #Application of equation proposed by paper Perrone R. et al. 2020
 
@@ -159,32 +152,55 @@ z <- 2/3
 flora$x <- (flora$height/2)*(flora$Ab + flora$Ah)
 flora$biomass <- d*(flora$x^z)
 
-hist(flora1$x)
+hist(flora$x)
 summary(flora$x)
+boxplot(flora$x)
+#There is a problem with the distribution of the data. Is extremely assymetrical. 
+#If we see the outliers in the boxplot we cannot even see the boxplot, just the distribution of outliers. 
 
+range(flora$x, na.rm = T)
 median(flora$x, na.rm = TRUE)
+quantile(flora$x, na.rm = T)
+quantile(flora$x, na.rm = TRUE, probs = 0.95)
 
-quantile(flora$x, na.rm = TRUE, probs = 0.9)
+#Between the 75% quantile and the 100% one there is a difference of e^4
 
-summary(flora)
+#We can try to take out the outliers from flora. There are 2 ways: either we reject outliers (1.5*IQR) or 
+#we reject the extreme outliers (3*IQR)
+#!! También quitamos los NA
+
 
 
 flora1 <- flora[which(flora$x < (as.numeric(quantile(flora$x, na.rm = TRUE)[4] + (1.5 * IQR(flora$x, na.rm = TRUE))))),] 
 flora3 <- flora[which(flora$x < (as.numeric(quantile(flora$x, na.rm = TRUE)[4] + (3 * IQR(flora$x, na.rm = TRUE))))),] 
 
+#List of outliers: 
 flora1_outl <- flora[which(flora$x > (as.numeric(quantile(flora$x, na.rm = TRUE)[4] + (1.5 * IQR(flora$x, na.rm = TRUE))))),] 
 flora3_outl <- flora[which(flora$x > (as.numeric(quantile(flora$x, na.rm = TRUE)[4] + (3 * IQR(flora$x, na.rm = TRUE))))),] 
 unique(flora1$species)
 unique(flora3$species)
+length(flora$plot)
+length(flora1$plot)
+length(flora3$plot)
 
-ggplot(flora, aes(x = 1, y = x)) +
-  geom_boxplot()
 
-ggplot(flora1, aes(x = 1, y = x)) +
-  geom_boxplot()
+print(ggarrange(
+ggplot(flora, aes(y = x)) +
+  geom_boxplot(), 
+ggplot(flora1, aes(y = x)) +
+  geom_boxplot(),
+ggplot(flora3, aes(y = x)) +
+  geom_boxplot(),
+labels = c("A", "B", "C"),
+ncol = 3, nrow = 1))
 
-ggplot(flora3, aes(x = 1, y = x)) +
-  geom_boxplot()
+
+par(mfrow = c(1, 3))
+hist(flora$x)
+hist(flora1$x)
+hist(flora3$x)
+par(mfrow = c(1, 1))
+
 
 unique(flora1$species)
 
@@ -195,37 +211,33 @@ length(which(flora$x > (as.numeric(quantile(flora$x, na.rm = TRUE)[4] + (3 * IQR
 write.table(flora1$x, "data/x_values.txt", sep = "\t", row.names = FALSE)
 
 
-
-par(mfrow = c(2, 2))
-hist(log(flora$height))
-hist(log(flora$Ah))
-hist(log(flora$Ab))
-hist(log(flora$biomass))
-
+## A PARTIR DE AQUÍ TRABAJO CON "flora1"
 
 #Agrupar por sampling, plot y treatment primero. 
 #Aquí se aplica, para biomasa, el siguiente criterio: se estima la biomasa de cada especie multiplicando su abundancia por 
 #la masa promedio de los individuos medidos para dicha especie. 
 
-flora <- flora %>%
+flora1 <- flora1 %>%
   group_by(sampling, datenew, month, treatment, plot, abundance, species) %>%
   reframe(biomass = mean(biomass, na.rm = TRUE) * abundance) %>%
   distinct(sampling, datenew, month, plot, treatment, abundance, species, biomass)
 #Mirar si la distribución de los datos de biomasa tienen sentido una vez aplicada la estimacion en base a la abundancia
-hist(log(flora$biomass))
+hist(flora1$biomass)
+hist(log(flora1$biomass))
 
 #Transformo en NA los valores 0 de biomasa, que corresponden a los datos de los samplings 0, 1, 2 y los 26 datos del 3. 
 #Esto es para el gráfico, pero hay que ver las correlaciones entre H, cb, cm...
-flora$biomass <- ifelse(flora$biomass == 0, NA, flora$biomass)
+#! Esdte paso no es necesario ahora con flora1, ya que al generar la df hicimos un na.rm = T
+#flora1$biomass <- ifelse(flora1$biomass == 0, NA, flora1$biomass)
 
 # Bases de datos nuevas ####
 #Añado el numero de especies por sampling y plot
-flora <- flora %>%
+flora1 <- flora1 %>%
   group_by(plot, sampling) %>%
   mutate(n_species = n()) %>%
   ungroup()
 
-flora_samplings <-  flora %>%
+flora1_samplings <-  flora1 %>%
   group_by(sampling, datenew, month, treatment, plot) %>%
   reframe(biomass = sum(biomass, na.rm = T), 
           n_species = n_species, 
@@ -234,7 +246,7 @@ flora_samplings <-  flora %>%
 #Hacer comprobaciones de los datos en esta base de datos
 
 
-flora_treatments <-  flora_samplings %>%
+flora1_treatments <-  flora1_samplings %>%
   group_by(treatment) %>%
   reframe(biomass = mean(biomass, na.rm = T), 
           n_species = mean(n_species, na.rm = T), 
@@ -248,19 +260,18 @@ print(ggarrange(
 
 ggsamplings_biomass <- 
   
-ggplot(flora_samplings, aes(x = sampling, y = biomass, color = treatment)) +
+ggplot(flora1_samplings, aes(x = sampling, y = biomass, color = treatment)) +
   geom_boxplot() +
   labs(x = " ", y = "Biomass") +
   scale_color_manual(values = c("c" = "blue", "p" = "green", "w" = "red", "wp" = "purple")) +
   theme_minimal() +
   geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
   theme(legend.position = "none", 
-        axis.text = element_text(size = 12)) +
-    coord_cartesian(ylim = c(0, 700)),
+        axis.text = element_text(size = 12)),
 
 ggsamplings_diversity <-
   
-  ggplot(flora_samplings, aes(x = sampling, y = n_species, color = treatment)) +
+  ggplot(flora1_samplings, aes(x = sampling, y = n_species, color = treatment)) +
   geom_boxplot() +
   labs(x = " ", y = "Diversity") +
   scale_color_manual(values = c("c" = "blue", "p" = "green", "w" = "red", "wp" = "purple")) + 
@@ -271,7 +282,7 @@ ggsamplings_diversity <-
 
 ggsamplings_abundance <- 
  
- ggplot(flora_samplings, aes(x = sampling, y = abundance, color = treatment)) +
+ ggplot(flora1_samplings, aes(x = sampling, y = abundance, color = treatment)) +
   geom_boxplot() +
   labs(x = " ", y = "Abundance") +
   scale_color_manual(values = c("c" = "blue", "p" = "green", "w" = "red", "wp" = "purple")) +
@@ -288,16 +299,15 @@ ncol = 1, nrow = 3))
 print(ggarrange(
   
   ggtreat_biomass <-
-  ggplot(flora_samplings, aes(x = treatment, y = biomass, color = treatment)) +
+  ggplot(flora1_samplings, aes(x = treatment, y = biomass, color = treatment)) +
   geom_boxplot() +
   labs(x = " ", y = "Biomass") +
   scale_color_manual(values = c("c" = "blue", "p" = "green", "w" = "red", "wp" = "purple")) +
   theme_minimal() + 
-  coord_cartesian(ylim = c(0, 700))+
   theme(legend.position = "none"),
 
 ggtreat_diversity <- 
-  ggplot(flora_samplings, aes(x = treatment, y = n_species, color = treatment)) +
+  ggplot(flora1_samplings, aes(x = treatment, y = n_species, color = treatment)) +
   geom_boxplot() +
   labs(x = " ", y = "Diversity") +
   scale_color_manual(values = c("c" = "blue", "p" = "green", "w" = "red", "wp" = "purple")) +
@@ -305,7 +315,7 @@ ggtreat_diversity <-
   theme(legend.position = "none"),
 
 ggtreat_abundance <- 
-  ggplot(flora_samplings, aes(x = treatment, y = abundance, color = treatment)) +
+  ggplot(flora1_samplings, aes(x = treatment, y = abundance, color = treatment)) +
   geom_boxplot() +
   labs(x = " ", y = "Abundance") +
   scale_color_manual(values = c("c" = "blue", "p" = "green", "w" = "red", "wp" = "purple")) +

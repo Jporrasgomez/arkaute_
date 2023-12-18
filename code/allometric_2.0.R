@@ -1,5 +1,5 @@
 
-#Crear una lista con las especies de los muestreos 0, 1 y 2 de las que no se tienen datos. Para centrarme en esas especies
+#Ver correlacion con X (modeo)
 #
 
 library(stringr)
@@ -13,7 +13,7 @@ library(ggplot2)
 library(gridExtra)
 
 
-flora_raw<- read.csv("data/flora_db_new.csv")
+flora_raw<- read.csv("data/flora_db.csv")
 flora_raw <- flora_raw %>%
   mutate(across(where(is.character), as.factor))
 str(flora_raw)
@@ -35,153 +35,218 @@ flora <- flora_raw %>% select("species", "sampling", "height", "cb", "cm")
 # Filter out rows with missing values in height or cb
 #flora_filtered <- flora %>% filter(!is.na(height) & !is.na(cb) & !is.na(cb))
 
+
+
+
+#List of species from samplings 0, 1 and 2: UTILIZAR "unique" instead of "levels"
+
+selected_samplings0 <- c("s_0", "s_1", "s_2")
+flora_s012 <- flora[flora$sampling %in% selected_samplings0, ]
+
+#Comprobacion numero de especies. Hacer con "unique". La función "levels" tiene algo así como "memoria" y te da el valor de la database original
+#Hay 53 especies a diagnosticar en los primeros 3 samplings. 
+length(unique(flora_s012$species))
+length(levels(flora_s012$species))
+
+#Se puede hacer esto: 
+flora_s012 <- droplevels(flora_s012)
+#De esta manera se eliminan los levels que no están ya presentes. Ahora aparece 48 levels en el environment y si le pregunto por levels
+#me responde bien, igual que con uniques
+length(levels(flora_s012$species)) - length(unique(flora_s012$species))
+
+
+#Crear base de datos solo con las especies presentes en los samplings 0, 1 y 2. 
+flora_s012_listofspecies <- unique(flora_s012$species)
+species_s012 <- expand.grid(flora_s012_listofspecies)
+colnames(species_s012) <- c("species")
+
+
+#Extracting rows from "flora" that matches with the species found within flora_s012
+flora_species_s012 <- merge(flora, species_s012)
+#Ahora tengo que quitar los samplings 0 1 y 2 para que no apliquen al modelo los NA's que contienen
+selected_samplings <- c("s_3", "s_4", "s_5", "s_6", "s_7", "s_8", "s_9", "s_10", "s_11")
+flora_morph_data <- flora_species_s012[flora_species_s012$sampling %in% selected_samplings, ]
+
+  
+#Comprobacion numero de especies. Hay 34 en vez de 53.  
+length(unique(flora_morph_data$species))
+
+#En vez de 53 salen 34. Hay 14 especies presentes en los muestreos 0, 1 y 2 para los cuales no hay datos
+#en los sguientes muestreos ¿cuales?: 
+#Primero tengo que droplevear el factor de species porque vuelve a aparecer el 110. 
+flora_species_s012$species <- droplevels(flora_species_s012$species)
+flora_morph_data$species <- droplevels(flora_morph_data$species)
+sp1 <- unique(flora_species_s012$species)
+sp2 <- unique(flora_morph_data$species)
+sp3 <- setdiff(sp1, sp2)
+#Estas son las especies de las que no podremos generar datos: 
+sp3
+
+
+#Añado el valor de X (modelo de la ecuacion de biomasa)
+
+flora_morph_data$Ah <- ((flora_morph_data$cm)^2)/4*pi
+flora_morph_data$Ab <- ((flora_morph_data$cb)^2)/4*pi
+
+d <- 1.96
+z <- 2/3
+flora_morph_data$x <- (flora_morph_data$height/2)*(flora_morph_data$Ab + flora_morph_data$Ah)
+flora_morph_data$biomass <- d*(flora_morph_data$x^z)
+
+#CB vs HEIGHT #########
+#Intento de data.frame:
+
 # Count the number of rows for each species and delete those that have less than 2 rows (2 measurements) 
-species_counts<- flora %>%
+species_lower2<- flora_morph_data %>%
   group_by(species) %>%
   summarise(row_count = n()) %>%
   filter(row_count < 2)
 
+flora_morph_data <- anti_join(flora_morph_data, species_lower2, by = "species")
 
-flora <- anti_join(flora, species_counts, by = "species")
+summary(flora_morph_data)
+#Hay NA's. Hay que quitarlos. 
 
-length(unique(flora$species))
-
-
-#List of species from samplings 0, 1 and 2: ¿Por qué me salen 110 levels de species para todos los subsets?
-
-flora_s0 <- subset(flora, sampling == "sampling 0")
-length(unique(flora_s0$species))
-flora_s1 <- subset(flora, sampling ==  "sampling 1")
-length(unique(flora_s1$species))
-flora_s2 <- subset(flora, sampling == "sampling 2")
-length(unique(flora_s2$species))
-
-
-flora_s012 <- merge(flora_s0, flora_s1, all = T)
-flora_s012 <- merge (flora_s012, flora_s2, all = T)
-
-rm(flora_s0)
-rm(flora_s1)
-rm(flora_s2)
-
-#Comprobacion numero de especies. SALE 110. Algo está MAL a la hora de merge
-length(unique(flora_s012$species))
-length(levels(flora_s012$species))
-
-flora_s012_listofspecies <- unique(flora_s012$species)
-
-
-#Extracting rows from "flora" that matches with the species found within flora_s012
-flora_species_s012 <- right_join(flora, flora_s012)
-#Comprobacion numero de especies. SAle 110. MAL
-length(levels(flora_species_s012$species))
-
-
-
-#CB vs HEIGHT
-#Intento de data.frame:
-
+flora_morph_data<- flora_morph_data %>% filter(!is.na(height) & !is.na(cb) & !is.na(cm))
+summary(flora_morph_data)
 library(purrr)
 
+
+# CB vs HEIGHT #####
+
 # Define a function to extract information for a given species
-get_species_info <- function(species) {
-  subset_data <- filter(flora, species == !!species)
-  lm_model <- lm(height ~ cb, data = subset_data)
+cb_df_function <- function(species) {
+  subset_data <- filter(flora_morph_data, species == !!species)
   
-  data.frame(
-    species = species,
-    r_squared = summary(lm_model)$r.squared,
-    p_value = summary(lm_model)$coefficients[2, "Pr(>|t|)"],
-    num_measurements = nrow(subset_data)
-  )
+  # Check if there are non-missing values for both height and cb
+  if (sum(!is.na(subset_data$height) & !is.na(subset_data$cb)) > 0) {
+    lm_model <- lm(cb ~ height, data = subset_data)
+    
+    return(data.frame(
+      species = species,
+      cb_R_squared = summary(lm_model)$r.squared,
+      cb_P_value = summary(lm_model)$coefficients[2, 4],
+      num_measurements = nrow(subset_data)
+    ))
+  } else {
+    # If there are no non-missing values, return NA or any other indicator
+    return(data.frame(
+      species = species,
+      cb_R_squared = NA,
+      cb_P_value = NA, 
+      num_measurements = 0
+    ))
+  }
 }
 
-# Get the unique species levels
-species_levels <- levels(flora$species)
+# Apply the function to each species level and bind the results
+cb_df_correlation <- map_dfr(sp2, cb_df_function)
+
+
+# CM #####
+
+# Define a function to extract information for a given species
+cm_df_function <- function(species) {
+  subset_data <- filter(flora_morph_data, species == !!species)
+  
+  # Check if there are non-missing values for both height and cm
+  if (sum(!is.na(subset_data$height) & !is.na(subset_data$cm)) > 0) {
+    lm_model <- lm(cm ~ height, data = subset_data)
+    
+    return(data.frame(
+      species = species,
+      cm_R_squared = summary(lm_model)$r.squared,
+      cm_P_value = summary(lm_model)$coefficients[2, 4],
+      num_measurements = nrow(subset_data)
+    ))
+  } else {
+    # If there are no non-missing values, return NA or any other indicator
+    return(data.frame(
+      species = species,
+      cm_R_squared = NA,
+      cm_P_value = NA, 
+      num_measurements = 0
+    ))
+  }
+}
 
 # Apply the function to each species level and bind the results
-results_df <- map_dfr(species_levels, get_species_info)
+cm_df_correlation <- map_dfr(sp2, cm_df_function)
 
-# View the resulting data frame
-print(results_df)
 
-#De momento no funciona nada :D
+# X vs HEIGHT #####
 
-#Intentos de hacer 1 por 1
+# Define a function to extract information for a given species
 
-#Lm regression
-summary(lm(height ~ cb , data = subset(flora_species_s012, species == "bepe")))
-#r_squared
-summary(lm(height ~ cb , data = subset(flora_species_s012, species == "bepe")))$r.squared
-#p_value
-summary(lm(height ~ cb , data = subset(flora_species_s012, species == "bepe")))$coefficients[2, 4] 
-#num_measurements
-nrow(subset(flora_species_s012, species == "bepe"))  # Get the number of measurements
-
-#Graphs: for p-value, it doesn't properly work with "gom_smooth" so it has to be modified that way (Chat gpt)
-ggplot(subset(flora_species_s012, species == "bepe"), aes(x = cb, y = height)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  labs(
-    title = "Bellis perennis",
-    subtitle = paste(
-      "n:", nrow(subset(flora_species_s012, species == "bepe")),
-      ", R-squared:", round(summary(lm(height ~ cb, data = subset(flora_species_s012, species == "bepe")))$r.squared, 3),
-      ", p-value (cb):", format(summary(lm(height ~ cb, data = subset(flora_species_s012, species == "bepe")))$coefficients[2, "Pr(>|t|)"], scientific = TRUE, digits = 3)
-    )
-  )
-
-#Intentos de hacer todas de golpe
-
-plots_cb_species <- lapply(levels(flora_filtered$species), function(s) {
-  subset_data <- flora_filtered[flora_filtered$species == s, ]  # Subset data for the current species
+x_df_function <- function(species) {
+  subset_data <- filter(flora_morph_data, species == !!species)
   
-  lm_model <- lm(height ~ cb , data = subset_data)
+  # Check if there are non-missing values for both height and cm
+  if (sum(!is.na(subset_data$height) & !is.na(subset_data$x)) > 0) {
+    lm_model <- lm(x ~ height, data = subset_data)
+    
+    return(data.frame(
+      species = species,
+      x_R_squared = summary(lm_model)$r.squared,
+      x_P_value = summary(lm_model)$coefficients[2, 4],
+      num_measurements = nrow(subset_data)
+    ))
+  } else {
+    # If there are no non-missing values, return NA or any other indicator
+    return(data.frame(
+      species = species,
+      x_R_squared = NA,
+      x_P_value = NA, 
+      num_measurements = 0
+    ))
+  }
+}
+
+# Apply the function to each species level and bind the results
+x_df_correlation <- map_dfr(sp2, x_df_function)
+
+
+#Merging correlation data
+correlation_data <- merge(cm_df_correlation, cb_df_correlation)
+correlation_data <- merge(correlation_data, x_df_correlation)
+
+correlation_data %>% write.csv("results/correlation_results.csv")
+
+#Conclusión. No hay correlación para cb y cm, pero si que hay algo para X. 
+
+#Comprobaciones las que sí que tienen correlacion con más de 10 medidas
+
+
+
+#Linum bienne
+print(ggarrange(
   
-  r_squared <- summary(lm_model)$r.squared
-  p_value <- summary(lm_model)$coefficients[2, 4] 
-  num_measurements <- nrow(subset_data)  # Get the number of measurements
+ggplot(subset(flora_morph_data, species == "libi"), aes(x = cb, y = height)) +
+    geom_point() +
+    geom_smooth(method = "lm", se = FALSE) +
+    labs(
+      title = "Linum bienne",
+      subtitle = paste(
+        "n:", nrow(subset(flora_morph_data, species == "libi")),
+        ", R-squared:", round(summary(lm(cb ~ height, data = subset(flora_morph_data, species == "libi")))$r.squared, 3),
+        ", p-value:", format(summary(lm(cb ~ height, data = subset(flora_morph_data, species == "libi")))$coefficients[2, "Pr(>|t|)"], scientific = TRUE, digits = 3)
+      )
+    ),
   
-  plot <- ggplot(subset_data, aes(x = cb, y = height)) +
-    geom_point() +  # Add scatter plot
-    geom_smooth(method = "lm", se = FALSE) +  
-    labs(title = s, subtitle = paste("n:", num_measurements, 
-                                     "   R-squared:", round(r_squared, 3), 
-                                     "   p-value (cb):", format(p_value, scientific = TRUE, digits = 3)))  # Add species name, number of measurements, R-squared, and p-value as title
   
-  return(plot)
-})
+ggplot(subset(flora_morph_data, species == "libi"), aes(x = cm, y = height)) +
+    geom_point() +
+    geom_smooth(method = "lm", se = FALSE) +
+    labs(
+      title = " ",
+      subtitle = paste(
+        "n:", nrow(subset(flora_morph_data, species == "libi")),
+        ", R-squared:", round(summary(lm(cm ~ height, data = subset(flora_morph_data, species == "libi")))$r.squared, 3),
+        ", p-value:", format(summary(lm(cm ~ height, data = subset(flora_morph_data, species == "libi")))$coefficients[2, "Pr(>|t|)"], scientific = TRUE, digits = 3)
+      )
+    ),
+
+labels = c(" ", " "),
+ncol = 2, nrow = 1))
 
 
-cb_plots <- do.call(gridExtra::grid.arrange, plots_cb_species)
-print(cb_plots)
-
-
-#CM vs HEIGHT
-
-plots_cm_species <- lapply(levels(flora$species), function(s) {
-  subset_data <- flora[flora$species == s, ]  # Subset data for the current species
-  
-  lm_model <- lm(height ~ cm , data = subset_data)
-  r_squared <- summary(lm_model)$r.squared
-  p_value <- summary(lm_model)$coefficients[2, 4] 
-  num_measurements <- nrow(subset_data)  # Get the number of measurements
-  
-  plot <- ggplot(subset_data, aes(x = cm, y = height)) +
-    geom_point() +  # Add scatter plot
-    geom_smooth(method = "lm", se = FALSE) +  
-    labs(title = s, subtitle = paste("n:", num_measurements, 
-                                     "   R-squared:", round(r_squared, 3), 
-                                     "   p-value (cm):", format(p_value, scientific = TRUE, digits = 3)))  # Add species name, number of measurements, R-squared, and p-value as title
-  
-  return(plot)
-})
-
-
-cm_plots <- do.call(gridExtra::grid.arrange, plots_cm_species)
-print(cm_plots)
-
-
-
-library(ggplot2)
-library(gridExtra)
