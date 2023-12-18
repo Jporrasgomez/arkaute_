@@ -1,1084 +1,1083 @@
-"sampling","plot","treatment","species","abundance"
-"sampling 0","plot 12","wp","rapa",0.12
-"sampling 0","plot 12","wp","rapa",0.12
-"sampling 0","plot 12","wp","rapa",0.12
-"sampling 0","plot 12","wp","rapa",0.12
-"sampling 0","plot 13","wp","rapa",0.01
-"sampling 0","plot 12","wp","bepe",0.03
-"sampling 0","plot 12","wp","bepe",0.03
-"sampling 0","plot 12","wp","brho",0.01
-"sampling 0","plot 12","wp","brho",0.01
-"sampling 0","plot 12","wp","brho",0.01
-"sampling 0","plot 12","wp","brst",0.01
-"sampling 0","plot 12","wp","cegl",0.01
-"sampling 0","plot 12","wp","cegl",0.01
-"sampling 0","plot 12","wp","cegl",0.01
-"sampling 0","plot 12","wp","elre",0.35
-"sampling 0","plot 12","wp","elre",0.35
-"sampling 0","plot 12","wp","elre",0.35
-"sampling 0","plot 12","wp","elre",0.35
-"sampling 0","plot 12","wp","elre",0.35
-"sampling 0","plot 12","wp","elre",0.35
-"sampling 0","plot 12","wp","elre",0.35
-"sampling 0","plot 12","wp","elre",0.35
-"sampling 0","plot 12","wp","elre",0.35
-"sampling 0","plot 12","wp","elre",0.35
-"sampling 0","plot 12","wp","g13",0.1
-"sampling 0","plot 12","wp","g13",0.1
-"sampling 0","plot 12","wp","g13",0.1
-"sampling 0","plot 12","wp","g13",0.1
-"sampling 0","plot 12","wp","g13",0.1
-"sampling 0","plot 12","wp","gedi",0.02
-"sampling 0","plot 12","wp","gedi",0.02
-"sampling 0","plot 12","wp","libi",0.02
-"sampling 0","plot 12","wp","libi",0.02
-"sampling 0","plot 12","wp","libi",0.02
-"sampling 0","plot 12","wp","mear",0.06
-"sampling 0","plot 12","wp","mear",0.06
-"sampling 0","plot 12","wp","mear",0.06
-"sampling 0","plot 12","wp","opap",0.01
-"sampling 0","plot 12","wp","plla",0.03
-"sampling 0","plot 12","wp","rabu",0.01
-"sampling 0","plot 12","wp","shar",0.02
-"sampling 0","plot 12","wp","shar",0.02
-"sampling 0","plot 12","wp","shar",0.02
-"sampling 0","plot 12","wp","shar",0.02
-"sampling 0","plot 12","wp","tono",0.15
-"sampling 0","plot 12","wp","tono",0.15
-"sampling 0","plot 12","wp","tono",0.15
-"sampling 0","plot 12","wp","tono",0.15
-"sampling 0","plot 12","wp","tono",0.15
-"sampling 0","plot 12","wp","trre",0.05
-"sampling 0","plot 12","wp","trre",0.05
-"sampling 0","plot 12","wp","trre",0.05
-"sampling 10","plot 12","wp","bepe",0.01
-"sampling 10","plot 12","wp","coar",0.03
-"sampling 10","plot 12","wp","coar",0.03
-"sampling 10","plot 12","wp","elre",0.8
-"sampling 10","plot 12","wp","elre",0.8
-"sampling 10","plot 12","wp","elre",0.8
-"sampling 10","plot 12","wp","elre",0.8
-"sampling 10","plot 12","wp","elre",0.8
-"sampling 10","plot 12","wp","melu",0.02
-"sampling 10","plot 12","wp","trre",0.02
-"sampling 2","plot 12","wp","elre",0.07
-"sampling 2","plot 12","wp","elre",0.07
-"sampling 2","plot 12","wp","elre",0.07
-"sampling 2","plot 12","wp","elre",0.07
-"sampling 2","plot 12","wp","elre",0.07
-"sampling 2","plot 12","wp","trre",0.008
-"sampling 2","plot 12","wp","trre",0.008
-"sampling 2","plot 12","wp","trre",0.008
-"sampling 2","plot 12","wp","trre",0.008
-"sampling 3","plot 12","wp","coar",0.02
-"sampling 3","plot 12","wp","elre",0.25
-"sampling 3","plot 12","wp","elre",0.25
-"sampling 3","plot 12","wp","elre",0.25
-"sampling 3","plot 12","wp","elre",0.25
-"sampling 3","plot 12","wp","elre",0.25
-"sampling 3","plot 12","wp","melu",0.01
-"sampling 3","plot 12","wp","shar",0.03
-"sampling 3","plot 12","wp","shar",0.03
-"sampling 3","plot 12","wp","trre",0.02
-"sampling 3","plot 12","wp","trre",0.02
-"sampling 4","plot 12","wp","coar",0.03
-"sampling 4","plot 12","wp","elre",0.32
-"sampling 4","plot 12","wp","elre",0.32
-"sampling 4","plot 12","wp","elre",0.32
-"sampling 4","plot 12","wp","elre",0.32
-"sampling 4","plot 12","wp","elre",0.32
-"sampling 4","plot 12","wp","fear",0.03
-"sampling 4","plot 12","wp","plla",0.01
-"sampling 4","plot 12","wp","shar",0.02
-"sampling 4","plot 12","wp","shar",0.02
-"sampling 4","plot 12","wp","shar",0.02
-"sampling 4","plot 12","wp","shar",0.02
-"sampling 4","plot 12","wp","trfr",0.04
-"sampling 5","plot 12","wp","coar",0.03
-"sampling 5","plot 12","wp","elre",0.6
-"sampling 5","plot 12","wp","elre",0.6
-"sampling 5","plot 12","wp","elre",0.6
-"sampling 5","plot 12","wp","elre",0.6
-"sampling 5","plot 12","wp","elre",0.6
-"sampling 5","plot 12","wp","fear",0.04
-"sampling 5","plot 12","wp","plla",0.02
-"sampling 5","plot 12","wp","shar",0.03
-"sampling 5","plot 12","wp","shar",0.03
-"sampling 5","plot 12","wp","shar",0.03
-"sampling 5","plot 12","wp","trre",0.02
-"sampling 5","plot 12","wp","trre",0.02
-"sampling 5","plot 12","wp","trre",0.02
-"sampling 6","plot 12","wp","coar",0.02
-"sampling 6","plot 12","wp","elre",0.25
-"sampling 6","plot 12","wp","elre",0.25
-"sampling 6","plot 12","wp","elre",0.25
-"sampling 6","plot 12","wp","elre",0.25
-"sampling 6","plot 12","wp","elre",0.25
-"sampling 6","plot 12","wp","fear",0.05
-"sampling 6","plot 12","wp","trre",0.01
-"sampling 7","plot 12","wp","coar",0.05
-"sampling 7","plot 12","wp","elre",0.1
-"sampling 7","plot 12","wp","elre",0.1
-"sampling 7","plot 12","wp","elre",0.1
-"sampling 7","plot 12","wp","elre",0.1
-"sampling 7","plot 12","wp","elre",0.1
-"sampling 7","plot 12","wp","fear",0.15
-"sampling 7","plot 12","wp","fear",0.15
-"sampling 7","plot 12","wp","fear",0.15
-"sampling 7","plot 12","wp","fear",0.15
-"sampling 7","plot 12","wp","fear",0.15
-"sampling 7","plot 12","wp","trre",0.01
-"sampling 8","plot 12","wp","coar",0.04
-"sampling 8","plot 12","wp","coar",0.04
-"sampling 8","plot 12","wp","elre",0.6
-"sampling 8","plot 12","wp","elre",0.6
-"sampling 8","plot 12","wp","elre",0.6
-"sampling 8","plot 12","wp","elre",0.6
-"sampling 8","plot 12","wp","elre",0.6
-"sampling 8","plot 12","wp","fear",0.04
-"sampling 8","plot 12","wp","mear",0.01
-"sampling 8","plot 12","wp","mear",0.01
-"sampling 8","plot 12","wp","melu",0.03
-"sampling 8","plot 12","wp","melu",0.03
-"sampling 9","plot 12","wp","bepe",0.01
-"sampling 9","plot 12","wp","coar",0.05
-"sampling 9","plot 12","wp","elre",0.6
-"sampling 9","plot 12","wp","elre",0.6
-"sampling 9","plot 12","wp","elre",0.6
-"sampling 9","plot 12","wp","elre",0.6
-"sampling 9","plot 12","wp","elre",0.6
-"sampling 9","plot 12","wp","fear",0.04
-"sampling 9","plot 12","wp","mear",0.01
-"sampling 9","plot 12","wp","melu",0.04
-"sampling 9","plot 12","wp","melu",0.04
-"sampling 9","plot 12","wp","melu",0.04
-"sampling 9","plot 12","wp","ni_p12_1",0.01
-"sampling 11","plot 12","wp","elre",0.4
-"sampling 11","plot 12","wp","elre",0.4
-"sampling 11","plot 12","wp","elre",0.4
-"sampling 11","plot 12","wp","elre",0.4
-"sampling 11","plot 12","wp","elre",0.4
-"sampling 0","plot 4","wp","rapa",0.3
-"sampling 0","plot 4","wp","rapa",0.3
-"sampling 0","plot 4","wp","rapa",0.3
-"sampling 0","plot 4","wp","rapa",0.3
-"sampling 0","plot 4","wp","rapa",0.3
-"sampling 11","plot 12","wp","ni_p12_2",0.01
-"sampling 11","plot 12","wp","to",0.01
-"sampling 11","plot 12","wp","melu",0.05
-"sampling 11","plot 12","wp","melu",0.05
-"sampling 11","plot 12","wp","coar",0.04
-"sampling 0","plot 13","wp","brho",0.03
-"sampling 0","plot 13","wp","brho",0.03
-"sampling 0","plot 13","wp","brho",0.03
-"sampling 0","plot 13","wp","brho",0.03
-"sampling 0","plot 13","wp","brho",0.03
-"sampling 0","plot 13","wp","brho",0.03
-"sampling 0","plot 13","wp","brho",0.03
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","brst",0.8
-"sampling 0","plot 13","wp","cadi",0.04
-"sampling 0","plot 13","wp","cadi",0.04
-"sampling 0","plot 13","wp","cadi",0.04
-"sampling 0","plot 13","wp","cegl",0.01
-"sampling 0","plot 13","wp","gedi",0.05
-"sampling 0","plot 13","wp","gedi",0.05
-"sampling 0","plot 13","wp","gedi",0.05
-"sampling 0","plot 13","wp","mear",0.03
-"sampling 0","plot 13","wp","mear",0.03
-"sampling 0","plot 13","wp","mear",0.03
-"sampling 0","plot 13","wp","poan",0.01
-"sampling 0","plot 13","wp","poan",0.01
-"sampling 0","plot 13","wp","poan",0.01
-"sampling 0","plot 4","wp","rapa",0.3
-"sampling 0","plot 13","wp","shar",0.07
-"sampling 0","plot 13","wp","shar",0.07
-"sampling 0","plot 13","wp","shar",0.07
-"sampling 0","plot 13","wp","shar",0.07
-"sampling 0","plot 13","wp","shar",0.07
-"sampling 0","plot 13","wp","shar",0.07
-"sampling 0","plot 13","wp","shar",0.07
-"sampling 0","plot 13","wp","shar",0.07
-"sampling 0","plot 13","wp","vepe",0.03
-"sampling 0","plot 13","wp","vepe",0.03
-"sampling 0","plot 13","wp","vepe",0.03
-"sampling 0","plot 13","wp","vepe",0.03
-"sampling 10","plot 13","wp","cadi",0.02
-"sampling 10","plot 13","wp","elre",0.03
-"sampling 10","plot 13","wp","elre",0.03
-"sampling 10","plot 13","wp","gedi",0.05
-"sampling 10","plot 13","wp","gedi",0.05
-"sampling 10","plot 13","wp","gedi",0.05
-"sampling 10","plot 13","wp","mean",0.01
-"sampling 10","plot 13","wp","mear",0.04
-"sampling 10","plot 13","wp","mear",0.04
-"sampling 10","plot 13","wp","mear",0.04
-"sampling 10","plot 13","wp","ni_p13_1",0.06
-"sampling 10","plot 13","wp","ni_p13_1",0.06
-"sampling 10","plot 13","wp","ni_p13_1",0.06
-"sampling 10","plot 13","wp","ni_p13_1",0.06
-"sampling 10","plot 13","wp","ni_p13_2",0.07
-"sampling 10","plot 13","wp","ni_p13_2",0.07
-"sampling 10","plot 13","wp","ni_p13_2",0.07
-"sampling 10","plot 13","wp","ni_p13_2",0.07
-"sampling 10","plot 13","wp","ni_p13_2",0.07
-"sampling 10","plot 13","wp","ni_p13_3",0.05
-"sampling 10","plot 13","wp","ni_p13_5",0.02
-"sampling 10","plot 13","wp","ni_p13_5",0.02
-"sampling 10","plot 13","wp","ni_p13_6",0.01
-"sampling 10","plot 13","wp","ni_p13_6",0.01
-"sampling 10","plot 13","wp","plla",0.15
-"sampling 10","plot 13","wp","plla",0.15
-"sampling 10","plot 13","wp","plla",0.15
-"sampling 10","plot 13","wp","plla",0.15
-"sampling 10","plot 13","wp","plla",0.15
-"sampling 10","plot 13","wp","shar",0.06
-"sampling 10","plot 13","wp","shar",0.06
-"sampling 10","plot 13","wp","shar",0.06
-"sampling 10","plot 13","wp","shar",0.06
-"sampling 10","plot 13","wp","shar",0.06
-"sampling 10","plot 13","wp","vepe",0.22
-"sampling 10","plot 13","wp","vepe",0.22
-"sampling 10","plot 13","wp","vepe",0.22
-"sampling 10","plot 13","wp","vepe",0.22
-"sampling 10","plot 13","wp","vepe",0.22
-"sampling 2","plot 13","wp","elre",0.01
-"sampling 2","plot 13","wp","elre",0.01
-"sampling 2","plot 13","wp","elre",0.01
-"sampling 2","plot 13","wp","plla",0.002
-"sampling 2","plot 13","wp","plla",0.002
-"sampling 3","plot 13","wp","fear",0.4
-"sampling 3","plot 13","wp","brho",0.01
-"sampling 3","plot 13","wp","brho",0.01
-"sampling 3","plot 13","wp","brho",0.01
-"sampling 3","plot 13","wp","brho",0.01
-"sampling 3","plot 13","wp","brho",0.01
-"sampling 3","plot 13","wp","brho",0.01
-"sampling 3","plot 13","wp","brst",0.03
-"sampling 3","plot 13","wp","elre",0.08
-"sampling 3","plot 13","wp","elre",0.08
-"sampling 3","plot 13","wp","elre",0.08
-"sampling 3","plot 13","wp","elre",0.08
-"sampling 3","plot 13","wp","elre",0.08
-"sampling 3","plot 13","wp","gafr",0.02
-"sampling 3","plot 13","wp","vepe",0.01
-"sampling 3","plot 13","wp","plla",0.02
-"sampling 3","plot 13","wp","plla",0.02
-"sampling 3","plot 13","wp","plla",0.02
-"sampling 3","plot 13","wp","shar",0.01
-"sampling 4","plot 13","wp","brst",0.01
-"sampling 4","plot 13","wp","dagl",0.06
-"sampling 4","plot 13","wp","dagl",0.06
-"sampling 4","plot 13","wp","dagl",0.06
-"sampling 4","plot 13","wp","dagl",0.06
-"sampling 4","plot 13","wp","dagl",0.06
-"sampling 4","plot 13","wp","elre",0.15
-"sampling 4","plot 13","wp","elre",0.15
-"sampling 4","plot 13","wp","elre",0.15
-"sampling 4","plot 13","wp","elre",0.15
-"sampling 4","plot 13","wp","elre",0.15
-"sampling 4","plot 13","wp","gafr",0.03
-"sampling 4","plot 13","wp","plla",0.08
-"sampling 4","plot 13","wp","plla",0.08
-"sampling 4","plot 13","wp","plla",0.08
-"sampling 4","plot 13","wp","plla",0.08
-"sampling 4","plot 13","wp","shar",0.01
-"sampling 4","plot 13","wp","shar",0.01
-"sampling 5","plot 13","wp","dagl",0.08
-"sampling 5","plot 13","wp","dagl",0.08
-"sampling 5","plot 13","wp","dagl",0.08
-"sampling 5","plot 13","wp","dagl",0.08
-"sampling 5","plot 13","wp","dagl",0.08
-"sampling 5","plot 13","wp","elre",0.1
-"sampling 5","plot 13","wp","elre",0.1
-"sampling 5","plot 13","wp","elre",0.1
-"sampling 5","plot 13","wp","elre",0.1
-"sampling 5","plot 13","wp","elre",0.1
-"sampling 5","plot 13","wp","fear",0.05
-"sampling 5","plot 13","wp","fear",0.05
-"sampling 5","plot 13","wp","mear",0.04
-"sampling 5","plot 13","wp","mear",0.04
-"sampling 5","plot 13","wp","mear",0.04
-"sampling 5","plot 13","wp","mear",0.04
-"sampling 5","plot 13","wp","mear",0.04
-"sampling 5","plot 13","wp","plla",0.2
-"sampling 5","plot 13","wp","plla",0.2
-"sampling 5","plot 13","wp","plla",0.2
-"sampling 5","plot 13","wp","plla",0.2
-"sampling 5","plot 13","wp","plla",0.2
-"sampling 5","plot 13","wp","shar",0.01
-"sampling 5","plot 13","wp","shar",0.01
-"sampling 6","plot 13","wp","cadi",0.03
-"sampling 6","plot 13","wp","elre",0.15
-"sampling 6","plot 13","wp","elre",0.15
-"sampling 6","plot 13","wp","elre",0.15
-"sampling 6","plot 13","wp","elre",0.15
-"sampling 6","plot 13","wp","elre",0.15
-"sampling 6","plot 13","wp","mear",0.08
-"sampling 6","plot 13","wp","mear",0.08
-"sampling 6","plot 13","wp","ni_p13_1",0.06
-"sampling 6","plot 13","wp","ni_p13_1",0.06
-"sampling 6","plot 13","wp","ni_p13_2",0.05
-"sampling 6","plot 13","wp","ni_p13_2",0.05
-"sampling 6","plot 13","wp","ni_p13_2",0.05
-"sampling 6","plot 13","wp","ni_p13_2",0.05
-"sampling 6","plot 13","wp","ni_p13_2",0.05
-"sampling 6","plot 13","wp","plla",0.18
-"sampling 6","plot 13","wp","plla",0.18
-"sampling 6","plot 13","wp","plla",0.18
-"sampling 6","plot 13","wp","shar",0.04
-"sampling 7","plot 13","wp","cadi",0.04
-"sampling 7","plot 13","wp","elre",0.15
-"sampling 7","plot 13","wp","elre",0.15
-"sampling 7","plot 13","wp","elre",0.15
-"sampling 7","plot 13","wp","elre",0.15
-"sampling 7","plot 13","wp","elre",0.15
-"sampling 7","plot 13","wp","mear",0.04
-"sampling 7","plot 13","wp","ni_p13_1",0.13
-"sampling 7","plot 13","wp","ni_p13_1",0.13
-"sampling 7","plot 13","wp","ni_p13_2",0.08
-"sampling 7","plot 13","wp","ni_p13_2",0.08
-"sampling 7","plot 13","wp","ni_p13_2",0.08
-"sampling 7","plot 13","wp","ni_p13_2",0.08
-"sampling 7","plot 13","wp","ni_p13_2",0.08
-"sampling 7","plot 13","wp","plla",0.18
-"sampling 7","plot 13","wp","plla",0.18
-"sampling 7","plot 13","wp","plla",0.18
-"sampling 7","plot 13","wp","shar",0.02
-"sampling 8","plot 13","wp","asteraceae",0.02
-"sampling 8","plot 13","wp","cadi",0.06
-"sampling 8","plot 13","wp","elre",0.08
-"sampling 8","plot 13","wp","elre",0.08
-"sampling 8","plot 13","wp","elre",0.08
-"sampling 8","plot 13","wp","elre",0.08
-"sampling 8","plot 13","wp","ni_p13_1",0.15
-"sampling 8","plot 13","wp","ni_p13_1",0.15
-"sampling 8","plot 13","wp","ni_p13_1",0.15
-"sampling 8","plot 13","wp","ni_p13_2",0.12
-"sampling 8","plot 13","wp","ni_p13_2",0.12
-"sampling 8","plot 13","wp","ni_p13_2",0.12
-"sampling 8","plot 13","wp","ni_p13_2",0.12
-"sampling 8","plot 13","wp","ni_p13_2",0.12
-"sampling 8","plot 13","wp","vepe",0.13
-"sampling 8","plot 13","wp","vepe",0.13
-"sampling 8","plot 13","wp","vepe",0.13
-"sampling 8","plot 13","wp","vepe",0.13
-"sampling 8","plot 13","wp","vepe",0.13
-"sampling 8","plot 13","wp","plla",0.25
-"sampling 8","plot 13","wp","plla",0.25
-"sampling 8","plot 13","wp","plla",0.25
-"sampling 9","plot 13","wp","cadi",0.04
-"sampling 9","plot 13","wp","elre",0.1
-"sampling 9","plot 13","wp","elre",0.1
-"sampling 9","plot 13","wp","elre",0.1
-"sampling 9","plot 13","wp","elre",0.1
-"sampling 9","plot 13","wp","gedi",0.02
-"sampling 9","plot 13","wp","gedi",0.02
-"sampling 9","plot 13","wp","gedi",0.02
-"sampling 9","plot 13","wp","mear",0.01
-"sampling 9","plot 13","wp","mear",0.01
-"sampling 9","plot 13","wp","ni_p13_1",0.08
-"sampling 9","plot 13","wp","ni_p13_1",0.08
-"sampling 9","plot 13","wp","ni_p13_1",0.08
-"sampling 9","plot 13","wp","ni_p13_1",0.08
-"sampling 9","plot 13","wp","ni_p13_1",0.08
-"sampling 9","plot 13","wp","ni_p13_2",0.08
-"sampling 9","plot 13","wp","ni_p13_2",0.08
-"sampling 9","plot 13","wp","ni_p13_2",0.08
-"sampling 9","plot 13","wp","ni_p13_2",0.08
-"sampling 9","plot 13","wp","ni_p13_2",0.08
-"sampling 9","plot 13","wp","ni_p13_3",0.06
-"sampling 9","plot 13","wp","vepe",0.17
-"sampling 9","plot 13","wp","vepe",0.17
-"sampling 9","plot 13","wp","vepe",0.17
-"sampling 9","plot 13","wp","vepe",0.17
-"sampling 9","plot 13","wp","vepe",0.17
-"sampling 9","plot 13","wp","plla",0.14
-"sampling 9","plot 13","wp","plla",0.14
-"sampling 9","plot 13","wp","plla",0.14
-"sampling 9","plot 13","wp","plla",0.14
-"sampling 9","plot 13","wp","plla",0.14
-"sampling 9","plot 13","wp","shar",0.01
-"sampling 9","plot 13","wp","shar",0.01
-"sampling 9","plot 13","wp","shar",0.01
-"sampling 9","plot 13","wp","shar",0.01
-"sampling 9","plot 13","wp","shar",0.01
-"sampling 11","plot 13","wp","vepe",0.6
-"sampling 11","plot 13","wp","vepe",0.6
-"sampling 11","plot 13","wp","vepe",0.6
-"sampling 11","plot 13","wp","vepe",0.6
-"sampling 11","plot 13","wp","vepe",0.6
-"sampling 11","plot 13","wp","elre",0.03
-"sampling 11","plot 13","wp","elre",0.03
-"sampling 11","plot 13","wp","elre",0.03
-"sampling 11","plot 13","wp","elre",0.03
-"sampling 11","plot 13","wp","elre",0.03
-"sampling 11","plot 13","wp","cadi",0.01
-"sampling 11","plot 13","wp","cabu",0.03
-"sampling 11","plot 13","wp","plla",0.1
-"sampling 11","plot 13","wp","plla",0.1
-"sampling 11","plot 13","wp","plla",0.1
-"sampling 11","plot 13","wp","plla",0.1
-"sampling 11","plot 13","wp","plla",0.1
-"sampling 11","plot 13","wp","ni_p13_7",0.01
-"sampling 11","plot 13","wp","ni_p13_6",0.02
-"sampling 11","plot 13","wp","ni_p13_6",0.02
-"sampling 11","plot 13","wp","ni_p13_1",0.03
-"sampling 11","plot 13","wp","shar",0.02
-"sampling 11","plot 13","wp","shar",0.02
-"sampling 11","plot 13","wp","shar",0.02
-"sampling 11","plot 13","wp","shar",0.02
-"sampling 11","plot 13","wp","shar",0.02
-"sampling 11","plot 13","wp","mean",0.01
-"sampling 11","plot 13","wp","ni_p13_2",0.04
-"sampling 11","plot 13","wp","ni_p13_2",0.04
-"sampling 11","plot 13","wp","ni_p13_2",0.04
-"sampling 11","plot 13","wp","gedi",0.04
-"sampling 11","plot 13","wp","gedi",0.04
-"sampling 11","plot 13","wp","to",0.005
-"sampling 11","plot 13","wp","ni_p13_4",0.005
-"sampling 11","plot 13","wp","ni_p13_4",0.005
-"sampling 11","plot 13","wp","ni_p13_4",0.005
-"sampling 11","plot 13","wp","ni_p13_4",0.005
-"sampling 0","plot 4","wp","rapa",0.3
-"sampling 0","plot 4","wp","rapa",0.3
-"sampling 0","plot 4","wp","rapa",0.3
-"sampling 0","plot 4","wp","rapa",0.3
-"sampling 0","plot 4","wp","rapa",0.3
-"sampling 0","plot 4","wp","rapa",0.3
-"sampling 0","plot 4","wp","rapa",0.3
-"sampling 0","plot 4","wp","rapa",0.3
-"sampling 0","plot 4","wp","rapa",0.3
-"sampling 0","plot 5","wp","rapa",0.02
-"sampling 0","plot 5","wp","rapa",0.02
-"sampling 0","plot 4","wp","avst",0.15
-"sampling 0","plot 4","wp","avst",0.15
-"sampling 0","plot 4","wp","avst",0.15
-"sampling 0","plot 4","wp","avst",0.15
-"sampling 0","plot 4","wp","avst",0.15
-"sampling 0","plot 4","wp","avst",0.15
-"sampling 0","plot 4","wp","brho",0.15
-"sampling 0","plot 4","wp","brho",0.15
-"sampling 0","plot 4","wp","brho",0.15
-"sampling 0","plot 4","wp","brho",0.15
-"sampling 0","plot 4","wp","brho",0.15
-"sampling 0","plot 4","wp","brho",0.15
-"sampling 0","plot 4","wp","brho",0.15
-"sampling 0","plot 4","wp","brst",0.2
-"sampling 0","plot 4","wp","brst",0.2
-"sampling 0","plot 4","wp","brst",0.2
-"sampling 0","plot 4","wp","brst",0.2
-"sampling 0","plot 4","wp","brst",0.2
-"sampling 0","plot 4","wp","brst",0.2
-"sampling 0","plot 4","wp","brst",0.2
-"sampling 0","plot 4","wp","brst",0.2
-"sampling 0","plot 4","wp","brst",0.2
-"sampling 0","plot 4","wp","cardo",0.03
-"sampling 0","plot 4","wp","gafr",0.01
-"sampling 0","plot 4","wp","gedi",0.15
-"sampling 0","plot 4","wp","gedi",0.15
-"sampling 0","plot 4","wp","gedi",0.15
-"sampling 0","plot 4","wp","gedi",0.15
-"sampling 0","plot 4","wp","gedi",0.15
-"sampling 0","plot 4","wp","gedi",0.15
-"sampling 0","plot 4","wp","mear",0.01
-"sampling 0","plot 4","wp","plla",0.02
-"sampling 0","plot 4","wp","shar",0.1
-"sampling 0","plot 4","wp","shar",0.1
-"sampling 0","plot 4","wp","shar",0.1
-"sampling 0","plot 4","wp","shar",0.1
-"sampling 0","plot 4","wp","shar",0.1
-"sampling 0","plot 4","wp","trre",0.03
-"sampling 0","plot 4","wp","trre",0.03
-"sampling 0","plot 4","wp","visa",0.01
-"sampling 10","plot 4","wp","bepe",0.02
-"sampling 10","plot 4","wp","bepe",0.02
-"sampling 10","plot 4","wp","cadi",0.04
-"sampling 10","plot 4","wp","elre",0.08
-"sampling 10","plot 4","wp","elre",0.08
-"sampling 10","plot 4","wp","elre",0.08
-"sampling 10","plot 4","wp","elre",0.08
-"sampling 10","plot 4","wp","elre",0.08
-"sampling 10","plot 4","wp","gedi",0.03
-"sampling 10","plot 4","wp","gedi",0.03
-"sampling 10","plot 4","wp","gedi",0.03
-"sampling 10","plot 4","wp","gedi",0.03
-"sampling 10","plot 4","wp","lyar",0.16
-"sampling 10","plot 4","wp","lyar",0.16
-"sampling 10","plot 4","wp","lyar",0.16
-"sampling 10","plot 4","wp","lyar",0.16
-"sampling 10","plot 4","wp","ni_p4_1",0.02
-"sampling 10","plot 4","wp","ni_p4_2",0.02
-"sampling 10","plot 4","wp","ni_p4_3",0.01
-"sampling 10","plot 4","wp","cabu",0.02
-"sampling 10","plot 4","wp","ni_p4_5",0.01
-"sampling 10","plot 4","wp","ni_p4_6",0.03
-"sampling 10","plot 4","wp","ni_p4_6",0.03
-"sampling 10","plot 4","wp","ni_p4_6",0.03
-"sampling 10","plot 4","wp","ni_p4_6",0.03
-"sampling 10","plot 4","wp","ni_p4_6",0.03
-"sampling 10","plot 4","wp","plla",0.15
-"sampling 10","plot 4","wp","plla",0.15
-"sampling 10","plot 4","wp","plla",0.15
-"sampling 10","plot 4","wp","plla",0.15
-"sampling 10","plot 4","wp","plla",0.15
-"sampling 10","plot 4","wp","shar",0.03
-"sampling 10","plot 4","wp","shar",0.03
-"sampling 10","plot 4","wp","shar",0.03
-"sampling 10","plot 4","wp","shar",0.03
-"sampling 10","plot 4","wp","shar",0.03
-"sampling 10","plot 4","wp","to",0.01
-"sampling 10","plot 4","wp","vepe",0.02
-"sampling 10","plot 4","wp","vepe",0.02
-"sampling 10","plot 4","wp","vepe",0.02
-"sampling 2","plot 4","wp","asteraceacardosa",0.001
-"sampling 2","plot 4","wp","cadi",0.008
-"sampling 2","plot 4","wp","cadi",0.008
-"sampling 2","plot 4","wp","dagl",0.001
-"sampling 2","plot 4","wp","dagl",0.001
-"sampling 2","plot 4","wp","elre",0.02
-"sampling 2","plot 4","wp","fear",0.02
-"sampling 2","plot 4","wp","plla",0.01
-"sampling 2","plot 4","wp","plla",0.01
-"sampling 2","plot 4","wp","plla",0.01
-"sampling 2","plot 4","wp","trre",0.005
-"sampling 2","plot 4","wp","trre",0.005
-"sampling 3","plot 4","wp","cadi",0.02
-"sampling 3","plot 4","wp","ch",0.01
-"sampling 3","plot 4","wp","elre",0.04
-"sampling 3","plot 4","wp","elre",0.04
-"sampling 3","plot 4","wp","elre",0.04
-"sampling 3","plot 4","wp","elre",0.04
-"sampling 3","plot 4","wp","elre",0.04
-"sampling 3","plot 4","wp","lyar",0.02
-"sampling 3","plot 4","wp","lyar",0.02
-"sampling 3","plot 4","wp","ni_cardo",0.01
-"sampling 3","plot 4","wp","plla",0.04
-"sampling 3","plot 4","wp","plla",0.04
-"sampling 3","plot 4","wp","plla",0.04
-"sampling 3","plot 4","wp","plla",0.04
-"sampling 3","plot 4","wp","plla",0.04
-"sampling 3","plot 4","wp","plla",0.04
-"sampling 3","plot 4","wp","shar",0.03
-"sampling 3","plot 4","wp","shar",0.03
-"sampling 3","plot 4","wp","shar",0.03
-"sampling 3","plot 4","wp","shar",0.03
-"sampling 3","plot 4","wp","shar",0.03
-"sampling 3","plot 4","wp","trre",0.01
-"sampling 4","plot 4","wp","cadi",0.04
-"sampling 4","plot 4","wp","elre",0.1
-"sampling 4","plot 4","wp","elre",0.1
-"sampling 4","plot 4","wp","elre",0.1
-"sampling 4","plot 4","wp","elre",0.1
-"sampling 4","plot 4","wp","elre",0.1
-"sampling 4","plot 4","wp","gafr",0.02
-"sampling 4","plot 4","wp","lyar",0.03
-"sampling 4","plot 4","wp","lyar",0.03
-"sampling 4","plot 4","wp","lyar",0.03
-"sampling 4","plot 4","wp","ni_p4_1",0.01
-"sampling 4","plot 4","wp","plla",0.12
-"sampling 4","plot 4","wp","plla",0.12
-"sampling 4","plot 4","wp","plla",0.12
-"sampling 4","plot 4","wp","plla",0.12
-"sampling 4","plot 4","wp","plla",0.12
-"sampling 4","plot 4","wp","shar",0.02
-"sampling 4","plot 4","wp","shar",0.02
-"sampling 4","plot 4","wp","shar",0.02
-"sampling 4","plot 4","wp","shar",0.02
-"sampling 4","plot 4","wp","shar",0.02
-"sampling 4","plot 4","wp","vepe",0.01
-"sampling 5","plot 4","wp","cadi",0.08
-"sampling 5","plot 4","wp","elre",0.14
-"sampling 5","plot 4","wp","elre",0.14
-"sampling 5","plot 4","wp","elre",0.14
-"sampling 5","plot 4","wp","elre",0.14
-"sampling 5","plot 4","wp","elre",0.14
-"sampling 5","plot 4","wp","gafr",0.03
-"sampling 5","plot 4","wp","lyar",0.1
-"sampling 5","plot 4","wp","lyar",0.1
-"sampling 5","plot 4","wp","lyar",0.1
-"sampling 5","plot 4","wp","ni_p4_1",0.04
-"sampling 5","plot 4","wp","plla",0.35
-"sampling 5","plot 4","wp","plla",0.35
-"sampling 5","plot 4","wp","plla",0.35
-"sampling 5","plot 4","wp","plla",0.35
-"sampling 5","plot 4","wp","plla",0.35
-"sampling 5","plot 4","wp","shar",0.07
-"sampling 5","plot 4","wp","shar",0.07
-"sampling 5","plot 4","wp","shar",0.07
-"sampling 5","plot 4","wp","trfr",0.03
-"sampling 5","plot 4","wp","vepe",0.06
-"sampling 6","plot 4","wp","cadi",0.03
-"sampling 6","plot 4","wp","elre",0.05
-"sampling 6","plot 4","wp","elre",0.05
-"sampling 6","plot 4","wp","elre",0.05
-"sampling 6","plot 4","wp","elre",0.05
-"sampling 6","plot 4","wp","elre",0.05
-"sampling 6","plot 4","wp","lyar",0.08
-"sampling 6","plot 4","wp","lyar",0.08
-"sampling 6","plot 4","wp","lyar",0.08
-"sampling 6","plot 4","wp","lyar",0.08
-"sampling 6","plot 4","wp","ni_p4_1",0.03
-"sampling 6","plot 4","wp","ni_p4_2",0.01
-"sampling 6","plot 4","wp","ni_p4_3",0.01
-"sampling 6","plot 4","wp","plla",0.18
-"sampling 6","plot 4","wp","plla",0.18
-"sampling 6","plot 4","wp","plla",0.18
-"sampling 6","plot 4","wp","plla",0.18
-"sampling 6","plot 4","wp","plla",0.18
-"sampling 7","plot 4","wp","cadi",0.04
-"sampling 7","plot 4","wp","elre",0.08
-"sampling 7","plot 4","wp","elre",0.08
-"sampling 7","plot 4","wp","elre",0.08
-"sampling 7","plot 4","wp","elre",0.08
-"sampling 7","plot 4","wp","elre",0.08
-"sampling 7","plot 4","wp","lyar",0.1
-"sampling 7","plot 4","wp","lyar",0.1
-"sampling 7","plot 4","wp","lyar",0.1
-"sampling 7","plot 4","wp","lyar",0.1
-"sampling 7","plot 4","wp","lyar",0.1
-"sampling 7","plot 4","wp","ni_p4_1",0.05
-"sampling 7","plot 4","wp","ni_p4_3",0.01
-"sampling 7","plot 4","wp","plla",0.2
-"sampling 7","plot 4","wp","plla",0.2
-"sampling 7","plot 4","wp","plla",0.2
-"sampling 7","plot 4","wp","plla",0.2
-"sampling 7","plot 4","wp","plla",0.2
-"sampling 8","plot 4","wp","bepe",0.01
-"sampling 8","plot 4","wp","bepe",0.01
-"sampling 8","plot 4","wp","bepe",0.01
-"sampling 8","plot 4","wp","cadi",0.03
-"sampling 8","plot 4","wp","elre",0.14
-"sampling 8","plot 4","wp","elre",0.14
-"sampling 8","plot 4","wp","elre",0.14
-"sampling 8","plot 4","wp","elre",0.14
-"sampling 8","plot 4","wp","elre",0.14
-"sampling 8","plot 4","wp","gedi",0.01
-"sampling 8","plot 4","wp","lyar",0.1
-"sampling 8","plot 4","wp","lyar",0.1
-"sampling 8","plot 4","wp","lyar",0.1
-"sampling 8","plot 4","wp","lyar",0.1
-"sampling 8","plot 4","wp","lyar",0.1
-"sampling 8","plot 4","wp","ni_p4_1",0.08
-"sampling 8","plot 4","wp","ni_p4_1",0.02
-"sampling 8","plot 4","wp","ni_p4_2",0.01
-"sampling 8","plot 4","wp","ni_p4_3",0.01
-"sampling 8","plot 4","wp","plla",0.2
-"sampling 8","plot 4","wp","plla",0.2
-"sampling 8","plot 4","wp","plla",0.2
-"sampling 8","plot 4","wp","plla",0.2
-"sampling 8","plot 4","wp","plla",0.2
-"sampling 9","plot 4","wp","cadi",0.1
-"sampling 9","plot 4","wp","elre",0.08
-"sampling 9","plot 4","wp","elre",0.08
-"sampling 9","plot 4","wp","elre",0.08
-"sampling 9","plot 4","wp","elre",0.08
-"sampling 9","plot 4","wp","elre",0.08
-"sampling 9","plot 4","wp","gedi",0.02
-"sampling 9","plot 4","wp","lyar",0.1
-"sampling 9","plot 4","wp","lyar",0.1
-"sampling 9","plot 4","wp","lyar",0.1
-"sampling 9","plot 4","wp","lyar",0.1
-"sampling 9","plot 4","wp","lyar",0.1
-"sampling 9","plot 4","wp","mean",0.01
-"sampling 9","plot 4","wp","ni_p4_1",0.03
-"sampling 9","plot 4","wp","ni_p4_2",0.03
-"sampling 9","plot 4","wp","ni_p4_3",0.02
-"sampling 9","plot 4","wp","ni_p4_5",0.01
-"sampling 9","plot 4","wp","plla",0.2
-"sampling 9","plot 4","wp","plla",0.2
-"sampling 9","plot 4","wp","plla",0.2
-"sampling 9","plot 4","wp","plla",0.2
-"sampling 9","plot 4","wp","plla",0.2
-"sampling 9","plot 4","wp","shar",0.03
-"sampling 9","plot 4","wp","shar",0.03
-"sampling 9","plot 4","wp","shar",0.03
-"sampling 9","plot 4","wp","vepe",0.01
-"sampling 9","plot 4","wp","vepe",0.01
-"sampling 11","plot 4","wp","cabu",0.02
-"sampling 11","plot 4","wp","lyar",0.1
-"sampling 11","plot 4","wp","lyar",0.1
-"sampling 11","plot 4","wp","lyar",0.1
-"sampling 11","plot 4","wp","lyar",0.1
-"sampling 11","plot 4","wp","cadi",0.03
-"sampling 11","plot 4","wp","vepe",0.06
-"sampling 11","plot 4","wp","vepe",0.06
-"sampling 11","plot 4","wp","vepe",0.06
-"sampling 11","plot 4","wp","vepe",0.06
-"sampling 11","plot 4","wp","vepe",0.06
-"sampling 11","plot 4","wp","plla",0.15
-"sampling 11","plot 4","wp","plla",0.15
-"sampling 11","plot 4","wp","plla",0.15
-"sampling 11","plot 4","wp","plla",0.15
-"sampling 11","plot 4","wp","plla",0.15
-"sampling 11","plot 4","wp","ni_p4_5",0.04
-"sampling 10","plot 4","wp","rapa",0.01
-"sampling 10","plot 4","wp","rapa",0.01
-"sampling 11","plot 4","wp","ni_p4_2",0.04
-"sampling 11","plot 4","wp","shar",0.06
-"sampling 11","plot 4","wp","shar",0.06
-"sampling 11","plot 4","wp","shar",0.06
-"sampling 11","plot 4","wp","shar",0.06
-"sampling 11","plot 4","wp","shar",0.06
-"sampling 11","plot 4","wp","ni_p4_1",0.02
-"sampling 11","plot 4","wp","elre",0.07
-"sampling 11","plot 4","wp","elre",0.07
-"sampling 11","plot 4","wp","elre",0.07
-"sampling 11","plot 4","wp","elre",0.07
-"sampling 11","plot 4","wp","elre",0.07
-"sampling 11","plot 4","wp","gedi",0.03
-"sampling 11","plot 4","wp","gedi",0.03
-"sampling 11","plot 4","wp","gedi",0.03
-"sampling 11","plot 4","wp","gedi",0.03
-"sampling 11","plot 4","wp","gedi",0.03
-"sampling 11","plot 4","wp","rabu",0.02
-"sampling 11","plot 4","wp","rabu",0.02
-"sampling 11","plot 4","wp","ni_p4_3",0.01
-"sampling 11","plot 4","wp","to",0.05
-"sampling 11","plot 4","wp","asteraceae",0.05
-"sampling 11","plot 4","wp","asteraceae",0.05
-"sampling 11","plot 4","wp","asteraceae",0.05
-"sampling 11","plot 4","wp","asteraceae",0.05
-"sampling 0","plot 5","wp","bepe",0.01
-"sampling 0","plot 5","wp","brst",0.1
-"sampling 0","plot 5","wp","brst",0.1
-"sampling 0","plot 5","wp","brst",0.1
-"sampling 0","plot 5","wp","brst",0.1
-"sampling 0","plot 5","wp","brst",0.1
-"sampling 0","plot 5","wp","coar",0.05
-"sampling 0","plot 5","wp","coar",0.05
-"sampling 0","plot 5","wp","fear",0.08
-"sampling 0","plot 5","wp","fear",0.08
-"sampling 0","plot 5","wp","fear",0.08
-"sampling 0","plot 5","wp","fear",0.08
-"sampling 0","plot 5","wp","gedi",0.1
-"sampling 0","plot 5","wp","gedi",0.1
-"sampling 0","plot 5","wp","gedi",0.1
-"sampling 0","plot 5","wp","gedi",0.1
-"sampling 0","plot 5","wp","mear",0.05
-"sampling 0","plot 5","wp","mear",0.05
-"sampling 0","plot 5","wp","mepo",0.08
-"sampling 0","plot 5","wp","mepo",0.08
-"sampling 0","plot 5","wp","mepo",0.08
-"sampling 0","plot 5","wp","mepo",0.08
-"sampling 0","plot 5","wp","poan",0.15
-"sampling 0","plot 5","wp","poan",0.15
-"sampling 0","plot 5","wp","poan",0.15
-"sampling 0","plot 5","wp","poan",0.15
-"sampling 0","plot 5","wp","poan",0.15
-"sampling 0","plot 5","wp","poan",0.15
-"sampling 0","plot 5","wp","poan",0.15
-"sampling 0","plot 5","wp","rabu",0.01
-"sampling 11","plot 12","wp","rapa",0.06
-"sampling 11","plot 12","wp","rapa",0.06
-"sampling 0","plot 5","wp","shar",0.04
-"sampling 0","plot 5","wp","shar",0.04
-"sampling 0","plot 5","wp","shar",0.04
-"sampling 0","plot 5","wp","tono",0.06
-"sampling 0","plot 5","wp","tono",0.06
-"sampling 0","plot 5","wp","tono",0.06
-"sampling 0","plot 5","wp","visa",0.2
-"sampling 0","plot 5","wp","visa",0.2
-"sampling 0","plot 5","wp","visa",0.2
-"sampling 0","plot 5","wp","visa",0.2
-"sampling 0","plot 5","wp","visa",0.2
-"sampling 0","plot 5","wp","visa",0.2
-"sampling 0","plot 5","wp","visa",0.2
-"sampling 0","plot 5","wp","visa",0.2
-"sampling 0","plot 5","wp","visa",0.2
-"sampling 10","plot 5","wp","ch",0.03
-"sampling 10","plot 5","wp","coar",0.3
-"sampling 10","plot 5","wp","coar",0.3
-"sampling 10","plot 5","wp","coar",0.3
-"sampling 10","plot 5","wp","coar",0.3
-"sampling 10","plot 5","wp","coar",0.3
-"sampling 10","plot 5","wp","elre",0.1
-"sampling 10","plot 5","wp","elre",0.1
-"sampling 10","plot 5","wp","elre",0.1
-"sampling 10","plot 5","wp","elre",0.1
-"sampling 10","plot 5","wp","elre",0.1
-"sampling 10","plot 5","wp","fear",0.12
-"sampling 10","plot 5","wp","fear",0.12
-"sampling 10","plot 5","wp","fear",0.12
-"sampling 10","plot 5","wp","fear",0.12
-"sampling 10","plot 5","wp","fear",0.12
-"sampling 10","plot 5","wp","fear",0.12
-"sampling 10","plot 5","wp","ni_p5_1",0.08
-"sampling 10","plot 5","wp","ni_p5_1",0.08
-"sampling 10","plot 5","wp","ni_p5_1",0.08
-"sampling 10","plot 5","wp","ni_p5_1",0.08
-"sampling 10","plot 5","wp","ni_p5_1",0.08
-"sampling 10","plot 5","wp","ni_p5_2",0.01
-"sampling 10","plot 5","wp","plla",0.06
-"sampling 10","plot 5","wp","plla",0.06
-"sampling 2","plot 5","wp","cadi",0.02
-"sampling 2","plot 5","wp","cadi",0.02
-"sampling 2","plot 5","wp","cadi",0.02
-"sampling 2","plot 5","wp","cadi",0.02
-"sampling 2","plot 5","wp","coar",0.01
-"sampling 2","plot 5","wp","coar",0.01
-"sampling 2","plot 5","wp","coar",0.01
-"sampling 2","plot 5","wp","fear",0.05
-"sampling 2","plot 5","wp","fear",0.05
-"sampling 2","plot 5","wp","fear",0.05
-"sampling 2","plot 5","wp","fear",0.05
-"sampling 2","plot 5","wp","fear",0.05
-"sampling 2","plot 5","wp","ni_orquidea",0.002
-"sampling 3","plot 5","wp","coar",0.15
-"sampling 3","plot 5","wp","coar",0.15
-"sampling 3","plot 5","wp","coar",0.15
-"sampling 3","plot 5","wp","coar",0.15
-"sampling 3","plot 5","wp","coar",0.15
-"sampling 3","plot 5","wp","elre",0.18
-"sampling 3","plot 5","wp","elre",0.18
-"sampling 3","plot 5","wp","elre",0.18
-"sampling 3","plot 5","wp","elre",0.18
-"sampling 3","plot 5","wp","elre",0.18
-"sampling 3","plot 5","wp","fear",0.08
-"sampling 3","plot 5","wp","fear",0.08
-"sampling 3","plot 5","wp","fear",0.08
-"sampling 3","plot 5","wp","fear",0.08
-"sampling 3","plot 5","wp","fear",0.08
-"sampling 3","plot 5","wp","plla",0.02
-"sampling 3","plot 5","wp","plla",0.02
-"sampling 3","plot 5","wp","shar",0.02
-"sampling 3","plot 5","wp","shar",0.02
-"sampling 3","plot 5","wp","shar",0.02
-"sampling 3","plot 5","wp","trre",0.01
-"sampling 3","plot 5","wp","visa",0.01
-"sampling 4","plot 5","wp","coar",0.14
-"sampling 4","plot 5","wp","coar",0.14
-"sampling 4","plot 5","wp","coar",0.14
-"sampling 4","plot 5","wp","coar",0.14
-"sampling 4","plot 5","wp","coar",0.14
-"sampling 4","plot 5","wp","dagl",0.02
-"sampling 4","plot 5","wp","dagl",0.02
-"sampling 4","plot 5","wp","dagl",0.02
-"sampling 4","plot 5","wp","elre",0.25
-"sampling 4","plot 5","wp","elre",0.25
-"sampling 4","plot 5","wp","elre",0.25
-"sampling 4","plot 5","wp","elre",0.25
-"sampling 4","plot 5","wp","elre",0.25
-"sampling 4","plot 5","wp","fear",0.09
-"sampling 4","plot 5","wp","fear",0.09
-"sampling 4","plot 5","wp","fear",0.09
-"sampling 4","plot 5","wp","fear",0.09
-"sampling 4","plot 5","wp","fear",0.09
-"sampling 4","plot 5","wp","plla",0.08
-"sampling 4","plot 5","wp","plla",0.08
-"sampling 4","plot 5","wp","plla",0.08
-"sampling 4","plot 5","wp","poan",0.06
-"sampling 4","plot 5","wp","poan",0.06
-"sampling 4","plot 5","wp","poan",0.06
-"sampling 4","plot 5","wp","poan",0.06
-"sampling 4","plot 5","wp","poan",0.06
-"sampling 4","plot 5","wp","shar",0.04
-"sampling 4","plot 5","wp","shar",0.04
-"sampling 4","plot 5","wp","shar",0.04
-"sampling 4","plot 5","wp","shar",0.04
-"sampling 4","plot 5","wp","shar",0.04
-"sampling 4","plot 5","wp","shar",0.04
-"sampling 5","plot 5","wp","coar",0.2
-"sampling 5","plot 5","wp","coar",0.2
-"sampling 5","plot 5","wp","coar",0.2
-"sampling 5","plot 5","wp","coar",0.2
-"sampling 5","plot 5","wp","coar",0.2
-"sampling 5","plot 5","wp","elre",0.3
-"sampling 5","plot 5","wp","elre",0.3
-"sampling 5","plot 5","wp","elre",0.3
-"sampling 5","plot 5","wp","elre",0.3
-"sampling 5","plot 5","wp","elre",0.3
-"sampling 5","plot 5","wp","fear",0.08
-"sampling 5","plot 5","wp","fear",0.08
-"sampling 5","plot 5","wp","fear",0.08
-"sampling 5","plot 5","wp","fear",0.08
-"sampling 5","plot 5","wp","fear",0.08
-"sampling 5","plot 5","wp","ni_p5_1",0.05
-"sampling 5","plot 5","wp","ni_p5_1",0.05
-"sampling 5","plot 5","wp","ni_p5_1",0.05
-"sampling 5","plot 5","wp","ni_p5_1",0.05
-"sampling 5","plot 5","wp","ni_p5_1",0.05
-"sampling 5","plot 5","wp","plla",0.15
-"sampling 5","plot 5","wp","plla",0.15
-"sampling 5","plot 5","wp","plla",0.15
-"sampling 5","plot 5","wp","shar",0.05
-"sampling 5","plot 5","wp","shar",0.05
-"sampling 5","plot 5","wp","shar",0.05
-"sampling 5","plot 5","wp","shar",0.05
-"sampling 5","plot 5","wp","shar",0.05
-"sampling 6","plot 5","wp","cabu",0.01
-"sampling 6","plot 5","wp","ch",0.01
-"sampling 6","plot 5","wp","coar",0.15
-"sampling 6","plot 5","wp","coar",0.15
-"sampling 6","plot 5","wp","coar",0.15
-"sampling 6","plot 5","wp","coar",0.15
-"sampling 6","plot 5","wp","coar",0.15
-"sampling 6","plot 5","wp","elre",0.09
-"sampling 6","plot 5","wp","elre",0.09
-"sampling 6","plot 5","wp","elre",0.09
-"sampling 6","plot 5","wp","elre",0.09
-"sampling 6","plot 5","wp","elre",0.09
-"sampling 6","plot 5","wp","fear",0.1
-"sampling 6","plot 5","wp","fear",0.1
-"sampling 6","plot 5","wp","fear",0.1
-"sampling 6","plot 5","wp","fear",0.1
-"sampling 6","plot 5","wp","fear",0.1
-"sampling 6","plot 5","wp","ni_p5_1",0.05
-"sampling 6","plot 5","wp","ni_p5_1",0.05
-"sampling 6","plot 5","wp","ni_p5_1",0.05
-"sampling 6","plot 5","wp","plla",0.05
-"sampling 6","plot 5","wp","plla",0.05
-"sampling 6","plot 5","wp","plla",0.05
-"sampling 7","plot 5","wp","ch",0.03
-"sampling 7","plot 5","wp","coar",0.3
-"sampling 7","plot 5","wp","coar",0.3
-"sampling 7","plot 5","wp","coar",0.3
-"sampling 7","plot 5","wp","coar",0.3
-"sampling 7","plot 5","wp","coar",0.3
-"sampling 7","plot 5","wp","elre",0.1
-"sampling 7","plot 5","wp","elre",0.1
-"sampling 7","plot 5","wp","elre",0.1
-"sampling 7","plot 5","wp","elre",0.1
-"sampling 7","plot 5","wp","elre",0.1
-"sampling 7","plot 5","wp","fear",0.1
-"sampling 7","plot 5","wp","fear",0.1
-"sampling 7","plot 5","wp","fear",0.1
-"sampling 7","plot 5","wp","fear",0.1
-"sampling 7","plot 5","wp","fear",0.1
-"sampling 7","plot 5","wp","ni_p5_1",0.08
-"sampling 7","plot 5","wp","ni_p5_1",0.08
-"sampling 7","plot 5","wp","ni_p5_1",0.08
-"sampling 7","plot 5","wp","ni_p5_1",0.08
-"sampling 7","plot 5","wp","ni_p5_1",0.08
-"sampling 7","plot 5","wp","plla",0.07
-"sampling 7","plot 5","wp","plla",0.07
-"sampling 7","plot 5","wp","trre",0.02
-"sampling 8","plot 5","wp","ch",0.03
-"sampling 8","plot 5","wp","coar",0.4
-"sampling 8","plot 5","wp","coar",0.4
-"sampling 8","plot 5","wp","coar",0.4
-"sampling 8","plot 5","wp","coar",0.4
-"sampling 8","plot 5","wp","coar",0.4
-"sampling 8","plot 5","wp","elre",0.15
-"sampling 8","plot 5","wp","elre",0.15
-"sampling 8","plot 5","wp","elre",0.15
-"sampling 8","plot 5","wp","elre",0.15
-"sampling 8","plot 5","wp","elre",0.15
-"sampling 8","plot 5","wp","fear",0.15
-"sampling 8","plot 5","wp","fear",0.15
-"sampling 8","plot 5","wp","fear",0.15
-"sampling 8","plot 5","wp","fear",0.15
-"sampling 8","plot 5","wp","fear",0.15
-"sampling 8","plot 5","wp","mear",0.05
-"sampling 8","plot 5","wp","mear",0.05
-"sampling 8","plot 5","wp","mear",0.05
-"sampling 8","plot 5","wp","mear",0.05
-"sampling 8","plot 5","wp","mear",0.05
-"sampling 8","plot 5","wp","ni_p5_1",0.08
-"sampling 8","plot 5","wp","ni_p5_1",0.08
-"sampling 8","plot 5","wp","ni_p5_1",0.08
-"sampling 8","plot 5","wp","ni_p5_1",0.08
-"sampling 8","plot 5","wp","ni_p5_1",0.08
-"sampling 8","plot 5","wp","plla",0.1
-"sampling 8","plot 5","wp","plla",0.1
-"sampling 8","plot 5","wp","plla",0.1
-"sampling 8","plot 5","wp","plla",0.1
-"sampling 9","plot 5","wp","ch",0.02
-"sampling 9","plot 5","wp","coar",0.35
-"sampling 9","plot 5","wp","coar",0.35
-"sampling 9","plot 5","wp","coar",0.35
-"sampling 9","plot 5","wp","coar",0.35
-"sampling 9","plot 5","wp","coar",0.35
-"sampling 9","plot 5","wp","elre",0.18
-"sampling 9","plot 5","wp","elre",0.18
-"sampling 9","plot 5","wp","elre",0.18
-"sampling 9","plot 5","wp","elre",0.18
-"sampling 9","plot 5","wp","elre",0.18
-"sampling 9","plot 5","wp","fear",0.12
-"sampling 9","plot 5","wp","fear",0.12
-"sampling 9","plot 5","wp","fear",0.12
-"sampling 9","plot 5","wp","fear",0.12
-"sampling 9","plot 5","wp","fear",0.12
-"sampling 9","plot 5","wp","mear",0.04
-"sampling 9","plot 5","wp","mear",0.04
-"sampling 9","plot 5","wp","mear",0.04
-"sampling 9","plot 5","wp","mear",0.04
-"sampling 9","plot 5","wp","mear",0.04
-"sampling 9","plot 5","wp","ni_p5_1",0.13
-"sampling 9","plot 5","wp","ni_p5_1",0.13
-"sampling 9","plot 5","wp","ni_p5_1",0.13
-"sampling 9","plot 5","wp","ni_p5_1",0.13
-"sampling 9","plot 5","wp","ni_p5_1",0.13
-"sampling 9","plot 5","wp","plla",0.1
-"sampling 9","plot 5","wp","plla",0.1
-"sampling 9","plot 5","wp","plla",0.1
-"sampling 9","plot 5","wp","plla",0.1
-"sampling 9","plot 5","wp","to",0.005
-"sampling 11","plot 5","wp","elre",0.2
-"sampling 11","plot 5","wp","elre",0.2
-"sampling 11","plot 5","wp","elre",0.2
-"sampling 11","plot 5","wp","elre",0.2
-"sampling 11","plot 5","wp","elre",0.2
-"sampling 11","plot 5","wp","ni_p5_1",0.25
-"sampling 11","plot 5","wp","ni_p5_1",0.25
-"sampling 11","plot 5","wp","ni_p5_1",0.25
-"sampling 11","plot 5","wp","ni_p5_1",0.25
-"sampling 11","plot 5","wp","ni_p5_1",0.25
-"sampling 11","plot 5","wp","fear",0.15
-"sampling 11","plot 5","wp","fear",0.15
-"sampling 11","plot 5","wp","fear",0.15
-"sampling 11","plot 5","wp","plla",0.1
-"sampling 11","plot 5","wp","plla",0.1
-"sampling 11","plot 5","wp","plla",0.1
-"sampling 11","plot 5","wp","mear",0.06
-"sampling 11","plot 5","wp","mear",0.06
-"sampling 11","plot 5","wp","mear",0.06
-"sampling 11","plot 5","wp","mear",0.06
-"sampling 11","plot 5","wp","trre",0.02
-"sampling 11","plot 5","wp","coar",0.05
-"sampling 11","plot 5","wp","coar",0.05
-"sampling 11","plot 5","wp","coar",0.05
-"sampling 11","plot 5","wp","coar",0.05
-"sampling 11","plot 5","wp","coar",0.05
-"sampling 11","plot 5","wp","shar",0.04
-"sampling 11","plot 5","wp","shar",0.04
-"sampling 11","plot 5","wp","shar",0.04
-"sampling 11","plot 5","wp","shar",0.04
-"sampling 11","plot 5","wp","shar",0.04
-"sampling 11","plot 5","wp","to",0.03
-"sampling 11","plot 5","wp","to",0.03
-"sampling 11","plot 5","wp","mear",0.06
-"sampling 11","plot 12","wp","rapa",0.06
-"sampling 11","plot 12","wp","rapa",0.06
-"sampling 11","plot 12","wp","rapa",0.06
-"sampling 11","plot 4","wp","rapa",0.15
-"sampling 11","plot 4","wp","rapa",0.15
-"sampling 11","plot 4","wp","rapa",0.15
-"sampling 11","plot 4","wp","rapa",0.15
-"sampling 11","plot 4","wp","rapa",0.15
-"sampling 8","plot 12","wp","gedi",0.005
-NA,NA,NA,NA,NA
-"sampling 9","plot 4","wp","gedi",0.01
+"sampling","date","plot","treatment","species","abundance"
+"s0","may_04","plot 4","wp","avst",0.15
+"s0","may_04","plot 4","wp","avst",0.15
+"s0","may_04","plot 4","wp","avst",0.15
+"s0","may_04","plot 4","wp","avst",0.15
+"s0","may_04","plot 4","wp","avst",0.15
+"s0","may_04","plot 4","wp","avst",0.15
+"s0","may_04","plot 5","wp","bepe",0.01
+"s0","may_04","plot 12","wp","bepe",0.03
+"s0","may_04","plot 12","wp","bepe",0.03
+"s0","may_04","plot 4","wp","brho",0.15
+"s0","may_04","plot 4","wp","brho",0.15
+"s0","may_04","plot 4","wp","brho",0.15
+"s0","may_04","plot 13","wp","brho",0.03
+"s0","may_04","plot 13","wp","brho",0.03
+"s0","may_04","plot 13","wp","brho",0.03
+"s0","may_04","plot 4","wp","brho",0.15
+"s0","may_04","plot 4","wp","brho",0.15
+"s0","may_04","plot 4","wp","brho",0.15
+"s0","may_04","plot 13","wp","brho",0.03
+"s0","may_04","plot 12","wp","brho",0.01
+"s0","may_04","plot 13","wp","brho",0.03
+"s0","may_04","plot 13","wp","brho",0.03
+"s0","may_04","plot 12","wp","brho",0.01
+"s0","may_04","plot 4","wp","brho",0.15
+"s0","may_04","plot 13","wp","brho",0.03
+"s0","may_04","plot 12","wp","brho",0.01
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 5","wp","brst",0.1
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 4","wp","brst",0.2
+"s0","may_04","plot 4","wp","brst",0.2
+"s0","may_04","plot 4","wp","brst",0.2
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 4","wp","brst",0.2
+"s0","may_04","plot 5","wp","brst",0.1
+"s0","may_04","plot 5","wp","brst",0.1
+"s0","may_04","plot 5","wp","brst",0.1
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 4","wp","brst",0.2
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 4","wp","brst",0.2
+"s0","may_04","plot 13","wp","brst",0.8
+"s0","may_04","plot 4","wp","brst",0.2
+"s0","may_04","plot 4","wp","brst",0.2
+"s0","may_04","plot 5","wp","brst",0.1
+"s0","may_04","plot 4","wp","brst",0.2
+"s0","may_04","plot 12","wp","brst",0.01
+"s0","may_04","plot 13","wp","cadi",0.04
+"s0","may_04","plot 13","wp","cadi",0.04
+"s0","may_04","plot 13","wp","cadi",0.04
+"s0","may_04","plot 4","wp","cardo",0.03
+"s0","may_04","plot 12","wp","cegl",0.01
+"s0","may_04","plot 12","wp","cegl",0.01
+"s0","may_04","plot 12","wp","cegl",0.01
+"s0","may_04","plot 13","wp","cegl",0.01
+"s0","may_04","plot 5","wp","coar",0.05
+"s0","may_04","plot 5","wp","coar",0.05
+"s0","may_04","plot 12","wp","elre",0.35
+"s0","may_04","plot 12","wp","elre",0.35
+"s0","may_04","plot 12","wp","elre",0.35
+"s0","may_04","plot 12","wp","elre",0.35
+"s0","may_04","plot 12","wp","elre",0.35
+"s0","may_04","plot 12","wp","elre",0.35
+"s0","may_04","plot 12","wp","elre",0.35
+"s0","may_04","plot 12","wp","elre",0.35
+"s0","may_04","plot 12","wp","elre",0.35
+"s0","may_04","plot 12","wp","elre",0.35
+"s0","may_04","plot 5","wp","fear",0.08
+"s0","may_04","plot 5","wp","fear",0.08
+"s0","may_04","plot 5","wp","fear",0.08
+"s0","may_04","plot 5","wp","fear",0.08
+"s0","may_04","plot 12","wp","g13",0.1
+"s0","may_04","plot 12","wp","g13",0.1
+"s0","may_04","plot 12","wp","g13",0.1
+"s0","may_04","plot 12","wp","g13",0.1
+"s0","may_04","plot 12","wp","g13",0.1
+"s0","may_04","plot 4","wp","gafr",0.01
+"s0","may_04","plot 4","wp","gedi",0.15
+"s0","may_04","plot 4","wp","gedi",0.15
+"s0","may_04","plot 13","wp","gedi",0.05
+"s0","may_04","plot 5","wp","gedi",0.1
+"s0","may_04","plot 5","wp","gedi",0.1
+"s0","may_04","plot 4","wp","gedi",0.15
+"s0","may_04","plot 4","wp","gedi",0.15
+"s0","may_04","plot 4","wp","gedi",0.15
+"s0","may_04","plot 4","wp","gedi",0.15
+"s0","may_04","plot 5","wp","gedi",0.1
+"s0","may_04","plot 5","wp","gedi",0.1
+"s0","may_04","plot 12","wp","gedi",0.02
+"s0","may_04","plot 13","wp","gedi",0.05
+"s0","may_04","plot 12","wp","gedi",0.02
+"s0","may_04","plot 13","wp","gedi",0.05
+"s0","may_04","plot 12","wp","libi",0.02
+"s0","may_04","plot 12","wp","libi",0.02
+"s0","may_04","plot 12","wp","libi",0.02
+"s0","may_04","plot 5","wp","mear",0.05
+"s0","may_04","plot 12","wp","mear",0.06
+"s0","may_04","plot 13","wp","mear",0.03
+"s0","may_04","plot 13","wp","mear",0.03
+"s0","may_04","plot 12","wp","mear",0.06
+"s0","may_04","plot 5","wp","mear",0.05
+"s0","may_04","plot 4","wp","mear",0.01
+"s0","may_04","plot 12","wp","mear",0.06
+"s0","may_04","plot 13","wp","mear",0.03
+"s0","may_04","plot 5","wp","mepo",0.08
+"s0","may_04","plot 5","wp","mepo",0.08
+"s0","may_04","plot 5","wp","mepo",0.08
+"s0","may_04","plot 5","wp","mepo",0.08
+"s0","may_04","plot 12","wp","opap",0.01
+"s0","may_04","plot 12","wp","plla",0.03
+"s0","may_04","plot 4","wp","plla",0.02
+"s0","may_04","plot 5","wp","poan",0.15
+"s0","may_04","plot 5","wp","poan",0.15
+"s0","may_04","plot 5","wp","poan",0.15
+"s0","may_04","plot 5","wp","poan",0.15
+"s0","may_04","plot 5","wp","poan",0.15
+"s0","may_04","plot 5","wp","poan",0.15
+"s0","may_04","plot 13","wp","poan",0.01
+"s0","may_04","plot 13","wp","poan",0.01
+"s0","may_04","plot 5","wp","poan",0.15
+"s0","may_04","plot 13","wp","poan",0.01
+"s0","may_04","plot 5","wp","rabu",0.01
+"s0","may_04","plot 12","wp","rabu",0.01
+"s0","may_04","plot 5","wp","rapa",0.02
+"s0","may_04","plot 4","wp","rapa",0.3
+"s0","may_04","plot 4","wp","rapa",0.3
+"s0","may_04","plot 4","wp","rapa",0.3
+"s0","may_04","plot 4","wp","rapa",0.3
+"s0","may_04","plot 4","wp","rapa",0.3
+"s0","may_04","plot 4","wp","rapa",0.3
+"s0","may_04","plot 4","wp","rapa",0.3
+"s0","may_04","plot 4","wp","rapa",0.3
+"s0","may_04","plot 4","wp","rapa",0.3
+"s0","may_04","plot 5","wp","rapa",0.02
+"s0","may_04","plot 13","wp","rapa",0.01
+"s0","may_04","plot 12","wp","rapa",0.12
+"s0","may_04","plot 4","wp","rapa",0.3
+"s0","may_04","plot 12","wp","rapa",0.12
+"s0","may_04","plot 4","wp","rapa",0.3
+"s0","may_04","plot 4","wp","rapa",0.3
+"s0","may_04","plot 12","wp","rapa",0.12
+"s0","may_04","plot 4","wp","rapa",0.3
+"s0","may_04","plot 4","wp","rapa",0.3
+"s0","may_04","plot 4","wp","rapa",0.3
+"s0","may_04","plot 12","wp","rapa",0.12
+"s0","may_04","plot 4","wp","shar",0.1
+"s0","may_04","plot 4","wp","shar",0.1
+"s0","may_04","plot 4","wp","shar",0.1
+"s0","may_04","plot 5","wp","shar",0.04
+"s0","may_04","plot 4","wp","shar",0.1
+"s0","may_04","plot 4","wp","shar",0.1
+"s0","may_04","plot 12","wp","shar",0.02
+"s0","may_04","plot 5","wp","shar",0.04
+"s0","may_04","plot 5","wp","shar",0.04
+"s0","may_04","plot 13","wp","shar",0.07
+"s0","may_04","plot 13","wp","shar",0.07
+"s0","may_04","plot 13","wp","shar",0.07
+"s0","may_04","plot 13","wp","shar",0.07
+"s0","may_04","plot 13","wp","shar",0.07
+"s0","may_04","plot 12","wp","shar",0.02
+"s0","may_04","plot 12","wp","shar",0.02
+"s0","may_04","plot 13","wp","shar",0.07
+"s0","may_04","plot 13","wp","shar",0.07
+"s0","may_04","plot 12","wp","shar",0.02
+"s0","may_04","plot 13","wp","shar",0.07
+"s0","may_04","plot 12","wp","tono",0.15
+"s0","may_04","plot 12","wp","tono",0.15
+"s0","may_04","plot 5","wp","tono",0.06
+"s0","may_04","plot 12","wp","tono",0.15
+"s0","may_04","plot 5","wp","tono",0.06
+"s0","may_04","plot 12","wp","tono",0.15
+"s0","may_04","plot 12","wp","tono",0.15
+"s0","may_04","plot 5","wp","tono",0.06
+"s0","may_04","plot 12","wp","trre",0.05
+"s0","may_04","plot 4","wp","trre",0.03
+"s0","may_04","plot 12","wp","trre",0.05
+"s0","may_04","plot 12","wp","trre",0.05
+"s0","may_04","plot 4","wp","trre",0.03
+"s0","may_04","plot 13","wp","vepe",0.03
+"s0","may_04","plot 13","wp","vepe",0.03
+"s0","may_04","plot 13","wp","vepe",0.03
+"s0","may_04","plot 13","wp","vepe",0.03
+"s0","may_04","plot 5","wp","visa",0.2
+"s0","may_04","plot 5","wp","visa",0.2
+"s0","may_04","plot 5","wp","visa",0.2
+"s0","may_04","plot 5","wp","visa",0.2
+"s0","may_04","plot 5","wp","visa",0.2
+"s0","may_04","plot 5","wp","visa",0.2
+"s0","may_04","plot 5","wp","visa",0.2
+"s0","may_04","plot 5","wp","visa",0.2
+"s0","may_04","plot 5","wp","visa",0.2
+"s0","may_04","plot 4","wp","visa",0.01
+"s10","oct_16","plot 13","wp","ni_p13_3",0.05
+"s10","oct_16","plot 5","wp","ch",0.03
+"s10","oct_16","plot 4","wp","elre",0.08
+"s10","oct_16","plot 5","wp","coar",0.3
+"s10","oct_16","plot 12","wp","coar",0.03
+"s10","oct_16","plot 13","wp","elre",0.03
+"s10","oct_16","plot 13","wp","plla",0.15
+"s10","oct_16","plot 4","wp","lyar",0.16
+"s10","oct_16","plot 13","wp","ni_p13_1",0.06
+"s10","oct_16","plot 13","wp","elre",0.03
+"s10","oct_16","plot 12","wp","elre",0.8
+"s10","oct_16","plot 4","wp","ni_p4_1",0.02
+"s10","oct_16","plot 4","wp","plla",0.15
+"s10","oct_16","plot 4","wp","plla",0.15
+"s10","oct_16","plot 5","wp","plla",0.06
+"s10","oct_16","plot 5","wp","coar",0.3
+"s10","oct_16","plot 4","wp","plla",0.15
+"s10","oct_16","plot 12","wp","elre",0.8
+"s10","oct_16","plot 4","wp","elre",0.08
+"s10","oct_16","plot 5","wp","fear",0.12
+"s10","oct_16","plot 5","wp","plla",0.06
+"s10","oct_16","plot 4","wp","elre",0.08
+"s10","oct_16","plot 13","wp","ni_p13_1",0.06
+"s10","oct_16","plot 5","wp","elre",0.1
+"s10","oct_16","plot 12","wp","elre",0.8
+"s10","oct_16","plot 5","wp","elre",0.1
+"s10","oct_16","plot 12","wp","elre",0.8
+"s10","oct_16","plot 5","wp","coar",0.3
+"s10","oct_16","plot 5","wp","ni_p5_1",0.08
+"s10","oct_16","plot 5","wp","ni_p5_1",0.08
+"s10","oct_16","plot 12","wp","coar",0.03
+"s10","oct_16","plot 12","wp","elre",0.8
+"s10","oct_16","plot 4","wp","elre",0.08
+"s10","oct_16","plot 4","wp","lyar",0.16
+"s10","oct_16","plot 4","wp","lyar",0.16
+"s10","oct_16","plot 5","wp","coar",0.3
+"s10","oct_16","plot 5","wp","ni_p5_1",0.08
+"s10","oct_16","plot 5","wp","fear",0.12
+"s10","oct_16","plot 5","wp","ni_p5_1",0.08
+"s10","oct_16","plot 5","wp","ni_p5_1",0.08
+"s10","oct_16","plot 13","wp","ni_p13_2",0.07
+"s10","oct_16","plot 4","wp","elre",0.08
+"s10","oct_16","plot 5","wp","coar",0.3
+"s10","oct_16","plot 5","wp","elre",0.1
+"s10","oct_16","plot 5","wp","fear",0.12
+"s10","oct_16","plot 5","wp","fear",0.12
+"s10","oct_16","plot 13","wp","ni_p13_1",0.06
+"s10","oct_16","plot 13","wp","ni_p13_1",0.06
+"s10","oct_16","plot 5","wp","fear",0.12
+"s10","oct_16","plot 13","wp","ni_p13_2",0.07
+"s10","oct_16","plot 5","wp","elre",0.1
+"s10","oct_16","plot 5","wp","elre",0.1
+"s10","oct_16","plot 13","wp","ni_p13_2",0.07
+"s10","oct_16","plot 4","wp","lyar",0.16
+"s10","oct_16","plot 5","wp","fear",0.12
+"s10","oct_16","plot 4","wp","plla",0.15
+"s10","oct_16","plot 13","wp","ni_p13_2",0.07
+"s10","oct_16","plot 13","wp","cadi",0.02
+"s10","oct_16","plot 13","wp","ni_p13_2",0.07
+"s10","oct_16","plot 13","wp","ni_p13_5",0.02
+"s10","oct_16","plot 13","wp","plla",0.15
+"s10","oct_16","plot 4","wp","cadi",0.04
+"s10","oct_16","plot 13","wp","plla",0.15
+"s10","oct_16","plot 13","wp","plla",0.15
+"s10","oct_16","plot 13","wp","plla",0.15
+"s10","oct_16","plot 4","wp","plla",0.15
+"s10","oct_16","plot 4","wp","ni_p4_2",0.02
+"s10","oct_16","plot 4","wp","shar",0.03
+"s10","oct_16","plot 12","wp","trre",0.02
+"s10","oct_16","plot 13","wp","gedi",0.05
+"s10","oct_16","plot 13","wp","vepe",0.22
+"s10","oct_16","plot 13","wp","shar",0.06
+"s10","oct_16","plot 13","wp","gedi",0.05
+"s10","oct_16","plot 13","wp","vepe",0.22
+"s10","oct_16","plot 4","wp","gedi",0.03
+"s10","oct_16","plot 4","wp","shar",0.03
+"s10","oct_16","plot 12","wp","melu",0.02
+"s10","oct_16","plot 13","wp","ni_p13_5",0.02
+"s10","oct_16","plot 13","wp","vepe",0.22
+"s10","oct_16","plot 4","wp","cabu",0.02
+"s10","oct_16","plot 4","wp","vepe",0.02
+"s10","oct_16","plot 13","wp","shar",0.06
+"s10","oct_16","plot 4","wp","ni_p4_3",0.01
+"s10","oct_16","plot 13","wp","mear",0.04
+"s10","oct_16","plot 13","wp","shar",0.06
+"s10","oct_16","plot 13","wp","shar",0.06
+"s10","oct_16","plot 13","wp","vepe",0.22
+"s10","oct_16","plot 4","wp","shar",0.03
+"s10","oct_16","plot 5","wp","ni_p5_2",0.01
+"s10","oct_16","plot 13","wp","gedi",0.05
+"s10","oct_16","plot 4","wp","ni_p4_5",0.01
+"s10","oct_16","plot 4","wp","ni_p4_6",0.03
+"s10","oct_16","plot 4","wp","ni_p4_6",0.03
+"s10","oct_16","plot 4","wp","shar",0.03
+"s10","oct_16","plot 4","wp","vepe",0.02
+"s10","oct_16","plot 4","wp","vepe",0.02
+"s10","oct_16","plot 13","wp","mear",0.04
+"s10","oct_16","plot 13","wp","vepe",0.22
+"s10","oct_16","plot 4","wp","gedi",0.03
+"s10","oct_16","plot 4","wp","ni_p4_6",0.03
+"s10","oct_16","plot 4","wp","shar",0.03
+"s10","oct_16","plot 4","wp","rapa",0.01
+"s10","oct_16","plot 12","wp","bepe",0.01
+"s10","oct_16","plot 13","wp","ni_p13_6",0.01
+"s10","oct_16","plot 4","wp","bepe",0.02
+"s10","oct_16","plot 4","wp","gedi",0.03
+"s10","oct_16","plot 4","wp","ni_p4_6",0.03
+"s10","oct_16","plot 4","wp","ni_p4_6",0.03
+"s10","oct_16","plot 4","wp","to",0.01
+"s10","oct_16","plot 13","wp","mean",0.01
+"s10","oct_16","plot 13","wp","mear",0.04
+"s10","oct_16","plot 13","wp","ni_p13_6",0.01
+"s10","oct_16","plot 13","wp","shar",0.06
+"s10","oct_16","plot 4","wp","gedi",0.03
+"s10","oct_16","plot 4","wp","bepe",0.02
+"s10","oct_16","plot 4","wp","rapa",0.01
+"s11","nov_13","plot 13","wp","cabu",0.03
+"s11","nov_13","plot 4","wp","lyar",0.1
+"s11","nov_13","plot 4","wp","cabu",0.02
+"s11","nov_13","plot 5","wp","fear",0.15
+"s11","nov_13","plot 4","wp","elre",0.07
+"s11","nov_13","plot 4","wp","lyar",0.1
+"s11","nov_13","plot 5","wp","elre",0.2
+"s11","nov_13","plot 4","wp","elre",0.07
+"s11","nov_13","plot 5","wp","elre",0.2
+"s11","nov_13","plot 4","wp","elre",0.07
+"s11","nov_13","plot 5","wp","elre",0.2
+"s11","nov_13","plot 12","wp","coar",0.04
+"s11","nov_13","plot 4","wp","lyar",0.1
+"s11","nov_13","plot 5","wp","elre",0.2
+"s11","nov_13","plot 13","wp","elre",0.03
+"s11","nov_13","plot 5","wp","ni_p5_1",0.25
+"s11","nov_13","plot 4","wp","ni_p4_1",0.02
+"s11","nov_13","plot 5","wp","elre",0.2
+"s11","nov_13","plot 5","wp","ni_p5_1",0.25
+"s11","nov_13","plot 5","wp","fear",0.15
+"s11","nov_13","plot 5","wp","coar",0.05
+"s11","nov_13","plot 5","wp","fear",0.15
+"s11","nov_13","plot 12","wp","elre",0.4
+"s11","nov_13","plot 4","wp","lyar",0.1
+"s11","nov_13","plot 4","wp","elre",0.07
+"s11","nov_13","plot 12","wp","elre",0.4
+"s11","nov_13","plot 12","wp","elre",0.4
+"s11","nov_13","plot 13","wp","ni_p13_1",0.03
+"s11","nov_13","plot 5","wp","coar",0.05
+"s11","nov_13","plot 13","wp","elre",0.03
+"s11","nov_13","plot 5","wp","ni_p5_1",0.25
+"s11","nov_13","plot 13","wp","elre",0.03
+"s11","nov_13","plot 5","wp","ni_p5_1",0.25
+"s11","nov_13","plot 12","wp","elre",0.4
+"s11","nov_13","plot 4","wp","shar",0.06
+"s11","nov_13","plot 4","wp","elre",0.07
+"s11","nov_13","plot 5","wp","ni_p5_1",0.25
+"s11","nov_13","plot 4","wp","cadi",0.03
+"s11","nov_13","plot 13","wp","gedi",0.04
+"s11","nov_13","plot 12","wp","elre",0.4
+"s11","nov_13","plot 13","wp","cadi",0.01
+"s11","nov_13","plot 5","wp","coar",0.05
+"s11","nov_13","plot 5","wp","coar",0.05
+"s11","nov_13","plot 13","wp","vepe",0.6
+"s11","nov_13","plot 13","wp","elre",0.03
+"s11","nov_13","plot 13","wp","vepe",0.6
+"s11","nov_13","plot 13","wp","plla",0.1
+"s11","nov_13","plot 4","wp","plla",0.15
+"s11","nov_13","plot 4","wp","ni_p4_5",0.04
+"s11","nov_13","plot 4","wp","shar",0.06
+"s11","nov_13","plot 13","wp","elre",0.03
+"s11","nov_13","plot 13","wp","shar",0.02
+"s11","nov_13","plot 4","wp","vepe",0.06
+"s11","nov_13","plot 4","wp","plla",0.15
+"s11","nov_13","plot 5","wp","coar",0.05
+"s11","nov_13","plot 13","wp","vepe",0.6
+"s11","nov_13","plot 13","wp","plla",0.1
+"s11","nov_13","plot 13","wp","shar",0.02
+"s11","nov_13","plot 13","wp","ni_p13_2",0.04
+"s11","nov_13","plot 13","wp","gedi",0.04
+"s11","nov_13","plot 4","wp","ni_p4_2",0.04
+"s11","nov_13","plot 4","wp","shar",0.06
+"s11","nov_13","plot 4","wp","gedi",0.03
+"s11","nov_13","plot 13","wp","plla",0.1
+"s11","nov_13","plot 13","wp","plla",0.1
+"s11","nov_13","plot 13","wp","ni_p13_2",0.04
+"s11","nov_13","plot 4","wp","vepe",0.06
+"s11","nov_13","plot 4","wp","plla",0.15
+"s11","nov_13","plot 5","wp","plla",0.1
+"s11","nov_13","plot 13","wp","shar",0.02
+"s11","nov_13","plot 4","wp","plla",0.15
+"s11","nov_13","plot 4","wp","plla",0.15
+"s11","nov_13","plot 4","wp","asteraceae",0.05
+"s11","nov_13","plot 4","wp","asteraceae",0.05
+"s11","nov_13","plot 13","wp","shar",0.02
+"s11","nov_13","plot 13","wp","ni_p13_2",0.04
+"s11","nov_13","plot 12","wp","melu",0.05
+"s11","nov_13","plot 4","wp","vepe",0.06
+"s11","nov_13","plot 4","wp","shar",0.06
+"s11","nov_13","plot 4","wp","gedi",0.03
+"s11","nov_13","plot 4","wp","gedi",0.03
+"s11","nov_13","plot 4","wp","to",0.05
+"s11","nov_13","plot 4","wp","asteraceae",0.05
+"s11","nov_13","plot 5","wp","trre",0.02
+"s11","nov_13","plot 4","wp","asteraceae",0.05
+"s11","nov_13","plot 5","wp","shar",0.04
+"s11","nov_13","plot 13","wp","vepe",0.6
+"s11","nov_13","plot 13","wp","plla",0.1
+"s11","nov_13","plot 13","wp","ni_p13_6",0.02
+"s11","nov_13","plot 13","wp","mean",0.01
+"s11","nov_13","plot 4","wp","shar",0.06
+"s11","nov_13","plot 4","wp","rabu",0.02
+"s11","nov_13","plot 5","wp","shar",0.04
+"s11","nov_13","plot 13","wp","ni_p13_7",0.01
+"s11","nov_13","plot 13","wp","ni_p13_6",0.02
+"s11","nov_13","plot 13","wp","shar",0.02
+"s11","nov_13","plot 4","wp","vepe",0.06
+"s11","nov_13","plot 4","wp","ni_p4_3",0.01
+"s11","nov_13","plot 5","wp","plla",0.1
+"s11","nov_13","plot 5","wp","plla",0.1
+"s11","nov_13","plot 5","wp","mear",0.06
+"s11","nov_13","plot 5","wp","shar",0.04
+"s11","nov_13","plot 4","wp","vepe",0.06
+"s11","nov_13","plot 4","wp","gedi",0.03
+"s11","nov_13","plot 4","wp","gedi",0.03
+"s11","nov_13","plot 12","wp","melu",0.05
+"s11","nov_13","plot 5","wp","mear",0.06
+"s11","nov_13","plot 13","wp","to",0.005
+"s11","nov_13","plot 5","wp","mear",0.06
+"s11","nov_13","plot 5","wp","mear",0.06
+"s11","nov_13","plot 5","wp","to",0.03
+"s11","nov_13","plot 12","wp","ni_p12_2",0.01
+"s11","nov_13","plot 12","wp","to",0.01
+"s11","nov_13","plot 13","wp","ni_p13_4",0.005
+"s11","nov_13","plot 4","wp","rabu",0.02
+"s11","nov_13","plot 5","wp","mear",0.06
+"s11","nov_13","plot 5","wp","shar",0.04
+"s11","nov_13","plot 4","wp","rapa",0.15
+"s11","nov_13","plot 13","wp","ni_p13_4",0.005
+"s11","nov_13","plot 13","wp","ni_p13_4",0.005
+"s11","nov_13","plot 12","wp","rapa",0.06
+"s11","nov_13","plot 12","wp","rapa",0.06
+"s11","nov_13","plot 4","wp","rapa",0.15
+"s11","nov_13","plot 13","wp","ni_p13_4",0.005
+"s11","nov_13","plot 12","wp","rapa",0.06
+"s11","nov_13","plot 5","wp","to",0.03
+"s11","nov_13","plot 12","wp","rapa",0.06
+"s11","nov_13","plot 12","wp","rapa",0.06
+"s11","nov_13","plot 4","wp","rapa",0.15
+"s11","nov_13","plot 4","wp","rapa",0.15
+"s11","nov_13","plot 4","wp","rapa",0.15
+"s11","nov_13","plot 13","wp","vepe",0.6
+"s11","nov_13","plot 5","wp","shar",0.04
+"s2","jun_14","plot 4","wp","asteraceacardosa",0.001
+"s2","jun_14","plot 5","wp","cadi",0.02
+"s2","jun_14","plot 5","wp","cadi",0.02
+"s2","jun_14","plot 4","wp","cadi",0.008
+"s2","jun_14","plot 5","wp","cadi",0.02
+"s2","jun_14","plot 5","wp","cadi",0.02
+"s2","jun_14","plot 4","wp","cadi",0.008
+"s2","jun_14","plot 5","wp","coar",0.01
+"s2","jun_14","plot 5","wp","coar",0.01
+"s2","jun_14","plot 5","wp","coar",0.01
+"s2","jun_14","plot 4","wp","dagl",0.001
+"s2","jun_14","plot 4","wp","dagl",0.001
+"s2","jun_14","plot 13","wp","elre",0.01
+"s2","jun_14","plot 12","wp","elre",0.07
+"s2","jun_14","plot 12","wp","elre",0.07
+"s2","jun_14","plot 13","wp","elre",0.01
+"s2","jun_14","plot 12","wp","elre",0.07
+"s2","jun_14","plot 12","wp","elre",0.07
+"s2","jun_14","plot 4","wp","elre",0.02
+"s2","jun_14","plot 12","wp","elre",0.07
+"s2","jun_14","plot 13","wp","elre",0.01
+"s2","jun_14","plot 5","wp","fear",0.05
+"s2","jun_14","plot 5","wp","fear",0.05
+"s2","jun_14","plot 5","wp","fear",0.05
+"s2","jun_14","plot 4","wp","fear",0.02
+"s2","jun_14","plot 5","wp","fear",0.05
+"s2","jun_14","plot 5","wp","fear",0.05
+"s2","jun_14","plot 5","wp","ni_orquidea",0.002
+"s2","jun_14","plot 4","wp","plla",0.01
+"s2","jun_14","plot 4","wp","plla",0.01
+"s2","jun_14","plot 4","wp","plla",0.01
+"s2","jun_14","plot 13","wp","plla",0.002
+"s2","jun_14","plot 13","wp","plla",0.002
+"s2","jun_14","plot 4","wp","trre",0.005
+"s2","jun_14","plot 12","wp","trre",0.008
+"s2","jun_14","plot 12","wp","trre",0.008
+"s2","jun_14","plot 12","wp","trre",0.008
+"s2","jun_14","plot 12","wp","trre",0.008
+"s2","jun_14","plot 4","wp","trre",0.005
+"s3","jun_28","plot 13","wp","brst",0.03
+"s3","jun_28","plot 13","wp","gafr",0.02
+"s3","jun_28","plot 13","wp","fear",0.4
+"s3","jun_28","plot 5","wp","coar",0.15
+"s3","jun_28","plot 13","wp","elre",0.08
+"s3","jun_28","plot 13","wp","elre",0.08
+"s3","jun_28","plot 5","wp","coar",0.15
+"s3","jun_28","plot 13","wp","elre",0.08
+"s3","jun_28","plot 12","wp","elre",0.25
+"s3","jun_28","plot 13","wp","elre",0.08
+"s3","jun_28","plot 12","wp","melu",0.01
+"s3","jun_28","plot 13","wp","brho",0.01
+"s3","jun_28","plot 13","wp","elre",0.08
+"s3","jun_28","plot 4","wp","plla",0.04
+"s3","jun_28","plot 13","wp","brho",0.01
+"s3","jun_28","plot 5","wp","elre",0.18
+"s3","jun_28","plot 13","wp","brho",0.01
+"s3","jun_28","plot 5","wp","coar",0.15
+"s3","jun_28","plot 4","wp","elre",0.04
+"s3","jun_28","plot 5","wp","elre",0.18
+"s3","jun_28","plot 4","wp","plla",0.04
+"s3","jun_28","plot 4","wp","plla",0.04
+"s3","jun_28","plot 13","wp","brho",0.01
+"s3","jun_28","plot 5","wp","coar",0.15
+"s3","jun_28","plot 13","wp","brho",0.01
+"s3","jun_28","plot 4","wp","elre",0.04
+"s3","jun_28","plot 12","wp","elre",0.25
+"s3","jun_28","plot 5","wp","elre",0.18
+"s3","jun_28","plot 4","wp","elre",0.04
+"s3","jun_28","plot 12","wp","elre",0.25
+"s3","jun_28","plot 4","wp","elre",0.04
+"s3","jun_28","plot 5","wp","elre",0.18
+"s3","jun_28","plot 5","wp","coar",0.15
+"s3","jun_28","plot 5","wp","fear",0.08
+"s3","jun_28","plot 12","wp","elre",0.25
+"s3","jun_28","plot 12","wp","elre",0.25
+"s3","jun_28","plot 5","wp","plla",0.02
+"s3","jun_28","plot 5","wp","elre",0.18
+"s3","jun_28","plot 5","wp","fear",0.08
+"s3","jun_28","plot 13","wp","plla",0.02
+"s3","jun_28","plot 4","wp","elre",0.04
+"s3","jun_28","plot 5","wp","fear",0.08
+"s3","jun_28","plot 12","wp","coar",0.02
+"s3","jun_28","plot 4","wp","cadi",0.02
+"s3","jun_28","plot 5","wp","fear",0.08
+"s3","jun_28","plot 4","wp","trre",0.01
+"s3","jun_28","plot 5","wp","visa",0.01
+"s3","jun_28","plot 12","wp","trre",0.02
+"s3","jun_28","plot 13","wp","plla",0.02
+"s3","jun_28","plot 4","wp","ch",0.01
+"s3","jun_28","plot 4","wp","plla",0.04
+"s3","jun_28","plot 13","wp","plla",0.02
+"s3","jun_28","plot 5","wp","fear",0.08
+"s3","jun_28","plot 5","wp","plla",0.02
+"s3","jun_28","plot 12","wp","trre",0.02
+"s3","jun_28","plot 4","wp","plla",0.04
+"s3","jun_28","plot 4","wp","shar",0.03
+"s3","jun_28","plot 4","wp","plla",0.04
+"s3","jun_28","plot 4","wp","ni_cardo",0.01
+"s3","jun_28","plot 5","wp","shar",0.02
+"s3","jun_28","plot 12","wp","shar",0.03
+"s3","jun_28","plot 4","wp","lyar",0.02
+"s3","jun_28","plot 4","wp","shar",0.03
+"s3","jun_28","plot 5","wp","shar",0.02
+"s3","jun_28","plot 5","wp","trre",0.01
+"s3","jun_28","plot 4","wp","shar",0.03
+"s3","jun_28","plot 4","wp","lyar",0.02
+"s3","jun_28","plot 12","wp","shar",0.03
+"s3","jun_28","plot 13","wp","shar",0.01
+"s3","jun_28","plot 4","wp","shar",0.03
+"s3","jun_28","plot 4","wp","shar",0.03
+"s3","jun_28","plot 5","wp","shar",0.02
+"s3","jun_28","plot 13","wp","vepe",0.01
+"s3","jun_28","plot 13","wp","brho",0.01
+"s4","jul_11","plot 13","wp","elre",0.15
+"s4","jul_11","plot 5","wp","coar",0.14
+"s4","jul_11","plot 13","wp","elre",0.15
+"s4","jul_11","plot 13","wp","elre",0.15
+"s4","jul_11","plot 13","wp","elre",0.15
+"s4","jul_11","plot 13","wp","dagl",0.06
+"s4","jul_11","plot 4","wp","elre",0.1
+"s4","jul_11","plot 4","wp","plla",0.12
+"s4","jul_11","plot 12","wp","elre",0.32
+"s4","jul_11","plot 4","wp","elre",0.1
+"s4","jul_11","plot 5","wp","coar",0.14
+"s4","jul_11","plot 5","wp","elre",0.25
+"s4","jul_11","plot 5","wp","coar",0.14
+"s4","jul_11","plot 4","wp","plla",0.12
+"s4","jul_11","plot 13","wp","plla",0.08
+"s4","jul_11","plot 5","wp","plla",0.08
+"s4","jul_11","plot 5","wp","poan",0.06
+"s4","jul_11","plot 5","wp","plla",0.08
+"s4","jul_11","plot 5","wp","poan",0.06
+"s4","jul_11","plot 5","wp","elre",0.25
+"s4","jul_11","plot 12","wp","elre",0.32
+"s4","jul_11","plot 5","wp","elre",0.25
+"s4","jul_11","plot 4","wp","elre",0.1
+"s4","jul_11","plot 5","wp","elre",0.25
+"s4","jul_11","plot 5","wp","poan",0.06
+"s4","jul_11","plot 13","wp","dagl",0.06
+"s4","jul_11","plot 4","wp","elre",0.1
+"s4","jul_11","plot 5","wp","fear",0.09
+"s4","jul_11","plot 13","wp","elre",0.15
+"s4","jul_11","plot 5","wp","fear",0.09
+"s4","jul_11","plot 13","wp","dagl",0.06
+"s4","jul_11","plot 5","wp","elre",0.25
+"s4","jul_11","plot 5","wp","poan",0.06
+"s4","jul_11","plot 12","wp","elre",0.32
+"s4","jul_11","plot 12","wp","elre",0.32
+"s4","jul_11","plot 5","wp","coar",0.14
+"s4","jul_11","plot 5","wp","dagl",0.02
+"s4","jul_11","plot 12","wp","coar",0.03
+"s4","jul_11","plot 5","wp","dagl",0.02
+"s4","jul_11","plot 13","wp","brst",0.01
+"s4","jul_11","plot 13","wp","dagl",0.06
+"s4","jul_11","plot 5","wp","poan",0.06
+"s4","jul_11","plot 12","wp","fear",0.03
+"s4","jul_11","plot 4","wp","plla",0.12
+"s4","jul_11","plot 5","wp","coar",0.14
+"s4","jul_11","plot 5","wp","dagl",0.02
+"s4","jul_11","plot 4","wp","ni_p4_1",0.01
+"s4","jul_11","plot 4","wp","elre",0.1
+"s4","jul_11","plot 12","wp","elre",0.32
+"s4","jul_11","plot 13","wp","dagl",0.06
+"s4","jul_11","plot 5","wp","fear",0.09
+"s4","jul_11","plot 5","wp","fear",0.09
+"s4","jul_11","plot 4","wp","cadi",0.04
+"s4","jul_11","plot 4","wp","shar",0.02
+"s4","jul_11","plot 12","wp","plla",0.01
+"s4","jul_11","plot 5","wp","plla",0.08
+"s4","jul_11","plot 13","wp","plla",0.08
+"s4","jul_11","plot 4","wp","plla",0.12
+"s4","jul_11","plot 13","wp","plla",0.08
+"s4","jul_11","plot 4","wp","shar",0.02
+"s4","jul_11","plot 5","wp","shar",0.04
+"s4","jul_11","plot 5","wp","shar",0.04
+"s4","jul_11","plot 12","wp","shar",0.02
+"s4","jul_11","plot 13","wp","plla",0.08
+"s4","jul_11","plot 4","wp","lyar",0.03
+"s4","jul_11","plot 4","wp","plla",0.12
+"s4","jul_11","plot 4","wp","shar",0.02
+"s4","jul_11","plot 5","wp","fear",0.09
+"s4","jul_11","plot 5","wp","shar",0.04
+"s4","jul_11","plot 4","wp","lyar",0.03
+"s4","jul_11","plot 4","wp","lyar",0.03
+"s4","jul_11","plot 4","wp","shar",0.02
+"s4","jul_11","plot 4","wp","shar",0.02
+"s4","jul_11","plot 4","wp","vepe",0.01
+"s4","jul_11","plot 5","wp","shar",0.04
+"s4","jul_11","plot 12","wp","shar",0.02
+"s4","jul_11","plot 12","wp","shar",0.02
+"s4","jul_11","plot 12","wp","trfr",0.04
+"s4","jul_11","plot 13","wp","gafr",0.03
+"s4","jul_11","plot 4","wp","gafr",0.02
+"s4","jul_11","plot 5","wp","shar",0.04
+"s4","jul_11","plot 12","wp","shar",0.02
+"s4","jul_11","plot 13","wp","shar",0.01
+"s4","jul_11","plot 13","wp","shar",0.01
+"s4","jul_11","plot 5","wp","shar",0.04
+"s5","jul_26","plot 5","wp","coar",0.2
+"s5","jul_26","plot 13","wp","elre",0.1
+"s5","jul_26","plot 5","wp","coar",0.2
+"s5","jul_26","plot 13","wp","elre",0.1
+"s5","jul_26","plot 13","wp","plla",0.2
+"s5","jul_26","plot 13","wp","elre",0.1
+"s5","jul_26","plot 4","wp","elre",0.14
+"s5","jul_26","plot 12","wp","elre",0.6
+"s5","jul_26","plot 13","wp","fear",0.05
+"s5","jul_26","plot 13","wp","dagl",0.08
+"s5","jul_26","plot 13","wp","plla",0.2
+"s5","jul_26","plot 4","wp","elre",0.14
+"s5","jul_26","plot 5","wp","elre",0.3
+"s5","jul_26","plot 4","wp","plla",0.35
+"s5","jul_26","plot 5","wp","plla",0.15
+"s5","jul_26","plot 5","wp","plla",0.15
+"s5","jul_26","plot 4","wp","plla",0.35
+"s5","jul_26","plot 5","wp","elre",0.3
+"s5","jul_26","plot 4","wp","plla",0.35
+"s5","jul_26","plot 5","wp","coar",0.2
+"s5","jul_26","plot 4","wp","plla",0.35
+"s5","jul_26","plot 13","wp","elre",0.1
+"s5","jul_26","plot 13","wp","elre",0.1
+"s5","jul_26","plot 12","wp","elre",0.6
+"s5","jul_26","plot 5","wp","elre",0.3
+"s5","jul_26","plot 12","wp","elre",0.6
+"s5","jul_26","plot 4","wp","elre",0.14
+"s5","jul_26","plot 5","wp","plla",0.15
+"s5","jul_26","plot 13","wp","dagl",0.08
+"s5","jul_26","plot 12","wp","elre",0.6
+"s5","jul_26","plot 5","wp","coar",0.2
+"s5","jul_26","plot 5","wp","ni_p5_1",0.05
+"s5","jul_26","plot 5","wp","elre",0.3
+"s5","jul_26","plot 12","wp","elre",0.6
+"s5","jul_26","plot 4","wp","ni_p4_1",0.04
+"s5","jul_26","plot 5","wp","elre",0.3
+"s5","jul_26","plot 5","wp","ni_p5_1",0.05
+"s5","jul_26","plot 5","wp","ni_p5_1",0.05
+"s5","jul_26","plot 12","wp","coar",0.03
+"s5","jul_26","plot 4","wp","plla",0.35
+"s5","jul_26","plot 13","wp","dagl",0.08
+"s5","jul_26","plot 13","wp","dagl",0.08
+"s5","jul_26","plot 13","wp","plla",0.2
+"s5","jul_26","plot 5","wp","ni_p5_1",0.05
+"s5","jul_26","plot 5","wp","ni_p5_1",0.05
+"s5","jul_26","plot 12","wp","fear",0.04
+"s5","jul_26","plot 4","wp","lyar",0.1
+"s5","jul_26","plot 4","wp","shar",0.07
+"s5","jul_26","plot 4","wp","elre",0.14
+"s5","jul_26","plot 4","wp","elre",0.14
+"s5","jul_26","plot 5","wp","fear",0.08
+"s5","jul_26","plot 5","wp","fear",0.08
+"s5","jul_26","plot 4","wp","lyar",0.1
+"s5","jul_26","plot 4","wp","cadi",0.08
+"s5","jul_26","plot 5","wp","fear",0.08
+"s5","jul_26","plot 5","wp","fear",0.08
+"s5","jul_26","plot 12","wp","plla",0.02
+"s5","jul_26","plot 5","wp","coar",0.2
+"s5","jul_26","plot 13","wp","dagl",0.08
+"s5","jul_26","plot 4","wp","vepe",0.06
+"s5","jul_26","plot 13","wp","plla",0.2
+"s5","jul_26","plot 12","wp","shar",0.03
+"s5","jul_26","plot 4","wp","shar",0.07
+"s5","jul_26","plot 5","wp","shar",0.05
+"s5","jul_26","plot 5","wp","shar",0.05
+"s5","jul_26","plot 4","wp","shar",0.07
+"s5","jul_26","plot 5","wp","fear",0.08
+"s5","jul_26","plot 5","wp","shar",0.05
+"s5","jul_26","plot 5","wp","shar",0.05
+"s5","jul_26","plot 4","wp","trfr",0.03
+"s5","jul_26","plot 12","wp","shar",0.03
+"s5","jul_26","plot 13","wp","plla",0.2
+"s5","jul_26","plot 5","wp","shar",0.05
+"s5","jul_26","plot 12","wp","trre",0.02
+"s5","jul_26","plot 4","wp","gafr",0.03
+"s5","jul_26","plot 12","wp","shar",0.03
+"s5","jul_26","plot 13","wp","mear",0.04
+"s5","jul_26","plot 13","wp","fear",0.05
+"s5","jul_26","plot 13","wp","shar",0.01
+"s5","jul_26","plot 13","wp","mear",0.04
+"s5","jul_26","plot 13","wp","mear",0.04
+"s5","jul_26","plot 13","wp","shar",0.01
+"s5","jul_26","plot 4","wp","lyar",0.1
+"s5","jul_26","plot 12","wp","trre",0.02
+"s5","jul_26","plot 13","wp","mear",0.04
+"s5","jul_26","plot 13","wp","mear",0.04
+"s5","jul_26","plot 12","wp","trre",0.02
+"s6","aug_22","plot 13","wp","elre",0.15
+"s6","aug_22","plot 5","wp","coar",0.15
+"s6","aug_22","plot 5","wp","coar",0.15
+"s6","aug_22","plot 4","wp","plla",0.18
+"s6","aug_22","plot 5","wp","cabu",0.01
+"s6","aug_22","plot 5","wp","coar",0.15
+"s6","aug_22","plot 12","wp","elre",0.25
+"s6","aug_22","plot 4","wp","elre",0.05
+"s6","aug_22","plot 13","wp","plla",0.18
+"s6","aug_22","plot 13","wp","elre",0.15
+"s6","aug_22","plot 13","wp","elre",0.15
+"s6","aug_22","plot 13","wp","elre",0.15
+"s6","aug_22","plot 5","wp","elre",0.09
+"s6","aug_22","plot 5","wp","plla",0.05
+"s6","aug_22","plot 13","wp","ni_p13_2",0.05
+"s6","aug_22","plot 13","wp","plla",0.18
+"s6","aug_22","plot 5","wp","plla",0.05
+"s6","aug_22","plot 4","wp","plla",0.18
+"s6","aug_22","plot 5","wp","coar",0.15
+"s6","aug_22","plot 5","wp","elre",0.09
+"s6","aug_22","plot 4","wp","plla",0.18
+"s6","aug_22","plot 4","wp","plla",0.18
+"s6","aug_22","plot 4","wp","elre",0.05
+"s6","aug_22","plot 4","wp","plla",0.18
+"s6","aug_22","plot 4","wp","ni_p4_1",0.03
+"s6","aug_22","plot 4","wp","elre",0.05
+"s6","aug_22","plot 5","wp","plla",0.05
+"s6","aug_22","plot 12","wp","elre",0.25
+"s6","aug_22","plot 13","wp","cadi",0.03
+"s6","aug_22","plot 4","wp","lyar",0.08
+"s6","aug_22","plot 5","wp","coar",0.15
+"s6","aug_22","plot 12","wp","coar",0.02
+"s6","aug_22","plot 4","wp","elre",0.05
+"s6","aug_22","plot 5","wp","elre",0.09
+"s6","aug_22","plot 5","wp","elre",0.09
+"s6","aug_22","plot 5","wp","fear",0.1
+"s6","aug_22","plot 12","wp","fear",0.05
+"s6","aug_22","plot 13","wp","elre",0.15
+"s6","aug_22","plot 13","wp","ni_p13_1",0.06
+"s6","aug_22","plot 12","wp","elre",0.25
+"s6","aug_22","plot 13","wp","ni_p13_2",0.05
+"s6","aug_22","plot 13","wp","plla",0.18
+"s6","aug_22","plot 4","wp","lyar",0.08
+"s6","aug_22","plot 5","wp","elre",0.09
+"s6","aug_22","plot 5","wp","ni_p5_1",0.05
+"s6","aug_22","plot 12","wp","elre",0.25
+"s6","aug_22","plot 5","wp","ni_p5_1",0.05
+"s6","aug_22","plot 13","wp","ni_p13_2",0.05
+"s6","aug_22","plot 13","wp","ni_p13_1",0.06
+"s6","aug_22","plot 4","wp","elre",0.05
+"s6","aug_22","plot 5","wp","fear",0.1
+"s6","aug_22","plot 12","wp","elre",0.25
+"s6","aug_22","plot 5","wp","fear",0.1
+"s6","aug_22","plot 13","wp","ni_p13_2",0.05
+"s6","aug_22","plot 5","wp","ni_p5_1",0.05
+"s6","aug_22","plot 13","wp","ni_p13_2",0.05
+"s6","aug_22","plot 13","wp","mear",0.08
+"s6","aug_22","plot 5","wp","fear",0.1
+"s6","aug_22","plot 4","wp","cadi",0.03
+"s6","aug_22","plot 4","wp","lyar",0.08
+"s6","aug_22","plot 4","wp","lyar",0.08
+"s6","aug_22","plot 13","wp","mear",0.08
+"s6","aug_22","plot 12","wp","trre",0.01
+"s6","aug_22","plot 5","wp","ch",0.01
+"s6","aug_22","plot 4","wp","ni_p4_2",0.01
+"s6","aug_22","plot 5","wp","fear",0.1
+"s6","aug_22","plot 13","wp","shar",0.04
+"s6","aug_22","plot 4","wp","ni_p4_3",0.01
+"s7","sep_04","plot 13","wp","elre",0.15
+"s7","sep_04","plot 5","wp","coar",0.3
+"s7","sep_04","plot 5","wp","coar",0.3
+"s7","sep_04","plot 4","wp","plla",0.2
+"s7","sep_04","plot 5","wp","coar",0.3
+"s7","sep_04","plot 13","wp","plla",0.18
+"s7","sep_04","plot 13","wp","elre",0.15
+"s7","sep_04","plot 12","wp","elre",0.1
+"s7","sep_04","plot 12","wp","elre",0.1
+"s7","sep_04","plot 13","wp","plla",0.18
+"s7","sep_04","plot 5","wp","plla",0.07
+"s7","sep_04","plot 5","wp","plla",0.07
+"s7","sep_04","plot 4","wp","plla",0.2
+"s7","sep_04","plot 5","wp","elre",0.1
+"s7","sep_04","plot 13","wp","elre",0.15
+"s7","sep_04","plot 13","wp","ni_p13_2",0.08
+"s7","sep_04","plot 4","wp","plla",0.2
+"s7","sep_04","plot 4","wp","plla",0.2
+"s7","sep_04","plot 4","wp","plla",0.2
+"s7","sep_04","plot 4","wp","ni_p4_1",0.05
+"s7","sep_04","plot 5","wp","coar",0.3
+"s7","sep_04","plot 13","wp","elre",0.15
+"s7","sep_04","plot 13","wp","ni_p13_1",0.13
+"s7","sep_04","plot 13","wp","elre",0.15
+"s7","sep_04","plot 5","wp","elre",0.1
+"s7","sep_04","plot 4","wp","lyar",0.1
+"s7","sep_04","plot 12","wp","coar",0.05
+"s7","sep_04","plot 5","wp","elre",0.1
+"s7","sep_04","plot 5","wp","elre",0.1
+"s7","sep_04","plot 4","wp","elre",0.08
+"s7","sep_04","plot 4","wp","elre",0.08
+"s7","sep_04","plot 5","wp","elre",0.1
+"s7","sep_04","plot 4","wp","elre",0.08
+"s7","sep_04","plot 5","wp","ni_p5_1",0.08
+"s7","sep_04","plot 12","wp","elre",0.1
+"s7","sep_04","plot 4","wp","lyar",0.1
+"s7","sep_04","plot 5","wp","ni_p5_1",0.08
+"s7","sep_04","plot 12","wp","fear",0.15
+"s7","sep_04","plot 12","wp","elre",0.1
+"s7","sep_04","plot 4","wp","elre",0.08
+"s7","sep_04","plot 5","wp","ni_p5_1",0.08
+"s7","sep_04","plot 4","wp","elre",0.08
+"s7","sep_04","plot 5","wp","coar",0.3
+"s7","sep_04","plot 12","wp","fear",0.15
+"s7","sep_04","plot 13","wp","ni_p13_2",0.08
+"s7","sep_04","plot 13","wp","ni_p13_1",0.13
+"s7","sep_04","plot 13","wp","ni_p13_2",0.08
+"s7","sep_04","plot 13","wp","ni_p13_2",0.08
+"s7","sep_04","plot 12","wp","fear",0.15
+"s7","sep_04","plot 13","wp","ni_p13_2",0.08
+"s7","sep_04","plot 4","wp","cadi",0.04
+"s7","sep_04","plot 12","wp","elre",0.1
+"s7","sep_04","plot 13","wp","cadi",0.04
+"s7","sep_04","plot 5","wp","fear",0.1
+"s7","sep_04","plot 4","wp","lyar",0.1
+"s7","sep_04","plot 5","wp","ni_p5_1",0.08
+"s7","sep_04","plot 13","wp","mear",0.04
+"s7","sep_04","plot 5","wp","fear",0.1
+"s7","sep_04","plot 5","wp","ni_p5_1",0.08
+"s7","sep_04","plot 4","wp","lyar",0.1
+"s7","sep_04","plot 12","wp","fear",0.15
+"s7","sep_04","plot 5","wp","ch",0.03
+"s7","sep_04","plot 5","wp","fear",0.1
+"s7","sep_04","plot 5","wp","fear",0.1
+"s7","sep_04","plot 12","wp","fear",0.15
+"s7","sep_04","plot 13","wp","plla",0.18
+"s7","sep_04","plot 5","wp","fear",0.1
+"s7","sep_04","plot 12","wp","trre",0.01
+"s7","sep_04","plot 4","wp","lyar",0.1
+"s7","sep_04","plot 13","wp","shar",0.02
+"s7","sep_04","plot 5","wp","trre",0.02
+"s7","sep_04","plot 4","wp","ni_p4_3",0.01
+"s8","sep_18","plot 4","wp","plla",0.2
+"s8","sep_18","plot 13","wp","elre",0.08
+"s8","sep_18","plot 5","wp","coar",0.4
+"s8","sep_18","plot 13","wp","elre",0.08
+"s8","sep_18","plot 5","wp","ch",0.03
+"s8","sep_18","plot 4","wp","plla",0.2
+"s8","sep_18","plot 5","wp","coar",0.4
+"s8","sep_18","plot 5","wp","plla",0.1
+"s8","sep_18","plot 12","wp","elre",0.6
+"s8","sep_18","plot 4","wp","plla",0.2
+"s8","sep_18","plot 13","wp","elre",0.08
+"s8","sep_18","plot 13","wp","ni_p13_1",0.15
+"s8","sep_18","plot 4","wp","lyar",0.1
+"s8","sep_18","plot 4","wp","elre",0.14
+"s8","sep_18","plot 13","wp","plla",0.25
+"s8","sep_18","plot 4","wp","ni_p4_1",0.08
+"s8","sep_18","plot 4","wp","ni_p4_1",0.02
+"s8","sep_18","plot 5","wp","coar",0.4
+"s8","sep_18","plot 5","wp","elre",0.15
+"s8","sep_18","plot 12","wp","coar",0.04
+"s8","sep_18","plot 4","wp","plla",0.2
+"s8","sep_18","plot 12","wp","elre",0.6
+"s8","sep_18","plot 4","wp","plla",0.2
+"s8","sep_18","plot 5","wp","coar",0.4
+"s8","sep_18","plot 4","wp","elre",0.14
+"s8","sep_18","plot 4","wp","elre",0.14
+"s8","sep_18","plot 12","wp","elre",0.6
+"s8","sep_18","plot 13","wp","elre",0.08
+"s8","sep_18","plot 5","wp","plla",0.1
+"s8","sep_18","plot 4","wp","elre",0.14
+"s8","sep_18","plot 5","wp","elre",0.15
+"s8","sep_18","plot 5","wp","fear",0.15
+"s8","sep_18","plot 5","wp","plla",0.1
+"s8","sep_18","plot 5","wp","elre",0.15
+"s8","sep_18","plot 5","wp","plla",0.1
+"s8","sep_18","plot 4","wp","lyar",0.1
+"s8","sep_18","plot 5","wp","fear",0.15
+"s8","sep_18","plot 12","wp","elre",0.6
+"s8","sep_18","plot 13","wp","ni_p13_1",0.15
+"s8","sep_18","plot 4","wp","elre",0.14
+"s8","sep_18","plot 5","wp","elre",0.15
+"s8","sep_18","plot 5","wp","elre",0.15
+"s8","sep_18","plot 5","wp","fear",0.15
+"s8","sep_18","plot 5","wp","ni_p5_1",0.08
+"s8","sep_18","plot 13","wp","ni_p13_2",0.12
+"s8","sep_18","plot 5","wp","fear",0.15
+"s8","sep_18","plot 5","wp","ni_p5_1",0.08
+"s8","sep_18","plot 5","wp","ni_p5_1",0.08
+"s8","sep_18","plot 12","wp","elre",0.6
+"s8","sep_18","plot 13","wp","ni_p13_2",0.12
+"s8","sep_18","plot 5","wp","ni_p5_1",0.08
+"s8","sep_18","plot 12","wp","fear",0.04
+"s8","sep_18","plot 5","wp","ni_p5_1",0.08
+"s8","sep_18","plot 13","wp","cadi",0.06
+"s8","sep_18","plot 13","wp","ni_p13_2",0.12
+"s8","sep_18","plot 13","wp","ni_p13_2",0.12
+"s8","sep_18","plot 4","wp","lyar",0.1
+"s8","sep_18","plot 5","wp","fear",0.15
+"s8","sep_18","plot 13","wp","ni_p13_2",0.12
+"s8","sep_18","plot 4","wp","lyar",0.1
+"s8","sep_18","plot 5","wp","coar",0.4
+"s8","sep_18","plot 13","wp","ni_p13_1",0.15
+"s8","sep_18","plot 13","wp","plla",0.25
+"s8","sep_18","plot 4","wp","cadi",0.03
+"s8","sep_18","plot 4","wp","lyar",0.1
+"s8","sep_18","plot 13","wp","asteraceae",0.02
+"s8","sep_18","plot 13","wp","plla",0.25
+"s8","sep_18","plot 12","wp","coar",0.04
+"s8","sep_18","plot 4","wp","ni_p4_2",0.01
+"s8","sep_18","plot 5","wp","mear",0.05
+"s8","sep_18","plot 5","wp","mear",0.05
+"s8","sep_18","plot 12","wp","melu",0.03
+"s8","sep_18","plot 13","wp","vepe",0.13
+"s8","sep_18","plot 5","wp","mear",0.05
+"s8","sep_18","plot 5","wp","mear",0.05
+"s8","sep_18","plot 12","wp","melu",0.03
+"s8","sep_18","plot 4","wp","bepe",0.01
+"s8","sep_18","plot 13","wp","vepe",0.13
+"s8","sep_18","plot 4","wp","gedi",0.01
+"s8","sep_18","plot 4","wp","ni_p4_3",0.01
+"s8","sep_18","plot 13","wp","vepe",0.13
+"s8","sep_18","plot 12","wp","mear",0.01
+"s8","sep_18","plot 12","wp","mear",0.01
+"s8","sep_18","plot 13","wp","vepe",0.13
+"s8","sep_18","plot 13","wp","vepe",0.13
+"s8","sep_18","plot 4","wp","bepe",0.01
+"s8","sep_18","plot 5","wp","mear",0.05
+"s8","sep_18","plot 12","wp","gedi",0.005
+"s8","sep_18","plot 4","wp","bepe",0.01
+"s9","oct_04","plot 4","wp","plla",0.2
+"s9","oct_04","plot 13","wp","elre",0.1
+"s9","oct_04","plot 5","wp","ch",0.02
+"s9","oct_04","plot 4","wp","elre",0.08
+"s9","oct_04","plot 5","wp","coar",0.35
+"s9","oct_04","plot 13","wp","elre",0.1
+"s9","oct_04","plot 13","wp","ni_p13_1",0.08
+"s9","oct_04","plot 4","wp","elre",0.08
+"s9","oct_04","plot 13","wp","elre",0.1
+"s9","oct_04","plot 4","wp","lyar",0.1
+"s9","oct_04","plot 4","wp","plla",0.2
+"s9","oct_04","plot 12","wp","coar",0.05
+"s9","oct_04","plot 13","wp","plla",0.14
+"s9","oct_04","plot 4","wp","ni_p4_1",0.03
+"s9","oct_04","plot 5","wp","coar",0.35
+"s9","oct_04","plot 4","wp","elre",0.08
+"s9","oct_04","plot 5","wp","elre",0.18
+"s9","oct_04","plot 12","wp","elre",0.6
+"s9","oct_04","plot 4","wp","plla",0.2
+"s9","oct_04","plot 12","wp","elre",0.6
+"s9","oct_04","plot 5","wp","plla",0.1
+"s9","oct_04","plot 5","wp","elre",0.18
+"s9","oct_04","plot 12","wp","elre",0.6
+"s9","oct_04","plot 13","wp","ni_p13_1",0.08
+"s9","oct_04","plot 13","wp","ni_p13_1",0.08
+"s9","oct_04","plot 4","wp","plla",0.2
+"s9","oct_04","plot 4","wp","plla",0.2
+"s9","oct_04","plot 5","wp","coar",0.35
+"s9","oct_04","plot 13","wp","ni_p13_3",0.06
+"s9","oct_04","plot 5","wp","elre",0.18
+"s9","oct_04","plot 5","wp","plla",0.1
+"s9","oct_04","plot 13","wp","ni_p13_1",0.08
+"s9","oct_04","plot 4","wp","elre",0.08
+"s9","oct_04","plot 12","wp","elre",0.6
+"s9","oct_04","plot 13","wp","elre",0.1
+"s9","oct_04","plot 5","wp","ni_p5_1",0.13
+"s9","oct_04","plot 4","wp","lyar",0.1
+"s9","oct_04","plot 4","wp","lyar",0.1
+"s9","oct_04","plot 5","wp","fear",0.12
+"s9","oct_04","plot 5","wp","ni_p5_1",0.13
+"s9","oct_04","plot 5","wp","ni_p5_1",0.13
+"s9","oct_04","plot 12","wp","elre",0.6
+"s9","oct_04","plot 5","wp","ni_p5_1",0.13
+"s9","oct_04","plot 12","wp","fear",0.04
+"s9","oct_04","plot 4","wp","elre",0.08
+"s9","oct_04","plot 4","wp","lyar",0.1
+"s9","oct_04","plot 5","wp","coar",0.35
+"s9","oct_04","plot 5","wp","elre",0.18
+"s9","oct_04","plot 5","wp","elre",0.18
+"s9","oct_04","plot 5","wp","ni_p5_1",0.13
+"s9","oct_04","plot 13","wp","ni_p13_1",0.08
+"s9","oct_04","plot 13","wp","ni_p13_2",0.08
+"s9","oct_04","plot 5","wp","fear",0.12
+"s9","oct_04","plot 5","wp","fear",0.12
+"s9","oct_04","plot 5","wp","fear",0.12
+"s9","oct_04","plot 5","wp","fear",0.12
+"s9","oct_04","plot 13","wp","ni_p13_2",0.08
+"s9","oct_04","plot 13","wp","ni_p13_2",0.08
+"s9","oct_04","plot 13","wp","cadi",0.04
+"s9","oct_04","plot 13","wp","ni_p13_2",0.08
+"s9","oct_04","plot 4","wp","lyar",0.1
+"s9","oct_04","plot 4","wp","cadi",0.1
+"s9","oct_04","plot 13","wp","ni_p13_2",0.08
+"s9","oct_04","plot 13","wp","plla",0.14
+"s9","oct_04","plot 5","wp","plla",0.1
+"s9","oct_04","plot 4","wp","ni_p4_2",0.03
+"s9","oct_04","plot 5","wp","coar",0.35
+"s9","oct_04","plot 13","wp","mear",0.01
+"s9","oct_04","plot 13","wp","plla",0.14
+"s9","oct_04","plot 13","wp","plla",0.14
+"s9","oct_04","plot 13","wp","plla",0.14
+"s9","oct_04","plot 5","wp","plla",0.1
+"s9","oct_04","plot 13","wp","gedi",0.02
+"s9","oct_04","plot 13","wp","shar",0.01
+"s9","oct_04","plot 13","wp","shar",0.01
+"s9","oct_04","plot 4","wp","gedi",0.02
+"s9","oct_04","plot 4","wp","ni_p4_5",0.01
+"s9","oct_04","plot 5","wp","mear",0.04
+"s9","oct_04","plot 13","wp","gedi",0.02
+"s9","oct_04","plot 12","wp","melu",0.04
+"s9","oct_04","plot 13","wp","vepe",0.17
+"s9","oct_04","plot 13","wp","shar",0.01
+"s9","oct_04","plot 4","wp","vepe",0.01
+"s9","oct_04","plot 5","wp","mear",0.04
+"s9","oct_04","plot 12","wp","melu",0.04
+"s9","oct_04","plot 4","wp","ni_p4_3",0.02
+"s9","oct_04","plot 5","wp","mear",0.04
+"s9","oct_04","plot 12","wp","melu",0.04
+"s9","oct_04","plot 12","wp","ni_p12_1",0.01
+"s9","oct_04","plot 13","wp","vepe",0.17
+"s9","oct_04","plot 13","wp","vepe",0.17
+"s9","oct_04","plot 4","wp","shar",0.03
+"s9","oct_04","plot 5","wp","mear",0.04
+"s9","oct_04","plot 13","wp","vepe",0.17
+"s9","oct_04","plot 4","wp","mean",0.01
+"s9","oct_04","plot 4","wp","shar",0.03
+"s9","oct_04","plot 4","wp","vepe",0.01
+"s9","oct_04","plot 5","wp","mear",0.04
+"s9","oct_04","plot 13","wp","gedi",0.02
+"s9","oct_04","plot 13","wp","mear",0.01
+"s9","oct_04","plot 13","wp","shar",0.01
+"s9","oct_04","plot 12","wp","bepe",0.01
+"s9","oct_04","plot 12","wp","mear",0.01
+"s9","oct_04","plot 13","wp","vepe",0.17
+"s9","oct_04","plot 13","wp","shar",0.01
+"s9","oct_04","plot 4","wp","shar",0.03
+"s9","oct_04","plot 5","wp","to",0.005
+"s9","oct_04","plot 4","wp","gedi",0.01

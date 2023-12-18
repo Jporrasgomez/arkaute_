@@ -1,1426 +1,1425 @@
-"sampling","plot","treatment","species","abundance"
-"sampling 0","plot 10","p","rapa",0.03
-"sampling 0","plot 10","p","rapa",0.03
-"sampling 0","plot 10","p","bepe",0.01
-"sampling 0","plot 10","p","brho",0.01
-"sampling 0","plot 10","p","brho",0.01
-"sampling 0","plot 10","p","coar",0.03
-"sampling 0","plot 10","p","coar",0.03
-"sampling 0","plot 10","p","coar",0.03
-"sampling 0","plot 10","p","ni cardo",0.1
-"sampling 0","plot 10","p","fear",0.4
-"sampling 0","plot 10","p","fear",0.4
-"sampling 0","plot 10","p","fear",0.4
-"sampling 0","plot 10","p","fear",0.4
-"sampling 0","plot 10","p","fear",0.4
-"sampling 0","plot 10","p","fear",0.4
-"sampling 0","plot 10","p","fear",0.4
-"sampling 0","plot 10","p","fear",0.4
-"sampling 0","plot 10","p","fear",0.4
-"sampling 0","plot 10","p","fear",0.4
-"sampling 0","plot 10","p","fear",0.4
-"sampling 0","plot 10","p","fear",0.4
-"sampling 0","plot 10","p","fear",0.4
-"sampling 0","plot 10","p","mear",0.05
-"sampling 0","plot 10","p","mear",0.05
-"sampling 0","plot 10","p","mear",0.05
-"sampling 0","plot 10","p","mear",0.05
-"sampling 0","plot 10","p","pore",0.08
-"sampling 0","plot 10","p","pore",0.08
-"sampling 0","plot 10","p","pore",0.08
-"sampling 0","plot 10","p","pore",0.08
-"sampling 0","plot 10","p","tono",0.1
-"sampling 0","plot 10","p","tono",0.1
-"sampling 0","plot 10","p","tono",0.1
-"sampling 0","plot 10","p","tono",0.1
-"sampling 0","plot 10","p","tono",0.1
-"sampling 0","plot 10","p","tono",0.1
-"sampling 0","plot 10","p","tono",0.1
-"sampling 0","plot 10","p","visa",0.15
-"sampling 0","plot 10","p","visa",0.15
-"sampling 0","plot 10","p","visa",0.15
-"sampling 0","plot 10","p","visa",0.15
-"sampling 0","plot 10","p","visa",0.15
-"sampling 0","plot 10","p","visa",0.15
-"sampling 0","plot 10","p","visa",0.15
-"sampling 0","plot 10","p","visa",0.15
-"sampling 10","plot 10","p","bepe",0.01
-"sampling 10","plot 10","p","ch",0.03
-"sampling 10","plot 10","p","ch",0.03
-"sampling 10","plot 10","p","coar",0.1
-"sampling 10","plot 10","p","coar",0.1
-"sampling 10","plot 10","p","coar",0.1
-"sampling 10","plot 10","p","coar",0.1
-"sampling 10","plot 10","p","coar",0.1
-"sampling 10","plot 10","p","elre",0.25
-"sampling 10","plot 10","p","elre",0.25
-"sampling 10","plot 10","p","elre",0.25
-"sampling 10","plot 10","p","elre",0.25
-"sampling 10","plot 10","p","elre",0.25
-"sampling 10","plot 10","p","gedi",0.05
-"sampling 10","plot 10","p","gedi",0.05
-"sampling 10","plot 10","p","gedi",0.05
-"sampling 10","plot 10","p","gedi",0.05
-"sampling 10","plot 10","p","gedi",0.05
-"sampling 10","plot 10","p","lyar",0.06
-"sampling 10","plot 10","p","lyar",0.06
-"sampling 10","plot 10","p","mean",0.06
-"sampling 10","plot 10","p","mean",0.06
-"sampling 10","plot 10","p","mean",0.06
-"sampling 10","plot 10","p","mear",0.05
-"sampling 10","plot 10","p","mear",0.05
-"sampling 10","plot 10","p","mear",0.05
-"sampling 10","plot 10","p","ni_p10_2",0.02
-"sampling 10","plot 10","p","ni_p10_5",0.07
-"sampling 10","plot 10","p","ni_p10_6",0.07
-"sampling 10","plot 10","p","ni_p10_7",0.01
-"sampling 10","plot 10","p","pore",0.08
-"sampling 10","plot 10","p","pore",0.08
-"sampling 10","plot 10","p","pore",0.08
-"sampling 10","plot 10","p","pore",0.08
-"sampling 10","plot 10","p","pore",0.08
-"sampling 10","plot 10","p","to",0.01
-"sampling 10","plot 10","p","to",0.01
-"sampling 10","plot 10","p","to",0.01
-"sampling 10","plot 10","p","to",0.01
-"sampling 10","plot 10","p","to",0.01
-"sampling 10","plot 10","p","veof",0.02
-"sampling 10","plot 10","p","vepe",0.03
-"sampling 10","plot 10","p","vepe",0.03
-"sampling 10","plot 10","p","vepe",0.03
-"sampling 10","plot 10","p","vepe",0.03
-"sampling 10","plot 10","p","vepe",0.03
-"sampling 2","plot 10","p","coar",0.012
-"sampling 2","plot 10","p","coar",0.012
-"sampling 2","plot 10","p","coar",0.012
-"sampling 2","plot 10","p","elre",0.015
-"sampling 2","plot 10","p","elre",0.015
-"sampling 2","plot 10","p","elre",0.015
-"sampling 2","plot 10","p","pore",0.007
-"sampling 2","plot 10","p","pore",0.007
-"sampling 2","plot 10","p","pore",0.007
-"sampling 3","plot 10","p","coar",0.1
-"sampling 3","plot 10","p","coar",0.1
-"sampling 3","plot 10","p","coar",0.1
-"sampling 3","plot 10","p","coar",0.1
-"sampling 3","plot 10","p","coar",0.1
-"sampling 3","plot 10","p","elre",0.12
-"sampling 3","plot 10","p","elre",0.12
-"sampling 3","plot 10","p","elre",0.12
-"sampling 3","plot 10","p","elre",0.12
-"sampling 3","plot 10","p","elre",0.12
-"sampling 3","plot 10","p","gedi",0.01
-"sampling 3","plot 10","p","plla",0.02
-"sampling 3","plot 10","p","pore",0.08
-"sampling 3","plot 10","p","pore",0.08
-"sampling 3","plot 10","p","pore",0.08
-"sampling 3","plot 10","p","pore",0.08
-"sampling 3","plot 10","p","pore",0.08
-"sampling 3","plot 10","p","shar",0.01
-"sampling 3","plot 10","p","vepe",0.01
-"sampling 3","plot 10","p","vepe",0.01
-"sampling 3","plot 10","p","vepe",0.01
-"sampling 4","plot 10","p","coar",0.1
-"sampling 4","plot 10","p","coar",0.1
-"sampling 4","plot 10","p","coar",0.1
-"sampling 4","plot 10","p","coar",0.1
-"sampling 4","plot 10","p","coar",0.1
-"sampling 4","plot 10","p","elre",0.15
-"sampling 4","plot 10","p","elre",0.15
-"sampling 4","plot 10","p","elre",0.15
-"sampling 4","plot 10","p","elre",0.15
-"sampling 4","plot 10","p","elre",0.15
-"sampling 4","plot 10","p","he",0.01
-"sampling 4","plot 10","p","mean",0.01
-"sampling 4","plot 10","p","pore",0.09
-"sampling 4","plot 10","p","pore",0.09
-"sampling 4","plot 10","p","pore",0.09
-"sampling 4","plot 10","p","pore",0.09
-"sampling 4","plot 10","p","pore",0.09
-"sampling 4","plot 10","p","shar",0.04
-"sampling 4","plot 10","p","shar",0.04
-"sampling 4","plot 10","p","shar",0.04
-"sampling 4","plot 10","p","vepe",0.03
-"sampling 4","plot 10","p","vepe",0.03
-"sampling 4","plot 10","p","vepe",0.03
-"sampling 4","plot 10","p","vepe",0.03
-"sampling 5","plot 10","p","ch",0.02
-"sampling 5","plot 10","p","coar",0.15
-"sampling 5","plot 10","p","coar",0.15
-"sampling 5","plot 10","p","coar",0.15
-"sampling 5","plot 10","p","coar",0.15
-"sampling 5","plot 10","p","coar",0.15
-"sampling 5","plot 10","p","elre",0.25
-"sampling 5","plot 10","p","elre",0.25
-"sampling 5","plot 10","p","elre",0.25
-"sampling 5","plot 10","p","elre",0.25
-"sampling 5","plot 10","p","elre",0.25
-"sampling 5","plot 10","p","he",0.06
-"sampling 5","plot 10","p","libi",0.01
-"sampling 5","plot 10","p","mean",0.01
-"sampling 5","plot 10","p","mean",0.01
-"sampling 5","plot 10","p","ni_p10_5",0.01
-"sampling 5","plot 10","p","pore",0.12
-"sampling 5","plot 10","p","pore",0.12
-"sampling 5","plot 10","p","pore",0.12
-"sampling 5","plot 10","p","pore",0.12
-"sampling 5","plot 10","p","pore",0.12
-"sampling 5","plot 10","p","shar",0.04
-"sampling 5","plot 10","p","shar",0.04
-"sampling 5","plot 10","p","veof",0.02
-"sampling 5","plot 10","p","vepe",0.07
-"sampling 5","plot 10","p","vepe",0.07
-"sampling 6","plot 10","p","ch",0.03
-"sampling 6","plot 10","p","ch",0.03
-"sampling 6","plot 10","p","coar",0.12
-"sampling 6","plot 10","p","coar",0.12
-"sampling 6","plot 10","p","coar",0.12
-"sampling 6","plot 10","p","coar",0.12
-"sampling 6","plot 10","p","coar",0.12
-"sampling 6","plot 10","p","elre",0.3
-"sampling 6","plot 10","p","elre",0.3
-"sampling 6","plot 10","p","elre",0.3
-"sampling 6","plot 10","p","elre",0.3
-"sampling 6","plot 10","p","elre",0.3
-"sampling 6","plot 10","p","he",0.18
-"sampling 6","plot 10","p","mean",0.02
-"sampling 6","plot 10","p","mean",0.02
-"sampling 6","plot 10","p","mear",0.01
-"sampling 6","plot 10","p","ni_p10_5",0.03
-"sampling 6","plot 10","p","pore",0.15
-"sampling 6","plot 10","p","pore",0.15
-"sampling 6","plot 10","p","pore",0.15
-"sampling 6","plot 10","p","pore",0.15
-"sampling 6","plot 10","p","pore",0.15
-"sampling 6","plot 10","p","veof",0.01
-"sampling 7","plot 10","p","ch",0.06
-"sampling 7","plot 10","p","ch",0.06
-"sampling 7","plot 10","p","coar",0.1
-"sampling 7","plot 10","p","coar",0.1
-"sampling 7","plot 10","p","coar",0.1
-"sampling 7","plot 10","p","coar",0.1
-"sampling 7","plot 10","p","coar",0.1
-"sampling 7","plot 10","p","elre",0.35
-"sampling 7","plot 10","p","elre",0.35
-"sampling 7","plot 10","p","elre",0.35
-"sampling 7","plot 10","p","elre",0.35
-"sampling 7","plot 10","p","elre",0.35
-"sampling 0","plot 10","p","fear",0.01
-"sampling 7","plot 10","p","lyar",0.04
-"sampling 7","plot 10","p","mean",0.04
-"sampling 7","plot 10","p","mean",0.04
-"sampling 7","plot 10","p","mear",0.03
-"sampling 7","plot 10","p","ni_p10_5",0.03
-"sampling 7","plot 10","p","ni_p10_6",0.01
-"sampling 7","plot 10","p","pore",0.15
-"sampling 7","plot 10","p","pore",0.15
-"sampling 7","plot 10","p","pore",0.15
-"sampling 7","plot 10","p","pore",0.15
-"sampling 7","plot 10","p","pore",0.15
-"sampling 7","plot 10","p","shar",0.02
-"sampling 7","plot 10","p","veof",0.02
-"sampling 8","plot 10","p","bepe",0.005
-"sampling 8","plot 10","p","ch",0.05
-"sampling 8","plot 10","p","ch",0.05
-"sampling 8","plot 10","p","coar",0.15
-"sampling 8","plot 10","p","coar",0.15
-"sampling 8","plot 10","p","coar",0.15
-"sampling 8","plot 10","p","coar",0.15
-"sampling 8","plot 10","p","coar",0.15
-"sampling 8","plot 10","p","elre",0.4
-"sampling 8","plot 10","p","elre",0.4
-"sampling 8","plot 10","p","elre",0.4
-"sampling 8","plot 10","p","elre",0.4
-"sampling 8","plot 10","p","elre",0.4
-"sampling 8","plot 10","p","lyar",0.06
-"sampling 8","plot 10","p","mean",0.06
-"sampling 8","plot 10","p","mean",0.06
-"sampling 8","plot 10","p","mear",0.03
-"sampling 8","plot 10","p","mear",0.03
-"sampling 8","plot 10","p","ni_p10_2",0.03
-"sampling 8","plot 10","p","ni_p10_2",0.03
-"sampling 8","plot 10","p","ni_p10_5",0.08
-"sampling 8","plot 10","p","ni_p10_6",0.06
-"sampling 8","plot 10","p","pore",0.09
-"sampling 8","plot 10","p","pore",0.09
-"sampling 8","plot 10","p","pore",0.09
-"sampling 8","plot 10","p","pore",0.09
-"sampling 8","plot 10","p","pore",0.09
-"sampling 8","plot 10","p","to",0.005
-"sampling 8","plot 10","p","veof",0.02
-"sampling 9","plot 10","p","ch",0.04
-"sampling 9","plot 10","p","ch",0.04
-"sampling 9","plot 10","p","coar",0.1
-"sampling 9","plot 10","p","coar",0.1
-"sampling 9","plot 10","p","coar",0.1
-"sampling 9","plot 10","p","coar",0.1
-"sampling 9","plot 10","p","coar",0.1
-"sampling 9","plot 10","p","elre",0.2
-"sampling 9","plot 10","p","elre",0.2
-"sampling 9","plot 10","p","elre",0.2
-"sampling 9","plot 10","p","elre",0.2
-"sampling 9","plot 10","p","elre",0.2
-"sampling 9","plot 10","p","gedi",0.08
-"sampling 9","plot 10","p","gedi",0.08
-"sampling 9","plot 10","p","gedi",0.08
-"sampling 9","plot 10","p","gedi",0.08
-"sampling 9","plot 10","p","gedi",0.08
-"sampling 9","plot 10","p","lyar",0.04
-"sampling 9","plot 10","p","mean",0.04
-"sampling 9","plot 10","p","mean",0.04
-"sampling 9","plot 10","p","mear",0.04
-"sampling 9","plot 10","p","mear",0.04
-"sampling 9","plot 10","p","ni_p10_2",0.01
-"sampling 9","plot 10","p","ni_p10_5",0.06
-"sampling 9","plot 10","p","ni_p10_6",0.05
-"sampling 9","plot 10","p","pore",0.11
-"sampling 9","plot 10","p","pore",0.11
-"sampling 9","plot 10","p","pore",0.11
-"sampling 9","plot 10","p","pore",0.11
-"sampling 9","plot 10","p","pore",0.11
-"sampling 9","plot 10","p","to",0.02
-"sampling 9","plot 10","p","to",0.02
-"sampling 9","plot 10","p","veof",0.02
-"sampling 9","plot 10","p","veof",0.01
-"sampling 9","plot 10","p","veof",0.01
-"sampling 11","plot 10","p","mean",0.05
-"sampling 11","plot 10","p","mean",0.05
-"sampling 11","plot 10","p","mean",0.05
-"sampling 11","plot 10","p","lyar",0.1
-"sampling 11","plot 10","p","ni_p10_6",0.08
-"sampling 11","plot 10","p","ni_p10_2",0.03
-"sampling 11","plot 10","p","ni_p10_5",0.08
-"sampling 11","plot 10","p","elre",0.18
-"sampling 11","plot 10","p","elre",0.18
-"sampling 11","plot 10","p","elre",0.18
-"sampling 11","plot 10","p","elre",0.18
-"sampling 11","plot 10","p","elre",0.18
-"sampling 11","plot 10","p","gedi",0.09
-"sampling 11","plot 10","p","gedi",0.09
-"sampling 11","plot 10","p","gedi",0.09
-"sampling 11","plot 10","p","gedi",0.09
-"sampling 11","plot 10","p","gedi",0.09
-"sampling 11","plot 10","p","ni_p10_8",0.01
-"sampling 11","plot 10","p","vepe",0.04
-"sampling 11","plot 10","p","vepe",0.04
-"sampling 11","plot 10","p","vepe",0.04
-"sampling 11","plot 10","p","vepe",0.04
-"sampling 11","plot 10","p","vepe",0.04
-"sampling 11","plot 10","p","ni_p10_7",0.03
-"sampling 11","plot 10","p","plla",0.01
-"sampling 11","plot 10","p","mear",0.05
-"sampling 11","plot 10","p","mear",0.05
-"sampling 11","plot 10","p","veof",0.01
-"sampling 11","plot 10","p","veof",0.01
-"sampling 11","plot 10","p","pore",0.04
-"sampling 11","plot 10","p","pore",0.04
-"sampling 11","plot 10","p","pore",0.04
-"sampling 11","plot 10","p","pore",0.04
-"sampling 11","plot 10","p","pore",0.04
-"sampling 11","plot 10","p","shar",0.005
-"sampling 11","plot 10","p","to",0.03
-"sampling 11","plot 10","p","to",0.03
-"sampling 11","plot 10","p","to",0.03
-"sampling 11","plot 10","p","to",0.03
-"sampling 11","plot 10","p","to",0.03
-"sampling 11","plot 10","p","kisp",0.01
-"sampling 11","plot 10","p","ni_p10_9",0.005
-"sampling 11","plot 10","p","ni_p10_9",0.005
-"sampling 11","plot 10","p","plla",0.01
-"sampling 11","plot 10","p","asteraceae",0.005
-"sampling 11","plot 10","p","bepe",0.01
-"sampling 8","plot 10","p","gedi",0.05
-"sampling 8","plot 10","p","gedi",0.05
-"sampling 8","plot 10","p","gedi",0.05
-"sampling 8","plot 10","p","gedi",0.05
-"sampling 8","plot 10","p","gedi",0.05
-"sampling 0","plot 10","p","fear",0.4
-"sampling 0","plot 10","p","fear",0.4
-"sampling 0","plot 10","p","fear",0.4
-"sampling 0","plot 15","p","rapa",0.001
-"sampling 0","plot 15","p","rapa",0.001
-"sampling 0","plot 15","p","avst",0.005
-"sampling 0","plot 15","p","avst",0.005
-"sampling 0","plot 15","p","avst",0.005
-"sampling 0","plot 15","p","avst",0.005
-"sampling 0","plot 15","p","avst",0.005
-"sampling 0","plot 15","p","avst",0.005
-"sampling 0","plot 15","p","brst",0.95
-"sampling 0","plot 15","p","brst",0.95
-"sampling 0","plot 15","p","brst",0.95
-"sampling 0","plot 15","p","brst",0.95
-"sampling 0","plot 15","p","brst",0.95
-"sampling 0","plot 15","p","brst",0.95
-"sampling 0","plot 15","p","brst",0.95
-"sampling 0","plot 15","p","brst",0.95
-"sampling 0","plot 15","p","brst",0.95
-"sampling 0","plot 15","p","brst",0.95
-"sampling 0","plot 15","p","brst",0.95
-"sampling 0","plot 15","p","brst",0.95
-"sampling 0","plot 15","p","brst",0.95
-"sampling 0","plot 15","p","brst",0.95
-"sampling 0","plot 15","p","brst",0.95
-"sampling 0","plot 15","p","brst",0.95
-"sampling 0","plot 15","p","brst",0.95
-"sampling 0","plot 15","p","brst",0.95
-"sampling 0","plot 15","p","brst",0.95
-"sampling 0","plot 15","p","brst",0.95
-"sampling 0","plot 15","p","gemo",0.005
-"sampling 0","plot 15","p","gemo",0.005
-"sampling 0","plot 15","p","shar",0.002
-"sampling 0","plot 15","p","shar",0.002
-"sampling 0","plot 15","p","shar",0.002
-"sampling 0","plot 15","p","shar",0.002
-"sampling 0","plot 15","p","trre",0.02
-"sampling 0","plot 15","p","trre",0.02
-"sampling 0","plot 15","p","trre",0.02
-"sampling 0","plot 15","p","trre",0.02
-"sampling 0","plot 15","p","trre",0.02
-"sampling 10","plot 15","p","am",0.45
-"sampling 10","plot 15","p","coar",0.1
-"sampling 10","plot 15","p","coar",0.1
-"sampling 10","plot 15","p","coar",0.1
-"sampling 10","plot 15","p","coar",0.1
-"sampling 10","plot 15","p","coar",0.1
-"sampling 10","plot 15","p","mean",0.1
-"sampling 10","plot 15","p","mean",0.1
-"sampling 10","plot 15","p","mean",0.1
-"sampling 10","plot 15","p","mean",0.1
-"sampling 10","plot 15","p","mear",0.05
-"sampling 10","plot 15","p","mear",0.05
-"sampling 10","plot 15","p","melu",0.05
-"sampling 10","plot 15","p","melu",0.05
-"sampling 10","plot 15","p","ni_p15_4",0.04
-"sampling 10","plot 15","p","ni_p15_4",0.04
-"sampling 10","plot 15","p","ni_p15_4",0.04
-"sampling 10","plot 15","p","ni_p15_4",0.04
-"sampling 10","plot 15","p","ni_p15_4",0.04
-"sampling 10","plot 15","p","ni_p15_5",0.01
-"sampling 10","plot 15","p","shar",0.08
-"sampling 10","plot 15","p","shar",0.08
-"sampling 10","plot 15","p","shar",0.08
-"sampling 10","plot 15","p","shar",0.08
-"sampling 10","plot 15","p","shar",0.08
-"sampling 10","plot 15","p","veof",0.01
-"sampling 10","plot 15","p","vepe",0.02
-"sampling 10","plot 15","p","vepe",0.02
-"sampling 10","plot 15","p","vepe",0.02
-"sampling 10","plot 15","p","vepe",0.02
-"sampling 10","plot 15","p","vepe",0.02
-"sampling 2","plot 15","p","elre",0.01
-"sampling 2","plot 15","p","elre",0.01
-"sampling 2","plot 15","p","elre",0.01
-"sampling 3","plot 15","p","am",0.01
-"sampling 3","plot 15","p","brst",0.04
-"sampling 3","plot 15","p","elre",0.03
-"sampling 3","plot 15","p","elre",0.03
-"sampling 3","plot 15","p","elre",0.03
-"sampling 3","plot 15","p","elre",0.03
-"sampling 3","plot 15","p","elre",0.03
-"sampling 3","plot 15","p","elre",0.03
-"sampling 3","plot 15","p","elre",0.03
-"sampling 3","plot 15","p","mean",0.01
-"sampling 4","plot 15","p","am",0.04
-"sampling 4","plot 15","p","brst",0.03
-"sampling 4","plot 15","p","brst",0.03
-"sampling 4","plot 15","p","dagl",0.02
-"sampling 4","plot 15","p","dagl",0.02
-"sampling 4","plot 15","p","elre",0.02
-"sampling 0","plot 10","p","fear",0.03
-"sampling 4","plot 15","p","me",0.01
-"sampling 4","plot 15","p","mean",0.03
-"sampling 4","plot 15","p","plla",0.01
-"sampling 4","plot 15","p","plla",0.01
-"sampling 4","plot 15","p","shar",0.01
-"sampling 4","plot 15","p","shar",0.01
-"sampling 4","plot 15","p","shar",0.01
-"sampling 4","plot 15","p","vepe",0.02
-"sampling 0","plot 10","p","fear",0.4
-"sampling 5","plot 15","p","am",0.25
-"sampling 5","plot 15","p","brho",0.01
-"sampling 5","plot 15","p","elre",0.06
-"sampling 5","plot 15","p","mean",0.08
-"sampling 5","plot 15","p","mean",0.08
-"sampling 5","plot 15","p","mean",0.08
-"sampling 5","plot 15","p","mear",0.005
-"sampling 5","plot 15","p","melu",0.04
-"sampling 5","plot 15","p","melu",0.04
-"sampling 5","plot 15","p","melu",0.04
-"sampling 5","plot 15","p","ni_p15_4",0.04
-"sampling 5","plot 15","p","ni_p15_4",0.04
-"sampling 5","plot 15","p","ni_p15_4",0.04
-"sampling 5","plot 15","p","plla",0.01
-"sampling 5","plot 15","p","shar",0.03
-"sampling 5","plot 15","p","shar",0.03
-"sampling 5","plot 15","p","shar",0.03
-"sampling 5","plot 15","p","shar",0.03
-"sampling 5","plot 15","p","shar",0.03
-"sampling 5","plot 15","p","vepe",0.05
-"sampling 6","plot 15","p","am",0.5
-"sampling 6","plot 15","p","coar",0.04
-"sampling 6","plot 15","p","coar",0.04
-"sampling 6","plot 15","p","coar",0.04
-"sampling 6","plot 15","p","coar",0.04
-"sampling 6","plot 15","p","coar",0.04
-"sampling 6","plot 15","p","mean",0.13
-"sampling 6","plot 15","p","mean",0.13
-"sampling 6","plot 15","p","mean",0.13
-"sampling 6","plot 15","p","mear",0.05
-"sampling 6","plot 15","p","mear",0.05
-"sampling 6","plot 15","p","mear",0.05
-"sampling 6","plot 15","p","mear",0.05
-"sampling 6","plot 15","p","melu",0.08
-"sampling 6","plot 15","p","melu",0.08
-"sampling 6","plot 15","p","melu",0.08
-"sampling 6","plot 15","p","ni_p15_4",0.11
-"sampling 6","plot 15","p","ni_p15_4",0.11
-"sampling 6","plot 15","p","ni_p15_4",0.11
-"sampling 6","plot 15","p","ni_p15_4",0.11
-"sampling 6","plot 15","p","ni_p15_4",0.11
-"sampling 6","plot 15","p","plla",0.06
-"sampling 6","plot 15","p","plla",0.06
-"sampling 6","plot 15","p","shar",0.02
-"sampling 6","plot 15","p","shar",0.02
-"sampling 6","plot 15","p","shar",0.02
-"sampling 6","plot 15","p","shar",0.02
-"sampling 6","plot 15","p","shar",0.02
-"sampling 6","plot 15","p","veof",0.01
-"sampling 6","plot 15","p","vepe",0.02
-"sampling 7","plot 15","p","am",0.45
-"sampling 7","plot 15","p","coar",0.06
-"sampling 7","plot 15","p","coar",0.06
-"sampling 7","plot 15","p","coar",0.06
-"sampling 7","plot 15","p","coar",0.06
-"sampling 7","plot 15","p","coar",0.06
-"sampling 7","plot 15","p","lyar",0.01
-"sampling 7","plot 15","p","mean",0.15
-"sampling 7","plot 15","p","mean",0.15
-"sampling 7","plot 15","p","mean",0.15
-"sampling 7","plot 15","p","mear",0.06
-"sampling 7","plot 15","p","mear",0.06
-"sampling 7","plot 15","p","melu",0.1
-"sampling 7","plot 15","p","melu",0.1
-"sampling 7","plot 15","p","melu",0.1
-"sampling 7","plot 15","p","melu",0.1
-"sampling 7","plot 15","p","melu",0.1
-"sampling 7","plot 15","p","ni_p15_4",0.06
-"sampling 7","plot 15","p","ni_p15_4",0.06
-"sampling 7","plot 15","p","ni_p15_4",0.06
-"sampling 7","plot 15","p","ni_p15_4",0.06
-"sampling 7","plot 15","p","ni_p15_4",0.06
-"sampling 7","plot 15","p","ni_p15_4",0.06
-"sampling 7","plot 15","p","plla",0.04
-"sampling 7","plot 15","p","plla",0.04
-"sampling 7","plot 15","p","shar",0.05
-"sampling 7","plot 15","p","shar",0.05
-"sampling 7","plot 15","p","shar",0.05
-"sampling 7","plot 15","p","shar",0.05
-"sampling 7","plot 15","p","veof",0.02
-"sampling 7","plot 15","p","vepe",0.03
-"sampling 8","plot 15","p","am",0.45
-"sampling 8","plot 15","p","coar",0.07
-"sampling 8","plot 15","p","coar",0.07
-"sampling 8","plot 15","p","coar",0.07
-"sampling 8","plot 15","p","coar",0.07
-"sampling 8","plot 15","p","coar",0.07
-"sampling 8","plot 15","p","mean",0.12
-"sampling 8","plot 15","p","mean",0.12
-"sampling 8","plot 15","p","mean",0.12
-"sampling 8","plot 15","p","mear",0.09
-"sampling 8","plot 15","p","mear",0.09
-"sampling 8","plot 15","p","melu",0.09
-"sampling 8","plot 15","p","melu",0.09
-"sampling 8","plot 15","p","melu",0.09
-"sampling 8","plot 15","p","melu",0.09
-"sampling 8","plot 15","p","ni_p15_4",0.07
-"sampling 8","plot 15","p","ni_p15_4",0.07
-"sampling 8","plot 15","p","ni_p15_4",0.07
-"sampling 8","plot 15","p","ni_p15_4",0.07
-"sampling 8","plot 15","p","ni_p15_4",0.07
-"sampling 8","plot 15","p","ni_p15_5",0.02
-"sampling 8","plot 15","p","ni_p15_5",0.02
-"sampling 8","plot 15","p","ni_p15_5",0.02
-"sampling 8","plot 15","p","plla",0.03
-"sampling 8","plot 15","p","shar",0.03
-"sampling 8","plot 15","p","shar",0.03
-"sampling 8","plot 15","p","shar",0.03
-"sampling 8","plot 15","p","shar",0.03
-"sampling 8","plot 15","p","veof",0.03
-"sampling 8","plot 15","p","vepe",0.03
-"sampling 9","plot 15","p","am",0.45
-"sampling 9","plot 15","p","coar",0.1
-"sampling 9","plot 15","p","coar",0.1
-"sampling 9","plot 15","p","coar",0.1
-"sampling 9","plot 15","p","coar",0.1
-"sampling 9","plot 15","p","coar",0.1
-"sampling 9","plot 15","p","mean",0.1
-"sampling 9","plot 15","p","mean",0.1
-"sampling 9","plot 15","p","mean",0.1
-"sampling 9","plot 15","p","mean",0.1
-"sampling 9","plot 15","p","mear",0.04
-"sampling 9","plot 15","p","mear",0.04
-"sampling 9","plot 15","p","melu",0.05
-"sampling 9","plot 15","p","melu",0.05
-"sampling 9","plot 15","p","melu",0.05
-"sampling 9","plot 15","p","ni_p15_4",0.07
-"sampling 9","plot 15","p","ni_p15_4",0.07
-"sampling 9","plot 15","p","ni_p15_4",0.07
-"sampling 9","plot 15","p","ni_p15_4",0.07
-"sampling 9","plot 15","p","ni_p15_4",0.07
-"sampling 9","plot 15","p","plla",0.05
-"sampling 9","plot 15","p","plla",0.05
-"sampling 9","plot 15","p","shar",0.05
-"sampling 9","plot 15","p","shar",0.05
-"sampling 9","plot 15","p","shar",0.05
-"sampling 9","plot 15","p","shar",0.05
-"sampling 9","plot 15","p","shar",0.05
-"sampling 9","plot 15","p","veof",0.01
-"sampling 9","plot 15","p","vepe",0.02
-"sampling 9","plot 15","p","vepe",0.02
-"sampling 9","plot 15","p","vepe",0.02
-"sampling 9","plot 15","p","vepe",0.02
-"sampling 9","plot 15","p","vepe",0.02
-"sampling 11","plot 15","p","mear",0.08
-"sampling 11","plot 15","p","mear",0.08
-"sampling 11","plot 15","p","mear",0.08
-"sampling 11","plot 15","p","melu",0.08
-"sampling 11","plot 15","p","melu",0.08
-"sampling 11","plot 15","p","melu",0.08
-"sampling 11","plot 15","p","melu",0.08
-"sampling 11","plot 15","p","melu",0.08
-"sampling 11","plot 15","p","veof",0.02
-"sampling 11","plot 15","p","vepe",0.05
-"sampling 11","plot 15","p","vepe",0.05
-"sampling 11","plot 15","p","vepe",0.05
-"sampling 11","plot 15","p","vepe",0.05
-"sampling 11","plot 15","p","vepe",0.05
-"sampling 11","plot 15","p","shar",0.06
-"sampling 11","plot 15","p","shar",0.06
-"sampling 11","plot 15","p","shar",0.06
-"sampling 11","plot 15","p","shar",0.06
-"sampling 11","plot 15","p","shar",0.06
-"sampling 11","plot 15","p","plla",0.04
-"sampling 11","plot 15","p","plla",0.04
-"sampling 11","plot 15","p","plla",0.04
-"sampling 11","plot 15","p","plla",0.04
-"sampling 11","plot 15","p","plla",0.04
-"sampling 11","plot 15","p","ni_p15_4",0.1
-"sampling 11","plot 15","p","ni_p15_4",0.1
-"sampling 11","plot 15","p","ni_p15_4",0.1
-"sampling 11","plot 15","p","ni_p15_4",0.1
-"sampling 11","plot 15","p","ni_p15_4",0.1
-"sampling 11","plot 15","p","ni_p15_5",0.03
-"sampling 11","plot 15","p","ni_p15_5",0.03
-"sampling 11","plot 15","p","to",0.005
-"sampling 11","plot 15","p","coar",0.02
-"sampling 11","plot 15","p","coar",0.02
-"sampling 11","plot 15","p","coar",0.02
-"sampling 11","plot 15","p","coar",0.02
-"sampling 11","plot 15","p","coar",0.02
-"sampling 11","plot 15","p","visa",0.02
-"sampling 11","plot 15","p","mean",0.1
-"sampling 11","plot 15","p","mean",0.1
-"sampling 11","plot 15","p","mean",0.1
-"sampling 11","plot 15","p","mean",0.1
-"sampling 11","plot 15","p","mean",0.1
-"sampling 0","plot 10","p","fear",0.4
-"sampling 0","plot 3","p","rapa",0.05
-"sampling 0","plot 3","p","rapa",0.05
-"sampling 0","plot 3","p","rapa",0.05
-"sampling 0","plot 3","p","apar",0.02
-"sampling 0","plot 3","p","bepe",0.02
-"sampling 0","plot 3","p","bepe",0.02
-"sampling 0","plot 3","p","brho",0.25
-"sampling 0","plot 3","p","brho",0.25
-"sampling 0","plot 3","p","brho",0.25
-"sampling 0","plot 3","p","brho",0.25
-"sampling 0","plot 3","p","brho",0.25
-"sampling 0","plot 3","p","brho",0.25
-"sampling 0","plot 3","p","brho",0.25
-"sampling 0","plot 3","p","brho",0.25
-"sampling 0","plot 3","p","brho",0.25
-"sampling 0","plot 3","p","brho",0.25
-"sampling 0","plot 3","p","brho",0.25
-"sampling 0","plot 3","p","brho",0.25
-"sampling 0","plot 3","p","brst",0.4
-"sampling 0","plot 3","p","brst",0.4
-"sampling 0","plot 3","p","brst",0.4
-"sampling 0","plot 3","p","brst",0.4
-"sampling 0","plot 3","p","brst",0.4
-"sampling 0","plot 3","p","brst",0.4
-"sampling 0","plot 3","p","brst",0.4
-"sampling 0","plot 3","p","brst",0.4
-"sampling 0","plot 3","p","brst",0.4
-"sampling 0","plot 3","p","brst",0.4
-"sampling 0","plot 3","p","brst",0.4
-"sampling 0","plot 3","p","brst",0.4
-"sampling 0","plot 3","p","brst",0.4
-"sampling 0","plot 3","p","brst",0.4
-"sampling 0","plot 3","p","brst",0.4
-"sampling 0","plot 3","p","brst",0.4
-"sampling 0","plot 3","p","brst",0.4
-"sampling 0","plot 3","p","brst",0.4
-"sampling 0","plot 3","p","brst",0.4
-"sampling 0","plot 3","p","brst",0.4
-"sampling 0","plot 3","p","coar",0.01
-"sampling 0","plot 3","p","dagl",0.03
-"sampling 0","plot 3","p","fear",0.03
-"sampling 0","plot 3","p","gedi",0.03
-"sampling 0","plot 3","p","gedi",0.03
-"sampling 0","plot 3","p","mear",0.06
-"sampling 0","plot 3","p","mear",0.06
-"sampling 0","plot 3","p","mear",0.06
-"sampling 0","plot 3","p","mepo",0.03
-"sampling 0","plot 3","p","mepo",0.03
-"sampling 0","plot 3","p","poan",0.01
-"sampling 0","plot 3","p","pore",0.04
-"sampling 0","plot 3","p","pore",0.04
-"sampling 0","plot 3","p","pore",0.04
-"sampling 0","plot 3","p","shar",0.08
-"sampling 0","plot 3","p","shar",0.08
-"sampling 0","plot 3","p","shar",0.08
-"sampling 0","plot 3","p","shar",0.08
-"sampling 0","plot 3","p","shar",0.08
-"sampling 0","plot 3","p","tono",0.1
-"sampling 0","plot 3","p","tono",0.1
-"sampling 0","plot 3","p","tono",0.1
-"sampling 0","plot 3","p","tono",0.1
-"sampling 0","plot 3","p","tono",0.1
-"sampling 0","plot 3","p","tono",0.1
-"sampling 0","plot 3","p","tr",0.1
-"sampling 0","plot 3","p","tr",0.1
-"sampling 0","plot 3","p","tr",0.1
-"sampling 0","plot 3","p","tr",0.1
-"sampling 0","plot 3","p","tr",0.1
-"sampling 0","plot 3","p","visa",0.01
-"sampling 10","plot 3","p","ch",0.2
-"sampling 10","plot 3","p","ch",0.2
-"sampling 10","plot 3","p","ch",0.2
-"sampling 10","plot 3","p","ch",0.2
-"sampling 10","plot 3","p","ch",0.2
-"sampling 10","plot 3","p","coar",0.06
-"sampling 10","plot 3","p","coar",0.06
-"sampling 10","plot 3","p","coar",0.06
-"sampling 10","plot 3","p","coar",0.06
-"sampling 10","plot 3","p","coar",0.06
-"sampling 10","plot 3","p","dagl",0.05
-"sampling 10","plot 3","p","dagl",0.05
-"sampling 10","plot 3","p","elre",0.04
-"sampling 10","plot 3","p","elre",0.04
-"sampling 10","plot 3","p","elre",0.04
-"sampling 10","plot 3","p","elre",0.04
-"sampling 10","plot 3","p","fear",0.05
-"sampling 10","plot 3","p","fear",0.05
-"sampling 10","plot 3","p","fear",0.05
-"sampling 10","plot 3","p","gedi",0.02
-"sampling 10","plot 3","p","gedi",0.02
-"sampling 10","plot 3","p","gedi",0.02
-"sampling 10","plot 3","p","gedi",0.02
-"sampling 10","plot 3","p","gedi",0.02
-"sampling 10","plot 3","p","lyar",0.04
-"sampling 10","plot 3","p","mear",0.01
-"sampling 10","plot 3","p","mear",0.01
-"sampling 10","plot 3","p","ni_p3_2",0.01
-"sampling 10","plot 3","p","ni_p3_3",0.02
-"sampling 10","plot 3","p","ni_p3_3",0.02
-"sampling 10","plot 3","p","ni_p3_3",0.02
-"sampling 10","plot 3","p","ni_p3_3",0.02
-"sampling 10","plot 3","p","plla",0.03
-"sampling 10","plot 3","p","plla",0.03
-"sampling 10","plot 3","p","pore",0.1
-"sampling 10","plot 3","p","pore",0.1
-"sampling 10","plot 3","p","pore",0.1
-"sampling 10","plot 3","p","shar",0.04
-"sampling 10","plot 3","p","shar",0.04
-"sampling 10","plot 3","p","shar",0.04
-"sampling 10","plot 3","p","shar",0.04
-"sampling 10","plot 3","p","to",0.01
-"sampling 10","plot 3","p","to",0.01
-"sampling 10","plot 3","p","to",0.01
-"sampling 10","plot 3","p","trfr",0.08
-"sampling 10","plot 3","p","trfr",0.08
-"sampling 10","plot 3","p","trfr",0.08
-"sampling 10","plot 3","p","trfr",0.08
-"sampling 10","plot 3","p","trfr",0.08
-"sampling 10","plot 3","p","veof",0.03
-"sampling 10","plot 3","p","vepe",0.03
-"sampling 10","plot 3","p","vepe",0.03
-"sampling 10","plot 3","p","vepe",0.03
-"sampling 10","plot 3","p","vepe",0.03
-"sampling 2","plot 3","p","coar",0.008
-"sampling 2","plot 3","p","dagl",0.015
-"sampling 2","plot 3","p","dagl",0.015
-"sampling 2","plot 3","p","dagl",0.015
-"sampling 2","plot 3","p","fear",0.01
-"sampling 2","plot 3","p","fear",0.01
-"sampling 2","plot 3","p","fear",0.01
-"sampling 2","plot 3","p","pore",0.005
-"sampling 2","plot 3","p","pore",0.005
-"sampling 2","plot 3","p","trre",0.005
-"sampling 2","plot 3","p","trre",0.005
-"sampling 2","plot 3","p","trre",0.005
-"sampling 2","plot 3","p","trre",0.005
-"sampling 3","plot 3","p","ch",0.04
-"sampling 3","plot 3","p","ch",0.04
-"sampling 3","plot 3","p","ch",0.04
-"sampling 3","plot 3","p","ch",0.04
-"sampling 3","plot 3","p","ch",0.04
-"sampling 3","plot 3","p","coar",0.02
-"sampling 3","plot 3","p","coar",0.02
-"sampling 3","plot 3","p","dagl",0.03
-"sampling 3","plot 3","p","elre",0.04
-"sampling 3","plot 3","p","elre",0.04
-"sampling 3","plot 3","p","elre",0.04
-"sampling 3","plot 3","p","elre",0.04
-"sampling 3","plot 3","p","elre",0.04
-"sampling 3","plot 3","p","fear",0.01
-"sampling 3","plot 3","p","kisp",0.01
-"sampling 3","plot 3","p","lyar",0.02
-"sampling 3","plot 3","p","ni_brasicacea_flores_amarillas",0.01
-"sampling 3","plot 3","p","plla",0.02
-"sampling 3","plot 3","p","pore",0.06
-"sampling 3","plot 3","p","pore",0.06
-"sampling 3","plot 3","p","pore",0.06
-"sampling 3","plot 3","p","pore",0.06
-"sampling 3","plot 3","p","shar",0.02
-"sampling 3","plot 3","p","shar",0.02
-"sampling 3","plot 3","p","shar",0.02
-"sampling 3","plot 3","p","shar",0.02
-"sampling 3","plot 3","p","shar",0.02
-"sampling 3","plot 3","p","trfr",0.03
-"sampling 3","plot 3","p","trfr",0.03
-"sampling 3","plot 3","p","trfr",0.03
-"sampling 3","plot 3","p","trfr",0.03
-"sampling 3","plot 3","p","trfr",0.03
-"sampling 4","plot 3","p","ch",0.17
-"sampling 4","plot 3","p","ch",0.17
-"sampling 4","plot 3","p","ch",0.17
-"sampling 4","plot 3","p","ch",0.17
-"sampling 4","plot 3","p","ch",0.17
-"sampling 4","plot 3","p","coar",0.02
-"sampling 4","plot 3","p","coar",0.02
-"sampling 4","plot 3","p","coar",0.02
-"sampling 4","plot 3","p","dagl",0.06
-"sampling 4","plot 3","p","elre",0.06
-"sampling 4","plot 3","p","elre",0.06
-"sampling 4","plot 3","p","elre",0.06
-"sampling 4","plot 3","p","elre",0.06
-"sampling 4","plot 3","p","elre",0.06
-"sampling 4","plot 3","p","fear",0.07
-"sampling 4","plot 3","p","fear",0.07
-"sampling 4","plot 3","p","fear",0.07
-"sampling 4","plot 3","p","kisp",0.05
-"sampling 4","plot 3","p","lyar",0.02
-"sampling 4","plot 3","p","plla",0.02
-"sampling 4","plot 3","p","plla",0.02
-"sampling 4","plot 3","p","pore",0.08
-"sampling 4","plot 3","p","pore",0.08
-"sampling 4","plot 3","p","pore",0.08
-"sampling 4","plot 3","p","pore",0.08
-"sampling 4","plot 3","p","pore",0.08
-"sampling 4","plot 3","p","shar",0.07
-"sampling 4","plot 3","p","shar",0.07
-"sampling 4","plot 3","p","shar",0.07
-"sampling 4","plot 3","p","shar",0.07
-"sampling 4","plot 3","p","shar",0.07
-"sampling 4","plot 3","p","trfr",0.12
-"sampling 4","plot 3","p","trfr",0.12
-"sampling 4","plot 3","p","trfr",0.12
-"sampling 4","plot 3","p","trfr",0.12
-"sampling 4","plot 3","p","trfr",0.12
-"sampling 5","plot 3","p","ch",0.3
-"sampling 5","plot 3","p","ch",0.3
-"sampling 5","plot 3","p","ch",0.3
-"sampling 5","plot 3","p","ch",0.3
-"sampling 5","plot 3","p","ch",0.3
-"sampling 5","plot 3","p","coar",0.06
-"sampling 5","plot 3","p","coar",0.06
-"sampling 5","plot 3","p","coar",0.06
-"sampling 5","plot 3","p","dagl",0.1
-"sampling 5","plot 3","p","dagl",0.1
-"sampling 5","plot 3","p","elre",0.04
-"sampling 5","plot 3","p","elre",0.04
-"sampling 5","plot 3","p","elre",0.04
-"sampling 5","plot 3","p","elre",0.04
-"sampling 5","plot 3","p","elre",0.04
-"sampling 5","plot 3","p","fear",0.02
-"sampling 5","plot 3","p","fear",0.02
-"sampling 5","plot 3","p","fear",0.02
-"sampling 5","plot 3","p","fear",0.02
-"sampling 5","plot 3","p","hyra",0.03
-"sampling 5","plot 3","p","kisp",0.12
-"sampling 5","plot 3","p","lyar",0.06
-"sampling 5","plot 3","p","ni_p3_3",0.01
-"sampling 5","plot 3","p","plla",0.04
-"sampling 5","plot 3","p","plla",0.04
-"sampling 5","plot 3","p","pore",0.08
-"sampling 5","plot 3","p","pore",0.08
-"sampling 5","plot 3","p","pore",0.08
-"sampling 5","plot 3","p","pore",0.08
-"sampling 5","plot 3","p","pore",0.08
-"sampling 5","plot 3","p","shar",0.08
-"sampling 5","plot 3","p","shar",0.08
-"sampling 5","plot 3","p","shar",0.08
-"sampling 5","plot 3","p","shar",0.08
-"sampling 5","plot 3","p","shar",0.08
-"sampling 5","plot 3","p","trfr",0.25
-"sampling 5","plot 3","p","trfr",0.25
-"sampling 5","plot 3","p","trfr",0.25
-"sampling 5","plot 3","p","trfr",0.25
-"sampling 5","plot 3","p","trfr",0.25
-"sampling 6","plot 3","p","ch",0.52
-"sampling 6","plot 3","p","ch",0.52
-"sampling 6","plot 3","p","ch",0.52
-"sampling 6","plot 3","p","ch",0.52
-"sampling 6","plot 3","p","ch",0.52
-"sampling 6","plot 3","p","coar",0.06
-"sampling 6","plot 3","p","coar",0.06
-"sampling 6","plot 3","p","coar",0.06
-"sampling 6","plot 3","p","coar",0.06
-"sampling 6","plot 3","p","coar",0.06
-"sampling 6","plot 3","p","dagl",0.03
-"sampling 6","plot 3","p","fear",0.03
-"sampling 6","plot 3","p","fear",0.03
-"sampling 6","plot 3","p","hyra",0.03
-"sampling 6","plot 3","p","kisp",0.12
-"sampling 6","plot 3","p","lyar",0.03
-"sampling 6","plot 3","p","plla",0.06
-"sampling 6","plot 3","p","pore",0.08
-"sampling 6","plot 3","p","pore",0.08
-"sampling 6","plot 3","p","shar",0.05
-"sampling 6","plot 3","p","shar",0.05
-"sampling 6","plot 3","p","trfr",0.2
-"sampling 6","plot 3","p","trfr",0.2
-"sampling 6","plot 3","p","trfr",0.2
-"sampling 6","plot 3","p","trfr",0.2
-"sampling 6","plot 3","p","trfr",0.2
-"sampling 6","plot 3","p","veof",0.02
-"sampling 7","plot 3","p","ch",0.5
-"sampling 7","plot 3","p","ch",0.5
-"sampling 7","plot 3","p","ch",0.5
-"sampling 7","plot 3","p","ch",0.5
-"sampling 7","plot 3","p","ch",0.5
-"sampling 7","plot 3","p","coar",0.07
-"sampling 7","plot 3","p","coar",0.07
-"sampling 7","plot 3","p","coar",0.07
-"sampling 7","plot 3","p","coar",0.07
-"sampling 7","plot 3","p","coar",0.07
-"sampling 7","plot 3","p","dagl",0.06
-"sampling 7","plot 3","p","dagl",0.06
-"sampling 7","plot 3","p","elre",0.05
-"sampling 7","plot 3","p","elre",0.05
-"sampling 7","plot 3","p","elre",0.05
-"sampling 7","plot 3","p","elre",0.05
-"sampling 7","plot 3","p","elre",0.05
-"sampling 7","plot 3","p","fear",0.06
-"sampling 7","plot 3","p","fear",0.06
-"sampling 7","plot 3","p","fear",0.06
-"sampling 7","plot 3","p","plla",0.05
-"sampling 7","plot 3","p","plla",0.05
-"sampling 7","plot 3","p","pore",0.1
-"sampling 7","plot 3","p","pore",0.1
-"sampling 7","plot 3","p","shar",0.06
-"sampling 7","plot 3","p","shar",0.06
-"sampling 7","plot 3","p","trfr",0.3
-"sampling 7","plot 3","p","trfr",0.3
-"sampling 7","plot 3","p","trfr",0.3
-"sampling 7","plot 3","p","trfr",0.3
-"sampling 7","plot 3","p","trfr",0.3
-"sampling 7","plot 3","p","veof",0.02
-"sampling 8","plot 3","p","bepe",0.01
-"sampling 8","plot 3","p","ch",0.5
-"sampling 8","plot 3","p","ch",0.5
-"sampling 8","plot 3","p","ch",0.5
-"sampling 8","plot 3","p","ch",0.5
-"sampling 8","plot 3","p","ch",0.5
-"sampling 8","plot 3","p","coar",0.01
-"sampling 8","plot 3","p","coar",0.01
-"sampling 8","plot 3","p","coar",0.01
-"sampling 8","plot 3","p","dagl",0.06
-"sampling 8","plot 3","p","fear",0.1
-"sampling 8","plot 3","p","fear",0.1
-"sampling 8","plot 3","p","lyar",0.05
-"sampling 8","plot 3","p","lyar",0.05
-"sampling 8","plot 3","p","ni_p3_2",0.03
-"sampling 8","plot 3","p","ni_p3_3",0.04
-"sampling 8","plot 3","p","ni_p3_3",0.04
-"sampling 8","plot 3","p","ni_p3_3",0.04
-"sampling 8","plot 3","p","ni_p3_3",0.04
-"sampling 8","plot 3","p","ni_p3_3",0.04
-"sampling 8","plot 3","p","plla",0.03
-"sampling 8","plot 3","p","plla",0.03
-"sampling 8","plot 3","p","pore",0.1
-"sampling 8","plot 3","p","pore",0.1
-"sampling 8","plot 3","p","pore",0.1
-"sampling 8","plot 3","p","shar",0.03
-"sampling 8","plot 3","p","shar",0.03
-"sampling 8","plot 3","p","shar",0.03
-"sampling 8","plot 3","p","shar",0.03
-"sampling 8","plot 3","p","to",0.005
-"sampling 8","plot 3","p","to",0.005
-"sampling 8","plot 3","p","trfr",0.15
-"sampling 8","plot 3","p","trfr",0.15
-"sampling 8","plot 3","p","trfr",0.15
-"sampling 8","plot 3","p","trfr",0.15
-"sampling 8","plot 3","p","trfr",0.15
-"sampling 8","plot 3","p","veof",0.03
-"sampling 9","plot 3","p","bepe",0.03
-"sampling 9","plot 3","p","bepe",0.03
-"sampling 9","plot 3","p","bepe",0.03
-"sampling 9","plot 3","p","bepe",0.03
-"sampling 9","plot 3","p","bepe",0.03
-"sampling 9","plot 3","p","ch",0.3
-"sampling 9","plot 3","p","ch",0.3
-"sampling 9","plot 3","p","ch",0.3
-"sampling 9","plot 3","p","ch",0.3
-"sampling 9","plot 3","p","ch",0.3
-"sampling 9","plot 3","p","coar",0.1
-"sampling 9","plot 3","p","coar",0.1
-"sampling 9","plot 3","p","coar",0.1
-"sampling 9","plot 3","p","coar",0.1
-"sampling 9","plot 3","p","coar",0.1
-"sampling 9","plot 3","p","dagl",0.05
-"sampling 9","plot 3","p","dagl",0.05
-"sampling 9","plot 3","p","elre",0.05
-"sampling 9","plot 3","p","elre",0.05
-"sampling 9","plot 3","p","elre",0.05
-"sampling 9","plot 3","p","fear",0.05
-"sampling 9","plot 3","p","fear",0.05
-"sampling 9","plot 3","p","gedi",0.02
-"sampling 9","plot 3","p","gedi",0.02
-"sampling 9","plot 3","p","gedi",0.02
-"sampling 9","plot 3","p","gedi",0.02
-"sampling 9","plot 3","p","gedi",0.02
-"sampling 9","plot 3","p","lyar",0.05
-"sampling 9","plot 3","p","mear",0.01
-"sampling 9","plot 3","p","ni_p3_2",0.03
-"sampling 9","plot 3","p","ni_p3_3",0.04
-"sampling 9","plot 3","p","ni_p3_3",0.04
-"sampling 9","plot 3","p","ni_p3_3",0.04
-"sampling 9","plot 3","p","ni_p3_3",0.04
-"sampling 9","plot 3","p","ni_p3_3",0.04
-"sampling 9","plot 3","p","plla",0.06
-"sampling 9","plot 3","p","plla",0.06
-"sampling 9","plot 3","p","pore",0.1
-"sampling 9","plot 3","p","pore",0.1
-"sampling 9","plot 3","p","pore",0.1
-"sampling 9","plot 3","p","pore",0.1
-"sampling 9","plot 3","p","shar",0.05
-"sampling 9","plot 3","p","shar",0.05
-"sampling 9","plot 3","p","shar",0.05
-"sampling 9","plot 3","p","shar",0.05
-"sampling 9","plot 3","p","shar",0.05
-"sampling 9","plot 3","p","to",0.01
-"sampling 9","plot 3","p","to",0.01
-"sampling 9","plot 3","p","to",0.01
-"sampling 9","plot 3","p","trfr",0.08
-"sampling 9","plot 3","p","trfr",0.08
-"sampling 9","plot 3","p","trfr",0.08
-"sampling 9","plot 3","p","trfr",0.08
-"sampling 9","plot 3","p","trfr",0.08
-"sampling 9","plot 3","p","veof",0.02
-"sampling 9","plot 3","p","vepe",0.01
-"sampling 11","plot 3","p","pore",0.1
-"sampling 11","plot 3","p","pore",0.1
-"sampling 11","plot 3","p","pore",0.1
-"sampling 11","plot 3","p","pore",0.1
-"sampling 11","plot 3","p","pore",0.1
-"sampling 11","plot 3","p","ni_p3_2",0.04
-"sampling 11","plot 3","p","ni_p3_3",0.06
-"sampling 11","plot 3","p","ni_p3_3",0.06
-"sampling 11","plot 3","p","ni_p3_3",0.06
-"sampling 11","plot 3","p","ni_p3_3",0.06
-"sampling 11","plot 3","p","ni_p3_3",0.06
-"sampling 11","plot 3","p","fear",0.06
-"sampling 11","plot 3","p","dagl",0.05
-"sampling 11","plot 3","p","dagl",0.05
-"sampling 11","plot 3","p","fear",0.06
-"sampling 11","plot 3","p","fear",0.06
-"sampling 11","plot 3","p","elre",0.05
-"sampling 11","plot 3","p","elre",0.05
-"sampling 11","plot 3","p","elre",0.05
-"sampling 11","plot 3","p","elre",0.05
-"sampling 11","plot 3","p","elre",0.05
-"sampling 11","plot 3","p","lyar",0.05
-"sampling 11","plot 3","p","trfr",0.08
-"sampling 11","plot 3","p","trfr",0.08
-"sampling 11","plot 3","p","trfr",0.08
-"sampling 11","plot 3","p","trfr",0.08
-"sampling 11","plot 3","p","trfr",0.08
-"sampling 11","plot 3","p","melu",0.03
-"sampling 11","plot 3","p","mear",0.03
-"sampling 11","plot 3","p","mear",0.03
-"sampling 11","plot 3","p","vepe",0.04
-"sampling 11","plot 3","p","vepe",0.04
-"sampling 11","plot 3","p","vepe",0.04
-"sampling 11","plot 3","p","vepe",0.04
-"sampling 11","plot 3","p","vepe",0.04
-"sampling 11","plot 3","p","shar",0.06
-"sampling 11","plot 3","p","shar",0.06
-"sampling 11","plot 3","p","shar",0.06
-"sampling 11","plot 3","p","shar",0.06
-"sampling 11","plot 3","p","shar",0.06
-"sampling 11","plot 3","p","gedi",0.06
-"sampling 11","plot 3","p","gedi",0.06
-"sampling 11","plot 3","p","gedi",0.06
-"sampling 11","plot 3","p","gedi",0.06
-"sampling 11","plot 3","p","to",0.04
-"sampling 11","plot 3","p","to",0.04
-"sampling 11","plot 3","p","to",0.04
-"sampling 11","plot 3","p","to",0.04
-"sampling 11","plot 3","p","to",0.04
-"sampling 11","plot 3","p","bepe",0.02
-"sampling 11","plot 3","p","asteraceae",0.07
-"sampling 11","plot 3","p","asteraceae",0.07
-"sampling 11","plot 3","p","asteraceae",0.07
-"sampling 11","plot 3","p","asteraceae",0.07
-"sampling 11","plot 3","p","asteraceae",0.07
-"sampling 11","plot 3","p","plla",0.06
-"sampling 11","plot 3","p","plla",0.06
-"sampling 8","plot 3","p","gedi",0.01
-"sampling 8","plot 3","p","gedi",0.01
-"sampling 8","plot 3","p","gedi",0.01
-"sampling 8","plot 3","p","gedi",0.01
-"sampling 8","plot 3","p","gedi",0.01
-"sampling 0","plot 6","p","rapa",0.15
-"sampling 0","plot 6","p","rapa",0.15
-"sampling 0","plot 6","p","rapa",0.15
-"sampling 0","plot 6","p","rapa",0.15
-"sampling 0","plot 6","p","rapa",0.15
-"sampling 0","plot 6","p","rapa",0.15
-"sampling 0","plot 6","p","rapa",0.15
-"sampling 0","plot 6","p","coar",0.01
-"sampling 0","plot 6","p","dagl",0.08
-"sampling 0","plot 6","p","dagl",0.08
-"sampling 0","plot 6","p","fear",0.5
-"sampling 0","plot 6","p","fear",0.5
-"sampling 0","plot 6","p","fear",0.5
-"sampling 0","plot 6","p","fear",0.5
-"sampling 0","plot 6","p","fear",0.5
-"sampling 0","plot 6","p","fear",0.5
-"sampling 0","plot 6","p","fear",0.5
-"sampling 0","plot 6","p","fear",0.5
-"sampling 0","plot 6","p","fear",0.5
-"sampling 0","plot 6","p","fear",0.5
-"sampling 0","plot 6","p","fear",0.5
-"sampling 0","plot 6","p","fear",0.5
-"sampling 0","plot 6","p","gedi",0.08
-"sampling 0","plot 6","p","gedi",0.08
-"sampling 0","plot 6","p","gedi",0.08
-"sampling 0","plot 6","p","gedi",0.08
-"sampling 0","plot 6","p","mear",0.03
-"sampling 0","plot 6","p","mear",0.03
-"sampling 0","plot 6","p","pore",0.08
-"sampling 0","plot 6","p","pore",0.08
-"sampling 0","plot 6","p","pore",0.08
-"sampling 0","plot 6","p","pore",0.08
-"sampling 0","plot 6","p","shar",0.06
-"sampling 0","plot 6","p","shar",0.06
-"sampling 0","plot 6","p","shar",0.06
-"sampling 0","plot 6","p","shar",0.06
-"sampling 0","plot 6","p","tono",0.02
-"sampling 0","plot 6","p","tono",0.02
-"sampling 0","plot 6","p","trdu",0.01
-"sampling 0","plot 6","p","vepe",0.01
-"sampling 0","plot 6","p","vepe",0.01
-"sampling 0","plot 6","p","visa",0.1
-"sampling 0","plot 6","p","visa",0.1
-"sampling 0","plot 6","p","visa",0.1
-"sampling 0","plot 6","p","visa",0.1
-"sampling 0","plot 6","p","visa",0.1
-"sampling 0","plot 6","p","visa",0.1
-"sampling 10","plot 6","p","coar",0.04
-"sampling 10","plot 6","p","coar",0.04
-"sampling 10","plot 6","p","coar",0.04
-"sampling 10","plot 6","p","coar",0.04
-"sampling 10","plot 6","p","coar",0.04
-"sampling 10","plot 6","p","elre",0.2
-"sampling 10","plot 6","p","elre",0.2
-"sampling 10","plot 6","p","elre",0.2
-"sampling 10","plot 6","p","elre",0.2
-"sampling 10","plot 6","p","elre",0.2
-"sampling 10","plot 6","p","fear",0.12
-"sampling 10","plot 6","p","gedi",0.01
-"sampling 10","plot 6","p","gedi",0.01
-"sampling 10","plot 6","p","gedi",0.01
-"sampling 10","plot 6","p","gedi",0.01
-"sampling 10","plot 6","p","gedi",0.01
-"sampling 10","plot 6","p","mear",0.08
-"sampling 10","plot 6","p","mear",0.08
-"sampling 10","plot 6","p","mear",0.08
-"sampling 10","plot 6","p","mear",0.08
-"sampling 10","plot 6","p","mear",0.08
-"sampling 10","plot 6","p","melu",0.03
-"sampling 10","plot 6","p","ni_p6_1",0.08
-"sampling 10","plot 6","p","ni_p6_2",0.02
-"sampling 10","plot 6","p","pore",0.25
-"sampling 10","plot 6","p","pore",0.25
-"sampling 10","plot 6","p","pore",0.25
-"sampling 10","plot 6","p","pore",0.25
-"sampling 10","plot 6","p","pore",0.25
-"sampling 10","plot 6","p","shar",0.06
-"sampling 10","plot 6","p","shar",0.06
-"sampling 10","plot 6","p","shar",0.06
-"sampling 10","plot 6","p","shar",0.06
-"sampling 10","plot 6","p","shar",0.06
-"sampling 10","plot 6","p","to",0.005
-"sampling 10","plot 6","p","trre",0.01
-"sampling 10","plot 6","p","veof",0.01
-"sampling 10","plot 6","p","vepe",0.01
-"sampling 10","plot 6","p","vepe",0.01
-"sampling 10","plot 6","p","vepe",0.01
-"sampling 10","plot 6","p","vepe",0.01
-"sampling 10","plot 6","p","vepe",0.01
-"sampling 2","plot 6","p","elre",0.01
-"sampling 2","plot 6","p","elre",0.01
-"sampling 2","plot 6","p","fear",0.015
-"sampling 2","plot 6","p","fear",0.015
-"sampling 2","plot 6","p","pore",0.009
-"sampling 2","plot 6","p","pore",0.009
-"sampling 2","plot 6","p","pore",0.009
-"sampling 3","plot 6","p","coar",0.02
-"sampling 3","plot 6","p","elre",0.07
-"sampling 3","plot 6","p","elre",0.07
-"sampling 3","plot 6","p","elre",0.07
-"sampling 3","plot 6","p","elre",0.07
-"sampling 3","plot 6","p","elre",0.07
-"sampling 3","plot 6","p","fear",0.15
-"sampling 3","plot 6","p","fear",0.15
-"sampling 3","plot 6","p","mear",0.01
-"sampling 3","plot 6","p","pore",0.15
-"sampling 3","plot 6","p","pore",0.15
-"sampling 3","plot 6","p","pore",0.15
-"sampling 3","plot 6","p","pore",0.15
-"sampling 3","plot 6","p","pore",0.15
-"sampling 3","plot 6","p","shar",0.06
-"sampling 3","plot 6","p","shar",0.06
-"sampling 3","plot 6","p","shar",0.06
-"sampling 3","plot 6","p","shar",0.06
-"sampling 3","plot 6","p","shar",0.06
-"sampling 4","plot 6","p","asteraceae",0.01
-"sampling 4","plot 6","p","coar",0.06
-"sampling 4","plot 6","p","coar",0.06
-"sampling 4","plot 6","p","coar",0.06
-"sampling 4","plot 6","p","elre",0.11
-"sampling 4","plot 6","p","elre",0.11
-"sampling 4","plot 6","p","elre",0.11
-"sampling 4","plot 6","p","elre",0.11
-"sampling 4","plot 6","p","elre",0.11
-"sampling 4","plot 6","p","fear",0.12
-"sampling 4","plot 6","p","mear",0.01
-"sampling 4","plot 6","p","mear",0.01
-"sampling 4","plot 6","p","pore",0.18
-"sampling 4","plot 6","p","pore",0.18
-"sampling 4","plot 6","p","pore",0.18
-"sampling 4","plot 6","p","pore",0.18
-"sampling 4","plot 6","p","pore",0.18
-"sampling 4","plot 6","p","shar",0.06
-"sampling 4","plot 6","p","shar",0.06
-"sampling 4","plot 6","p","shar",0.06
-"sampling 4","plot 6","p","shar",0.06
-"sampling 4","plot 6","p","shar",0.06
-"sampling 5","plot 6","p","coar",0.04
-"sampling 5","plot 6","p","coar",0.04
-"sampling 5","plot 6","p","coar",0.04
-"sampling 5","plot 6","p","cyec",0.01
-"sampling 5","plot 6","p","cyec",0.01
-"sampling 5","plot 6","p","elre",0.3
-"sampling 5","plot 6","p","elre",0.3
-"sampling 5","plot 6","p","elre",0.3
-"sampling 5","plot 6","p","elre",0.3
-"sampling 5","plot 6","p","elre",0.3
-"sampling 5","plot 6","p","fear",0.22
-"sampling 5","plot 6","p","mear",0.02
-"sampling 5","plot 6","p","ni_p6_1",0.03
-"sampling 5","plot 6","p","pore",0.22
-"sampling 5","plot 6","p","pore",0.22
-"sampling 5","plot 6","p","pore",0.22
-"sampling 5","plot 6","p","pore",0.22
-"sampling 5","plot 6","p","pore",0.22
-"sampling 5","plot 6","p","shar",0.15
-"sampling 5","plot 6","p","shar",0.15
-"sampling 5","plot 6","p","shar",0.15
-"sampling 5","plot 6","p","shar",0.15
-"sampling 5","plot 6","p","shar",0.15
-"sampling 6","plot 6","p","coar",0.08
-"sampling 6","plot 6","p","coar",0.08
-"sampling 6","plot 6","p","coar",0.08
-"sampling 6","plot 6","p","coar",0.08
-"sampling 6","plot 6","p","elre",0.1
-"sampling 6","plot 6","p","elre",0.1
-"sampling 6","plot 6","p","elre",0.1
-"sampling 6","plot 6","p","elre",0.1
-"sampling 6","plot 6","p","elre",0.1
-"sampling 6","plot 6","p","fear",0.15
-"sampling 6","plot 6","p","ni_p6_1",0.02
-"sampling 6","plot 6","p","pore",0.25
-"sampling 6","plot 6","p","pore",0.25
-"sampling 6","plot 6","p","pore",0.25
-"sampling 6","plot 6","p","pore",0.25
-"sampling 6","plot 6","p","pore",0.25
-"sampling 6","plot 6","p","shar",0.05
-"sampling 6","plot 6","p","shar",0.05
-"sampling 6","plot 6","p","shar",0.05
-"sampling 6","plot 6","p","shar",0.05
-"sampling 6","plot 6","p","shar",0.05
-"sampling 6","plot 6","p","veof",0.02
-"sampling 6","plot 6","p","veof",0.02
-"sampling 7","plot 6","p","coar",0.06
-"sampling 7","plot 6","p","coar",0.06
-"sampling 7","plot 6","p","coar",0.06
-"sampling 7","plot 6","p","coar",0.06
-"sampling 7","plot 6","p","elre",0.2
-"sampling 7","plot 6","p","elre",0.2
-"sampling 7","plot 6","p","elre",0.2
-"sampling 7","plot 6","p","elre",0.2
-"sampling 7","plot 6","p","elre",0.2
-"sampling 7","plot 6","p","fear",0.2
-"sampling 7","plot 6","p","mear",0.09
-"sampling 7","plot 6","p","mear",0.09
-"sampling 7","plot 6","p","mear",0.09
-"sampling 7","plot 6","p","mear",0.09
-"sampling 7","plot 6","p","mear",0.09
-"sampling 7","plot 6","p","melu",0.03
-"sampling 7","plot 6","p","ni_p6_1",0.05
-"sampling 7","plot 6","p","pore",0.26
-"sampling 7","plot 6","p","pore",0.26
-"sampling 7","plot 6","p","pore",0.26
-"sampling 7","plot 6","p","pore",0.26
-"sampling 7","plot 6","p","pore",0.26
-"sampling 7","plot 6","p","shar",0.04
-"sampling 7","plot 6","p","shar",0.04
-"sampling 7","plot 6","p","shar",0.04
-"sampling 7","plot 6","p","shar",0.04
-"sampling 7","plot 6","p","shar",0.04
-"sampling 7","plot 6","p","veof",0.03
-"sampling 7","plot 6","p","veof",0.03
-"sampling 8","plot 6","p","bepe",0.005
-"sampling 8","plot 6","p","coar",0.04
-"sampling 8","plot 6","p","coar",0.04
-"sampling 8","plot 6","p","coar",0.04
-"sampling 8","plot 6","p","coar",0.04
-"sampling 8","plot 6","p","coar",0.04
-"sampling 8","plot 6","p","elre",0.25
-"sampling 8","plot 6","p","elre",0.25
-"sampling 8","plot 6","p","elre",0.25
-"sampling 8","plot 6","p","elre",0.25
-"sampling 8","plot 6","p","elre",0.25
-"sampling 8","plot 6","p","fear",0.2
-"sampling 8","plot 6","p","mear",0.1
-"sampling 8","plot 6","p","mear",0.1
-"sampling 8","plot 6","p","mear",0.1
-"sampling 8","plot 6","p","mear",0.1
-"sampling 8","plot 6","p","mear",0.1
-"sampling 8","plot 6","p","melu",0.02
-"sampling 8","plot 6","p","ni_p6_1",0.05
-"sampling 8","plot 6","p","ni_p6_2",0.01
-"sampling 8","plot 6","p","pore",0.25
-"sampling 8","plot 6","p","pore",0.25
-"sampling 8","plot 6","p","pore",0.25
-"sampling 8","plot 6","p","pore",0.25
-"sampling 8","plot 6","p","pore",0.25
-"sampling 8","plot 6","p","shar",0.04
-"sampling 8","plot 6","p","shar",0.04
-"sampling 8","plot 6","p","shar",0.04
-"sampling 8","plot 6","p","shar",0.04
-"sampling 8","plot 6","p","shar",0.04
-"sampling 8","plot 6","p","veof",0.03
-"sampling 8","plot 6","p","veof",0.03
-"sampling 9","plot 6","p","bepe",0.02
-"sampling 9","plot 6","p","coar",0.03
-"sampling 9","plot 6","p","coar",0.03
-"sampling 9","plot 6","p","coar",0.03
-"sampling 9","plot 6","p","coar",0.03
-"sampling 9","plot 6","p","coar",0.03
-"sampling 9","plot 6","p","elre",0.25
-"sampling 9","plot 6","p","elre",0.25
-"sampling 9","plot 6","p","elre",0.25
-"sampling 9","plot 6","p","elre",0.25
-"sampling 9","plot 6","p","elre",0.25
-"sampling 9","plot 6","p","fear",0.15
-"sampling 9","plot 6","p","gedi",0.1
-"sampling 9","plot 6","p","gedi",0.1
-"sampling 9","plot 6","p","gedi",0.1
-"sampling 9","plot 6","p","gedi",0.1
-"sampling 9","plot 6","p","gedi",0.1
-"sampling 9","plot 6","p","mear",0.07
-"sampling 9","plot 6","p","mear",0.07
-"sampling 9","plot 6","p","mear",0.07
-"sampling 9","plot 6","p","mear",0.07
-"sampling 9","plot 6","p","mear",0.07
-"sampling 9","plot 6","p","ni_p6_1",0.05
-"sampling 9","plot 6","p","ni_p6_2",0.02
-"sampling 9","plot 6","p","pore",0.23
-"sampling 9","plot 6","p","pore",0.23
-"sampling 9","plot 6","p","pore",0.23
-"sampling 9","plot 6","p","pore",0.23
-"sampling 9","plot 6","p","pore",0.23
-"sampling 9","plot 6","p","shar",0.03
-"sampling 9","plot 6","p","shar",0.03
-"sampling 9","plot 6","p","shar",0.03
-"sampling 9","plot 6","p","shar",0.03
-"sampling 9","plot 6","p","shar",0.03
-"sampling 9","plot 6","p","veof",0.03
-"sampling 9","plot 6","p","veof",0.03
-"sampling 9","plot 6","p","vepe",0.01
-"sampling 11","plot 6","p","fear",0.14
-"sampling 11","plot 6","p","elre",0.15
-"sampling 11","plot 6","p","elre",0.15
-"sampling 11","plot 6","p","elre",0.15
-"sampling 11","plot 6","p","elre",0.15
-"sampling 11","plot 6","p","elre",0.15
-"sampling 11","plot 6","p","mear",0.14
-"sampling 11","plot 6","p","mear",0.14
-"sampling 11","plot 6","p","mear",0.14
-"sampling 11","plot 6","p","mear",0.14
-"sampling 11","plot 6","p","mear",0.14
-"sampling 11","plot 6","p","veof",0.01
-"sampling 11","plot 6","p","veof",0.01
-"sampling 11","plot 6","p","pore",0.16
-"sampling 11","plot 6","p","pore",0.16
-"sampling 11","plot 6","p","pore",0.16
-"sampling 11","plot 6","p","pore",0.16
-"sampling 11","plot 6","p","pore",0.16
-"sampling 11","plot 6","p","melu",0.02
-"sampling 11","plot 6","p","shar",0.08
-"sampling 11","plot 6","p","shar",0.08
-"sampling 11","plot 6","p","shar",0.08
-"sampling 11","plot 6","p","shar",0.08
-"sampling 11","plot 6","p","shar",0.08
-"sampling 11","plot 6","p","gedi",0.1
-"sampling 11","plot 6","p","gedi",0.1
-"sampling 11","plot 6","p","gedi",0.1
-"sampling 11","plot 6","p","gedi",0.1
-"sampling 11","plot 6","p","gedi",0.1
-"sampling 11","plot 6","p","visa",0.05
-"sampling 11","plot 6","p","visa",0.05
-"sampling 11","plot 6","p","visa",0.05
-"sampling 11","plot 6","p","visa",0.05
-"sampling 11","plot 6","p","ni_p6_1",0.07
-"sampling 11","plot 6","p","ni_p6_2",0.05
-"sampling 11","plot 6","p","asteraceae",0.01
-"sampling 11","plot 6","p","coar",0.01
-"sampling 11","plot 6","p","coar",0.01
-"sampling 11","plot 6","p","veof",0.01
-"sampling 11","plot 6","p","vepe",0.03
-"sampling 11","plot 6","p","vepe",0.03
-"sampling 11","plot 6","p","vepe",0.03
-"sampling 11","plot 6","p","vepe",0.03
-"sampling 11","plot 6","p","vepe",0.03
-"sampling 11","plot 6","p","ni_p6_4",0.01
-"sampling 11","plot 6","p","ni_p6_4",0.01
-"sampling 11","plot 6","p","ni_p6_2",0.05
-"sampling 11","plot 6","p","plla",0.01
-"sampling 11","plot 6","p","bepe",0.01
-"sampling 11","plot 6","p","bepe",0.01
-"sampling 11","plot 6","p","bepe",0.01
-"sampling 11","plot 6","p","trre",0.02
-"sampling 11","plot 6","p","to",0.01
-"sampling 11","plot 6","p","to",0.01
-"sampling 11","plot 6","p","to",0.01
-"sampling 8","plot 6","p","gedi",0.03
-"sampling 8","plot 6","p","gedi",0.03
-"sampling 8","plot 6","p","gedi",0.03
-"sampling 8","plot 6","p","gedi",0.03
-"sampling 8","plot 6","p","gedi",0.03
-NA,NA,NA,NA,NA
+"sampling","date","plot","treatment","species","abundance"
+"s0","may_04","plot 3","p","apar",0.02
+"s0","may_04","plot 15","p","avst",0.005
+"s0","may_04","plot 15","p","avst",0.005
+"s0","may_04","plot 15","p","avst",0.005
+"s0","may_04","plot 15","p","avst",0.005
+"s0","may_04","plot 15","p","avst",0.005
+"s0","may_04","plot 15","p","avst",0.005
+"s0","may_04","plot 3","p","bepe",0.02
+"s0","may_04","plot 3","p","bepe",0.02
+"s0","may_04","plot 10","p","bepe",0.01
+"s0","may_04","plot 3","p","brho",0.25
+"s0","may_04","plot 3","p","brho",0.25
+"s0","may_04","plot 3","p","brho",0.25
+"s0","may_04","plot 3","p","brho",0.25
+"s0","may_04","plot 3","p","brho",0.25
+"s0","may_04","plot 3","p","brho",0.25
+"s0","may_04","plot 3","p","brho",0.25
+"s0","may_04","plot 3","p","brho",0.25
+"s0","may_04","plot 3","p","brho",0.25
+"s0","may_04","plot 10","p","brho",0.01
+"s0","may_04","plot 3","p","brho",0.25
+"s0","may_04","plot 3","p","brho",0.25
+"s0","may_04","plot 10","p","brho",0.01
+"s0","may_04","plot 3","p","brho",0.25
+"s0","may_04","plot 15","p","brst",0.95
+"s0","may_04","plot 15","p","brst",0.95
+"s0","may_04","plot 15","p","brst",0.95
+"s0","may_04","plot 15","p","brst",0.95
+"s0","may_04","plot 15","p","brst",0.95
+"s0","may_04","plot 15","p","brst",0.95
+"s0","may_04","plot 15","p","brst",0.95
+"s0","may_04","plot 15","p","brst",0.95
+"s0","may_04","plot 15","p","brst",0.95
+"s0","may_04","plot 15","p","brst",0.95
+"s0","may_04","plot 15","p","brst",0.95
+"s0","may_04","plot 15","p","brst",0.95
+"s0","may_04","plot 15","p","brst",0.95
+"s0","may_04","plot 15","p","brst",0.95
+"s0","may_04","plot 15","p","brst",0.95
+"s0","may_04","plot 15","p","brst",0.95
+"s0","may_04","plot 15","p","brst",0.95
+"s0","may_04","plot 15","p","brst",0.95
+"s0","may_04","plot 15","p","brst",0.95
+"s0","may_04","plot 15","p","brst",0.95
+"s0","may_04","plot 3","p","brst",0.4
+"s0","may_04","plot 3","p","brst",0.4
+"s0","may_04","plot 3","p","brst",0.4
+"s0","may_04","plot 3","p","brst",0.4
+"s0","may_04","plot 3","p","brst",0.4
+"s0","may_04","plot 3","p","brst",0.4
+"s0","may_04","plot 3","p","brst",0.4
+"s0","may_04","plot 3","p","brst",0.4
+"s0","may_04","plot 3","p","brst",0.4
+"s0","may_04","plot 3","p","brst",0.4
+"s0","may_04","plot 3","p","brst",0.4
+"s0","may_04","plot 3","p","brst",0.4
+"s0","may_04","plot 3","p","brst",0.4
+"s0","may_04","plot 3","p","brst",0.4
+"s0","may_04","plot 3","p","brst",0.4
+"s0","may_04","plot 3","p","brst",0.4
+"s0","may_04","plot 3","p","brst",0.4
+"s0","may_04","plot 3","p","brst",0.4
+"s0","may_04","plot 3","p","brst",0.4
+"s0","may_04","plot 3","p","brst",0.4
+"s0","may_04","plot 3","p","coar",0.01
+"s0","may_04","plot 10","p","coar",0.03
+"s0","may_04","plot 10","p","coar",0.03
+"s0","may_04","plot 10","p","coar",0.03
+"s0","may_04","plot 6","p","coar",0.01
+"s0","may_04","plot 6","p","dagl",0.08
+"s0","may_04","plot 6","p","dagl",0.08
+"s0","may_04","plot 3","p","dagl",0.03
+"s0","may_04","plot 6","p","fear",0.5
+"s0","may_04","plot 6","p","fear",0.5
+"s0","may_04","plot 6","p","fear",0.5
+"s0","may_04","plot 3","p","fear",0.03
+"s0","may_04","plot 6","p","fear",0.5
+"s0","may_04","plot 6","p","fear",0.5
+"s0","may_04","plot 6","p","fear",0.5
+"s0","may_04","plot 10","p","fear",0.4
+"s0","may_04","plot 6","p","fear",0.5
+"s0","may_04","plot 6","p","fear",0.5
+"s0","may_04","plot 10","p","fear",0.4
+"s0","may_04","plot 10","p","fear",0.4
+"s0","may_04","plot 10","p","fear",0.4
+"s0","may_04","plot 6","p","fear",0.5
+"s0","may_04","plot 6","p","fear",0.5
+"s0","may_04","plot 10","p","fear",0.4
+"s0","may_04","plot 10","p","fear",0.4
+"s0","may_04","plot 10","p","fear",0.4
+"s0","may_04","plot 10","p","fear",0.4
+"s0","may_04","plot 10","p","fear",0.4
+"s0","may_04","plot 10","p","fear",0.4
+"s0","may_04","plot 10","p","fear",0.4
+"s0","may_04","plot 10","p","fear",0.4
+"s0","may_04","plot 10","p","fear",0.4
+"s0","may_04","plot 10","p","fear",0.4
+"s0","may_04","plot 10","p","fear",0.4
+"s0","may_04","plot 6","p","fear",0.5
+"s0","may_04","plot 10","p","fear",0.4
+"s0","may_04","plot 6","p","fear",0.5
+"s0","may_04","plot 10","p","fear",0.4
+"s0","may_04","plot 10","p","fear",0.4
+"s0","may_04","plot 3","p","gedi",0.03
+"s0","may_04","plot 3","p","gedi",0.03
+"s0","may_04","plot 6","p","gedi",0.08
+"s0","may_04","plot 6","p","gedi",0.08
+"s0","may_04","plot 6","p","gedi",0.08
+"s0","may_04","plot 6","p","gedi",0.08
+"s0","may_04","plot 15","p","gemo",0.005
+"s0","may_04","plot 15","p","gemo",0.005
+"s0","may_04","plot 3","p","mear",0.06
+"s0","may_04","plot 3","p","mear",0.06
+"s0","may_04","plot 10","p","mear",0.05
+"s0","may_04","plot 3","p","mear",0.06
+"s0","may_04","plot 6","p","mear",0.03
+"s0","may_04","plot 10","p","mear",0.05
+"s0","may_04","plot 6","p","mear",0.03
+"s0","may_04","plot 10","p","mear",0.05
+"s0","may_04","plot 10","p","mear",0.05
+"s0","may_04","plot 3","p","mepo",0.03
+"s0","may_04","plot 3","p","mepo",0.03
+"s0","may_04","plot 10","p","ni cardo",0.1
+"s0","may_04","plot 3","p","poan",0.01
+"s0","may_04","plot 6","p","pore",0.08
+"s0","may_04","plot 10","p","pore",0.08
+"s0","may_04","plot 3","p","pore",0.04
+"s0","may_04","plot 3","p","pore",0.04
+"s0","may_04","plot 10","p","pore",0.08
+"s0","may_04","plot 10","p","pore",0.08
+"s0","may_04","plot 6","p","pore",0.08
+"s0","may_04","plot 6","p","pore",0.08
+"s0","may_04","plot 10","p","pore",0.08
+"s0","may_04","plot 6","p","pore",0.08
+"s0","may_04","plot 3","p","pore",0.04
+"s0","may_04","plot 3","p","rapa",0.05
+"s0","may_04","plot 3","p","rapa",0.05
+"s0","may_04","plot 3","p","rapa",0.05
+"s0","may_04","plot 10","p","rapa",0.03
+"s0","may_04","plot 6","p","rapa",0.15
+"s0","may_04","plot 10","p","rapa",0.03
+"s0","may_04","plot 6","p","rapa",0.15
+"s0","may_04","plot 6","p","rapa",0.15
+"s0","may_04","plot 6","p","rapa",0.15
+"s0","may_04","plot 6","p","rapa",0.15
+"s0","may_04","plot 6","p","rapa",0.15
+"s0","may_04","plot 15","p","rapa",0.001
+"s0","may_04","plot 15","p","rapa",0.001
+"s0","may_04","plot 6","p","rapa",0.15
+"s0","may_04","plot 3","p","shar",0.08
+"s0","may_04","plot 3","p","shar",0.08
+"s0","may_04","plot 15","p","shar",0.002
+"s0","may_04","plot 3","p","shar",0.08
+"s0","may_04","plot 3","p","shar",0.08
+"s0","may_04","plot 6","p","shar",0.06
+"s0","may_04","plot 3","p","shar",0.08
+"s0","may_04","plot 6","p","shar",0.06
+"s0","may_04","plot 6","p","shar",0.06
+"s0","may_04","plot 6","p","shar",0.06
+"s0","may_04","plot 15","p","shar",0.002
+"s0","may_04","plot 15","p","shar",0.002
+"s0","may_04","plot 15","p","shar",0.002
+"s0","may_04","plot 3","p","tono",0.1
+"s0","may_04","plot 10","p","tono",0.1
+"s0","may_04","plot 3","p","tono",0.1
+"s0","may_04","plot 3","p","tono",0.1
+"s0","may_04","plot 3","p","tono",0.1
+"s0","may_04","plot 3","p","tono",0.1
+"s0","may_04","plot 10","p","tono",0.1
+"s0","may_04","plot 10","p","tono",0.1
+"s0","may_04","plot 10","p","tono",0.1
+"s0","may_04","plot 10","p","tono",0.1
+"s0","may_04","plot 10","p","tono",0.1
+"s0","may_04","plot 3","p","tono",0.1
+"s0","may_04","plot 10","p","tono",0.1
+"s0","may_04","plot 6","p","tono",0.02
+"s0","may_04","plot 6","p","tono",0.02
+"s0","may_04","plot 3","p","tr",0.1
+"s0","may_04","plot 3","p","tr",0.1
+"s0","may_04","plot 3","p","tr",0.1
+"s0","may_04","plot 3","p","tr",0.1
+"s0","may_04","plot 3","p","tr",0.1
+"s0","may_04","plot 6","p","trdu",0.01
+"s0","may_04","plot 15","p","trre",0.02
+"s0","may_04","plot 15","p","trre",0.02
+"s0","may_04","plot 15","p","trre",0.02
+"s0","may_04","plot 15","p","trre",0.02
+"s0","may_04","plot 15","p","trre",0.02
+"s0","may_04","plot 6","p","vepe",0.01
+"s0","may_04","plot 6","p","vepe",0.01
+"s0","may_04","plot 3","p","visa",0.01
+"s0","may_04","plot 10","p","visa",0.15
+"s0","may_04","plot 10","p","visa",0.15
+"s0","may_04","plot 10","p","visa",0.15
+"s0","may_04","plot 10","p","visa",0.15
+"s0","may_04","plot 6","p","visa",0.1
+"s0","may_04","plot 10","p","visa",0.15
+"s0","may_04","plot 10","p","visa",0.15
+"s0","may_04","plot 6","p","visa",0.1
+"s0","may_04","plot 6","p","visa",0.1
+"s0","may_04","plot 6","p","visa",0.1
+"s0","may_04","plot 10","p","visa",0.15
+"s0","may_04","plot 6","p","visa",0.1
+"s0","may_04","plot 6","p","visa",0.1
+"s0","may_04","plot 10","p","visa",0.15
+"s10","oct_16","plot 3","p","pore",0.1
+"s10","oct_16","plot 6","p","pore",0.25
+"s10","oct_16","plot 6","p","pore",0.25
+"s10","oct_16","plot 6","p","pore",0.25
+"s10","oct_16","plot 15","p","am",0.45
+"s10","oct_16","plot 3","p","ch",0.2
+"s10","oct_16","plot 3","p","pore",0.1
+"s10","oct_16","plot 10","p","pore",0.08
+"s10","oct_16","plot 6","p","pore",0.25
+"s10","oct_16","plot 3","p","ch",0.2
+"s10","oct_16","plot 6","p","fear",0.12
+"s10","oct_16","plot 3","p","ch",0.2
+"s10","oct_16","plot 15","p","melu",0.05
+"s10","oct_16","plot 3","p","ch",0.2
+"s10","oct_16","plot 3","p","trfr",0.08
+"s10","oct_16","plot 15","p","coar",0.1
+"s10","oct_16","plot 6","p","melu",0.03
+"s10","oct_16","plot 15","p","mean",0.1
+"s10","oct_16","plot 6","p","mear",0.08
+"s10","oct_16","plot 10","p","coar",0.1
+"s10","oct_16","plot 10","p","pore",0.08
+"s10","oct_16","plot 3","p","trfr",0.08
+"s10","oct_16","plot 3","p","coar",0.06
+"s10","oct_16","plot 3","p","elre",0.04
+"s10","oct_16","plot 15","p","melu",0.05
+"s10","oct_16","plot 3","p","trfr",0.08
+"s10","oct_16","plot 15","p","coar",0.1
+"s10","oct_16","plot 15","p","veof",0.01
+"s10","oct_16","plot 3","p","ch",0.2
+"s10","oct_16","plot 6","p","elre",0.2
+"s10","oct_16","plot 3","p","lyar",0.04
+"s10","oct_16","plot 10","p","ch",0.03
+"s10","oct_16","plot 10","p","coar",0.1
+"s10","oct_16","plot 10","p","elre",0.25
+"s10","oct_16","plot 15","p","coar",0.1
+"s10","oct_16","plot 3","p","coar",0.06
+"s10","oct_16","plot 3","p","dagl",0.05
+"s10","oct_16","plot 3","p","shar",0.04
+"s10","oct_16","plot 10","p","elre",0.25
+"s10","oct_16","plot 3","p","dagl",0.05
+"s10","oct_16","plot 3","p","coar",0.06
+"s10","oct_16","plot 3","p","veof",0.03
+"s10","oct_16","plot 10","p","coar",0.1
+"s10","oct_16","plot 10","p","elre",0.25
+"s10","oct_16","plot 15","p","coar",0.1
+"s10","oct_16","plot 15","p","mean",0.1
+"s10","oct_16","plot 15","p","mean",0.1
+"s10","oct_16","plot 3","p","coar",0.06
+"s10","oct_16","plot 3","p","coar",0.06
+"s10","oct_16","plot 10","p","coar",0.1
+"s10","oct_16","plot 3","p","trfr",0.08
+"s10","oct_16","plot 10","p","elre",0.25
+"s10","oct_16","plot 3","p","elre",0.04
+"s10","oct_16","plot 10","p","lyar",0.06
+"s10","oct_16","plot 3","p","shar",0.04
+"s10","oct_16","plot 6","p","ni_p6_1",0.08
+"s10","oct_16","plot 6","p","shar",0.06
+"s10","oct_16","plot 10","p","elre",0.25
+"s10","oct_16","plot 3","p","fear",0.05
+"s10","oct_16","plot 3","p","trfr",0.08
+"s10","oct_16","plot 3","p","elre",0.04
+"s10","oct_16","plot 6","p","coar",0.04
+"s10","oct_16","plot 6","p","elre",0.2
+"s10","oct_16","plot 6","p","elre",0.2
+"s10","oct_16","plot 6","p","elre",0.2
+"s10","oct_16","plot 10","p","mean",0.06
+"s10","oct_16","plot 10","p","veof",0.02
+"s10","oct_16","plot 6","p","elre",0.2
+"s10","oct_16","plot 10","p","mean",0.06
+"s10","oct_16","plot 15","p","shar",0.08
+"s10","oct_16","plot 6","p","shar",0.06
+"s10","oct_16","plot 15","p","coar",0.1
+"s10","oct_16","plot 3","p","gedi",0.02
+"s10","oct_16","plot 3","p","elre",0.04
+"s10","oct_16","plot 6","p","coar",0.04
+"s10","oct_16","plot 6","p","coar",0.04
+"s10","oct_16","plot 6","p","veof",0.01
+"s10","oct_16","plot 10","p","coar",0.1
+"s10","oct_16","plot 3","p","ni_p3_3",0.02
+"s10","oct_16","plot 10","p","ni_p10_5",0.07
+"s10","oct_16","plot 10","p","ni_p10_6",0.07
+"s10","oct_16","plot 15","p","shar",0.08
+"s10","oct_16","plot 15","p","shar",0.08
+"s10","oct_16","plot 10","p","pore",0.08
+"s10","oct_16","plot 15","p","mear",0.05
+"s10","oct_16","plot 3","p","fear",0.05
+"s10","oct_16","plot 6","p","mear",0.08
+"s10","oct_16","plot 3","p","ni_p3_3",0.02
+"s10","oct_16","plot 3","p","shar",0.04
+"s10","oct_16","plot 10","p","ch",0.03
+"s10","oct_16","plot 3","p","plla",0.03
+"s10","oct_16","plot 10","p","mear",0.05
+"s10","oct_16","plot 15","p","mear",0.05
+"s10","oct_16","plot 3","p","ni_p3_3",0.02
+"s10","oct_16","plot 6","p","coar",0.04
+"s10","oct_16","plot 6","p","pore",0.25
+"s10","oct_16","plot 15","p","ni_p15_5",0.01
+"s10","oct_16","plot 3","p","plla",0.03
+"s10","oct_16","plot 15","p","ni_p15_4",0.04
+"s10","oct_16","plot 3","p","ni_p3_2",0.01
+"s10","oct_16","plot 3","p","ni_p3_3",0.02
+"s10","oct_16","plot 6","p","coar",0.04
+"s10","oct_16","plot 6","p","ni_p6_2",0.02
+"s10","oct_16","plot 3","p","mear",0.01
+"s10","oct_16","plot 10","p","gedi",0.05
+"s10","oct_16","plot 3","p","shar",0.04
+"s10","oct_16","plot 6","p","mear",0.08
+"s10","oct_16","plot 6","p","mear",0.08
+"s10","oct_16","plot 10","p","lyar",0.06
+"s10","oct_16","plot 10","p","mear",0.05
+"s10","oct_16","plot 15","p","ni_p15_4",0.04
+"s10","oct_16","plot 10","p","gedi",0.05
+"s10","oct_16","plot 10","p","ni_p10_2",0.02
+"s10","oct_16","plot 3","p","fear",0.05
+"s10","oct_16","plot 3","p","gedi",0.02
+"s10","oct_16","plot 6","p","gedi",0.01
+"s10","oct_16","plot 6","p","trre",0.01
+"s10","oct_16","plot 15","p","mean",0.1
+"s10","oct_16","plot 15","p","ni_p15_4",0.04
+"s10","oct_16","plot 3","p","mear",0.01
+"s10","oct_16","plot 10","p","pore",0.08
+"s10","oct_16","plot 15","p","ni_p15_4",0.04
+"s10","oct_16","plot 6","p","shar",0.06
+"s10","oct_16","plot 10","p","to",0.01
+"s10","oct_16","plot 15","p","ni_p15_4",0.04
+"s10","oct_16","plot 3","p","gedi",0.02
+"s10","oct_16","plot 6","p","gedi",0.01
+"s10","oct_16","plot 10","p","gedi",0.05
+"s10","oct_16","plot 10","p","mear",0.05
+"s10","oct_16","plot 10","p","pore",0.08
+"s10","oct_16","plot 15","p","shar",0.08
+"s10","oct_16","plot 15","p","vepe",0.02
+"s10","oct_16","plot 6","p","gedi",0.01
+"s10","oct_16","plot 10","p","gedi",0.05
+"s10","oct_16","plot 10","p","gedi",0.05
+"s10","oct_16","plot 10","p","mean",0.06
+"s10","oct_16","plot 10","p","vepe",0.03
+"s10","oct_16","plot 10","p","vepe",0.03
+"s10","oct_16","plot 6","p","mear",0.08
+"s10","oct_16","plot 6","p","vepe",0.01
+"s10","oct_16","plot 10","p","to",0.01
+"s10","oct_16","plot 10","p","to",0.01
+"s10","oct_16","plot 15","p","vepe",0.02
+"s10","oct_16","plot 15","p","vepe",0.02
+"s10","oct_16","plot 3","p","to",0.01
+"s10","oct_16","plot 3","p","vepe",0.03
+"s10","oct_16","plot 10","p","bepe",0.01
+"s10","oct_16","plot 10","p","ni_p10_7",0.01
+"s10","oct_16","plot 10","p","to",0.01
+"s10","oct_16","plot 10","p","vepe",0.03
+"s10","oct_16","plot 15","p","shar",0.08
+"s10","oct_16","plot 15","p","vepe",0.02
+"s10","oct_16","plot 3","p","gedi",0.02
+"s10","oct_16","plot 3","p","gedi",0.02
+"s10","oct_16","plot 3","p","pore",0.1
+"s10","oct_16","plot 3","p","vepe",0.03
+"s10","oct_16","plot 6","p","gedi",0.01
+"s10","oct_16","plot 6","p","shar",0.06
+"s10","oct_16","plot 6","p","vepe",0.01
+"s10","oct_16","plot 15","p","vepe",0.02
+"s10","oct_16","plot 3","p","to",0.01
+"s10","oct_16","plot 6","p","vepe",0.01
+"s10","oct_16","plot 6","p","vepe",0.01
+"s10","oct_16","plot 10","p","to",0.01
+"s10","oct_16","plot 10","p","vepe",0.03
+"s10","oct_16","plot 10","p","vepe",0.03
+"s10","oct_16","plot 3","p","to",0.01
+"s10","oct_16","plot 6","p","gedi",0.01
+"s10","oct_16","plot 6","p","to",0.005
+"s10","oct_16","plot 6","p","vepe",0.01
+"s10","oct_16","plot 3","p","vepe",0.03
+"s10","oct_16","plot 6","p","shar",0.06
+"s10","oct_16","plot 3","p","vepe",0.03
+"s11","nov_13","plot 3","p","pore",0.1
+"s11","nov_13","plot 6","p","pore",0.16
+"s11","nov_13","plot 6","p","pore",0.16
+"s11","nov_13","plot 3","p","pore",0.1
+"s11","nov_13","plot 10","p","pore",0.04
+"s11","nov_13","plot 6","p","fear",0.14
+"s11","nov_13","plot 3","p","trfr",0.08
+"s11","nov_13","plot 3","p","trfr",0.08
+"s11","nov_13","plot 15","p","melu",0.08
+"s11","nov_13","plot 6","p","melu",0.02
+"s11","nov_13","plot 6","p","mear",0.14
+"s11","nov_13","plot 15","p","melu",0.08
+"s11","nov_13","plot 15","p","coar",0.02
+"s11","nov_13","plot 3","p","trfr",0.08
+"s11","nov_13","plot 6","p","elre",0.15
+"s11","nov_13","plot 10","p","ni_p10_5",0.08
+"s11","nov_13","plot 10","p","elre",0.18
+"s11","nov_13","plot 10","p","elre",0.18
+"s11","nov_13","plot 10","p","pore",0.04
+"s11","nov_13","plot 6","p","coar",0.01
+"s11","nov_13","plot 6","p","ni_p6_1",0.07
+"s11","nov_13","plot 10","p","lyar",0.1
+"s11","nov_13","plot 15","p","coar",0.02
+"s11","nov_13","plot 3","p","ni_p3_2",0.04
+"s11","nov_13","plot 3","p","lyar",0.05
+"s11","nov_13","plot 3","p","shar",0.06
+"s11","nov_13","plot 3","p","trfr",0.08
+"s11","nov_13","plot 3","p","trfr",0.08
+"s11","nov_13","plot 3","p","dagl",0.05
+"s11","nov_13","plot 6","p","elre",0.15
+"s11","nov_13","plot 6","p","elre",0.15
+"s11","nov_13","plot 15","p","coar",0.02
+"s11","nov_13","plot 3","p","elre",0.05
+"s11","nov_13","plot 3","p","shar",0.06
+"s11","nov_13","plot 6","p","shar",0.08
+"s11","nov_13","plot 15","p","mean",0.1
+"s11","nov_13","plot 6","p","elre",0.15
+"s11","nov_13","plot 10","p","elre",0.18
+"s11","nov_13","plot 10","p","elre",0.18
+"s11","nov_13","plot 3","p","dagl",0.05
+"s11","nov_13","plot 6","p","veof",0.01
+"s11","nov_13","plot 10","p","mean",0.05
+"s11","nov_13","plot 6","p","shar",0.08
+"s11","nov_13","plot 10","p","mean",0.05
+"s11","nov_13","plot 10","p","elre",0.18
+"s11","nov_13","plot 15","p","mear",0.08
+"s11","nov_13","plot 15","p","shar",0.06
+"s11","nov_13","plot 3","p","fear",0.06
+"s11","nov_13","plot 6","p","coar",0.01
+"s11","nov_13","plot 6","p","elre",0.15
+"s11","nov_13","plot 10","p","ni_p10_6",0.08
+"s11","nov_13","plot 15","p","shar",0.06
+"s11","nov_13","plot 3","p","ni_p3_3",0.06
+"s11","nov_13","plot 3","p","fear",0.06
+"s11","nov_13","plot 3","p","elre",0.05
+"s11","nov_13","plot 15","p","ni_p15_4",0.1
+"s11","nov_13","plot 15","p","ni_p15_4",0.1
+"s11","nov_13","plot 3","p","elre",0.05
+"s11","nov_13","plot 10","p","mear",0.05
+"s11","nov_13","plot 15","p","veof",0.02
+"s11","nov_13","plot 3","p","fear",0.06
+"s11","nov_13","plot 3","p","elre",0.05
+"s11","nov_13","plot 6","p","mear",0.14
+"s11","nov_13","plot 6","p","visa",0.05
+"s11","nov_13","plot 15","p","mear",0.08
+"s11","nov_13","plot 15","p","melu",0.08
+"s11","nov_13","plot 6","p","veof",0.01
+"s11","nov_13","plot 6","p","visa",0.05
+"s11","nov_13","plot 15","p","ni_p15_4",0.1
+"s11","nov_13","plot 15","p","coar",0.02
+"s11","nov_13","plot 15","p","coar",0.02
+"s11","nov_13","plot 15","p","mean",0.1
+"s11","nov_13","plot 3","p","plla",0.06
+"s11","nov_13","plot 6","p","pore",0.16
+"s11","nov_13","plot 10","p","ni_p10_2",0.03
+"s11","nov_13","plot 10","p","vepe",0.04
+"s11","nov_13","plot 10","p","vepe",0.04
+"s11","nov_13","plot 15","p","mear",0.08
+"s11","nov_13","plot 15","p","melu",0.08
+"s11","nov_13","plot 15","p","ni_p15_4",0.1
+"s11","nov_13","plot 3","p","ni_p3_3",0.06
+"s11","nov_13","plot 3","p","elre",0.05
+"s11","nov_13","plot 6","p","pore",0.16
+"s11","nov_13","plot 6","p","ni_p6_2",0.05
+"s11","nov_13","plot 3","p","plla",0.06
+"s11","nov_13","plot 10","p","gedi",0.09
+"s11","nov_13","plot 10","p","vepe",0.04
+"s11","nov_13","plot 15","p","shar",0.06
+"s11","nov_13","plot 15","p","ni_p15_4",0.1
+"s11","nov_13","plot 15","p","ni_p15_5",0.03
+"s11","nov_13","plot 3","p","pore",0.1
+"s11","nov_13","plot 3","p","ni_p3_3",0.06
+"s11","nov_13","plot 6","p","shar",0.08
+"s11","nov_13","plot 6","p","visa",0.05
+"s11","nov_13","plot 10","p","veof",0.01
+"s11","nov_13","plot 10","p","mean",0.05
+"s11","nov_13","plot 15","p","vepe",0.05
+"s11","nov_13","plot 3","p","pore",0.1
+"s11","nov_13","plot 3","p","melu",0.03
+"s11","nov_13","plot 3","p","shar",0.06
+"s11","nov_13","plot 6","p","gedi",0.1
+"s11","nov_13","plot 6","p","gedi",0.1
+"s11","nov_13","plot 10","p","vepe",0.04
+"s11","nov_13","plot 6","p","mear",0.14
+"s11","nov_13","plot 6","p","gedi",0.1
+"s11","nov_13","plot 6","p","trre",0.02
+"s11","nov_13","plot 10","p","gedi",0.09
+"s11","nov_13","plot 10","p","mear",0.05
+"s11","nov_13","plot 10","p","pore",0.04
+"s11","nov_13","plot 15","p","melu",0.08
+"s11","nov_13","plot 15","p","plla",0.04
+"s11","nov_13","plot 3","p","ni_p3_3",0.06
+"s11","nov_13","plot 3","p","vepe",0.04
+"s11","nov_13","plot 3","p","gedi",0.06
+"s11","nov_13","plot 3","p","gedi",0.06
+"s11","nov_13","plot 6","p","gedi",0.1
+"s11","nov_13","plot 6","p","visa",0.05
+"s11","nov_13","plot 6","p","asteraceae",0.01
+"s11","nov_13","plot 6","p","vepe",0.03
+"s11","nov_13","plot 6","p","plla",0.01
+"s11","nov_13","plot 10","p","gedi",0.09
+"s11","nov_13","plot 10","p","vepe",0.04
+"s11","nov_13","plot 15","p","plla",0.04
+"s11","nov_13","plot 6","p","gedi",0.1
+"s11","nov_13","plot 6","p","bepe",0.01
+"s11","nov_13","plot 10","p","ni_p10_7",0.03
+"s11","nov_13","plot 10","p","pore",0.04
+"s11","nov_13","plot 10","p","kisp",0.01
+"s11","nov_13","plot 15","p","vepe",0.05
+"s11","nov_13","plot 15","p","shar",0.06
+"s11","nov_13","plot 15","p","plla",0.04
+"s11","nov_13","plot 15","p","plla",0.04
+"s11","nov_13","plot 15","p","plla",0.04
+"s11","nov_13","plot 15","p","ni_p15_5",0.03
+"s11","nov_13","plot 15","p","visa",0.02
+"s11","nov_13","plot 3","p","ni_p3_3",0.06
+"s11","nov_13","plot 3","p","asteraceae",0.07
+"s11","nov_13","plot 6","p","mear",0.14
+"s11","nov_13","plot 6","p","pore",0.16
+"s11","nov_13","plot 6","p","vepe",0.03
+"s11","nov_13","plot 15","p","vepe",0.05
+"s11","nov_13","plot 15","p","shar",0.06
+"s11","nov_13","plot 6","p","mear",0.14
+"s11","nov_13","plot 6","p","veof",0.01
+"s11","nov_13","plot 10","p","plla",0.01
+"s11","nov_13","plot 10","p","to",0.03
+"s11","nov_13","plot 10","p","plla",0.01
+"s11","nov_13","plot 10","p","asteraceae",0.005
+"s11","nov_13","plot 15","p","vepe",0.05
+"s11","nov_13","plot 3","p","vepe",0.04
+"s11","nov_13","plot 3","p","shar",0.06
+"s11","nov_13","plot 6","p","vepe",0.03
+"s11","nov_13","plot 6","p","vepe",0.03
+"s11","nov_13","plot 6","p","ni_p6_2",0.05
+"s11","nov_13","plot 6","p","bepe",0.01
+"s11","nov_13","plot 10","p","gedi",0.09
+"s11","nov_13","plot 10","p","to",0.03
+"s11","nov_13","plot 15","p","vepe",0.05
+"s11","nov_13","plot 6","p","shar",0.08
+"s11","nov_13","plot 10","p","pore",0.04
+"s11","nov_13","plot 10","p","shar",0.005
+"s11","nov_13","plot 10","p","ni_p10_9",0.005
+"s11","nov_13","plot 3","p","shar",0.06
+"s11","nov_13","plot 3","p","gedi",0.06
+"s11","nov_13","plot 3","p","gedi",0.06
+"s11","nov_13","plot 3","p","to",0.04
+"s11","nov_13","plot 6","p","vepe",0.03
+"s11","nov_13","plot 6","p","ni_p6_4",0.01
+"s11","nov_13","plot 6","p","to",0.01
+"s11","nov_13","plot 6","p","to",0.01
+"s11","nov_13","plot 10","p","to",0.03
+"s11","nov_13","plot 15","p","mean",0.1
+"s11","nov_13","plot 6","p","shar",0.08
+"s11","nov_13","plot 6","p","ni_p6_4",0.01
+"s11","nov_13","plot 6","p","bepe",0.01
+"s11","nov_13","plot 10","p","gedi",0.09
+"s11","nov_13","plot 10","p","ni_p10_8",0.01
+"s11","nov_13","plot 10","p","to",0.03
+"s11","nov_13","plot 10","p","to",0.03
+"s11","nov_13","plot 10","p","ni_p10_9",0.005
+"s11","nov_13","plot 10","p","bepe",0.01
+"s11","nov_13","plot 15","p","to",0.005
+"s11","nov_13","plot 3","p","mear",0.03
+"s11","nov_13","plot 3","p","vepe",0.04
+"s11","nov_13","plot 3","p","vepe",0.04
+"s11","nov_13","plot 3","p","vepe",0.04
+"s11","nov_13","plot 3","p","to",0.04
+"s11","nov_13","plot 3","p","to",0.04
+"s11","nov_13","plot 3","p","asteraceae",0.07
+"s11","nov_13","plot 3","p","asteraceae",0.07
+"s11","nov_13","plot 3","p","asteraceae",0.07
+"s11","nov_13","plot 10","p","veof",0.01
+"s11","nov_13","plot 15","p","mean",0.1
+"s11","nov_13","plot 3","p","mear",0.03
+"s11","nov_13","plot 3","p","to",0.04
+"s11","nov_13","plot 3","p","asteraceae",0.07
+"s11","nov_13","plot 6","p","to",0.01
+"s11","nov_13","plot 15","p","mean",0.1
+"s11","nov_13","plot 3","p","pore",0.1
+"s11","nov_13","plot 3","p","to",0.04
+"s11","nov_13","plot 3","p","bepe",0.02
+"s2","jun_14","plot 10","p","coar",0.012
+"s2","jun_14","plot 10","p","coar",0.012
+"s2","jun_14","plot 10","p","coar",0.012
+"s2","jun_14","plot 3","p","coar",0.008
+"s2","jun_14","plot 3","p","dagl",0.015
+"s2","jun_14","plot 3","p","dagl",0.015
+"s2","jun_14","plot 3","p","dagl",0.015
+"s2","jun_14","plot 6","p","elre",0.01
+"s2","jun_14","plot 10","p","elre",0.015
+"s2","jun_14","plot 15","p","elre",0.01
+"s2","jun_14","plot 6","p","elre",0.01
+"s2","jun_14","plot 10","p","elre",0.015
+"s2","jun_14","plot 15","p","elre",0.01
+"s2","jun_14","plot 10","p","elre",0.015
+"s2","jun_14","plot 15","p","elre",0.01
+"s2","jun_14","plot 6","p","fear",0.015
+"s2","jun_14","plot 6","p","fear",0.015
+"s2","jun_14","plot 3","p","fear",0.01
+"s2","jun_14","plot 3","p","fear",0.01
+"s2","jun_14","plot 3","p","fear",0.01
+"s2","jun_14","plot 6","p","pore",0.009
+"s2","jun_14","plot 6","p","pore",0.009
+"s2","jun_14","plot 3","p","pore",0.005
+"s2","jun_14","plot 10","p","pore",0.007
+"s2","jun_14","plot 6","p","pore",0.009
+"s2","jun_14","plot 10","p","pore",0.007
+"s2","jun_14","plot 3","p","pore",0.005
+"s2","jun_14","plot 10","p","pore",0.007
+"s2","jun_14","plot 3","p","trre",0.005
+"s2","jun_14","plot 3","p","trre",0.005
+"s2","jun_14","plot 3","p","trre",0.005
+"s2","jun_14","plot 3","p","trre",0.005
+"s3","jun_28","plot 10","p","gedi",0.01
+"s3","jun_28","plot 10","p","shar",0.01
+"s3","jun_28","plot 15","p","brst",0.04
+"s3","jun_28","plot 6","p","mear",0.01
+"s3","jun_28","plot 6","p","pore",0.15
+"s3","jun_28","plot 10","p","coar",0.1
+"s3","jun_28","plot 10","p","coar",0.1
+"s3","jun_28","plot 6","p","pore",0.15
+"s3","jun_28","plot 6","p","fear",0.15
+"s3","jun_28","plot 10","p","pore",0.08
+"s3","jun_28","plot 6","p","pore",0.15
+"s3","jun_28","plot 3","p","pore",0.06
+"s3","jun_28","plot 6","p","fear",0.15
+"s3","jun_28","plot 6","p","elre",0.07
+"s3","jun_28","plot 15","p","elre",0.03
+"s3","jun_28","plot 6","p","pore",0.15
+"s3","jun_28","plot 10","p","elre",0.12
+"s3","jun_28","plot 6","p","pore",0.15
+"s3","jun_28","plot 10","p","elre",0.12
+"s3","jun_28","plot 10","p","coar",0.1
+"s3","jun_28","plot 10","p","coar",0.1
+"s3","jun_28","plot 10","p","elre",0.12
+"s3","jun_28","plot 15","p","elre",0.03
+"s3","jun_28","plot 3","p","pore",0.06
+"s3","jun_28","plot 6","p","elre",0.07
+"s3","jun_28","plot 6","p","elre",0.07
+"s3","jun_28","plot 10","p","pore",0.08
+"s3","jun_28","plot 6","p","elre",0.07
+"s3","jun_28","plot 3","p","ni_brasicacea_flores_amarillas",0.01
+"s3","jun_28","plot 6","p","elre",0.07
+"s3","jun_28","plot 15","p","elre",0.03
+"s3","jun_28","plot 15","p","elre",0.03
+"s3","jun_28","plot 15","p","elre",0.03
+"s3","jun_28","plot 3","p","dagl",0.03
+"s3","jun_28","plot 3","p","elre",0.04
+"s3","jun_28","plot 6","p","coar",0.02
+"s3","jun_28","plot 3","p","elre",0.04
+"s3","jun_28","plot 3","p","elre",0.04
+"s3","jun_28","plot 10","p","coar",0.1
+"s3","jun_28","plot 10","p","pore",0.08
+"s3","jun_28","plot 10","p","elre",0.12
+"s3","jun_28","plot 3","p","coar",0.02
+"s3","jun_28","plot 3","p","fear",0.01
+"s3","jun_28","plot 10","p","elre",0.12
+"s3","jun_28","plot 15","p","elre",0.03
+"s3","jun_28","plot 15","p","elre",0.03
+"s3","jun_28","plot 3","p","elre",0.04
+"s3","jun_28","plot 10","p","plla",0.02
+"s3","jun_28","plot 3","p","coar",0.02
+"s3","jun_28","plot 3","p","pore",0.06
+"s3","jun_28","plot 10","p","pore",0.08
+"s3","jun_28","plot 3","p","elre",0.04
+"s3","jun_28","plot 3","p","trfr",0.03
+"s3","jun_28","plot 10","p","pore",0.08
+"s3","jun_28","plot 3","p","plla",0.02
+"s3","jun_28","plot 3","p","ch",0.04
+"s3","jun_28","plot 3","p","ch",0.04
+"s3","jun_28","plot 3","p","trfr",0.03
+"s3","jun_28","plot 3","p","pore",0.06
+"s3","jun_28","plot 6","p","shar",0.06
+"s3","jun_28","plot 10","p","vepe",0.01
+"s3","jun_28","plot 6","p","shar",0.06
+"s3","jun_28","plot 3","p","ch",0.04
+"s3","jun_28","plot 6","p","shar",0.06
+"s3","jun_28","plot 15","p","am",0.01
+"s3","jun_28","plot 3","p","trfr",0.03
+"s3","jun_28","plot 6","p","shar",0.06
+"s3","jun_28","plot 6","p","shar",0.06
+"s3","jun_28","plot 3","p","ch",0.04
+"s3","jun_28","plot 3","p","trfr",0.03
+"s3","jun_28","plot 10","p","vepe",0.01
+"s3","jun_28","plot 3","p","shar",0.02
+"s3","jun_28","plot 3","p","trfr",0.03
+"s3","jun_28","plot 3","p","kisp",0.01
+"s3","jun_28","plot 3","p","lyar",0.02
+"s3","jun_28","plot 3","p","shar",0.02
+"s3","jun_28","plot 10","p","vepe",0.01
+"s3","jun_28","plot 15","p","mean",0.01
+"s3","jun_28","plot 3","p","shar",0.02
+"s3","jun_28","plot 3","p","ch",0.04
+"s3","jun_28","plot 3","p","shar",0.02
+"s3","jun_28","plot 3","p","shar",0.02
+"s4","jul_11","plot 6","p","pore",0.18
+"s4","jul_11","plot 6","p","fear",0.12
+"s4","jul_11","plot 10","p","elre",0.15
+"s4","jul_11","plot 3","p","pore",0.08
+"s4","jul_11","plot 15","p","fear",0.03
+"s4","jul_11","plot 6","p","pore",0.18
+"s4","jul_11","plot 10","p","coar",0.1
+"s4","jul_11","plot 6","p","pore",0.18
+"s4","jul_11","plot 10","p","coar",0.1
+"s4","jul_11","plot 3","p","pore",0.08
+"s4","jul_11","plot 10","p","pore",0.09
+"s4","jul_11","plot 10","p","pore",0.09
+"s4","jul_11","plot 6","p","pore",0.18
+"s4","jul_11","plot 6","p","pore",0.18
+"s4","jul_11","plot 10","p","elre",0.15
+"s4","jul_11","plot 6","p","elre",0.11
+"s4","jul_11","plot 10","p","elre",0.15
+"s4","jul_11","plot 10","p","coar",0.1
+"s4","jul_11","plot 3","p","dagl",0.06
+"s4","jul_11","plot 15","p","brst",0.03
+"s4","jul_11","plot 10","p","coar",0.1
+"s4","jul_11","plot 6","p","elre",0.11
+"s4","jul_11","plot 6","p","elre",0.11
+"s4","jul_11","plot 10","p","pore",0.09
+"s4","jul_11","plot 3","p","plla",0.02
+"s4","jul_11","plot 3","p","pore",0.08
+"s4","jul_11","plot 3","p","ch",0.17
+"s4","jul_11","plot 3","p","elre",0.06
+"s4","jul_11","plot 6","p","elre",0.11
+"s4","jul_11","plot 15","p","am",0.04
+"s4","jul_11","plot 3","p","elre",0.06
+"s4","jul_11","plot 3","p","fear",0.07
+"s4","jul_11","plot 10","p","elre",0.15
+"s4","jul_11","plot 3","p","pore",0.08
+"s4","jul_11","plot 3","p","elre",0.06
+"s4","jul_11","plot 15","p","elre",0.02
+"s4","jul_11","plot 3","p","coar",0.02
+"s4","jul_11","plot 3","p","pore",0.08
+"s4","jul_11","plot 6","p","elre",0.11
+"s4","jul_11","plot 10","p","elre",0.15
+"s4","jul_11","plot 3","p","ch",0.17
+"s4","jul_11","plot 6","p","coar",0.06
+"s4","jul_11","plot 6","p","shar",0.06
+"s4","jul_11","plot 3","p","elre",0.06
+"s4","jul_11","plot 3","p","fear",0.07
+"s4","jul_11","plot 3","p","kisp",0.05
+"s4","jul_11","plot 3","p","plla",0.02
+"s4","jul_11","plot 6","p","coar",0.06
+"s4","jul_11","plot 10","p","pore",0.09
+"s4","jul_11","plot 3","p","ch",0.17
+"s4","jul_11","plot 3","p","elre",0.06
+"s4","jul_11","plot 15","p","brst",0.03
+"s4","jul_11","plot 3","p","coar",0.02
+"s4","jul_11","plot 3","p","lyar",0.02
+"s4","jul_11","plot 10","p","coar",0.1
+"s4","jul_11","plot 15","p","dagl",0.02
+"s4","jul_11","plot 3","p","trfr",0.12
+"s4","jul_11","plot 3","p","fear",0.07
+"s4","jul_11","plot 3","p","trfr",0.12
+"s4","jul_11","plot 15","p","dagl",0.02
+"s4","jul_11","plot 3","p","ch",0.17
+"s4","jul_11","plot 6","p","shar",0.06
+"s4","jul_11","plot 6","p","shar",0.06
+"s4","jul_11","plot 10","p","vepe",0.03
+"s4","jul_11","plot 3","p","ch",0.17
+"s4","jul_11","plot 3","p","trfr",0.12
+"s4","jul_11","plot 6","p","shar",0.06
+"s4","jul_11","plot 6","p","shar",0.06
+"s4","jul_11","plot 3","p","shar",0.07
+"s4","jul_11","plot 10","p","he",0.01
+"s4","jul_11","plot 15","p","shar",0.01
+"s4","jul_11","plot 3","p","trfr",0.12
+"s4","jul_11","plot 3","p","trfr",0.12
+"s4","jul_11","plot 6","p","coar",0.06
+"s4","jul_11","plot 10","p","mean",0.01
+"s4","jul_11","plot 6","p","asteraceae",0.01
+"s4","jul_11","plot 10","p","pore",0.09
+"s4","jul_11","plot 10","p","vepe",0.03
+"s4","jul_11","plot 3","p","shar",0.07
+"s4","jul_11","plot 3","p","shar",0.07
+"s4","jul_11","plot 10","p","shar",0.04
+"s4","jul_11","plot 15","p","mean",0.03
+"s4","jul_11","plot 10","p","vepe",0.03
+"s4","jul_11","plot 15","p","me",0.01
+"s4","jul_11","plot 15","p","plla",0.01
+"s4","jul_11","plot 15","p","plla",0.01
+"s4","jul_11","plot 15","p","vepe",0.02
+"s4","jul_11","plot 3","p","shar",0.07
+"s4","jul_11","plot 3","p","shar",0.07
+"s4","jul_11","plot 6","p","mear",0.01
+"s4","jul_11","plot 10","p","shar",0.04
+"s4","jul_11","plot 10","p","shar",0.04
+"s4","jul_11","plot 15","p","shar",0.01
+"s4","jul_11","plot 10","p","vepe",0.03
+"s4","jul_11","plot 3","p","coar",0.02
+"s4","jul_11","plot 6","p","mear",0.01
+"s4","jul_11","plot 15","p","shar",0.01
+"s5","jul_26","plot 6","p","fear",0.22
+"s5","jul_26","plot 6","p","pore",0.22
+"s5","jul_26","plot 6","p","pore",0.22
+"s5","jul_26","plot 6","p","pore",0.22
+"s5","jul_26","plot 3","p","pore",0.08
+"s5","jul_26","plot 6","p","pore",0.22
+"s5","jul_26","plot 3","p","pore",0.08
+"s5","jul_26","plot 10","p","pore",0.12
+"s5","jul_26","plot 10","p","coar",0.15
+"s5","jul_26","plot 10","p","coar",0.15
+"s5","jul_26","plot 3","p","kisp",0.12
+"s5","jul_26","plot 3","p","ch",0.3
+"s5","jul_26","plot 10","p","pore",0.12
+"s5","jul_26","plot 10","p","elre",0.25
+"s5","jul_26","plot 15","p","am",0.25
+"s5","jul_26","plot 10","p","pore",0.12
+"s5","jul_26","plot 3","p","ch",0.3
+"s5","jul_26","plot 3","p","pore",0.08
+"s5","jul_26","plot 10","p","pore",0.12
+"s5","jul_26","plot 6","p","pore",0.22
+"s5","jul_26","plot 10","p","elre",0.25
+"s5","jul_26","plot 6","p","elre",0.3
+"s5","jul_26","plot 10","p","elre",0.25
+"s5","jul_26","plot 3","p","pore",0.08
+"s5","jul_26","plot 3","p","lyar",0.06
+"s5","jul_26","plot 3","p","plla",0.04
+"s5","jul_26","plot 3","p","pore",0.08
+"s5","jul_26","plot 3","p","hyra",0.03
+"s5","jul_26","plot 6","p","elre",0.3
+"s5","jul_26","plot 3","p","ch",0.3
+"s5","jul_26","plot 6","p","elre",0.3
+"s5","jul_26","plot 6","p","shar",0.15
+"s5","jul_26","plot 15","p","melu",0.04
+"s5","jul_26","plot 3","p","plla",0.04
+"s5","jul_26","plot 10","p","coar",0.15
+"s5","jul_26","plot 3","p","coar",0.06
+"s5","jul_26","plot 3","p","dagl",0.1
+"s5","jul_26","plot 3","p","ch",0.3
+"s5","jul_26","plot 3","p","elre",0.04
+"s5","jul_26","plot 10","p","he",0.06
+"s5","jul_26","plot 6","p","elre",0.3
+"s5","jul_26","plot 10","p","elre",0.25
+"s5","jul_26","plot 15","p","elre",0.06
+"s5","jul_26","plot 3","p","elre",0.04
+"s5","jul_26","plot 3","p","elre",0.04
+"s5","jul_26","plot 6","p","cyec",0.01
+"s5","jul_26","plot 6","p","elre",0.3
+"s5","jul_26","plot 6","p","shar",0.15
+"s5","jul_26","plot 3","p","fear",0.02
+"s5","jul_26","plot 15","p","mean",0.08
+"s5","jul_26","plot 3","p","fear",0.02
+"s5","jul_26","plot 3","p","coar",0.06
+"s5","jul_26","plot 3","p","dagl",0.1
+"s5","jul_26","plot 3","p","trfr",0.25
+"s5","jul_26","plot 10","p","coar",0.15
+"s5","jul_26","plot 3","p","ch",0.3
+"s5","jul_26","plot 6","p","cyec",0.01
+"s5","jul_26","plot 3","p","elre",0.04
+"s5","jul_26","plot 3","p","fear",0.02
+"s5","jul_26","plot 6","p","coar",0.04
+"s5","jul_26","plot 10","p","vepe",0.07
+"s5","jul_26","plot 3","p","elre",0.04
+"s5","jul_26","plot 10","p","coar",0.15
+"s5","jul_26","plot 3","p","trfr",0.25
+"s5","jul_26","plot 10","p","elre",0.25
+"s5","jul_26","plot 10","p","vepe",0.07
+"s5","jul_26","plot 15","p","ni_p15_4",0.04
+"s5","jul_26","plot 3","p","coar",0.06
+"s5","jul_26","plot 3","p","fear",0.02
+"s5","jul_26","plot 15","p","brho",0.01
+"s5","jul_26","plot 15","p","shar",0.03
+"s5","jul_26","plot 3","p","trfr",0.25
+"s5","jul_26","plot 10","p","ch",0.02
+"s5","jul_26","plot 15","p","ni_p15_4",0.04
+"s5","jul_26","plot 3","p","shar",0.08
+"s5","jul_26","plot 6","p","mear",0.02
+"s5","jul_26","plot 3","p","trfr",0.25
+"s5","jul_26","plot 6","p","coar",0.04
+"s5","jul_26","plot 15","p","mean",0.08
+"s5","jul_26","plot 3","p","shar",0.08
+"s5","jul_26","plot 3","p","trfr",0.25
+"s5","jul_26","plot 6","p","shar",0.15
+"s5","jul_26","plot 10","p","ni_p10_5",0.01
+"s5","jul_26","plot 15","p","ni_p15_4",0.04
+"s5","jul_26","plot 6","p","shar",0.15
+"s5","jul_26","plot 15","p","melu",0.04
+"s5","jul_26","plot 10","p","shar",0.04
+"s5","jul_26","plot 3","p","shar",0.08
+"s5","jul_26","plot 3","p","shar",0.08
+"s5","jul_26","plot 6","p","ni_p6_1",0.03
+"s5","jul_26","plot 10","p","mean",0.01
+"s5","jul_26","plot 10","p","pore",0.12
+"s5","jul_26","plot 15","p","shar",0.03
+"s5","jul_26","plot 10","p","libi",0.01
+"s5","jul_26","plot 6","p","shar",0.15
+"s5","jul_26","plot 10","p","mean",0.01
+"s5","jul_26","plot 10","p","shar",0.04
+"s5","jul_26","plot 15","p","plla",0.01
+"s5","jul_26","plot 3","p","shar",0.08
+"s5","jul_26","plot 6","p","coar",0.04
+"s5","jul_26","plot 15","p","shar",0.03
+"s5","jul_26","plot 3","p","ni_p3_3",0.01
+"s5","jul_26","plot 10","p","veof",0.02
+"s5","jul_26","plot 15","p","mean",0.08
+"s5","jul_26","plot 15","p","melu",0.04
+"s5","jul_26","plot 15","p","shar",0.03
+"s5","jul_26","plot 15","p","vepe",0.05
+"s5","jul_26","plot 15","p","mear",0.005
+"s5","jul_26","plot 15","p","shar",0.03
+"s6","aug_22","plot 6","p","pore",0.25
+"s6","aug_22","plot 3","p","pore",0.08
+"s6","aug_22","plot 15","p","am",0.5
+"s6","aug_22","plot 3","p","kisp",0.12
+"s6","aug_22","plot 3","p","ch",0.52
+"s6","aug_22","plot 6","p","pore",0.25
+"s6","aug_22","plot 15","p","melu",0.08
+"s6","aug_22","plot 6","p","pore",0.25
+"s6","aug_22","plot 3","p","ch",0.52
+"s6","aug_22","plot 3","p","ch",0.52
+"s6","aug_22","plot 6","p","pore",0.25
+"s6","aug_22","plot 10","p","elre",0.3
+"s6","aug_22","plot 15","p","melu",0.08
+"s6","aug_22","plot 3","p","ch",0.52
+"s6","aug_22","plot 10","p","pore",0.15
+"s6","aug_22","plot 3","p","ch",0.52
+"s6","aug_22","plot 10","p","he",0.18
+"s6","aug_22","plot 6","p","fear",0.15
+"s6","aug_22","plot 15","p","melu",0.08
+"s6","aug_22","plot 10","p","elre",0.3
+"s6","aug_22","plot 10","p","coar",0.12
+"s6","aug_22","plot 15","p","mean",0.13
+"s6","aug_22","plot 6","p","pore",0.25
+"s6","aug_22","plot 10","p","elre",0.3
+"s6","aug_22","plot 3","p","lyar",0.03
+"s6","aug_22","plot 3","p","trfr",0.2
+"s6","aug_22","plot 10","p","pore",0.15
+"s6","aug_22","plot 10","p","ch",0.03
+"s6","aug_22","plot 10","p","coar",0.12
+"s6","aug_22","plot 15","p","ni_p15_4",0.11
+"s6","aug_22","plot 6","p","elre",0.1
+"s6","aug_22","plot 10","p","elre",0.3
+"s6","aug_22","plot 10","p","elre",0.3
+"s6","aug_22","plot 10","p","pore",0.15
+"s6","aug_22","plot 3","p","hyra",0.03
+"s6","aug_22","plot 3","p","plla",0.06
+"s6","aug_22","plot 3","p","trfr",0.2
+"s6","aug_22","plot 3","p","coar",0.06
+"s6","aug_22","plot 10","p","pore",0.15
+"s6","aug_22","plot 15","p","mean",0.13
+"s6","aug_22","plot 6","p","shar",0.05
+"s6","aug_22","plot 3","p","dagl",0.03
+"s6","aug_22","plot 6","p","elre",0.1
+"s6","aug_22","plot 6","p","elre",0.1
+"s6","aug_22","plot 15","p","ni_p15_4",0.11
+"s6","aug_22","plot 3","p","coar",0.06
+"s6","aug_22","plot 3","p","shar",0.05
+"s6","aug_22","plot 15","p","mean",0.13
+"s6","aug_22","plot 15","p","ni_p15_4",0.11
+"s6","aug_22","plot 10","p","coar",0.12
+"s6","aug_22","plot 15","p","plla",0.06
+"s6","aug_22","plot 3","p","coar",0.06
+"s6","aug_22","plot 3","p","veof",0.02
+"s6","aug_22","plot 6","p","elre",0.1
+"s6","aug_22","plot 6","p","shar",0.05
+"s6","aug_22","plot 6","p","shar",0.05
+"s6","aug_22","plot 15","p","ni_p15_4",0.11
+"s6","aug_22","plot 3","p","trfr",0.2
+"s6","aug_22","plot 15","p","coar",0.04
+"s6","aug_22","plot 3","p","fear",0.03
+"s6","aug_22","plot 3","p","fear",0.03
+"s6","aug_22","plot 3","p","trfr",0.2
+"s6","aug_22","plot 6","p","coar",0.08
+"s6","aug_22","plot 6","p","elre",0.1
+"s6","aug_22","plot 15","p","coar",0.04
+"s6","aug_22","plot 15","p","ni_p15_4",0.11
+"s6","aug_22","plot 6","p","shar",0.05
+"s6","aug_22","plot 6","p","shar",0.05
+"s6","aug_22","plot 10","p","coar",0.12
+"s6","aug_22","plot 3","p","trfr",0.2
+"s6","aug_22","plot 15","p","coar",0.04
+"s6","aug_22","plot 3","p","coar",0.06
+"s6","aug_22","plot 3","p","shar",0.05
+"s6","aug_22","plot 6","p","veof",0.02
+"s6","aug_22","plot 15","p","veof",0.01
+"s6","aug_22","plot 3","p","coar",0.06
+"s6","aug_22","plot 10","p","ch",0.03
+"s6","aug_22","plot 10","p","pore",0.15
+"s6","aug_22","plot 10","p","coar",0.12
+"s6","aug_22","plot 10","p","mean",0.02
+"s6","aug_22","plot 10","p","mean",0.02
+"s6","aug_22","plot 10","p","ni_p10_5",0.03
+"s6","aug_22","plot 15","p","mear",0.05
+"s6","aug_22","plot 15","p","plla",0.06
+"s6","aug_22","plot 6","p","coar",0.08
+"s6","aug_22","plot 6","p","coar",0.08
+"s6","aug_22","plot 6","p","ni_p6_1",0.02
+"s6","aug_22","plot 6","p","veof",0.02
+"s6","aug_22","plot 10","p","veof",0.01
+"s6","aug_22","plot 15","p","mear",0.05
+"s6","aug_22","plot 15","p","shar",0.02
+"s6","aug_22","plot 15","p","shar",0.02
+"s6","aug_22","plot 15","p","shar",0.02
+"s6","aug_22","plot 15","p","mear",0.05
+"s6","aug_22","plot 15","p","vepe",0.02
+"s6","aug_22","plot 15","p","coar",0.04
+"s6","aug_22","plot 15","p","coar",0.04
+"s6","aug_22","plot 15","p","mear",0.05
+"s6","aug_22","plot 15","p","shar",0.02
+"s6","aug_22","plot 15","p","shar",0.02
+"s6","aug_22","plot 10","p","mear",0.01
+"s6","aug_22","plot 3","p","pore",0.08
+"s6","aug_22","plot 6","p","coar",0.08
+"s7","sep_04","plot 6","p","pore",0.26
+"s7","sep_04","plot 6","p","pore",0.26
+"s7","sep_04","plot 3","p","pore",0.1
+"s7","sep_04","plot 15","p","am",0.45
+"s7","sep_04","plot 6","p","pore",0.26
+"s7","sep_04","plot 3","p","ch",0.5
+"s7","sep_04","plot 15","p","melu",0.1
+"s7","sep_04","plot 3","p","ch",0.5
+"s7","sep_04","plot 3","p","ch",0.5
+"s7","sep_04","plot 15","p","melu",0.1
+"s7","sep_04","plot 6","p","pore",0.26
+"s7","sep_04","plot 10","p","fear",0.01
+"s7","sep_04","plot 3","p","ch",0.5
+"s7","sep_04","plot 3","p","ch",0.5
+"s7","sep_04","plot 6","p","fear",0.2
+"s7","sep_04","plot 10","p","pore",0.15
+"s7","sep_04","plot 10","p","elre",0.35
+"s7","sep_04","plot 15","p","melu",0.1
+"s7","sep_04","plot 10","p","elre",0.35
+"s7","sep_04","plot 10","p","coar",0.1
+"s7","sep_04","plot 10","p","pore",0.15
+"s7","sep_04","plot 15","p","mean",0.15
+"s7","sep_04","plot 6","p","pore",0.26
+"s7","sep_04","plot 10","p","pore",0.15
+"s7","sep_04","plot 6","p","elre",0.2
+"s7","sep_04","plot 3","p","trfr",0.3
+"s7","sep_04","plot 6","p","elre",0.2
+"s7","sep_04","plot 6","p","elre",0.2
+"s7","sep_04","plot 10","p","coar",0.1
+"s7","sep_04","plot 10","p","pore",0.15
+"s7","sep_04","plot 6","p","elre",0.2
+"s7","sep_04","plot 10","p","ch",0.06
+"s7","sep_04","plot 10","p","coar",0.1
+"s7","sep_04","plot 3","p","coar",0.07
+"s7","sep_04","plot 3","p","plla",0.05
+"s7","sep_04","plot 10","p","elre",0.35
+"s7","sep_04","plot 15","p","plla",0.04
+"s7","sep_04","plot 3","p","dagl",0.06
+"s7","sep_04","plot 3","p","dagl",0.06
+"s7","sep_04","plot 3","p","elre",0.05
+"s7","sep_04","plot 15","p","mean",0.15
+"s7","sep_04","plot 15","p","ni_p15_4",0.06
+"s7","sep_04","plot 3","p","coar",0.07
+"s7","sep_04","plot 10","p","elre",0.35
+"s7","sep_04","plot 15","p","coar",0.06
+"s7","sep_04","plot 3","p","elre",0.05
+"s7","sep_04","plot 3","p","elre",0.05
+"s7","sep_04","plot 3","p","pore",0.1
+"s7","sep_04","plot 6","p","shar",0.04
+"s7","sep_04","plot 10","p","elre",0.35
+"s7","sep_04","plot 3","p","veof",0.02
+"s7","sep_04","plot 10","p","pore",0.15
+"s7","sep_04","plot 15","p","mean",0.15
+"s7","sep_04","plot 6","p","elre",0.2
+"s7","sep_04","plot 3","p","coar",0.07
+"s7","sep_04","plot 3","p","elre",0.05
+"s7","sep_04","plot 3","p","trfr",0.3
+"s7","sep_04","plot 15","p","coar",0.06
+"s7","sep_04","plot 3","p","fear",0.06
+"s7","sep_04","plot 3","p","trfr",0.3
+"s7","sep_04","plot 15","p","ni_p15_4",0.06
+"s7","sep_04","plot 3","p","fear",0.06
+"s7","sep_04","plot 6","p","mear",0.09
+"s7","sep_04","plot 15","p","ni_p15_4",0.06
+"s7","sep_04","plot 15","p","veof",0.02
+"s7","sep_04","plot 3","p","shar",0.06
+"s7","sep_04","plot 3","p","trfr",0.3
+"s7","sep_04","plot 6","p","coar",0.06
+"s7","sep_04","plot 15","p","ni_p15_4",0.06
+"s7","sep_04","plot 3","p","coar",0.07
+"s7","sep_04","plot 3","p","fear",0.06
+"s7","sep_04","plot 3","p","trfr",0.3
+"s7","sep_04","plot 6","p","shar",0.04
+"s7","sep_04","plot 10","p","ch",0.06
+"s7","sep_04","plot 15","p","coar",0.06
+"s7","sep_04","plot 6","p","shar",0.04
+"s7","sep_04","plot 6","p","veof",0.03
+"s7","sep_04","plot 10","p","coar",0.1
+"s7","sep_04","plot 15","p","ni_p15_4",0.06
+"s7","sep_04","plot 10","p","coar",0.1
+"s7","sep_04","plot 10","p","mean",0.04
+"s7","sep_04","plot 3","p","elre",0.05
+"s7","sep_04","plot 10","p","mean",0.04
+"s7","sep_04","plot 10","p","veof",0.02
+"s7","sep_04","plot 15","p","plla",0.04
+"s7","sep_04","plot 3","p","coar",0.07
+"s7","sep_04","plot 6","p","ni_p6_1",0.05
+"s7","sep_04","plot 15","p","mear",0.06
+"s7","sep_04","plot 15","p","ni_p15_4",0.06
+"s7","sep_04","plot 15","p","shar",0.05
+"s7","sep_04","plot 3","p","shar",0.06
+"s7","sep_04","plot 6","p","veof",0.03
+"s7","sep_04","plot 15","p","lyar",0.01
+"s7","sep_04","plot 15","p","shar",0.05
+"s7","sep_04","plot 6","p","coar",0.06
+"s7","sep_04","plot 10","p","ni_p10_5",0.03
+"s7","sep_04","plot 15","p","coar",0.06
+"s7","sep_04","plot 15","p","vepe",0.03
+"s7","sep_04","plot 3","p","plla",0.05
+"s7","sep_04","plot 6","p","mear",0.09
+"s7","sep_04","plot 6","p","melu",0.03
+"s7","sep_04","plot 6","p","shar",0.04
+"s7","sep_04","plot 15","p","coar",0.06
+"s7","sep_04","plot 15","p","mear",0.06
+"s7","sep_04","plot 6","p","coar",0.06
+"s7","sep_04","plot 15","p","shar",0.05
+"s7","sep_04","plot 6","p","coar",0.06
+"s7","sep_04","plot 10","p","lyar",0.04
+"s7","sep_04","plot 10","p","ni_p10_6",0.01
+"s7","sep_04","plot 10","p","shar",0.02
+"s7","sep_04","plot 15","p","melu",0.1
+"s7","sep_04","plot 6","p","mear",0.09
+"s7","sep_04","plot 6","p","shar",0.04
+"s7","sep_04","plot 6","p","mear",0.09
+"s7","sep_04","plot 10","p","mear",0.03
+"s7","sep_04","plot 15","p","shar",0.05
+"s7","sep_04","plot 6","p","mear",0.09
+"s7","sep_04","plot 15","p","melu",0.1
+"s8","sep_18","plot 3","p","pore",0.1
+"s8","sep_18","plot 6","p","pore",0.25
+"s8","sep_18","plot 15","p","am",0.45
+"s8","sep_18","plot 6","p","pore",0.25
+"s8","sep_18","plot 15","p","melu",0.09
+"s8","sep_18","plot 3","p","ch",0.5
+"s8","sep_18","plot 3","p","ch",0.5
+"s8","sep_18","plot 6","p","pore",0.25
+"s8","sep_18","plot 15","p","melu",0.09
+"s8","sep_18","plot 3","p","ch",0.5
+"s8","sep_18","plot 6","p","pore",0.25
+"s8","sep_18","plot 3","p","ch",0.5
+"s8","sep_18","plot 3","p","ch",0.5
+"s8","sep_18","plot 3","p","trfr",0.15
+"s8","sep_18","plot 6","p","fear",0.2
+"s8","sep_18","plot 10","p","pore",0.09
+"s8","sep_18","plot 15","p","melu",0.09
+"s8","sep_18","plot 15","p","coar",0.07
+"s8","sep_18","plot 3","p","trfr",0.15
+"s8","sep_18","plot 10","p","pore",0.09
+"s8","sep_18","plot 10","p","coar",0.15
+"s8","sep_18","plot 6","p","elre",0.25
+"s8","sep_18","plot 15","p","coar",0.07
+"s8","sep_18","plot 15","p","coar",0.07
+"s8","sep_18","plot 10","p","ch",0.05
+"s8","sep_18","plot 15","p","mean",0.12
+"s8","sep_18","plot 3","p","lyar",0.05
+"s8","sep_18","plot 10","p","coar",0.15
+"s8","sep_18","plot 10","p","elre",0.4
+"s8","sep_18","plot 3","p","coar",0.01
+"s8","sep_18","plot 6","p","elre",0.25
+"s8","sep_18","plot 6","p","elre",0.25
+"s8","sep_18","plot 3","p","dagl",0.06
+"s8","sep_18","plot 6","p","mear",0.1
+"s8","sep_18","plot 10","p","elre",0.4
+"s8","sep_18","plot 10","p","coar",0.15
+"s8","sep_18","plot 15","p","coar",0.07
+"s8","sep_18","plot 10","p","elre",0.4
+"s8","sep_18","plot 10","p","elre",0.4
+"s8","sep_18","plot 3","p","fear",0.1
+"s8","sep_18","plot 15","p","mean",0.12
+"s8","sep_18","plot 15","p","veof",0.03
+"s8","sep_18","plot 3","p","coar",0.01
+"s8","sep_18","plot 6","p","elre",0.25
+"s8","sep_18","plot 15","p","mean",0.12
+"s8","sep_18","plot 15","p","plla",0.03
+"s8","sep_18","plot 3","p","coar",0.01
+"s8","sep_18","plot 3","p","trfr",0.15
+"s8","sep_18","plot 6","p","elre",0.25
+"s8","sep_18","plot 6","p","pore",0.25
+"s8","sep_18","plot 6","p","shar",0.04
+"s8","sep_18","plot 10","p","coar",0.15
+"s8","sep_18","plot 10","p","coar",0.15
+"s8","sep_18","plot 3","p","pore",0.1
+"s8","sep_18","plot 3","p","veof",0.03
+"s8","sep_18","plot 6","p","melu",0.02
+"s8","sep_18","plot 10","p","elre",0.4
+"s8","sep_18","plot 10","p","mean",0.06
+"s8","sep_18","plot 15","p","ni_p15_4",0.07
+"s8","sep_18","plot 3","p","shar",0.03
+"s8","sep_18","plot 6","p","coar",0.04
+"s8","sep_18","plot 6","p","coar",0.04
+"s8","sep_18","plot 3","p","trfr",0.15
+"s8","sep_18","plot 3","p","fear",0.1
+"s8","sep_18","plot 3","p","lyar",0.05
+"s8","sep_18","plot 3","p","shar",0.03
+"s8","sep_18","plot 6","p","ni_p6_1",0.05
+"s8","sep_18","plot 10","p","mean",0.06
+"s8","sep_18","plot 15","p","coar",0.07
+"s8","sep_18","plot 10","p","ni_p10_5",0.08
+"s8","sep_18","plot 10","p","veof",0.02
+"s8","sep_18","plot 15","p","shar",0.03
+"s8","sep_18","plot 3","p","ni_p3_3",0.04
+"s8","sep_18","plot 3","p","plla",0.03
+"s8","sep_18","plot 6","p","coar",0.04
+"s8","sep_18","plot 6","p","coar",0.04
+"s8","sep_18","plot 6","p","coar",0.04
+"s8","sep_18","plot 6","p","veof",0.03
+"s8","sep_18","plot 15","p","mear",0.09
+"s8","sep_18","plot 15","p","ni_p15_4",0.07
+"s8","sep_18","plot 3","p","ni_p3_2",0.03
+"s8","sep_18","plot 6","p","shar",0.04
+"s8","sep_18","plot 10","p","ch",0.05
+"s8","sep_18","plot 10","p","ni_p10_6",0.06
+"s8","sep_18","plot 3","p","ni_p3_3",0.04
+"s8","sep_18","plot 6","p","mear",0.1
+"s8","sep_18","plot 6","p","mear",0.1
+"s8","sep_18","plot 6","p","shar",0.04
+"s8","sep_18","plot 6","p","veof",0.03
+"s8","sep_18","plot 10","p","lyar",0.06
+"s8","sep_18","plot 15","p","ni_p15_4",0.07
+"s8","sep_18","plot 15","p","ni_p15_5",0.02
+"s8","sep_18","plot 15","p","shar",0.03
+"s8","sep_18","plot 15","p","vepe",0.03
+"s8","sep_18","plot 6","p","mear",0.1
+"s8","sep_18","plot 15","p","ni_p15_4",0.07
+"s8","sep_18","plot 15","p","melu",0.09
+"s8","sep_18","plot 15","p","ni_p15_5",0.02
+"s8","sep_18","plot 15","p","shar",0.03
+"s8","sep_18","plot 6","p","mear",0.1
+"s8","sep_18","plot 10","p","pore",0.09
+"s8","sep_18","plot 3","p","ni_p3_3",0.04
+"s8","sep_18","plot 10","p","pore",0.09
+"s8","sep_18","plot 15","p","ni_p15_4",0.07
+"s8","sep_18","plot 3","p","plla",0.03
+"s8","sep_18","plot 10","p","mear",0.03
+"s8","sep_18","plot 15","p","shar",0.03
+"s8","sep_18","plot 3","p","shar",0.03
+"s8","sep_18","plot 3","p","trfr",0.15
+"s8","sep_18","plot 6","p","shar",0.04
+"s8","sep_18","plot 10","p","pore",0.09
+"s8","sep_18","plot 3","p","ni_p3_3",0.04
+"s8","sep_18","plot 6","p","shar",0.04
+"s8","sep_18","plot 10","p","mear",0.03
+"s8","sep_18","plot 10","p","ni_p10_2",0.03
+"s8","sep_18","plot 15","p","mear",0.09
+"s8","sep_18","plot 15","p","ni_p15_5",0.02
+"s8","sep_18","plot 3","p","shar",0.03
+"s8","sep_18","plot 6","p","ni_p6_2",0.01
+"s8","sep_18","plot 10","p","to",0.005
+"s8","sep_18","plot 3","p","ni_p3_3",0.04
+"s8","sep_18","plot 3","p","gedi",0.01
+"s8","sep_18","plot 3","p","gedi",0.01
+"s8","sep_18","plot 6","p","bepe",0.005
+"s8","sep_18","plot 6","p","gedi",0.03
+"s8","sep_18","plot 10","p","ni_p10_2",0.03
+"s8","sep_18","plot 3","p","to",0.005
+"s8","sep_18","plot 3","p","gedi",0.01
+"s8","sep_18","plot 6","p","gedi",0.03
+"s8","sep_18","plot 6","p","gedi",0.03
+"s8","sep_18","plot 10","p","gedi",0.05
+"s8","sep_18","plot 10","p","gedi",0.05
+"s8","sep_18","plot 10","p","gedi",0.05
+"s8","sep_18","plot 3","p","pore",0.1
+"s8","sep_18","plot 10","p","gedi",0.05
+"s8","sep_18","plot 10","p","gedi",0.05
+"s8","sep_18","plot 3","p","gedi",0.01
+"s8","sep_18","plot 6","p","gedi",0.03
+"s8","sep_18","plot 6","p","gedi",0.03
+"s8","sep_18","plot 10","p","bepe",0.005
+"s8","sep_18","plot 3","p","bepe",0.01
+"s8","sep_18","plot 3","p","to",0.005
+"s8","sep_18","plot 3","p","gedi",0.01
+"s9","oct_04","plot 6","p","pore",0.23
+"s9","oct_04","plot 3","p","pore",0.1
+"s9","oct_04","plot 6","p","pore",0.23
+"s9","oct_04","plot 15","p","am",0.45
+"s9","oct_04","plot 15","p","melu",0.05
+"s9","oct_04","plot 3","p","ch",0.3
+"s9","oct_04","plot 3","p","pore",0.1
+"s9","oct_04","plot 3","p","ch",0.3
+"s9","oct_04","plot 6","p","fear",0.15
+"s9","oct_04","plot 10","p","pore",0.11
+"s9","oct_04","plot 6","p","pore",0.23
+"s9","oct_04","plot 15","p","melu",0.05
+"s9","oct_04","plot 3","p","ch",0.3
+"s9","oct_04","plot 3","p","ch",0.3
+"s9","oct_04","plot 3","p","ch",0.3
+"s9","oct_04","plot 15","p","melu",0.05
+"s9","oct_04","plot 15","p","coar",0.1
+"s9","oct_04","plot 3","p","trfr",0.08
+"s9","oct_04","plot 10","p","elre",0.2
+"s9","oct_04","plot 15","p","coar",0.1
+"s9","oct_04","plot 10","p","pore",0.11
+"s9","oct_04","plot 10","p","coar",0.1
+"s9","oct_04","plot 15","p","mean",0.1
+"s9","oct_04","plot 6","p","pore",0.23
+"s9","oct_04","plot 6","p","mear",0.07
+"s9","oct_04","plot 15","p","coar",0.1
+"s9","oct_04","plot 10","p","coar",0.1
+"s9","oct_04","plot 10","p","pore",0.11
+"s9","oct_04","plot 6","p","elre",0.25
+"s9","oct_04","plot 3","p","trfr",0.08
+"s9","oct_04","plot 6","p","elre",0.25
+"s9","oct_04","plot 10","p","coar",0.1
+"s9","oct_04","plot 10","p","coar",0.1
+"s9","oct_04","plot 10","p","elre",0.2
+"s9","oct_04","plot 6","p","elre",0.25
+"s9","oct_04","plot 3","p","coar",0.1
+"s9","oct_04","plot 10","p","ch",0.04
+"s9","oct_04","plot 15","p","coar",0.1
+"s9","oct_04","plot 15","p","veof",0.01
+"s9","oct_04","plot 3","p","dagl",0.05
+"s9","oct_04","plot 3","p","elre",0.05
+"s9","oct_04","plot 3","p","coar",0.1
+"s9","oct_04","plot 3","p","shar",0.05
+"s9","oct_04","plot 15","p","coar",0.1
+"s9","oct_04","plot 15","p","mean",0.1
+"s9","oct_04","plot 15","p","mean",0.1
+"s9","oct_04","plot 3","p","dagl",0.05
+"s9","oct_04","plot 3","p","trfr",0.08
+"s9","oct_04","plot 6","p","elre",0.25
+"s9","oct_04","plot 15","p","plla",0.05
+"s9","oct_04","plot 3","p","elre",0.05
+"s9","oct_04","plot 3","p","lyar",0.05
+"s9","oct_04","plot 3","p","veof",0.02
+"s9","oct_04","plot 10","p","elre",0.2
+"s9","oct_04","plot 3","p","shar",0.05
+"s9","oct_04","plot 10","p","coar",0.1
+"s9","oct_04","plot 3","p","coar",0.1
+"s9","oct_04","plot 3","p","trfr",0.08
+"s9","oct_04","plot 6","p","coar",0.03
+"s9","oct_04","plot 3","p","fear",0.05
+"s9","oct_04","plot 3","p","shar",0.05
+"s9","oct_04","plot 10","p","lyar",0.04
+"s9","oct_04","plot 10","p","mean",0.04
+"s9","oct_04","plot 10","p","veof",0.02
+"s9","oct_04","plot 3","p","fear",0.05
+"s9","oct_04","plot 6","p","elre",0.25
+"s9","oct_04","plot 6","p","ni_p6_1",0.05
+"s9","oct_04","plot 6","p","veof",0.03
+"s9","oct_04","plot 10","p","mean",0.04
+"s9","oct_04","plot 3","p","trfr",0.08
+"s9","oct_04","plot 6","p","shar",0.03
+"s9","oct_04","plot 3","p","coar",0.1
+"s9","oct_04","plot 3","p","elre",0.05
+"s9","oct_04","plot 10","p","elre",0.2
+"s9","oct_04","plot 15","p","shar",0.05
+"s9","oct_04","plot 3","p","ni_p3_3",0.04
+"s9","oct_04","plot 3","p","ni_p3_3",0.04
+"s9","oct_04","plot 3","p","shar",0.05
+"s9","oct_04","plot 6","p","coar",0.03
+"s9","oct_04","plot 3","p","coar",0.1
+"s9","oct_04","plot 10","p","ni_p10_6",0.05
+"s9","oct_04","plot 10","p","pore",0.11
+"s9","oct_04","plot 3","p","ni_p3_2",0.03
+"s9","oct_04","plot 6","p","coar",0.03
+"s9","oct_04","plot 6","p","coar",0.03
+"s9","oct_04","plot 6","p","veof",0.03
+"s9","oct_04","plot 10","p","elre",0.2
+"s9","oct_04","plot 15","p","mear",0.04
+"s9","oct_04","plot 6","p","mear",0.07
+"s9","oct_04","plot 10","p","ni_p10_5",0.06
+"s9","oct_04","plot 10","p","pore",0.11
+"s9","oct_04","plot 15","p","mear",0.04
+"s9","oct_04","plot 15","p","ni_p15_4",0.07
+"s9","oct_04","plot 3","p","ni_p3_3",0.04
+"s9","oct_04","plot 6","p","shar",0.03
+"s9","oct_04","plot 10","p","ch",0.04
+"s9","oct_04","plot 15","p","ni_p15_4",0.07
+"s9","oct_04","plot 15","p","shar",0.05
+"s9","oct_04","plot 3","p","ni_p3_3",0.04
+"s9","oct_04","plot 3","p","plla",0.06
+"s9","oct_04","plot 6","p","mear",0.07
+"s9","oct_04","plot 6","p","shar",0.03
+"s9","oct_04","plot 3","p","mear",0.01
+"s9","oct_04","plot 10","p","mear",0.04
+"s9","oct_04","plot 3","p","plla",0.06
+"s9","oct_04","plot 6","p","coar",0.03
+"s9","oct_04","plot 6","p","gedi",0.1
+"s9","oct_04","plot 10","p","gedi",0.08
+"s9","oct_04","plot 3","p","ni_p3_3",0.04
+"s9","oct_04","plot 6","p","ni_p6_2",0.02
+"s9","oct_04","plot 10","p","gedi",0.08
+"s9","oct_04","plot 10","p","gedi",0.08
+"s9","oct_04","plot 10","p","ni_p10_2",0.01
+"s9","oct_04","plot 15","p","ni_p15_4",0.07
+"s9","oct_04","plot 15","p","ni_p15_4",0.07
+"s9","oct_04","plot 6","p","gedi",0.1
+"s9","oct_04","plot 6","p","mear",0.07
+"s9","oct_04","plot 6","p","shar",0.03
+"s9","oct_04","plot 10","p","gedi",0.08
+"s9","oct_04","plot 10","p","to",0.02
+"s9","oct_04","plot 3","p","gedi",0.02
+"s9","oct_04","plot 6","p","pore",0.23
+"s9","oct_04","plot 10","p","gedi",0.08
+"s9","oct_04","plot 10","p","veof",0.01
+"s9","oct_04","plot 15","p","mean",0.1
+"s9","oct_04","plot 15","p","plla",0.05
+"s9","oct_04","plot 3","p","gedi",0.02
+"s9","oct_04","plot 6","p","vepe",0.01
+"s9","oct_04","plot 6","p","bepe",0.02
+"s9","oct_04","plot 6","p","gedi",0.1
+"s9","oct_04","plot 15","p","shar",0.05
+"s9","oct_04","plot 15","p","vepe",0.02
+"s9","oct_04","plot 6","p","shar",0.03
+"s9","oct_04","plot 3","p","gedi",0.02
+"s9","oct_04","plot 10","p","mear",0.04
+"s9","oct_04","plot 15","p","vepe",0.02
+"s9","oct_04","plot 15","p","shar",0.05
+"s9","oct_04","plot 3","p","bepe",0.03
+"s9","oct_04","plot 3","p","shar",0.05
+"s9","oct_04","plot 6","p","gedi",0.1
+"s9","oct_04","plot 6","p","mear",0.07
+"s9","oct_04","plot 15","p","vepe",0.02
+"s9","oct_04","plot 3","p","bepe",0.03
+"s9","oct_04","plot 3","p","bepe",0.03
+"s9","oct_04","plot 3","p","gedi",0.02
+"s9","oct_04","plot 3","p","pore",0.1
+"s9","oct_04","plot 3","p","to",0.01
+"s9","oct_04","plot 3","p","vepe",0.01
+"s9","oct_04","plot 6","p","gedi",0.1
+"s9","oct_04","plot 15","p","shar",0.05
+"s9","oct_04","plot 15","p","vepe",0.02
+"s9","oct_04","plot 3","p","to",0.01
+"s9","oct_04","plot 3","p","to",0.01
+"s9","oct_04","plot 10","p","to",0.02
+"s9","oct_04","plot 10","p","veof",0.01
+"s9","oct_04","plot 15","p","vepe",0.02
+"s9","oct_04","plot 3","p","bepe",0.03
+"s9","oct_04","plot 3","p","gedi",0.02
+"s9","oct_04","plot 3","p","pore",0.1
+"s9","oct_04","plot 3","p","bepe",0.03
+"s9","oct_04","plot 15","p","ni_p15_4",0.07
