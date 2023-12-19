@@ -1,9 +1,29 @@
+---
+title: "Correlations"
+author: "Javier Porras"
+date: "`r Sys.Date()`"
+output: html_document
+bibliography: references.bib
+csl: citation_style/ecology.csl
+---
 
-#Hacer .Rmd
-#
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, error = FALSE, message = FALSE)
+```
 
+### Context
+
+The non-destructive methodology we are currently following (based on @Jabbot) had not been yet decided in the first 3 samplings (sampling 0, 1 and 2). While now we are taking data of height ($H$), circumference at base level ($Cb$) and circumference at medium height level ($Ch$), in the 3 first samplings we only gathered information about $H$. To apply the models proposed by @Jabbot and @perronne2020 we need the 3 morphological measurements. Hence, we have to find a way to fill these gaps of data. 
+
+### Approach
+
+So far, excluding these 3 samplings, we have around 3 thousand data points, which include a measurement of each of the 3 morphological data for a certain individual from a species. Hence, we can use these data to check if there is any significant correlation between $H$ and $Cb$ and $Cm$. To do this, we can create linear models between these parameters per species and use $R-squared$ and $p-value$ as statistical indicators to check the significance of correlations. Therefore, we would have: 
+- lm($Cb$ ~ $H$, flora). Where we can see the correlation between $H$ and $Cb$. 
+- lm($Cm$ ~ $H$, flora). Where we can see the correlation between $H$ and $Cm$. 
+
+
+```{r packages}
 library(stringr)
-library(ggplot2)
 library(dplyr)
 library(reshape2)
 library(readr)
@@ -11,90 +31,60 @@ library(ggpubr)
 library(tidyverse)
 library(ggplot2)
 library(gridExtra)
+```
 
+
+```{r opening data}
 
 flora_raw<- read.csv("data/flora_db.csv")
 flora_raw <- flora_raw %>%
   mutate(across(where(is.character), as.factor))
-str(flora_raw)
-length(unique(flora_raw$species))
-
 flora_raw$Dm <- flora_raw$Dm + 0.01
 flora_raw$Db <- flora_raw$Db + 0.01
-
 pi <- 3.1416
-
 flora_raw$cm <- round(ifelse(!is.na(flora_raw$Dm), flora_raw$Dm * pi, flora_raw$Cm), 2)
 flora_raw$cb <- round(ifelse(!is.na(flora_raw$Db), flora_raw$Db * pi, flora_raw$Cb), 2)
-
 flora <- flora_raw %>% select("species", "sampling", "height", "cb", "cm")
 
-
-
-# Filter out rows with missing values in height or cb
-#flora_filtered <- flora %>% filter(!is.na(height) & !is.na(cb) & !is.na(cb))
-
-
-
-
-#List of species from samplings 0, 1 and 2: UTILIZAR "unique" instead of "levels"
-
+#List of species from samplings 0, 1 and 2
 selected_samplings0 <- c("s_0", "s_1", "s_2")
 flora_s012 <- flora[flora$sampling %in% selected_samplings0, ]
 
-#Comprobacion numero de especies. Hacer con "unique". La función "levels" tiene algo así como "memoria" y te da el valor de la database original
-#Hay 53 especies a diagnosticar en los primeros 3 samplings. 
-length(unique(flora_s012$species))
-length(levels(flora_s012$species))
+```
 
-#Se puede hacer esto: 
+After filtering data, we have `r length(unique(flora_s012$species))` species to be subjected to the linear regression. We will choose only the data points stored in the database for these species. 
+
+```{r Filtering data}
+
+#adjustment for levels
 flora_s012 <- droplevels(flora_s012)
-#De esta manera se eliminan los levels que no están ya presentes. Ahora aparece 48 levels en el environment y si le pregunto por levels
-#me responde bien, igual que con uniques
-length(levels(flora_s012$species)) - length(unique(flora_s012$species))
-
-
-#Crear base de datos solo con las especies presentes en los samplings 0, 1 y 2. 
+#Creating database with species that are present on s_ 0,1 and 2. 
 flora_s012_listofspecies <- unique(flora_s012$species)
 species_s012 <- expand.grid(flora_s012_listofspecies)
 colnames(species_s012) <- c("species")
-
-
 #Extracting rows from "flora" that matches with the species found within flora_s012
 flora_species_s012 <- merge(flora, species_s012)
-#Ahora tengo que quitar los samplings 0 1 y 2 para que no apliquen al modelo los NA's que contienen
+#Choosing the rest of samplings, since in s_0, s_1 and s_2 are only NA values. 
 selected_samplings <- c("s_3", "s_4", "s_5", "s_6", "s_7", "s_8", "s_9", "s_10", "s_11")
 flora_morph_data <- flora_species_s012[flora_species_s012$sampling %in% selected_samplings, ]
 
-  
-#Comprobacion numero de especies. Hay 34 en vez de 53.  
-length(unique(flora_morph_data$species))
-
-#En vez de 53 salen 34. Hay 14 especies presentes en los muestreos 0, 1 y 2 para los cuales no hay datos
-#en los sguientes muestreos ¿cuales?: 
-#Primero tengo que droplevear el factor de species porque vuelve a aparecer el 110. 
+#We have a lower n of species within the rest of samplings thant in the gap samplings. How many and which ones?
 flora_species_s012$species <- droplevels(flora_species_s012$species)
 flora_morph_data$species <- droplevels(flora_morph_data$species)
 sp1 <- unique(flora_species_s012$species)
 sp2 <- unique(flora_morph_data$species)
 sp3 <- setdiff(sp1, sp2)
-#Estas son las especies de las que no podremos generar datos: 
-sp3
 
+```
 
-#Añado el valor de X (modelo de la ecuacion de biomasa)
+However, there are species that were only present during the first three samplings. The final number of species of which we have available data are **`r length(unique(flora_morph_data$species))`**. The lacking `r length(unique(flora_s012$species)) - length(unique(flora_morph_data$species))` species are the following ones: 
+`r unique(sp3)`
 
-flora_morph_data$Ah <- ((flora_morph_data$cm)^2)/4*pi
-flora_morph_data$Ab <- ((flora_morph_data$cb)^2)/4*pi
+### Correlations
 
-d <- 1.96
-z <- 2/3
-flora_morph_data$x <- (flora_morph_data$height/2)*(flora_morph_data$Ab + flora_morph_data$Ah)
-flora_morph_data$biomass <- d*(flora_morph_data$x^z)
+As a result of applying the linear model regressions between $H$ and $Cb$ and $Cm$, we have found that barely 3 species have a significant linear correlation. Besides, only 1 out of these 3 species have a substantial amount of measurements included (Table 1.)
 
-#CB vs HEIGHT #########
-#Intento de data.frame:
-
+```{r Correlations}
 # Count the number of rows for each species and delete those that have less than 2 rows (2 measurements) 
 species_lower2<- flora_morph_data %>%
   group_by(species) %>%
@@ -103,16 +93,11 @@ species_lower2<- flora_morph_data %>%
 
 flora_morph_data <- anti_join(flora_morph_data, species_lower2, by = "species")
 
-summary(flora_morph_data)
-#Hay NA's. Hay que quitarlos. 
-
+#Cleaning NA's
 flora_morph_data<- flora_morph_data %>% filter(!is.na(height) & !is.na(cb) & !is.na(cm))
-summary(flora_morph_data)
 library(purrr)
 
-
 # CB vs HEIGHT #####
-
 # Define a function to extract information for a given species
 cb_df_function <- function(species) {
   subset_data <- filter(flora_morph_data, species == !!species)
@@ -140,7 +125,6 @@ cb_df_function <- function(species) {
 
 # Apply the function to each species level and bind the results
 cb_df_correlation <- map_dfr(sp2, cb_df_function)
-
 
 # CM #####
 
@@ -172,11 +156,52 @@ cm_df_function <- function(species) {
 # Apply the function to each species level and bind the results
 cm_df_correlation <- map_dfr(sp2, cm_df_function)
 
-install.packages("kableExtra", repos = "https://cran.r-project.org")
-library(kableExtra)
+
+df_c_correlations <- merge(cb_df_correlation, cm_df_correlation)
+
+library(knitr)
+df_c_correlations %>%
+  arrange(desc(cb_R_squared)) %>%
+  slice_head(n = 7) %>%
+  kable()
+
+```
 
 
-# X vs HEIGHT #####
+*Table 1. Top 7 Correlations based on R-squared values for $Cb$*
+
+
+Since we have found no proper correlations for $Cb$ or $Cm$, we decided to try with the expression $X$. $X$ stands for the part of the equation provided by @perronne2020 that aggregates the three morphological values: $H$, $Cb$ and $Cm$. The circumferences are transformed in *area* values. 
+
+So we have the general equation: 
+
+$$
+B = d \left [ \frac{H}{2} \left ( A_{basal} + A_{half} \right ) \right ]^{z},
+$$
+Where X should be: 
+
+$$
+x = \left [ \frac{H}{2} \left ( A_{basal} + A_{half} \right ) \right ],
+$$ 
+
+Therefore: 
+
+$$
+B = dx^{z}
+$$
+*d and z are respectively 1.96 and 2/3 (see @perronne2020)*
+
+As a result, we have found an improvement in the number of species where there is an acceptable linear correlation (R-squared > 0.5). There is a total of 7 of these species, as we can see in Table 2. 
+
+```{r Correlations for X}
+#Añado el valor de X (modelo de la ecuacion de biomasa)
+
+flora_morph_data$Ah <- ((flora_morph_data$cm)^2)/4*pi
+flora_morph_data$Ab <- ((flora_morph_data$cb)^2)/4*pi
+
+d <- 1.96
+z <- 2/3
+flora_morph_data$x <- (flora_morph_data$height/2)*(flora_morph_data$Ab + flora_morph_data$Ah)
 
 # Define a function to extract information for a given species
 
@@ -207,48 +232,25 @@ x_df_function <- function(species) {
 # Apply the function to each species level and bind the results
 x_df_correlation <- map_dfr(sp2, x_df_function)
 
+x_df_correlation %>%
+  arrange(desc(x_R_squared)) %>%
+  slice_head(n = 10) %>%
+  kable()
 
-#Merging correlation data
-correlation_data <- merge(cm_df_correlation, cb_df_correlation)
-correlation_data <- merge(correlation_data, x_df_correlation)
+```
 
-correlation_data %>% write.csv("results/correlation_results.csv")
-
-#Conclusión. No hay correlación para cb y cm, pero si que hay algo para X. 
-
-#Comprobaciones las que sí que tienen correlacion con más de 10 medidas
+ *Table 2. Top 10 Correlations based on R-squared values for $X$*
 
 
+### Further questions and tasks
 
-#Linum bienne
-print(ggarrange(
-  
-ggplot(subset(flora_morph_data, species == "libi"), aes(x = cb, y = height)) +
-    geom_point() +
-    geom_smooth(method = "lm", se = FALSE) +
-    labs(
-      title = "Linum bienne",
-      subtitle = paste(
-        "n:", nrow(subset(flora_morph_data, species == "libi")),
-        ", R-squared:", round(summary(lm(cb ~ height, data = subset(flora_morph_data, species == "libi")))$r.squared, 3),
-        ", p-value:", format(summary(lm(cb ~ height, data = subset(flora_morph_data, species == "libi")))$coefficients[2, "Pr(>|t|)"], scientific = TRUE, digits = 3)
-      )
-    ),
-  
-  
-ggplot(subset(flora_morph_data, species == "libi"), aes(x = cm, y = height)) +
-    geom_point() +
-    geom_smooth(method = "lm", se = FALSE) +
-    labs(
-      title = " ",
-      subtitle = paste(
-        "n:", nrow(subset(flora_morph_data, species == "libi")),
-        ", R-squared:", round(summary(lm(cm ~ height, data = subset(flora_morph_data, species == "libi")))$r.squared, 3),
-        ", p-value:", format(summary(lm(cm ~ height, data = subset(flora_morph_data, species == "libi")))$coefficients[2, "Pr(>|t|)"], scientific = TRUE, digits = 3)
-      )
-    ),
-
-labels = c(" ", " "),
-ncol = 2, nrow = 1))
+- Can we do any "gap-filling" with these data?
+- If we cannot, how should we proceed with the first 3 samplings?
 
 
+### References
+
+::: {#refs}
+:::
+
+<br>
