@@ -580,3 +580,296 @@ RADmodel_samplingc0 <- radfit(abundance_by_speciesc0$abundance_relative)
 plot(RADmodel_samplingc0)
 RADmodel_samplingc0 <- radfit(abundance_by_speciesc0$abundance_relative)
 plot(RADmodel_samplingc0,main="sampling 0-c")
+
+RADmodel_samplingc1 <- radfit(abundance_by_speciesc1$abundance_relative)
+plot(RADmodel_samplingc1)
+RADmodel_samplingc1 <- radfit(abundance_by_speciesc1$abundance_relative)
+plot(RADmodel_samplingc1,main="sampling 1-c")
+
+RADmodel_samplingc2 <- radfit(abundance_by_speciesc2$abundance_relative)
+plot(RADmodel_samplingc2)
+RADmodel_samplingc2 <- radfit(abundance_by_speciesc2$abundance_relative)
+plot(RADmodel_samplingc2,main="sampling 2-c")
+
+RADmodel_samplingc3 <- radfit(abundance_by_speciesc3$abundance_relative)
+plot(RADmodel_samplingc3)
+RADmodel_samplingc3 <- radfit(abundance_by_speciesc3$abundance_relative)
+plot(RADmodel_samplingc3,main="sampling 3-c")
+
+RADmodel_samplingc4 <- radfit(abundance_by_speciesc4$abundance_relative)
+plot(RADmodel_samplingc4)
+RADmodel_samplingc4 <- radfit(abundance_by_speciesc4$abundance_relative)
+plot(RADmodel_samplingc4,main="sampling 4-c")
+
+RADmodel_samplingc5 <- radfit(abundance_by_speciesc5$abundance_relative)
+plot(RADmodel_samplingc5)
+RADmodel_samplingc5 <- radfit(abundance_by_speciesc5$abundance_relative)
+plot(RADmodel_samplingc5,main="sampling 5-c")
+
+RADmodel_samplingc6 <- radfit(abundance_by_speciesc6$abundance_relative)
+plot(RADmodel_samplingc6)
+RADmodel_samplingc6 <- radfit(abundance_by_speciesc6$abundance_relative)
+plot(RADmodel_samplingc6,main="sampling 6-c")
+
+RADmodel_samplingc7 <- radfit(abundance_by_speciesc7$abundance_relative)
+plot(RADmodel_samplingc7)
+RADmodel_samplingc7 <- radfit(abundance_by_speciesc7$abundance_relative)
+plot(RADmodel_samplingc7,main="sampling 7-c")
+
+RADmodel_samplingc8 <- radfit(abundance_by_speciesc8$abundance_relative)
+plot(RADmodel_samplingc8)
+RADmodel_samplingc8 <- radfit(abundance_by_speciesc8$abundance_relative)
+plot(RADmodel_samplingc8,main="sampling 8-c")
+
+RADmodel_samplingc9 <- radfit(abundance_by_speciesc9$abundance_relative)
+plot(RADmodel_samplingc9)
+RADmodel_samplingc9 <- radfit(abundance_by_speciesc9$abundance_relative)
+plot(RADmodel_samplingc9,main="sampling 9-c")
+
+RADmodel_samplingc10 <- radfit(abundance_by_speciesc10$abundance_relative)
+plot(RADmodel_samplingc10)
+RADmodel_samplingc10 <- radfit(abundance_by_speciesc10$abundance_relative)
+plot(RADmodel_samplingc10,main="sampling 10-c")
+
+RADmodel_samplingc11 <- radfit(abundance_by_speciesc11$abundance_relative)
+plot(RADmodel_samplingc11)
+RADmodel_samplingc11 <- radfit(abundance_by_speciesc11$abundance_relative)
+plot(RADmodel_samplingc11,main="sampling 11-c")
+###########perturbacion
+
+RADmodel_samplingp0 <- radfit(abundance_by_speciesp0$abundance_relative)
+plot(RADmodel_samplingp0)
+RADmodel_samplingp0 <- radfit(abundance_by_speciesp0$abundance_relative)
+plot(RADmodel_samplingp0,main="sampling 0-p")
+
+RADmodel_samplingp1 <- radfit(abundance_by_speciesp1$abundance_relative)
+plot(RADmodel_samplingp1)
+RADmodel_samplingp1 <- radfit(abundance_by_speciesp1$abundance_relative)
+plot(RADmodel_samplingp1,main="sampling 1-p")
+
+RADmodel_samplingp2 <- radfit(abundance_by_speciesp2$abundance_relative)
+plot(RADmodel_samplingp2)
+RADmodel_samplingp2 <- radfit(abundance_by_speciesp2$abundance_relative)
+plot(RADmodel_samplingp2,main="sampling 2-p")
+
+RADmodel_samplingp3 <- radfit(abundance_by_speciesp3$abundance_relative)
+plot(RADmodel_samplingp3)
+RADmodel_samplingp3 <- radfit(abundance_by_speciesp3$abundance_relative)
+plot(RADmodel_samplingp3,main="sampling 3-p")
+
+RADmodel_samplingp4 <- radfit(abundance_by_speciesp4$abundance_relative)
+plot(RADmodel_samplingp4)
+RADmodel_samplingp4 <- radfit(abundance_by_speciesp4$abundance_relative)
+plot(RADmodel_samplingp4,main="sampling 4-p")
+
+RADmodel_samplingp5 <- radfit(abundance_by_speciesp5$abundance_relative)
+plot(RADmodel_samplingp5)
+RADmodel_samplingp5 <- radfit(abundance_by_speciesp5$abundance_relative)
+plot(RADmodel_samplingp5,main="sampling 5-p")
+
+RADmodel_samplingp6 <- radfit(abundance_by_speciesp6$abundance_relative)
+plot(RADmodel_samplingp6)
+RADmodel_samplingp6 <- radfit(abundance_by_speciesp6$abundance_relative)
+plot(RADmodel_samplingp6,main="sampling 6-p")
+
+RADmodel_samplingp7 <- radfit(abundance_by_speciesp7$abundance_relative)
+plot(RADmodel_samplingp7)
+RADmodel_samplingp7 <- radfit(abundance_by_speciesp7$abundance_relative)
+plot(RADmodel_samplingp7,main="sampling 7-p")
+
+RADmodel_samplingp8 <- radfit(abundance_by_speciesp8$abundance_relative)
+plot(RADmodel_samplingp8)
+RADmodel_samplingp8 <- radfit(abundance_by_speciesp8$abundance_relative)
+plot(RADmodel_samplingp8,main="sampling 8-p")
+
+RADmodel_samplingp9 <- radfit(abundance_by_speciesp9$abundance_relative)
+plot(RADmodel_samplingp9)
+RADmodel_samplingp9 <- radfit(abundance_by_speciesp9$abundance_relative)
+plot(RADmodel_samplingp9,main="sampling 9-p")
+
+RADmodel_samplingp10 <- radfit(abundance_by_speciesp10$abundance_relative)
+plot(RADmodel_samplingp10)
+RADmodel_samplingp10 <- radfit(abundance_by_speciesp10$abundance_relative)
+plot(RADmodel_samplingp10,main="sampling 10-p")
+
+RADmodel_samplingp11 <- radfit(abundance_by_speciesp11$abundance_relative)
+plot(RADmodel_samplingp11)
+RADmodel_samplingp11 <- radfit(abundance_by_speciesp11$abundance_relative)
+plot(RADmodel_samplingp11,main="sampling 11-p")
+
+#####tratamiento termico
+
+RADmodel_samplingw0 <- radfit(abundance_by_speciesw0$abundance_relative)
+plot(RADmodel_samplingw0)
+RADmodel_samplingw0 <- radfit(abundance_by_speciesw0$abundance_relative)
+plot(RADmodel_samplingw0,main="sampling 0-w")
+
+RADmodel_samplingw1 <- radfit(abundance_by_speciesw1$abundance_relative)
+plot(RADmodel_samplingw1)
+RADmodel_samplingw1 <- radfit(abundance_by_speciesw1$abundance_relative)
+plot(RADmodel_samplingw1,main="sampling 1-w")
+
+RADmodel_samplingw2 <- radfit(abundance_by_speciesw2$abundance_relative)
+plot(RADmodel_samplingw2)
+RADmodel_samplingw2 <- radfit(abundance_by_speciesw2$abundance_relative)
+plot(RADmodel_samplingw2,main="sampling 2-w")
+
+RADmodel_samplingw3 <- radfit(abundance_by_speciesw3$abundance_relative)
+plot(RADmodel_samplingw3)
+RADmodel_samplingw3 <- radfit(abundance_by_speciesw3$abundance_relative)
+plot(RADmodel_samplingw3,main="sampling 3-w")
+
+RADmodel_samplingw4 <- radfit(abundance_by_speciesw4$abundance_relative)
+plot(RADmodel_samplingw4)
+RADmodel_samplingw4 <- radfit(abundance_by_speciesw4$abundance_relative)
+plot(RADmodel_samplingw4,main="sampling 4-w")
+
+RADmodel_samplingw5 <- radfit(abundance_by_speciesw5$abundance_relative)
+plot(RADmodel_samplingw5)
+RADmodel_samplingw5 <- radfit(abundance_by_speciesw5$abundance_relative)
+plot(RADmodel_samplingw5,main="sampling 5-w")
+
+RADmodel_samplingw6 <- radfit(abundance_by_speciesw6$abundance_relative)
+plot(RADmodel_samplingw6)
+RADmodel_samplingw6 <- radfit(abundance_by_speciesw6$abundance_relative)
+plot(RADmodel_samplingw6,main="sampling 6-w")
+
+RADmodel_samplingw7 <- radfit(abundance_by_speciesw7$abundance_relative)
+plot(RADmodel_samplingw7)
+RADmodel_samplingw7 <- radfit(abundance_by_speciesw7$abundance_relative)
+plot(RADmodel_samplingw7,main="sampling 7-w")
+
+RADmodel_samplingw8 <- radfit(abundance_by_speciesw8$abundance_relative)
+plot(RADmodel_samplingw8)
+RADmodel_samplingw8 <- radfit(abundance_by_speciesw8$abundance_relative)
+plot(RADmodel_samplingw8,main="sampling 8-w")
+
+RADmodel_samplingw9 <- radfit(abundance_by_speciesw9$abundance_relative)
+plot(RADmodel_samplingw9)
+RADmodel_samplingw9 <- radfit(abundance_by_speciesw9$abundance_relative)
+plot(RADmodel_samplingw9,main="sampling 9-w")
+
+RADmodel_samplingw10 <- radfit(abundance_by_speciesw10$abundance_relative)
+plot(RADmodel_samplingw10)
+RADmodel_samplingw10 <- radfit(abundance_by_speciesw10$abundance_relative)
+plot(RADmodel_samplingw10,main="sampling 10-w")
+
+RADmodel_samplingw11 <- radfit(abundance_by_speciesw11$abundance_relative)
+plot(RADmodel_samplingw11)
+RADmodel_samplingw11 <- radfit(abundance_by_speciesw11$abundance_relative)
+plot(RADmodel_samplingw11,main="sampling 11-w")
+
+#####tratamiento termico+perturbacion
+RADmodel_samplingwp0 <- radfit(abundance_by_specieswp0$abundance_relative)
+plot(RADmodel_samplingwp0)
+RADmodel_samplingwp0 <- radfit(abundance_by_specieswp0$abundance_relative)
+plot(RADmodel_samplingwp0,main="sampling 0-wp")
+
+RADmodel_samplingwp1 <- radfit(abundance_by_specieswp1$abundance_relative)
+plot(RADmodel_samplingwp1)
+RADmodel_samplingwp1 <- radfit(abundance_by_specieswp1$abundance_relative)
+plot(RADmodel_samplingwp1,main="sampling 1-wp")
+
+RADmodel_samplingwp2 <- radfit(abundance_by_specieswp2$abundance_relative)
+plot(RADmodel_samplingwp2)
+RADmodel_samplingwp2 <- radfit(abundance_by_specieswp2$abundance_relative)
+plot(RADmodel_samplingwp2,main="sampling 2-wp")
+
+RADmodel_samplingwp3 <- radfit(abundance_by_specieswp3$abundance_relative)
+plot(RADmodel_samplingwp3)
+RADmodel_samplingwp3 <- radfit(abundance_by_specieswp3$abundance_relative)
+plot(RADmodel_samplingwp3,main="sampling 3-wp")
+
+RADmodel_samplingwp4 <- radfit(abundance_by_specieswp4$abundance_relative)
+plot(RADmodel_samplingwp4)
+RADmodel_samplingwp4 <- radfit(abundance_by_specieswp4$abundance_relative)
+plot(RADmodel_samplingwp4,main="sampling 4-wp")
+
+RADmodel_samplingwp5 <- radfit(abundance_by_specieswp5$abundance_relative)
+plot(RADmodel_samplingwp5)
+RADmodel_samplingwp5 <- radfit(abundance_by_specieswp5$abundance_relative)
+plot(RADmodel_samplingwp5,main="sampling 5-wp")
+
+RADmodel_samplingwp6 <- radfit(abundance_by_specieswp6$abundance_relative)
+plot(RADmodel_samplingwp6)
+RADmodel_samplingwp6 <- radfit(abundance_by_specieswp6$abundance_relative)
+plot(RADmodel_samplingwp6,main="sampling 6-wp")
+
+RADmodel_samplingwp7 <- radfit(abundance_by_specieswp7$abundance_relative)
+plot(RADmodel_samplingwp7)
+RADmodel_samplingwp7 <- radfit(abundance_by_specieswp7$abundance_relative)
+plot(RADmodel_samplingwp7,main="sampling 7-wp")
+
+RADmodel_samplingwp8 <- radfit(abundance_by_specieswp8$abundance_relative)
+plot(RADmodel_samplingwp8)
+RADmodel_samplingwp8 <- radfit(abundance_by_specieswp8$abundance_relative)
+plot(RADmodel_samplingwp8,main="sampling 8-wp")
+
+RADmodel_samplingwp9 <- radfit(abundance_by_specieswp9$abundance_relative)
+plot(RADmodel_samplingwp9)
+RADmodel_samplingwp9 <- radfit(abundance_by_specieswp9$abundance_relative)
+plot(RADmodel_samplingwp9,main="sampling 9-wp")
+
+RADmodel_samplingwp10 <- radfit(abundance_by_specieswp10$abundance_relative)
+plot(RADmodel_samplingwp10)
+RADmodel_samplingwp10 <- radfit(abundance_by_specieswp10$abundance_relative)
+plot(RADmodel_samplingwp10,main="sampling 10-wp")
+
+RADmodel_samplingwp11 <- radfit(abundance_by_specieswp11$abundance_relative)
+plot(RADmodel_samplingwp11)
+RADmodel_samplingwp11 <- radfit(abundance_by_specieswp11$abundance_relative)
+plot(RADmodel_samplingwp11,main="sampling 11-wp")
+
+######solo parametros zipf
+RADmodel_samplingc0
+RADmodel_samplingc1
+RADmodel_samplingc2
+RADmodel_samplingc3
+RADmodel_samplingc4
+RADmodel_samplingc5
+RADmodel_samplingc6
+RADmodel_samplingc7
+RADmodel_samplingc8
+RADmodel_samplingc9
+RADmodel_samplingc10
+RADmodel_samplingc11
+
+
+RADmodel_samplingp0
+RADmodel_samplingp1
+RADmodel_samplingp2
+RADmodel_samplingp3
+RADmodel_samplingp4
+RADmodel_samplingp5
+RADmodel_samplingp6
+RADmodel_samplingp7
+RADmodel_samplingp8
+RADmodel_samplingp9
+RADmodel_samplingp10
+RADmodel_samplingp11
+
+RADmodel_samplingw0
+RADmodel_samplingw1
+RADmodel_samplingw2
+RADmodel_samplingw3
+RADmodel_samplingw4
+RADmodel_samplingw5
+RADmodel_samplingw6
+RADmodel_samplingw7
+RADmodel_samplingw8
+RADmodel_samplingw9
+RADmodel_samplingw10
+RADmodel_samplingw11
+
+RADmodel_samplingwp0
+RADmodel_samplingwp1
+RADmodel_samplingwp2
+RADmodel_samplingwp3
+RADmodel_samplingwp4
+RADmodel_samplingwp5
+RADmodel_samplingwp6
+RADmodel_samplingwp7
+RADmodel_samplingwp8
+RADmodel_samplingwp9
+RADmodel_samplingwp10
+RADmodel_samplingwp11
