@@ -26,7 +26,7 @@ library(gridExtra)
 source('code/tools/basicFun.R')
 
 # Opening and transforming data(opening_floradata.R) ####
-flora_raw <- read.csv("data/flora_db_new.csv")
+flora_raw <- read.csv("data/flora_db.csv")
 summary(flora_raw)
 str(flora_raw)
 
@@ -34,8 +34,8 @@ flora_raw <- flora_raw %>%
   mutate(across(where(is.character), as.factor))
 
 #Ordenamos los muestreos por orden (añadir más levels a medida que vaya habiendo más muestreos)
-desired_order <- c("sampling 0", "sampling 1", "sampling 2", "sampling 3", "sampling 4", "sampling 5", "sampling 6", 
-                   "sampling 7", "sampling 8", "sampling 9", "sampling 10", "sampling 11")
+desired_order <- c("s0_may", "s1_may", "s2_jun", "s3_jun", "s4_jul", "s5_jul", "s6_aug", 
+                   "s7_sep", "s8_sep", "s9_oct", "s10_oct", "s11_nov")
 
 flora_raw$sampling <- factor(flora_raw$sampling, levels = desired_order)
 
@@ -45,51 +45,6 @@ hist(log(flora_raw$Cb))
 hist(log(flora_raw$Cm))
 hist(log(flora_raw$Db))
 hist(log(flora_raw$Dm))
-
-
-# histograms with ggplot
-print(ggarrange(
-  
-  ggplot(flora_raw, aes(x = abundance)) +
-    geom_histogram(binwidth = 1, fill = "blue", color = "black") +
-    labs(x = "", y = "Frequency") +
-    ggtitle("Abundance") + 
-    theme_minimal(),
-  
-  ggplot(flora_raw, aes(x = height)) +
-    geom_histogram(binwidth = 1, fill = "blue", color = "black") +
-    labs(x = "", y = "Frequency") +
-    ggtitle("Height") + 
-    theme_minimal(),
-  
-  ggplot(flora_raw, aes(x = Cb)) +
-    geom_histogram(binwidth = 1, fill = "blue", color = "black") +
-    labs(x = "", y = "Frequency") +
-    ggtitle("Cb") + 
-    coord_cartesian(xlim = c(0, 20)) +
-    theme_minimal(),
-  
-  ggplot(flora_raw, aes(x = Cm)) +
-    geom_histogram(binwidth = 1, fill = "blue", color = "black") +
-    labs(x = "", y = "Frequency") +
-    ggtitle("Cm") + 
-    coord_cartesian(xlim = c(0, 10)) +
-    theme_minimal(),
-  
-  ggplot(flora_raw, aes(x = Db)) +
-    geom_histogram(binwidth = 1, fill = "blue", color = "black") +
-    labs(x = "", y = "Frequency") +
-    ggtitle("Db") + 
-    theme_minimal(),
-  
-  ggplot(flora_raw, aes(x = Dm)) +
-    geom_histogram(binwidth = 1, fill = "blue", color = "black") +
-    labs(x = "", y = "Frequency") +
-    ggtitle("Dm") + 
-    theme_minimal(),
-  
-  labels = c("A", "B", "C", "D", "E", "F"),
-  ncol = 3, nrow = 2))
 
 
 # Modifying database
@@ -170,7 +125,6 @@ quantile(flora$x, na.rm = TRUE, probs = 0.95)
 #!! También quitamos los NA
 
 
-
 flora1 <- flora[which(flora$x < (as.numeric(quantile(flora$x, na.rm = TRUE)[4] + (1.5 * IQR(flora$x, na.rm = TRUE))))),] 
 flora3 <- flora[which(flora$x < (as.numeric(quantile(flora$x, na.rm = TRUE)[4] + (3 * IQR(flora$x, na.rm = TRUE))))),] 
 
@@ -184,6 +138,12 @@ length(flora1$plot)
 length(flora3$plot)
 
 
+#The amount of data points that we are removing are the following: 
+length(flora1$x) - (length(flora1_outl$x) + length(flora[which(is.na(flora$x)) , ]$x))
+length(flora3$x) - (length(flora3_outl$x) + length(flora[which(is.na(flora$x)) , ]$x))
+length(flora$x)
+length(flora1_outl$x)
+
 print(ggarrange(
 ggplot(flora, aes(y = x)) +
   geom_boxplot(), 
@@ -193,6 +153,7 @@ ggplot(flora3, aes(y = x)) +
   geom_boxplot(),
 labels = c("A", "B", "C"),
 ncol = 3, nrow = 1))
+
 
 
 par(mfrow = c(1, 3))
@@ -207,6 +168,9 @@ unique(flora1$species)
 length(which(flora$x > (as.numeric(quantile(flora$x, na.rm = TRUE)[4] + (3 * IQR(flora$x, na.rm = TRUE)))))) /
   nrow(flora) * 100
 
+flora_noNA<- flora[which(!is.na(flora$x)) , ]$x
+
+x <- seq(round(min(flora[which(!is.na(flora$x)) , ]$x), 0), round(max(flora[which(!is.na(flora$x)) , ]$x), 0), 25)
 
 write.table(flora1$x, "data/x_values.txt", sep = "\t", row.names = FALSE)
 
