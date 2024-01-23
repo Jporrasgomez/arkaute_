@@ -1,13 +1,13 @@
 date,sampling,micro_sampling,N micro
-20230504,sampling 0,YES,0
-20230516,sampling 1,NO,NA
-20230614,sampling 2,YES,b
-20230628,sampling 3,NO,NA
-20230711,sampling 4,YES,c
-20230726,sampling 5,NO,NA
-20230822,sampling 6,NO,NA
-20230904,sampling 7,YES,d
-20230918,sampling 8,NO,NA
-20231004,sampling 9,NO,NA
-20231016,sampling 10,NO,NA
-20231113,sampling 11,YES,e
+20230504,s0_may,YES,0
+20230516,s1_may,NO,NA
+20230614,s2_jun,YES,b
+20230628,s3_jun,NO,NA
+20230711,s4_jul,YES,c
+20230726,s5_jul,NO,NA
+20230822,s6_aug,NO,NA
+20230904,s7_sep,YES,d
+20230918,s8_sep,NO,NA
+20231004,s9_oct,NO,NA
+20231016,s10_oct,NO,NA
+20231113,s11_nov,YES,e
