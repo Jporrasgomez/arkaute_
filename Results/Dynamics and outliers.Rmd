@@ -1,0 +1,65 @@
+---
+title: "Dynamics and outliers"
+author: "Javier Porras"
+date: "`r Sys.Date()`"
+output: ioslides_presentation
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, error = FALSE, message = FALSE)
+```
+
+```{r libraries}
+library(tidyverse)
+library(ggpubr)
+library(lubridate)
+library(stringr)
+library(ggplot2)
+library(dplyr)
+library(reshape2)
+library(readr)
+library(ggpubr)
+library(tidyverse)
+library(gridExtra)
+```
+
+### Contextoi
+
+We have found that there is a number of **outliers** that prevent us from extracting a clear interpretation of the distribution of the morphological data. 
+
+
+```{r}
+library(dplyr)
+flora_raw <- read.csv("data/flora_db.csv")
+flora_raw <- flora_raw %>%
+  mutate(across(where(is.character), as.factor))
+desired_order <- c("s_0", "s_1", "s_2", "s_3", "s_4", "s_5", "s_6", 
+                   "s_7", "s_8", "s_9", "s_10", "s_11")
+flora_raw$sampling <- factor(flora_raw$sampling, levels = desired_order)
+
+#Sumar 0.01 cm a los diámetros por el error del calibre con el que medimos
+flora_raw$Dm <- flora_raw$Dm + 0.01
+flora_raw$Db <- flora_raw$Db + 0.01
+
+flora <- flora_raw %>% select(sampling, plot, treatment, species, abundance, height, Cb, Db, Cm, Dm)
+
+flora$cm <- round(ifelse(!is.na(flora$Dm), flora$Dm * pi, flora$Cm), 2)
+flora$cb <- round(ifelse(!is.na(flora$Db), flora$Db * pi, flora$Cb), 2)
+flora$Ah <- ((flora$cm)^2)/4*pi
+flora$Ab <- ((flora$cb)^2)/4*pi
+
+#Application of equation proposed by paper Perrone R. et al. 2020
+
+d_perrone <- 1.96
+z_perrone <- 2/3
+flora$x <- (flora$height/2)*(flora$Ab + flora$Ah)
+flora$biomass <- d_perrone*(flora$x^z_perrone)
+
+par(mfrow = c(1,2))
+hist(flora$x)
+boxplot(flora$x)
+
+
+
+```
