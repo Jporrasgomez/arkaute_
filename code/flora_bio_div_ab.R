@@ -9,7 +9,6 @@
 
 
 
-
 #Explorar a nivel de plot, muestreos y tratamientos la variabilidad de biomasa, abundancia y diversidad
 
 #Packages   ####
@@ -23,67 +22,26 @@ library(readr)
 library(ggpubr)
 library(tidyverse)
 library(gridExtra)
+
 source('code/tools/basicFun.R')
+source("code/first_script.R")
 
-# Opening and transforming data(opening_floradata.R) ####
-flora_raw <- read.csv("data/flora_db.csv")
-summary(flora_raw)
-str(flora_raw)
-
-flora_raw <- flora_raw %>%
-  mutate(across(where(is.character), as.factor))
-
-#Ordenamos los muestreos por orden (añadir más levels a medida que vaya habiendo más muestreos)
-desired_order <- c("s0_may", "s1_may", "s2_jun", "s3_jun", "s4_jul", "s5_jul", "s6_aug", 
-                   "s7_sep", "s8_sep", "s9_oct", "s10_oct", "s11_nov")
-
-flora_raw$sampling <- factor(flora_raw$sampling, levels = desired_order)
-
-hist(log(flora_raw$abundance))
-hist(log(flora_raw$height))
-hist(log(flora_raw$Cb))
-hist(log(flora_raw$Cm))
-hist(log(flora_raw$Db))
-hist(log(flora_raw$Dm))
-
-
-# Modifying database
-#Sumar 0.01 cm a los diámetros por el error del calibre con el que medimos
-flora_raw$Dm <- flora_raw$Dm + 0.01
-flora_raw$Db <- flora_raw$Db + 0.01
-
-#Dividir entre 100 los valores de abundancia para que sean valores de %
-flora_raw$abundance <- round(flora_raw$abundance/100, 3)
 
 #Checking if we have mistakes (missing more than 2 variables with NA's)
-#View(flora_raw %>%
+#View(flora %>%
 #  filter(rowSums(is.na(select(., Dm, Db, Cm, Cb))) > 2))
 #Estan todos los datos de los muestreos 0, 1 y 2 y los 
 #26 datos del muestreo 3 donde no cogíamos medidas si la abundancia era menor de 5.
 
 
-#Añadir la fecha. De momento no sé si es necesario. 
-sampling_dates <- read.csv("data/sampling_dates.csv")
-summary(sampling_dates)
-str(sampling_dates)
-sampling_dates$datenew <-  ymd(sampling_dates$date)
-sampling_dates$month <- month(sampling_dates$datenew)
-sampling_dates$date <- NULL
-sampling_dates$micro.sampling <- NULL
-sampling_dates$N.micro <- NULL
-
-sampling_dates <- sampling_dates %>%
-  mutate(across(where(is.character), as.factor))
-print(sampling_dates)
-  
-flora_raw <- right_join(flora_raw, sampling_dates, by = join_by(sampling))
-summary(flora_raw)
-
-flora <- flora_raw %>% select(sampling, plot, treatment, species, abundance, height, Cb, Db, Cm, Dm, datenew, month)
 
 #Añadir el numero de individuos que hay por sampling, plot y species. 
 #Esto era necesario antes porque aplicabamos el criterio de "Si el numero de individuos es menor o igual que 4, la biomasa total
 #de la especie será la suma de las biomasas unitarias de cada individuo. Si es mayor de 4, se calculará estimando con la abundancia"
+
+#Dividir entre 100 los valores de abundancia para que sean valores de %
+flora$abundance <- round(flora$abundance/100, 3)
+
 
 flora <- flora %>%
   group_by(plot, sampling, species) %>%
@@ -98,8 +56,6 @@ flora$cb <- round(ifelse(!is.na(flora$Db), flora$Db * pi, flora$Cb), 2)
 flora$Ah <- ((flora$cm)^2)/4*pi
 flora$Ab <- ((flora$cb)^2)/4*pi
 
-
-
 #Application of equation proposed by paper Perrone R. et al. 2020
 
 d <- 1.96
@@ -107,23 +63,7 @@ z <- 2/3
 flora$x <- (flora$height/2)*(flora$Ab + flora$Ah)
 flora$biomass <- d*(flora$x^z)
 
-hist(flora$x)
-summary(flora$x)
-boxplot(flora$x)
-#There is a problem with the distribution of the data. Is extremely assymetrical. 
-#If we see the outliers in the boxplot we cannot even see the boxplot, just the distribution of outliers. 
-
-range(flora$x, na.rm = T)
-median(flora$x, na.rm = TRUE)
-quantile(flora$x, na.rm = T)
-quantile(flora$x, na.rm = TRUE, probs = 0.95)
-
-#Between the 75% quantile and the 100% one there is a difference of e^4
-
-#We can try to take out the outliers from flora. There are 2 ways: either we reject outliers (1.5*IQR) or 
-#we reject the extreme outliers (3*IQR)
-#!! También quitamos los NA
-
+### OUTLIERS ##### (check "Dynamics and outliers.Rmd" for more info)
 
 flora1 <- flora[which(flora$x < (as.numeric(quantile(flora$x, na.rm = TRUE)[4] + (1.5 * IQR(flora$x, na.rm = TRUE))))),] 
 flora3 <- flora[which(flora$x < (as.numeric(quantile(flora$x, na.rm = TRUE)[4] + (3 * IQR(flora$x, na.rm = TRUE))))),] 
@@ -131,57 +71,18 @@ flora3 <- flora[which(flora$x < (as.numeric(quantile(flora$x, na.rm = TRUE)[4] +
 #List of outliers: 
 flora1_outl <- flora[which(flora$x > (as.numeric(quantile(flora$x, na.rm = TRUE)[4] + (1.5 * IQR(flora$x, na.rm = TRUE))))),] 
 flora3_outl <- flora[which(flora$x > (as.numeric(quantile(flora$x, na.rm = TRUE)[4] + (3 * IQR(flora$x, na.rm = TRUE))))),] 
-unique(flora1$species)
-unique(flora3$species)
-length(flora$plot)
-length(flora1$plot)
-length(flora3$plot)
 
 
-#The amount of data points that we are removing are the following: 
-length(flora1$x) - (length(flora1_outl$x) + length(flora[which(is.na(flora$x)) , ]$x))
-length(flora3$x) - (length(flora3_outl$x) + length(flora[which(is.na(flora$x)) , ]$x))
-length(flora$x)
-length(flora1_outl$x)
+############### Transformation database ############
 
-print(ggarrange(
-ggplot(flora, aes(y = x)) +
-  geom_boxplot(), 
-ggplot(flora1, aes(y = x)) +
-  geom_boxplot(),
-ggplot(flora3, aes(y = x)) +
-  geom_boxplot(),
-labels = c("A", "B", "C"),
-ncol = 3, nrow = 1))
-
-
-
-par(mfrow = c(1, 3))
-hist(flora$x)
-hist(flora1$x)
-hist(flora3$x)
-par(mfrow = c(1, 1))
-
-
-unique(flora1$species)
-
-length(which(flora$x > (as.numeric(quantile(flora$x, na.rm = TRUE)[4] + (3 * IQR(flora$x, na.rm = TRUE)))))) /
-  nrow(flora) * 100
-
-flora_noNA<- flora[which(!is.na(flora$x)) , ]$x
-
-x <- seq(round(min(flora[which(!is.na(flora$x)) , ]$x), 0), round(max(flora[which(!is.na(flora$x)) , ]$x), 0), 25)
-
-write.table(flora1$x, "data/x_values.txt", sep = "\t", row.names = FALSE)
-
-
-## A PARTIR DE AQUÍ TRABAJO CON "flora1"
+## Se trabaja con "flora" pero podríamos trabajar con "flora1". El problema de "flora1" es que, al eliminar los NA de biomasa,
+# no tenemos datos para ninguna variable de los muestreos 0, 1 y 2. 
 
 #Agrupar por sampling, plot y treatment primero. 
 #Aquí se aplica, para biomasa, el siguiente criterio: se estima la biomasa de cada especie multiplicando su abundancia por 
 #la masa promedio de los individuos medidos para dicha especie. 
 
-flora1 <- flora1 %>%
+flora <- flora %>%
   group_by(sampling, datenew, month, treatment, plot, abundance, species) %>%
   reframe(biomass = mean(biomass, na.rm = TRUE) * abundance) %>%
   distinct(sampling, datenew, month, plot, treatment, abundance, species, biomass)
@@ -196,12 +97,12 @@ hist(log(flora1$biomass))
 
 # Bases de datos nuevas ####
 #Añado el numero de especies por sampling y plot
-flora1 <- flora1 %>%
+flora <- flora %>%
   group_by(plot, sampling) %>%
   mutate(n_species = n()) %>%
   ungroup()
 
-flora1_samplings <-  flora1 %>%
+flora_samplings <-  flora %>%
   group_by(sampling, datenew, month, treatment, plot) %>%
   reframe(biomass = sum(biomass, na.rm = T), 
           n_species = n_species, 
@@ -210,7 +111,7 @@ flora1_samplings <-  flora1 %>%
 #Hacer comprobaciones de los datos en esta base de datos
 
 
-flora1_treatments <-  flora1_samplings %>%
+flora_treatments <-  flora_samplings %>%
   group_by(treatment) %>%
   reframe(biomass = mean(biomass, na.rm = T), 
           n_species = mean(n_species, na.rm = T), 
@@ -219,84 +120,140 @@ flora1_treatments <-  flora1_samplings %>%
 
 # Gráficos por muestreo y tratamiento####
 
+# Other way with facet_grid
 
-print(ggarrange(
+ggplot(flora_samplings, aes(x = sampling, y = n_species, fill = treatment)) +
+  geom_boxplot() +
+  labs(x = " ", y = "Richness") +
+  facet_grid(~ treatment)  + 
+  scale_fill_manual(values = c("c" = "green", "p" = "blue", "w" = "red", "wp" = "purple"))+
+  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
+  theme(legend.position = "bottom", 
+        axis.text = element_text(size = 12))
 
-ggsamplings_biomass <- 
-  
-ggplot(flora1_samplings, aes(x = sampling, y = biomass, color = treatment)) +
+ggplot(flora_samplings, aes(x = sampling, y = biomass, fill = treatment)) +
   geom_boxplot() +
   labs(x = " ", y = "Biomass") +
-  scale_color_manual(values = c("c" = "blue", "p" = "green", "w" = "red", "wp" = "purple")) +
-  theme_minimal() +
+  facet_grid(~ treatment) + 
+  scale_fill_manual(values = c("c" = "green", "p" = "blue", "w" = "red", "wp" = "purple"))+
   geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-  theme(legend.position = "none", 
-        axis.text = element_text(size = 12)),
+  theme(legend.position = "bottom", 
+        axis.text = element_text(size = 12))
 
-ggsamplings_diversity <-
-  
-  ggplot(flora1_samplings, aes(x = sampling, y = n_species, color = treatment)) +
+ggplot(flora_samplings, aes(x = sampling, y = abundance, fill = treatment)) +
   geom_boxplot() +
-  labs(x = " ", y = "Diversity") +
-  scale_color_manual(values = c("c" = "blue", "p" = "green", "w" = "red", "wp" = "purple")) + 
+  labs(x = " ", y = "Abundance") +
+  facet_grid(~ treatment) + 
+  scale_fill_manual(values = c("c" = "green", "p" = "blue", "w" = "red", "wp" = "purple"))+
   geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-  theme_minimal() +
-  theme(legend.position = "none", 
+  theme(legend.position = "bottom", 
+        axis.text = element_text(size = 12))
+
+
+## RESPONSE RATIO ####
+
+# To calculate a response ratio, we divide a datapoint by the reference datapoint. 
+
+# Reference point: SAMPLING 0 ####
+
+fs_control <- subset(flora_samplings, treatment == "c")
+fs_warming <- subset(flora_samplings, treatment == "w")
+fs_pert<- subset(flora_samplings, treatment == "p")
+fs_wp <- subset(flora_samplings, treatment == "wp")
+
+#loot that iterates over every dataframe of treatments
+list<- list(fs_control, fs_warming, fs_pert, fs_wp)
+for (i in seq_along(list)){
+  list[[i]]$RR_ref_richness <- rep(list[[i]]$n_species[which(list[[i]]$sampling == "0")], (nrow(list[[i]])/4))
+  list[[i]]$RR_richness <- round(log(list[[i]]$n_species/list[[i]]$RR_ref_richness), 2)
+  list[[i]]$RR_ref_abundance <- rep(list[[i]]$abundance[which(list[[i]]$sampling == "0")], (nrow(list[[i]])/4))
+  list[[i]]$RR_abundance <- round(log(list[[i]]$abundance/list[[i]]$RR_ref_abundance), 2)
+}
+
+RR_flora_samplings <- rbind(list[[1]], list[[2]], list[[3]], list[[4]])
+
+ggarrange(
+ggplot(RR_flora_samplings, aes(x = sampling, y = RR_richness, fill = treatment)) +
+  geom_boxplot() +
+  labs(x = " ", y = "RR_richness") +
+  facet_grid(~ treatment) + 
+  scale_fill_manual(values = c("c" = "green", "p" = "blue", "w" = "red", "wp" = "purple"))+
+  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
+  geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8) +
+  theme(legend.position = "bottom", 
         axis.text = element_text(size = 12)),
 
-ggsamplings_abundance <- 
+ggplot(RR_flora_samplings, aes(x = sampling, y = RR_abundance, fill = treatment)) +
+  geom_boxplot() +
+  labs(x = " ", y = "RR_abundance") +
+  facet_grid(~ treatment) + 
+  scale_fill_manual(values = c("c" = "green", "p" = "blue", "w" = "red", "wp" = "purple"))+
+  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
+  geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8) +
+  theme(legend.position = "bottom", 
+        axis.text = element_text(size = 12)),
+
+ncol = 1, nrow = 2)
+
+#REFERENCE : CONTROL. HAY QUE PENSAR BIEN ESTO!!!
+
+
+#Intento de hacerlo sin pivot.wider
+RR_treatments <- flora_samplings
+RR_treatments$RR_ref_ab <- NA
+
+# Esto funciona, pero no sé introducirlo al loop
+#RR_treatments$RR_ref_ab[which(RR_treatments$sampling == "0")] <- 
+                      #(subset(RR_treatments, sampling == "0" & treatment == "c" ))$abundance
+
+#chat gpt lo ha modificado a esto: 
+samps <- unique(RR_treatments$sampling)
+for (i in samps) {
+  subset_data <- subset(RR_treatments, sampling == i & treatment == "c")
+  RR_treatments$RR_ref_ab[RR_treatments$sampling == i] <-
+    rep(subset_data$abundance, length(which(RR_treatments$sampling == i)))
+}
+
+RR_treatments$RR_abundance <- round(log(RR_treatments$abundance/RR_treatments$RR_ref_ab), 2)
+
+RR_treatments$RR_ref_richness <- NA
+for (i in samps) {
+  subset_data <- subset(RR_treatments, sampling == i & treatment == "c")
+  RR_treatments$RR_ref_richness[RR_treatments$sampling == i] <-
+    rep(subset_data$n_species, length(which(RR_treatments$sampling == i)))
+}
+
+RR_treatments$RR_richness <- round(log(RR_treatments$n_species/RR_treatments$RR_ref_richness), 2)
+
+#Cómo representarlo gráficamente?
+
+
+
+
+# Hata ahora lo he hecho de eta manera, pero se puede hacer de otra
+
+ fs_abundance <-  pivot_wider(flora_samplings, names_from = treatment, values_from = abundance)
  
- ggplot(flora1_samplings, aes(x = sampling, y = abundance, color = treatment)) +
-  geom_boxplot() +
-  labs(x = " ", y = "Abundance") +
-  scale_color_manual(values = c("c" = "blue", "p" = "green", "w" = "red", "wp" = "purple")) +
-  theme_minimal() +
-  theme(legend.position = "none", 
-        axis.text = element_text(size = 12)) +
-  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
-
-labels = c("A", "B", "C"),
-ncol = 1, nrow = 3))
-
-
-
-print(ggarrange(
-  
-  ggtreat_biomass <-
-  ggplot(flora1_samplings, aes(x = treatment, y = biomass, color = treatment)) +
-  geom_boxplot() +
-  labs(x = " ", y = "Biomass") +
-  scale_color_manual(values = c("c" = "blue", "p" = "green", "w" = "red", "wp" = "purple")) +
-  theme_minimal() + 
-  theme(legend.position = "none"),
-
-ggtreat_diversity <- 
-  ggplot(flora1_samplings, aes(x = treatment, y = n_species, color = treatment)) +
-  geom_boxplot() +
-  labs(x = " ", y = "Diversity") +
-  scale_color_manual(values = c("c" = "blue", "p" = "green", "w" = "red", "wp" = "purple")) +
-  theme_minimal()+
-  theme(legend.position = "none"),
-
-ggtreat_abundance <- 
-  ggplot(flora1_samplings, aes(x = treatment, y = abundance, color = treatment)) +
-  geom_boxplot() +
-  labs(x = " ", y = "Abundance") +
-  scale_color_manual(values = c("c" = "blue", "p" = "green", "w" = "red", "wp" = "purple")) +
-  theme_minimal()+
-  theme(legend.position = "none"),
-
-labels = c("A", "B", "C"),
-ncol = 3, nrow = 1))
+ # Hacer lo siguiente en un loop :
+ fs_abundance$RR_ref <- NA
+ 
+ # ESTO FUNCIONA: 
+ fs_abundance$RR_ref[which(fs_abundance$sampling == "0")] <-
+   +     rep(na.omit(fs_abundance$c[which(fs_abundance$sampling =="0")])[1:4], 
+             length(fs_abundance$sampling[which(fs_abundance$sampling == "0")])/4) # Se divide entre cuatro (número de filas del contenido de c)
+ # LOOP!!!
+ samps <- unique(fs_abundance$sampling)
+ for (i in seq_along(samps)){
+   fs_abundance$RR_ref[which(fs_abundance$sampling == samps[i])] <- # rellenar la columna RR_ref de cada muestreo
+     rep(na.omit(fs_abundance$c[which(fs_abundance$sampling == samps[i])])[1:4], # con el contenido de la columna c, omitiendo NA
+         length(fs_abundance$sampling[which(fs_abundance$sampling == samps[i])])/4) #repitiendolo tantas veces como numero de filas contenga cada muestreo, dividido entre 4 (numero de filas del contenido de c) 
+ }
+ 
+fs_abundance$RR_abundance <- fs_abundance$c/fs_abundance$RR_ref
+fs_abundance$RR_abundance <- fs_abundance$w/fs_abundance$RR_ref
+fs_abundance$RR_abundance <- fs_abundance$p/fs_abundance$RR_ref
+fs_abundance$RR_abundance <- fs_abundance$wp/fs_abundance$RR_ref
 
 
-
-
-
-
-
-
-
-
-
-
+ 
+ 
