@@ -60,8 +60,8 @@ library(dplyr)
 flora_raw <- read.csv("data/flora_db.csv")
 flora_raw <- flora_raw %>%
   mutate(across(where(is.character), as.factor))
-desired_order <- c("s_0", "s_1", "s_2", "s_3", "s_4", "s_5", "s_6", 
-                   "s_7", "s_8", "s_9", "s_10", "s_11")
+desired_order <- c("s0_may", "s1_may", "s2_jun", "s3_jun", "s4_jul", "s5_jul", "s6_aug", 
+                   "s7_sep", "s8_sep", "s9_oct", "s10_oct", "s11_nov")
 flora_raw$sampling <- factor(flora_raw$sampling, levels = desired_order)
 
 #Sumar 0.01 cm a los diámetros por el error del calibre con el que medimos
