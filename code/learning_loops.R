@@ -94,5 +94,5 @@ for (i in 1:nrow(scores_data)){
   scores_data$avg[i] <- mean(as.numeric(scores_data[i, 2:4]))
 }
 print(scores_data) 
- 
+
  
