@@ -97,6 +97,10 @@ flora_samplings <-  flora %>%
           n_species = n_species, 
           abundance = sum(abundance, na.rm = T)) %>%
   distinct(sampling, datenew, month, plot, treatment, biomass, n_species, abundance)
+
+hist(flora_samplings$n_species)
+hist(flora_samplings$abundance)
+hist(flora_samplings$biomass)
 #Hacer comprobaciones de los datos en esta base de datos
 
 
@@ -110,6 +114,8 @@ flora_treatments <-  flora_samplings %>%
 # Gráficos por muestreo y tratamiento####
 
 # Other way with facet_grid
+
+ggDynamics <- 
 ggarrange(
   ggplot(flora_samplings, aes(x = sampling, y = abundance, fill = treatment)) +
     geom_boxplot() +
@@ -130,11 +136,33 @@ ggplot(flora_samplings, aes(x = sampling, y = n_species, fill = treatment)) +
 nrow=2, ncol=1)
 
 
-## RESPONSE RATIO ####
+## Comprobación rápida. Cómo difieren entre sí los muestreos 0 de cada variable en cada muestreo?
 
-# To calculate a response ratio, we divide a datapoint by the reference datapoint. 
+ggS0 <- 
+ggarrange(
+ggplot(subset(flora_samplings, flora_samplings$sampling == "0"), aes(x = treatment, y = abundance, fill = treatment)) +
+  geom_boxplot() +
+  labs(x = " ", y = "Abundance at sampling 0")+
+  scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
+  theme(legend.position = "NULL"),
 
-# Reference point: SAMPLING 0 ####
+ggplot(subset(flora_samplings, flora_samplings$sampling == "0"), aes(x = treatment, y = n_species, fill = treatment)) +
+  geom_boxplot() +
+  labs(x = " ", y = "Richness at sampling 0")+
+  scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
+  theme(legend.position = "NULL"),
+
+nrow = 1, ncol = 2)
+
+par(mfrow = c(1,2))
+hist(subset(flora_samplings, flora_samplings$sampling == "0")$n_species)
+hist(subset(flora_samplings, flora_samplings$sampling == "0")$abundance)
+par(mfrow = c(1,1))
+
+##### RESPONSE RATIO  Log(RR); RR = variable at point i / variable at point reference #######################
+
+
+# Reference point: SAMPLING 0 #
 
 fs_control <- subset(flora_samplings, treatment == "c")
 fs_warming <- subset(flora_samplings, treatment == "w")
@@ -151,7 +179,7 @@ for (i in seq_along(list)){
 }
 
 RR_flora_samplings <- rbind(list[[1]], list[[2]], list[[3]], list[[4]])
-
+ggRRsampling0 <- 
 ggarrange(
 ggplot(RR_flora_samplings, aes(x = sampling, y = RR_richness, fill = treatment)) +
   geom_boxplot() +
@@ -173,7 +201,7 @@ ggplot(RR_flora_samplings, aes(x = sampling, y = RR_abundance, fill = treatment)
 
 ncol = 1, nrow = 2)
 
-#REFERENCE : CONTROL.
+# RR REFERENCE : CONTROL.#####
 
 RR_treatments <- flora_samplings
 samps <- unique(RR_treatments$sampling)
@@ -201,7 +229,34 @@ for (i in samps) {
 
 RR_treatments$RR_richness_C <- round(log(RR_treatments$n_species/RR_treatments$RR_ref_richness_C), 2)
 
+# Representación gráfica 
 
+RR_treatments_noC <- RR_treatments[RR_treatments$treatment != "c", ]
+
+ggRRcontrol <- 
+  ggarrange(
+    ggplot(RR_treatments_noC, aes(x = sampling, y = RR_abundance_C, fill = treatment)) +
+      geom_boxplot() +
+      labs(x = " ", y = "logRR(abundance)") +
+      facet_grid(~ treatment) + 
+      scale_fill_manual(values = c("w" = "#EE6363", "p" = "skyblue2", "wp" = "purple"))+
+      geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
+      geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8) +
+      theme(legend.position = "NULL"),
+    
+    ggplot(RR_treatments_noC, aes(x = sampling, y = RR_richness_C, fill = treatment)) +
+      geom_boxplot() +
+      labs(x = " ", y = "logRR(richness)") +
+      facet_grid(~ treatment) + 
+      scale_fill_manual(values = c("w" = "#EE6363", "p" = "skyblue2", "wp" = "purple"))+
+      geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
+      geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8) +
+      theme(legend.position = "NULL"),
+    
+    nrow = 2, ncol = 1)
+
+
+# RR Treatments interactions #########
 
 # TREATMENTS VS WARMING: Reference = warming (RR_abundance_W and RR_richness_W)
 RR_treatments$RR_ref_ab_W <- NA
@@ -262,37 +317,15 @@ for (i in samps) {
 RR_treatments$RR_richness_WP <- round(log(RR_treatments$n_species/RR_treatments$RR_ref_richness_WP), 2)
 
 
-# Representación gráfica 
 
-RR_treatments_noC <- RR_treatments[RR_treatments$treatment != "c", ]
-
-ggRRcontrol <- 
-ggarrange(
-  ggplot(RR_treatments_noC, aes(x = sampling, y = RR_abundance_C, fill = treatment)) +
-    geom_boxplot() +
-    labs(x = " ", y = "logRR(abundance)") +
-    facet_grid(~ treatment) + 
-    scale_fill_manual(values = c("w" = "#EE6363", "p" = "skyblue2", "wp" = "purple"))+
-    geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-    geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8) +
-    theme(legend.position = "NULL"),
-  
-  ggplot(RR_treatments_noC, aes(x = sampling, y = RR_richness_C, fill = treatment)) +
-    geom_boxplot() +
-    labs(x = " ", y = "logRR(richness)") +
-    facet_grid(~ treatment) + 
-    scale_fill_manual(values = c("w" = "#EE6363", "p" = "skyblue2", "wp" = "purple"))+
-    geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-    geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8) +
-    theme(legend.position = "NULL"),
-  
-  nrow = 2, ncol = 1)
 
 # COmo hacer para poner como referencia WP. Hay que transformar base de datos para tener como levels de un factor a 
 # RR_abundance_W y RR_abundance_P
 # Why still legend??
 
-RR_wp <- select(RR_treatments_noC, -all_of(grep("RR_ref", names(RR_treatments_noC), value = TRUE)), -biomass)
+RR_wp <- select(RR_treatments, -all_of(grep("RR_ref", names(RR_treatments), value = TRUE)), -biomass)
+
+##ERROR
 
 RR_wp_ab <- pivot_longer(RR_wp, cols = c("RR_abundance_W", "RR_abundance_P"), 
                          names_to = "RR_ab_treatment", values_to = "RR_ab_values")
@@ -471,7 +504,7 @@ flora_cv_noC <- flora_cv[flora_cv$treatment != "c", ]
 
 #Este es muy dificil de leer en verdad
 ggRRcv_try <- 
-ggplot(flora_cv_noC, aes(x = sampling, y = RR_richness_C, color = treatment, group = treatment)) +
+ggplot(flora_cv_noC , aes(x = sampling, y = RR_richness_C, color = treatment, group = treatment)) +
   geom_point() +
   geom_line() +
   labs(x = " ", y = "CV Richness") + 
@@ -544,6 +577,11 @@ ggarrange(
 
 
 # ALL PLOTS ###############
+
+ggDynamics
+ggS0
+
+ggRRsampling0 
 
 ggRRcontrol
 ggRRcv_control

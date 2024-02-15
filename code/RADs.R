@@ -96,156 +96,143 @@ flora_all <- flora_all[,-1]
 
 # individual content of loop ?
 
-subset_try <- subset(flora, treatment == "w" & sampling == "4jul")
-subtry <- summarise(group_by(subset_try, treatment, sampling, species),
-                     abundance = round((mean(abundance, na.rm = T))))
-#Summing each mean value per sampling (cumulative abundance through time) 
-subtry <- summarise(group_by(subtry, treatment, species),
-                     abundance = round((sum(abundance, na.rm = T))))
+subset_try <- subset(flora, treatment == "w" & sampling == "4")
+subtry <- summarise(group_by(subset_try, species), #mean of replicates per sampling
+                    abundance = round((mean(abundance, na.rm = T))))
 
 subtry <- pivot_wider(subtry, names_from = species, values_from = abundance, values_fill = 0)
 subtry <- as.data.frame(subtry)
 #remove treatment from column and add it as rowname
-rownames(subtry) <- subtry$treatment
-subtry <- subtry[,-1]
+rownames(subtry) <- "wp"
 rad_try <- radfit(subtry)
+
 rad_try
 (rad_try <- radfit(subtry)); plot(rad_try)
 
+rad_try$models$Lognormal
+
+rad_try$models$Lognormal$aic
+rad_try$models$Lognormal$coefficients[1]
+rad_try$models$Lognormal$coefficients[2]
+rad_try$models$Lognormal$deviance
+rad_try$models$Lognormal
+
+rad_try$models$Zipf$coefficients[2]
 
 
- #Create data.frame to fill with data. ONE PER MODEL. ES MUY DIFICIL SI NO. 
+flora_no1 <- flora[flora$sampling != "1", ]
+
+#Create data.frame to fill with data. 
+rad_df <- matrix(nrow = (length(unique(flora_no1$sampling)) * length(unique(flora_no1$treatment))), ncol = 6)
+colnames(rad_df) <- c("treatment", "sampling", "AIC_pree", "AIC_log", "AIC_zipf", "AIC_man")
+rad_df <- as.data.frame(rad_df)
 
 
-rad_df_Lognormal <-  matrix(nrow = (length(unique(flora$sampling))*length(unique(flora$plot))) , ncol = 9) # samplings
-colnames(rad_df_Lognormal) <- c("treatment", "sampling","model","par1","par2","par3","Deviance","AIC","BIC")
-rad_df_Lognormal <- as.data.frame(rad_df_Lognormal)
-
-
-# My try
-
-for( treat in unique(flora$treatment)){
-  for( samp in unique(flora$sampling)){
-    subset_data <- subset(flora, treatment == treat & sampling == samp)
-    subtry <- summarise(group_by(subset_data, treatment, sampling, species),
-                        abundance = round((mean(abundance, na.rm = T))))
-    subtry <- summarise(group_by(subtry, treatment, species),
-                        abundance = round((sum(abundance, na.rm = T))))
-    subtry <- pivot_wider(subtry, names_from = species, values_from = abundance, values_fill = 0)
-    subtry <- as.data.frame(subtry)
-    rownames(subtry) <- subtry$treatment
-    subtry <- subtry[,-1]
-    rad_try <- radfit(subtry)
+f <- 0
+for(i in 1:length(unique(flora_no1$treatment))){
+  for(j in 1:length(unique(flora_no1$sampling))){
     
-    results <- rad_try$models$Lognormal
-  
-    result_df <- data.frame(
-      treatment = treat,
-      sampling = samp,
-      model = results$model,
-      par1 = results$coefficients[1],
-      par2 = results$coefficients[2],
-      par3 = NA,
-      Deviance = results$deviance,
-      AIC = results$aic,
-      BIC = NA
-    )
-    rad_df_Lognormal <- rbind(rad_df_Lognormal, result_df)
+    f <- f + 1
+    subset_data <- subset(flora_no1, treatment == unique(flora_no1$treatment)[i] & sampling == unique(flora_no1$sampling)[j])
+    
+    sub <- summarise(group_by(subset_data, species), abundance = round((mean(abundance, na.rm = T))))
+    sub <- pivot_wider(sub, names_from = species, values_from = abundance, values_fill = 0)
+    sub <- as.data.frame(sub)
+    rownames(sub) <- unique(flora_no1$treatment)[i]
+    rad_sub <- radfit(sub)
+    
+    rad_df$treatment[f] <- unique(flora_no1$treatment)[i]
+    rad_df$sampling[f] <- unique(flora_no1$sampling)[j]
+    rad_df$AIC_pree[f] <- rad_sub$models$Preemption$aic
+    rad_df$AIC_log[f] <- rad_sub$models$Lognormal$aic
+    rad_df$AIC_zipf[f] <- rad_sub$models$Zipf$aic
+    rad_df$AIC_man[f] <- rad_sub$models$Mandelbrot$aic
   }
 }
 
 
+rad_df <- pivot_longer(rad_df, cols = c("AIC_pree", "AIC_log","AIC_zipf","AIC_man"), 
+             names_to = "model", values_to = "AIC")
 
 
+ggplot(rad_df, aes(x = model, y = AIC)) +
+  geom_boxplot()
 
 
+# Hacer loop a nivel de plot*sampling para aprender yo a hacer el loop
 
+rad_dfplot <- matrix(nrow = (length(unique(flora_no1$sampling))*length(unique(flora_no1$plot))), ncol = 6)
+colnames(rad_dfplot) <- c("sampling", "plot", "AIC_pree", "AIC_log", "AIC_zipf", "AIC_man")
+rad_dfplot <-  as.data.frame(rad_dfplot)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-#Chat gpt try1: 
-
-# Iterate over treatments
-for (treat in levels(flora$treatment)) {
-  # Iterate over samplings
-  for (samp in levels(flora$sampling)) {
-    # Subset data for treatment and sampling
-    subset_data <- subset(flora, treatment == treat & sampling == samp)
-    # Summarize data
-    subtry <- summarise(group_by(subset_data, treatment, sampling, species),
-                        abundance = round((mean(abundance, na.rm = TRUE))))
-    # Summing each mean value per sampling (cumulative abundance through time)
-    subtry <- summarise(group_by(subtry, treatment, species),
-                        abundance = round((sum(abundance, na.rm = TRUE))))
-    # Convert to wide format
-    subtry <- pivot_wider(subtry, names_from = species, values_from = abundance, values_fill = 0)
-    subtry <- as.data.frame(subtry)
-    # Remove treatment from column and add it as rowname
-    rownames(subtry) <- subtry$treatment
-    # Apply radfit
-    rad_try <- radfit(subtry)
-    # Extract results
-    rad_df_Lognormal$treatment <- subset_data$treatment
-    rad_df_Lognormal$sampling <- subset_data$sampling
-    rad_df_Lognormal$model <- "lognormal"
-    rad_df_Lognormal$par1 <-  rad_try$models$Lognormal$coefficients[1]
-    rad_df_Lognormal$par2 <-  rad_try$models$Lognormal$coefficients[2]
-    rad_df_Lognormal$par3 <-  "NA"
-    rad_df_Lognormal$Deviance <- rad_try$models$Lognormal$deviance
-    rad_df_Lognormal$AIC <- rad_try$models$Lognormal$aic
-    rad_df_Lognormal$BIC <-"?????"
+count <- 0
+for (i in 1:length(unique(flora_no1$sampling))){
+  for (j in 1:length(unique(flora_no1$plot))){
     
-    # Append results to rad_df
-    rad_df <- rbind(rad_df, result_df)
+    count <- count + 1
+    subset_data <- subset(flora_no1, sampling == unique(flora_no1$sampling)[i] & plot == unique(flora_no1$plot)[j])
+    subrad <- summarise(group_by(subset_data, species),
+                        abundance = round(mean(abundance), 0))
+    subrad <- pivot_wider(subrad, names_from = species, values_from = abundance, values_fill = 0)
+    subrad <- as.data.frame(subrad)
+    rownames(subrad) <- unique(flora_no1$sampling)[i]
+    rad_sub <- radfit(subrad)
+    
+    rad_dfplot$sampling[count] <- unique(flora_no1$sampling)[i]
+    rad_dfplot$plot[count] <- unique(flora_no1$plot)[j]
+    rad_dfplot$AIC_pree[count] <- rad_sub$models$Preemption$aic
+    rad_dfplot$AIC_log[count] <- rad_sub$models$Lognormal$aic
+    rad_dfplot$AIC_zipf[count] <- rad_sub$models$Zipf$aic
+    rad_dfplot$AIC_man[count] <- rad_sub$models$Mandelbrot$aic
+    
   }
 }
 
-# Reset row names
-row.names(rad_df) <- NULL
+rad_dfplot <- pivot_longer(rad_dfplot, cols = c("AIC_pree", "AIC_log","AIC_zipf","AIC_man"), 
+                                                 names_to = "model", values_to = "AIC")
+ggplot(rad_dfplot, aes(x = model, y = AIC))+
+  geom_boxplot()
 
-# Show the resulting dataframe
-head(rad_df)
+# Even less differences!
 
 
+# NOW: LETS DO A LOOP TO TAKE ALL ZIPF PAR 1!!!!
 
-#DANI way: 
+zipf_df <- matrix(nrow = (length(unique(flora_no1$sampling))*length(unique(flora_no1$plot))), ncol = 3)
+colnames(zipf_df) <- c("plot", "sampling", "Y_zipf")
+zipf_df <- as.data.frame(zipf_df)
 
-rad_c = matrix(nrow=length(unique(data_c$sampling))*length(unique(data_c$plot)), ncol=10) # samplings
-colnames(rad_c)=c("treatment","sampling","plot","Species_richness","Mean_abundance","Zipf_p1","Zipf_gamma","Preemp_alpha","Lognormal_mu","Lognormal_sigma") #,"Gambin_alpha")
-rad_c=as.data.frame(rad_c)
-
-cont=0 # Loop counter
-sortplots_c <- sort(unique(data_c$plot)) # Sort plot numbers within treatments (necessary for the loop)
-for (i in 0:(length(unique(data_c$sampling))-1)){
-  for (j in 1:c(length(unique(data_c$plot)))){
-    sub <- filter (data_c, sampling==i & plot==sortplots_c[j]) #sub-dataset with sampling i and column of abundances
-    radfit1 <- rad.zipf(sub$abundance)
-    radfit2 <- rad.preempt(sub$abundance)
-    radfit3 <- rad.lognormal(sub$abundance)
-    #    gambin <- fit_abundances(sub$abundance)
+count = 0
+for(i in 1:length(unique(flora_no1$sampling))){
+  for(j in 1:length(unique(flora_no1$plot))){
     
-    cont=cont+1
-    rad_c[cont,1]="control"
-    rad_c[cont,2]=as.numeric(i)
-    rad_c[cont,3]=sortplots_c[j]
-    rad_c[cont,4]=length(unique(sub$species)) # Species richness
-    rad_c[cont,5]=mean(sub$abundance) # Mean biomass
-    rad_c[cont,6]=radfit1$coefficients[1] # Zipf model (p1 parameter)
-    rad_c[cont,7]=radfit1$coefficients[2] # Zipf model (gamma parameter)
-    rad_c[cont,8]=radfit2$coefficients[1] # Preemption model (alpha parameter)
-    rad_c[cont,9]=radfit3$coefficients[1] # Lognormal model (mu parameter)
-    rad_c[cont,10]=radfit3$coefficients[2] # Lognormal model (sigma parameter)
-    #    rad_c[cont,11]=gambin$alpha
+    count <- count + 1
+    subset_data <- subset(flora_no1, sampling == unique(flora_no1$sampling)[i] & plot == unique(flora_no1$plot)[j])
+    subrad <- summarise(group_by(subset_data, species),
+                        abundance = round(mean(abundance), 0))
+    subrad <- pivot_wider(subrad, names_from = species, values_from = abundance, values_fill = 0)
+    subrad <- as.data.frame(subrad)
+    rownames(subrad) <- unique(flora_no1$sampling)[i]
+    rad_sub <- radfit(subrad)
+    
+    zipf_df$plot[count] <- unique(flora_no1$plot)[j]
+    zipf_df$sampling[count] <- unique(flora_no1$sampling)[i]
+    zipf_df$Y_zipf[count] <- rad_sub$models$Zipf$coefficients[2]
   }
 }
+
+plots <- read.csv("data/plots.csv") %>%
+  select(nplot, treatment_code)
+colnames(plots) <- c("plot", "treatment")
+
+zipf_df <- merge(zipf_df, plots, by = "plot")
+
+
+# por qué sale mal?
+ggplot(zipf_df, aes(x = sampling, y = Y_zipf, fill = treatment)) +
+  geom_boxplot() +
+  labs(x = " ", y = "Y_zipf") +
+  facet_grid(~ treatment) + 
+  scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
+  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
+  theme(legend.position = "NULL")

@@ -95,4 +95,6 @@ for (i in 1:nrow(scores_data)){
 }
 print(scores_data) 
 
+
+#### para probar un loop, dar valores a i o a i y a j. Por ejemplo: i = 1 j = 1
  
