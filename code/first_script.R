@@ -39,6 +39,9 @@ flora_raw <- right_join(flora_raw, sampling_dates, by = join_by(sampling))
 
 flora <- flora_raw %>% select(sampling, plot, treatment, species, abundance, height, Cb, Db, Cm, Dm, datenew, month)
 
+
+anyNA(flora_raw)
+
 #Sumar 0.01 cm a los diámetros por el error del calibre con el que medimos
 flora$Dm <- flora$Dm + 0.01
 flora$Db <- flora$Db + 0.01

@@ -18,6 +18,7 @@ source('code/tools/basicFun.R')
 source("code/first_script.R")
 
 
+
 #Checking if we have mistakes (missing more than 2 variables with NA's)
 #View(flora %>%
 #  filter(rowSums(is.na(select(., Dm, Db, Cm, Cb))) > 2))
@@ -101,6 +102,16 @@ flora_samplings <-  flora %>%
 hist(flora_samplings$n_species)
 hist(flora_samplings$abundance)
 hist(flora_samplings$biomass)
+
+#Adding zipf data about RADs
+zipf_df <- read.csv("data/zipf_df.csv")
+zipf_df <- select(zipf_df, -X)
+zipf_df$plot <- as.factor(zipf_df$plot)
+zipf_df$sampling <- as.factor(zipf_df$sampling)
+zipf_df$treatment <- as.factor(zipf_df$treatment)
+
+flora_samplings <- right_join(zipf_df, flora_samplings)
+
 #Hacer comprobaciones de los datos en esta base de datos
 
 
@@ -117,13 +128,7 @@ flora_treatments <-  flora_samplings %>%
 
 ggDynamics <- 
 ggarrange(
-  ggplot(flora_samplings, aes(x = sampling, y = abundance, fill = treatment)) +
-    geom_boxplot() +
-    labs(x = " ", y = "Abundance") +
-    facet_grid(~ treatment) + 
-    scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
-    geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-    theme(legend.position = "NULL"),
+  
 ggplot(flora_samplings, aes(x = sampling, y = n_species, fill = treatment)) +
   geom_boxplot() +
   labs(x = " ", y = "Richness") +
@@ -132,8 +137,24 @@ ggplot(flora_samplings, aes(x = sampling, y = n_species, fill = treatment)) +
   geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
   theme(legend.position = "NULL"),
 
+ggplot(flora_samplings, aes(x = sampling, y = abundance, fill = treatment)) +
+  geom_boxplot() +
+  labs(x = " ", y = "Abundance") +
+  facet_grid(~ treatment) + 
+  scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
+  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
+  theme(legend.position = "NULL"),
 
-nrow=2, ncol=1)
+ggplot(flora_samplings, aes(x = sampling, y = Y_zipf, fill = treatment)) +
+  geom_boxplot() +
+  labs(x = " ", y = "Y_zipf (RAD") +
+  facet_grid(~ treatment) + 
+  scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
+  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
+  theme(legend.position = "NULL"),
+
+
+nrow=3, ncol=1)
 
 
 ## Comprobación rápida. Cómo difieren entre sí los muestreos 0 de cada variable en cada muestreo?
@@ -169,16 +190,19 @@ fs_warming <- subset(flora_samplings, treatment == "w")
 fs_pert<- subset(flora_samplings, treatment == "p")
 fs_wp <- subset(flora_samplings, treatment == "wp")
 
-#loot that iterates over every dataframe of treatments
+#loop that iterates over every dataframe of treatments
 list<- list(fs_control, fs_warming, fs_pert, fs_wp)
 for (i in seq_along(list)){
   list[[i]]$RR_ref_richness <- rep(list[[i]]$n_species[which(list[[i]]$sampling == "0")], (nrow(list[[i]])/4))
   list[[i]]$RR_richness <- round(log(list[[i]]$n_species/list[[i]]$RR_ref_richness), 2)
   list[[i]]$RR_ref_abundance <- rep(list[[i]]$abundance[which(list[[i]]$sampling == "0")], (nrow(list[[i]])/4))
   list[[i]]$RR_abundance <- round(log(list[[i]]$abundance/list[[i]]$RR_ref_abundance), 2)
+  list[[i]]$RR_ref_Yzipf <- rep(list[[i]]$Y_zipf[which(list[[i]]$sampling == "0")], (nrow(list[[i]])/4))
+  list[[i]]$RR_Yzipf <- round(log(list[[i]]$Y_zipf/list[[i]]$RR_ref_Yzipf), 2)
 }
 
 RR_flora_samplings <- rbind(list[[1]], list[[2]], list[[3]], list[[4]])
+
 ggRRsampling0 <- 
 ggarrange(
 ggplot(RR_flora_samplings, aes(x = sampling, y = RR_richness, fill = treatment)) +
