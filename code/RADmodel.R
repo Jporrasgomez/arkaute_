@@ -71,7 +71,7 @@ for(i in 1:length(unique(flora_no1$sampling))){
     count <- count + 1
     subset_data <- subset(flora_no1, sampling == unique(flora_no1$sampling)[i] & plot == unique(flora_no1$plot)[j])
     subrad <- summarise(group_by(subset_data, species),
-                        abundance = round(mean(abundance), 0))
+                        abundance = round(mean(abundance), 0)) 
     subrad <- pivot_wider(subrad, names_from = species, values_from = abundance, values_fill = 0)
     subrad <- as.data.frame(subrad)
     rad_sub <- radfit(subrad)
@@ -84,6 +84,9 @@ for(i in 1:length(unique(flora_no1$sampling))){
   }
 }
 
+# *** #mean here is "fake". Actually we keep the same number of abundance per species. However,
+# we have several replicates of the same species per plot due to the different morphological measuremens
+# for biomass. The mean of the same number is the same number. 
 
 #Plot 15 (t = p) del sampling 3 aparece como NA. Hacer individual dar valores de i = 5 y j = 7
 # (*la posicion de los niveles no corresponde con el valor del muestreo o plot). Da valores de "inf". 

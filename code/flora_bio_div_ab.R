@@ -94,9 +94,9 @@ flora <- flora %>%
 
 flora_samplings <-  flora %>%
   group_by(sampling, datenew, month, treatment, plot) %>%
-  reframe(biomass = sum(biomass, na.rm = T), 
-          n_species = n_species, 
-          abundance = sum(abundance, na.rm = T)) %>%
+  reframe(biomass = sum(biomass, na.rm = T), #total abundance per plot (m2) (replicate of treatment)
+          n_species = n_species,  #total number of species per plot
+          abundance = sum(abundance, na.rm = T)) %>% # total coverage of plot
   distinct(sampling, datenew, month, plot, treatment, biomass, n_species, abundance)
 
 hist(flora_samplings$n_species)
