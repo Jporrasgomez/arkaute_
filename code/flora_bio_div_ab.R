@@ -73,9 +73,9 @@ flora3_outl <- flora[which(flora$x > (as.numeric(quantile(flora$x, na.rm = TRUE)
 #la masa promedio de los individuos medidos para dicha especie. 
 
 flora <- flora %>%
-  group_by(sampling, datenew, month, treatment, plot, abundance, species) %>%
+  group_by(sampling, date, month, treatment, plot, abundance, species) %>%
   reframe(biomass = mean(biomass, na.rm = TRUE) * abundance) %>%
-  distinct(sampling, datenew, month, plot, treatment, abundance, species, biomass)
+  distinct(sampling, date, month, plot, treatment, abundance, species, biomass)
 #Mirar si la distribución de los datos de biomasa tienen sentido una vez aplicada la estimacion en base a la abundancia
 hist(flora1$biomass)
 hist(log(flora1$biomass))
@@ -93,24 +93,16 @@ flora <- flora %>%
   ungroup()
 
 flora_samplings <-  flora %>%
-  group_by(sampling, datenew, month, treatment, plot) %>%
+  group_by(sampling, date, month, treatment, plot) %>%
   reframe(biomass = sum(biomass, na.rm = T), #total abundance per plot (m2) (replicate of treatment)
           n_species = n_species,  #total number of species per plot
           abundance = sum(abundance, na.rm = T)) %>% # total coverage of plot
-  distinct(sampling, datenew, month, plot, treatment, biomass, n_species, abundance)
+  distinct(sampling, date, month, plot, treatment, biomass, n_species, abundance)
 
 hist(flora_samplings$n_species)
 hist(flora_samplings$abundance)
 hist(flora_samplings$biomass)
 
-#Adding zipf data about RADs
-zipf_df <- read.csv("data/zipf_df.csv")
-zipf_df <- select(zipf_df, -X)
-zipf_df$plot <- as.factor(zipf_df$plot)
-zipf_df$sampling <- as.factor(zipf_df$sampling)
-zipf_df$treatment <- as.factor(zipf_df$treatment)
-
-flora_samplings <- right_join(zipf_df, flora_samplings)
 
 #Hacer comprobaciones de los datos en esta base de datos
 
@@ -126,6 +118,7 @@ flora_treatments <-  flora_samplings %>%
 
 # Other way with facet_grid
 
+theme_set(theme_bw()+ theme(legend.position = "NULL"))
 ggDynamics <- 
 ggarrange(
   
@@ -145,16 +138,7 @@ ggplot(flora_samplings, aes(x = sampling, y = abundance, fill = treatment)) +
   geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
   theme(legend.position = "NULL"),
 
-ggplot(flora_samplings, aes(x = sampling, y = Y_zipf, fill = treatment)) +
-  geom_boxplot() +
-  labs(x = " ", y = "Y_zipf (RAD") +
-  facet_grid(~ treatment) + 
-  scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
-  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-  theme(legend.position = "NULL"),
-
-
-nrow=3, ncol=1)
+nrow=2, ncol=1)
 
 
 ## Comprobación rápida. Cómo difieren entre sí los muestreos 0 de cada variable en cada muestreo?
@@ -197,8 +181,6 @@ for (i in seq_along(list)){
   list[[i]]$RR_richness <- round(log(list[[i]]$n_species/list[[i]]$RR_ref_richness), 2)
   list[[i]]$RR_ref_abundance <- rep(list[[i]]$abundance[which(list[[i]]$sampling == "0")], (nrow(list[[i]])/4))
   list[[i]]$RR_abundance <- round(log(list[[i]]$abundance/list[[i]]$RR_ref_abundance), 2)
-  list[[i]]$RR_ref_Yzipf <- rep(list[[i]]$Y_zipf[which(list[[i]]$sampling == "0")], (nrow(list[[i]])/4))
-  list[[i]]$RR_Yzipf <- round(log(list[[i]]$Y_zipf/list[[i]]$RR_ref_Yzipf), 2)
 }
 
 RR_flora_samplings <- rbind(list[[1]], list[[2]], list[[3]], list[[4]])
@@ -211,8 +193,7 @@ ggplot(RR_flora_samplings, aes(x = sampling, y = RR_richness, fill = treatment))
   facet_grid(~ treatment) + 
   scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
   geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-  geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8) +
-  theme(legend.position = "NULL"),
+  geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
 
 ggplot(RR_flora_samplings, aes(x = sampling, y = RR_abundance, fill = treatment)) +
   geom_boxplot() +
@@ -220,8 +201,7 @@ ggplot(RR_flora_samplings, aes(x = sampling, y = RR_abundance, fill = treatment)
   facet_grid(~ treatment) + 
   scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
   geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-  geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8) +
-  theme(legend.position = "NULL"), 
+  geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8), 
 
 ncol = 1, nrow = 2)
 
@@ -265,8 +245,7 @@ ggRRcontrol <-
       facet_grid(~ treatment) + 
       scale_fill_manual(values = c("w" = "#EE6363", "p" = "skyblue2", "wp" = "purple"))+
       geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-      geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8) +
-      theme(legend.position = "NULL"),
+      geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
     
     ggplot(RR_treatments_noC, aes(x = sampling, y = RR_richness_C, fill = treatment)) +
       geom_boxplot() +
@@ -274,8 +253,7 @@ ggRRcontrol <-
       facet_grid(~ treatment) + 
       scale_fill_manual(values = c("w" = "#EE6363", "p" = "skyblue2", "wp" = "purple"))+
       geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-      geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8) +
-      theme(legend.position = "NULL"),
+      geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
     
     nrow = 2, ncol = 1)
 
@@ -367,8 +345,7 @@ ggplot(subset(RR_wp_ab, treatment == "wp"), aes(x = sampling, y = RR_ab_values, 
   facet_grid(~ RR_ab_treatment) + 
   scale_fill_manual(values = c("RR_abundance_W" = "pink", "RR_abundance_P" = "seagreen2"))+
   geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-  geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8) +
-  theme(legend.position = "NULL"),
+  geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
 
 ggplot(subset(RR_wp_rich, treatment == "wp"), aes(x = sampling, y = RR_rich_values, fill = RR_rich_treatment)) +
   geom_boxplot() +
@@ -376,8 +353,7 @@ ggplot(subset(RR_wp_rich, treatment == "wp"), aes(x = sampling, y = RR_rich_valu
   facet_grid(~ RR_rich_treatment) + 
   scale_fill_manual(values = c("RR_richness_W" = "pink", "RR_richness_P" = "seagreen2"))+
   geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-  geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8) +
-  theme(legend.position = "NULL"),
+  geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
 
 nrow = 2, ncol = 1)
 
@@ -403,7 +379,7 @@ ggplot(flora_cv, aes(x = sampling, y = CV_richness, color = treatment, group = t
   geom_point() +
   geom_line() +
   labs(x = " ", y = " ") + 
-  scale_color_manual(values = c("c" = "green4", "p" = "blue4", "w" = "red4", "wp" = "purple2"))+
+  scale_color_manual(values = c("c" = "green3", "p" = "blue4", "w" = "red4", "wp" = "purple2"))+
   geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
   theme(legend.position = "right"),
 
@@ -411,7 +387,7 @@ ggplot(flora_cv, aes(x = sampling, y = CV_abundance, color = treatment, group = 
   geom_point() +
   geom_line() +
   labs(x = " ", y = " ") + 
-  scale_color_manual(values = c("c" = "green4", "p" = "blue4", "w" = "red4", "wp" = "purple2"))+
+  scale_color_manual(values = c("c" = "green3", "p" = "blue4", "w" = "red4", "wp" = "purple2"))+
   geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
   theme(legend.position = "right"),
 labels = c("Richness", "Abundance"),
@@ -426,8 +402,7 @@ ggCVgrid <-
       facet_grid(~ treatment)+
       labs(x = " ", y = "CV abundance") + 
       scale_color_manual(values = c("c" = "green4", "p" = "blue4", "w" = "red4", "wp" = "purple2"))+
-      geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-      theme(legend.position = "NULL"),
+      geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
     
     ggplot(flora_cv, aes(x = sampling, y = CV_richness, color = treatment, group = treatment)) +
       geom_point() +
@@ -435,8 +410,7 @@ ggCVgrid <-
       facet_grid(~ treatment)+
       labs(x = " ", y = "CV richness ") + 
       scale_color_manual(values = c("c" = "green4", "p" = "blue4", "w" = "red4", "wp" = "purple2"))+
-      geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-      theme(legend.position = "NULL"),
+      geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
     
     nrow = 2, ncol = 1)
  
@@ -534,8 +508,7 @@ ggplot(flora_cv_noC , aes(x = sampling, y = RR_richness_C, color = treatment, gr
   labs(x = " ", y = "CV Richness") + 
   scale_color_manual(values = c("c" = "green4", "p" = "blue3", "w" = "red4", "wp" = "purple2"))+
   geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-  geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8) +
-  theme(legend.position = "NULL")
+  geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8)
 
 ggRRcv_control <- 
 ggarrange(
@@ -546,8 +519,7 @@ ggarrange(
     labs(x = " ", y = "logRR(CV abundance)") + 
     scale_color_manual(values = c("c" = "green4", "p" = "blue3", "w" = "red4", "wp" = "purple2"))+
     geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-    geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8) +
-    theme(legend.position = "NULL"),
+    geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
   
 ggplot(flora_cv_noC, aes(x = sampling, y = RR_richness_C, color = treatment, group = treatment)) +
   geom_point() +
@@ -556,8 +528,7 @@ ggplot(flora_cv_noC, aes(x = sampling, y = RR_richness_C, color = treatment, gro
   labs(x = " ", y = "logRR(CV richness)") + 
   scale_color_manual(values = c("c" = "green4", "p" = "blue3", "w" = "red4", "wp" = "purple2"))+
   geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-  geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8) +
-  theme(legend.position = "NULL"),
+  geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
 
 nrow=2, ncol=1)
   
@@ -584,8 +555,7 @@ ggarrange(
     facet_grid(~ RR_ab_treatment) + 
     scale_color_manual(values = c("RR_abundance_W" = "pink4", "RR_abundance_P" = "seagreen4"))+
     geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-    geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8) +
-    theme(legend.position = "NULL"),
+    geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
   
   ggplot(subset(RR_cv_wp_rich, treatment == "wp"), aes(x = sampling, y = RR_rich_values, color = RR_rich_treatment, group = RR_rich_treatment)) +
     geom_point() +
@@ -594,8 +564,7 @@ ggarrange(
     facet_grid(~ RR_rich_treatment) + 
     scale_color_manual(values = c("RR_richness_W" = "pink4", "RR_richness_P" = "seagreen4"))+
     geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-    geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8) +
-    theme(legend.position = "NULL"),
+    geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
   
   nrow = 2, ncol = 1)
 

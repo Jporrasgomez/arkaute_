@@ -146,6 +146,7 @@ radcoeff_df$treatment <- as.factor(radcoeff_df$treatment)
 
 radcoeff_df %>% write.csv("data/radcoeff_df.csv")
 
+theme_set(theme_bw()+ theme(legend.position = "NULL"))
 
 ggarrange(
 ggplot(radcoeff_df, aes(x = sampling, y = Y_zipf, fill = treatment)) +
@@ -153,24 +154,21 @@ ggplot(radcoeff_df, aes(x = sampling, y = Y_zipf, fill = treatment)) +
   labs(x = " ", y = "Y_zipf") +
   facet_grid(~ treatment) + 
   scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
-  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-  theme(legend.position = "NULL"),
+  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
 
 ggplot(radcoeff_df, aes(x = sampling, y = mu_log, fill = treatment)) +
   geom_boxplot() +
   labs(x = " ", y = "mu_log") +
   facet_grid(~ treatment) + 
   scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
-  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-  theme(legend.position = "NULL"),
+  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
 
 ggplot(radcoeff_df, aes(x = sampling, y = sigma_log, fill = treatment)) +
   geom_boxplot() +
   labs(x = " ", y = "sigma_log") +
   facet_grid(~ treatment) + 
   scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
-  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
-  theme(legend.position = "NULL"),
+  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
 nrow = 3, ncol = 1)
 
 
