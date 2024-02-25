@@ -88,14 +88,7 @@ ggplot(flora_samplings, aes(x = sampling, y = abundance, fill = treatment)) +
   scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
   geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
 
-ggplot(flora_samplings, aes(x = sampling, y = biomass, fill = treatment)) +
-  geom_boxplot() +
-  labs(x = " ", y = "Biomass") +
-  facet_grid(~ treatment) + 
-  scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
-  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
-
-nrow=3, ncol=1)
+nrow=2, ncol=1)
 
 # !! Eliminar plot 13 sampling 2 para coeficientes de evenness, o revisar. 
 ggDynamics_evenness <- 
@@ -131,8 +124,15 @@ ggDynamics_evenness <-
 RR_treatments <- flora_samplings
 samps <- unique(RR_treatments$sampling)
 
+#Sampling 2 has several plots with very few species, which generates problems at RADs
+# At plot 15, we have only 1 species so there is no RAD
+# At plot 13, we have 2 species, so the RAD values are not reliable. Im deleting this data by hand: 
+RR_treatments$Y_zipf[RR_treatments$sampling == "2" & RR_treatments$plot == "13"] <- NA
+RR_treatments$mu_log[RR_treatments$sampling == "2" & RR_treatments$plot == "13"] <- NA
+RR_treatments$sigma_log[RR_treatments$sampling == "2" & RR_treatments$plot == "13"] <- NA
+
 #100% puedo reducir todas las lineas de código al incluir un vector que incluya las variabes. Tipo:
-variables <- c(colnames(flora_samplings[, 7:11]))
+# variables <- c(colnames(flora_samplings[, 7:11])) investigar si eso
 
 for (i in 1:length(samps)) {
   subset_c <- subset(RR_treatments, sampling == samps[i] & treatment == "c")
@@ -215,6 +215,7 @@ ggarrange(
   
   nrow = 2, ncol = 1)
 
+
 ggRRcontrol_evenness<- 
   ggarrange(
     ggplot(RR_treatments[RR_treatments$treatment != "c", ], aes(x = sampling, y = RR_yzipf_C, fill = treatment)) +
@@ -248,11 +249,20 @@ ggRRcontrol_evenness<-
 
 RR_wp_ab <- pivot_longer(RR_treatments, cols = c("RR_abundance_W", "RR_abundance_P"), 
                          names_to = "RR_ab_treatment", values_to = "RR_ab_values")
-RR_wp_ab <- select(RR_wp_ab, -all_of(grep("RR_richness", names(RR_wp_ab), value = TRUE)))
 
 RR_wp_rich <- pivot_longer(RR_treatments, cols = c("RR_richness_W", "RR_richness_P"), 
                            names_to = "RR_rich_treatment", values_to = "RR_rich_values")
-RR_wp_rich <- select(RR_wp_rich, -all_of(grep("RR_abundance", names(RR_wp_rich), value = TRUE)))
+
+RR_wp_yzipf <- pivot_longer(RR_treatments, cols = c("RR_yzipf_W", "RR_yzipf_P"), 
+                           names_to = "RR_yzipf_treatment", values_to = "RR_yzipf_values")
+
+RR_wp_mulog <- pivot_longer(RR_treatments, cols = c("RR_mulog_W", "RR_mulog_P"), 
+                            names_to = "RR_mulog_treatment", values_to = "RR_mulog_values")
+
+RR_wp_sigmalog <- pivot_longer(RR_treatments, cols = c("RR_sigmalog_W", "RR_sigmalog_P"), 
+                            names_to = "RR_sigmalog_treatment", values_to = "RR_sigmalog_values")
+
+
 
 ggRRwp <- 
 ggarrange(
@@ -275,6 +285,35 @@ ggplot(subset(RR_wp_rich, treatment == "wp"), aes(x = sampling, y = RR_rich_valu
 nrow = 2, ncol = 1)
 
 
+ggRRwp_evenness <- 
+  ggarrange(
+    ggplot(subset(RR_wp_yzipf, treatment == "wp"), aes(x = sampling, y = RR_yzipf_values, fill = RR_yzipf_treatment)) +
+      geom_boxplot() +
+      labs(x = " ", y = "loggRR(Y)") +
+      facet_grid(~ RR_yzipf_treatment) + 
+      scale_fill_manual(values = c("RR_yzipf_W" = "pink", "RR_yzipf_P" = "seagreen2"))+
+      geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
+      geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
+    
+    ggplot(subset(RR_wp_mulog, treatment == "wp"), aes(x = sampling, y = RR_mulog_values, fill = RR_mulog_treatment)) +
+      geom_boxplot() +
+      labs(x = " ", y = "logRR(mu)") +
+      facet_grid(~ RR_mulog_treatment) + 
+      scale_fill_manual(values = c("RR_mulog_W" = "pink", "RR_mulog_P" = "seagreen2"))+
+      geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
+      geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
+    
+    ggplot(subset(RR_wp_sigmalog, treatment == "wp"), aes(x = sampling, y = RR_sigmalog_values, fill = RR_sigmalog_treatment)) +
+      geom_boxplot() +
+      labs(x = " ", y = "logRR(sigma)") +
+      facet_grid(~ RR_sigmalog_treatment) + 
+      scale_fill_manual(values = c("RR_sigmalog_W" = "pink", "RR_sigmalog_P" = "seagreen2"))+
+      geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
+      geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
+    
+    nrow = 3, ncol = 1)
+
+
 # COEFFICIENT OF VARIATION: CV = Standard deviation(x) / mean(x) ##########
 
 flora_cv <- summarise(group_by(flora_samplings, sampling, treatment),
@@ -283,11 +322,20 @@ flora_cv <- summarise(group_by(flora_samplings, sampling, treatment),
                                mean_richness = mean(n_species, na.rm = T),
                                sd_richness = sd(n_species, na.rm = T),
                                mean_abundance = mean(abundance, na.rm = T), 
-                               sd_abundance = sd(abundance, na.rm = T))
+                               sd_abundance = sd(abundance, na.rm = T), 
+                               mean_yzipf = mean(Y_zipf, na.rm = T), 
+                               sd_yzipf = sd(Y_zipf, na.rm = T), 
+                               mean_mulog = mean(mu_log, na.rm = T), 
+                               sd_mulog = sd(mu_log, na.rm = T), 
+                               mean_sigmalog = mean(sigma_log, na.rm = T), 
+                               sd_sigmalog = sd(sigma_log, na.rm = T))
 
 flora_cv$CV_biomass <- round(flora_cv$mean_biomass/flora_cv$sd_biomass, 2) 
 flora_cv$CV_richness <- round(flora_cv$mean_richness/flora_cv$sd_richness, 2)
 flora_cv$CV_abundance <- round(flora_cv$mean_abundance/flora_cv$sd_abundance, 2)
+flora_cv$CV_yzipf <- round(flora_cv$mean_yzipf/flora_cv$sd_yzipf, 2)
+flora_cv$CV_mulog <- round(flora_cv$mean_mulog/flora_cv$sd_mulog, 2)
+flora_cv$CV_sigmalog <- round(flora_cv$mean_sigmalog/flora_cv$sd_sigmalog, 2)
 
 
 ggCVgrid <- 
@@ -296,6 +344,7 @@ ggCVgrid <-
     ggplot(flora_cv, aes(x = sampling, y = CV_abundance, color = treatment, group = treatment)) +
       geom_point() +
       geom_line() +
+      geom_smooth(se = F)+
       facet_grid(~ treatment)+
       labs(x = " ", y = "CV abundance") + 
       scale_color_manual(values = c("c" = "green4", "p" = "blue4", "w" = "red4", "wp" = "purple2"))+
@@ -304,12 +353,46 @@ ggCVgrid <-
     ggplot(flora_cv, aes(x = sampling, y = CV_richness, color = treatment, group = treatment)) +
       geom_point() +
       geom_line() +
+      geom_smooth(se = F)+
       facet_grid(~ treatment)+
       labs(x = " ", y = "CV richness ") + 
       scale_color_manual(values = c("c" = "green4", "p" = "blue4", "w" = "red4", "wp" = "purple2"))+
       geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
     
     nrow = 2, ncol = 1)
+
+
+ggCVgrid_evenness <- 
+  ggarrange(
+    
+    ggplot(flora_cv, aes(x = sampling, y = CV_yzipf, color = treatment, group = treatment)) +
+      geom_point() +
+      geom_line() +
+      geom_smooth(se = F)+
+      facet_grid(~ treatment)+
+      labs(x = " ", y = "CV yzipf") + 
+      scale_color_manual(values = c("c" = "green4", "p" = "blue4", "w" = "red4", "wp" = "purple2"))+
+      geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
+    
+    ggplot(flora_cv, aes(x = sampling, y = CV_mulog, color = treatment, group = treatment)) +
+      geom_point() +
+      geom_line() +
+      geom_smooth(se = F)+
+      facet_grid(~ treatment)+
+      labs(x = " ", y = "CV mulog") + 
+      scale_color_manual(values = c("c" = "green4", "p" = "blue4", "w" = "red4", "wp" = "purple2"))+
+      geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
+    
+    ggplot(flora_cv, aes(x = sampling, y = CV_sigmalog, color = treatment, group = treatment)) +
+      geom_point() +
+      geom_line() +
+      geom_smooth(se = F)+
+      facet_grid(~ treatment)+
+      labs(x = " ", y = "CV sigma") + 
+      scale_color_manual(values = c("c" = "green4", "p" = "blue4", "w" = "red4", "wp" = "purple2"))+
+      geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
+    
+    nrow = 3, ncol = 1)
  
 # Response ratio of CV  
 
@@ -318,23 +401,53 @@ for (i in 1:length(samps)) {
   subset_w <- subset(flora_cv, sampling == samps[i] & treatment == "w")
   subset_p <- subset(flora_cv, sampling == samps[i] & treatment == "p")
   subset_wp <- subset(flora_cv, sampling == samps[i] & treatment == "wp")
-  flora_cv$RR_CV_abundance_C[flora_cv$sampling == samps[i]] <-
-    round(log(flora_cv$CV_abundance[flora_cv$sampling == samps[i]] /mean(subset_c$CV_abundance)),2) # Here it sais mean but it is only the mean of 1 value
-  flora_cv$RR_CV_richness_C[flora_cv$sampling == samps[i]] <-
-    round(log(flora_cv$CV_richness[flora_cv$sampling == samps[i]]/mean(subset_c$CV_richness)),2)
-  flora_cv$RR_CV_abundance_W[flora_cv$sampling == samps[i]] <-
-    round(log(flora_cv$CV_abundance[flora_cv$sampling == samps[i]]/mean(subset_w$CV_abundance)),2)
-  flora_cv$RR_CV_richness_W[flora_cv$sampling == samps[i]] <-
-    round(log(flora_cv$CV_richness[flora_cv$sampling == samps[i]]/mean(subset_w$CV_richness)),2)
-  flora_cv$RR_CV_abundance_P[flora_cv$sampling == samps[i]] <-
-    round(log(flora_cv$CV_abundance[flora_cv$sampling == samps[i]]/mean(subset_p$CV_abundance)),2)
-  flora_cv$RR_CV_richness_P[flora_cv$sampling == samps[i]] <-
-    round(log(flora_cv$CV_richness[flora_cv$sampling == samps[i]]/mean(subset_p$CV_richness)),2)
-  flora_cv$RR_CV_abundance_WP[flora_cv$sampling == samps[i]] <-
-    round(log(flora_cv$CV_abundance[flora_cv$sampling == samps[i]]/mean(subset_wp$CV_abundance)),2)
-  flora_cv$RR_CV_richness_WP[flora_cv$sampling == samps[i]] <-
-    round(log(flora_cv$CV_richness[flora_cv$sampling == samps[i]]/mean(subset_wp$CV_richness)),2)
+ 
   
+   flora_cv$RR_CV_abundance_C[flora_cv$sampling == samps[i]] <-
+    round(log(flora_cv$CV_abundance[flora_cv$sampling == samps[i]] /mean(subset_c$CV_abundance)),2)
+   flora_cv$RR_CV_abundance_W[flora_cv$sampling == samps[i]] <-
+     round(log(flora_cv$CV_abundance[flora_cv$sampling == samps[i]]/mean(subset_w$CV_abundance)),2)
+   flora_cv$RR_CV_abundance_P[flora_cv$sampling == samps[i]] <-
+     round(log(flora_cv$CV_abundance[flora_cv$sampling == samps[i]]/mean(subset_p$CV_abundance)),2)
+   flora_cv$RR_CV_abundance_WP[flora_cv$sampling == samps[i]] <-
+     round(log(flora_cv$CV_abundance[flora_cv$sampling == samps[i]]/mean(subset_wp$CV_abundance)),2)
+   
+   flora_cv$RR_CV_richness_C[flora_cv$sampling == samps[i]] <-
+     round(log(flora_cv$CV_richness[flora_cv$sampling == samps[i]]/mean(subset_c$CV_richness)),2)
+   flora_cv$RR_CV_richness_W[flora_cv$sampling == samps[i]] <-
+     round(log(flora_cv$CV_richness[flora_cv$sampling == samps[i]]/mean(subset_w$CV_richness)),2)
+   flora_cv$RR_CV_richness_P[flora_cv$sampling == samps[i]] <-
+     round(log(flora_cv$CV_richness[flora_cv$sampling == samps[i]]/mean(subset_p$CV_richness)),2)
+   flora_cv$RR_CV_richness_WP[flora_cv$sampling == samps[i]] <-
+     round(log(flora_cv$CV_richness[flora_cv$sampling == samps[i]]/mean(subset_wp$CV_richness)),2)
+   
+   flora_cv$RR_CV_yzipf_C[flora_cv$sampling == samps[i]] <-
+     round(log(flora_cv$CV_yzipf[flora_cv$sampling == samps[i]]/mean(subset_c$CV_yzipf)),2)
+   flora_cv$RR_CV_yzipf_W[flora_cv$sampling == samps[i]] <-
+     round(log(flora_cv$CV_yzipf[flora_cv$sampling == samps[i]]/mean(subset_w$CV_yzipf)),2)
+   flora_cv$RR_CV_yzipf_P[flora_cv$sampling == samps[i]] <-
+     round(log(flora_cv$CV_yzipf[flora_cv$sampling == samps[i]]/mean(subset_p$CV_yzipf)),2)
+   flora_cv$RR_CV_yzipf_WP[flora_cv$sampling == samps[i]] <-
+     round(log(flora_cv$CV_yzipf[flora_cv$sampling == samps[i]]/mean(subset_wp$CV_yzipf)),2)
+   
+   flora_cv$RR_CV_mulog_C[flora_cv$sampling == samps[i]] <-
+     round(log(flora_cv$CV_mulog[flora_cv$sampling == samps[i]]/mean(subset_c$CV_mulog)),2)
+   flora_cv$RR_CV_mulog_W[flora_cv$sampling == samps[i]] <-
+     round(log(flora_cv$CV_mulog[flora_cv$sampling == samps[i]]/mean(subset_w$CV_mulog)),2)
+   flora_cv$RR_CV_mulog_P[flora_cv$sampling == samps[i]] <-
+     round(log(flora_cv$CV_mulog[flora_cv$sampling == samps[i]]/mean(subset_p$CV_mulog)),2)
+   flora_cv$RR_CV_mulog_WP[flora_cv$sampling == samps[i]] <-
+     round(log(flora_cv$CV_mulog[flora_cv$sampling == samps[i]]/mean(subset_wp$CV_mulog)),2)
+   
+   flora_cv$RR_CV_sigmalog_C[flora_cv$sampling == samps[i]] <-
+     round(log(flora_cv$CV_sigmalog[flora_cv$sampling == samps[i]]/mean(subset_c$CV_sigmalog)),2)
+   flora_cv$RR_CV_sigmalog_W[flora_cv$sampling == samps[i]] <-
+     round(log(flora_cv$CV_sigmalog[flora_cv$sampling == samps[i]]/mean(subset_w$CV_sigmalog)),2)
+   flora_cv$RR_CV_sigmalog_P[flora_cv$sampling == samps[i]] <-
+     round(log(flora_cv$CV_sigmalog[flora_cv$sampling == samps[i]]/mean(subset_p$CV_sigmalog)),2)
+   flora_cv$RR_CV_sigmalog_WP[flora_cv$sampling == samps[i]] <-
+     round(log(flora_cv$CV_sigmalog[flora_cv$sampling == samps[i]]/mean(subset_wp$CV_sigmalog)),2)
+   
   rm(subset_c)
   rm(subset_w)
   rm(subset_p)
@@ -342,11 +455,12 @@ for (i in 1:length(samps)) {
 }
 
 
-ggRRcv_control <- 
+ggRRcv <- 
 ggarrange(
   ggplot(flora_cv[flora_cv$treatment != "c", ], aes(x = sampling, y = RR_CV_abundance_C, color = treatment, group = treatment)) +
     geom_point() +
     geom_line() +
+    geom_smooth(se = F)+
     facet_grid(~ treatment)+
     labs(x = " ", y = "logRR(CV abundance)") + 
     scale_color_manual(values = c("c" = "green4", "p" = "blue3", "w" = "red4", "wp" = "purple2"))+
@@ -356,6 +470,7 @@ ggarrange(
 ggplot(flora_cv[flora_cv$treatment != "c", ], aes(x = sampling, y = RR_CV_richness_C, color = treatment, group = treatment)) +
   geom_point() +
   geom_line() +
+  geom_smooth(se = F)+
   facet_grid(~ treatment)+
   labs(x = " ", y = "logRR(CV richness)") + 
   scale_color_manual(values = c("c" = "green4", "p" = "blue3", "w" = "red4", "wp" = "purple2"))+
@@ -363,23 +478,67 @@ ggplot(flora_cv[flora_cv$treatment != "c", ], aes(x = sampling, y = RR_CV_richne
   geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
 
 nrow=2, ncol=1)
+
+
+ggRRcv_eveness <- 
+  ggarrange(
+    ggplot(flora_cv[flora_cv$treatment != "c", ], aes(x = sampling, y = RR_CV_yzipf_C, color = treatment, group = treatment)) +
+      geom_point() +
+      geom_line() +
+      geom_smooth(se = F)+
+      facet_grid(~ treatment)+
+      labs(x = " ", y = "logRR(CV yzipf)") + 
+      scale_color_manual(values = c("c" = "green4", "p" = "blue3", "w" = "red4", "wp" = "purple2"))+
+      geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
+      geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
+    
+    ggplot(flora_cv[flora_cv$treatment != "c", ], aes(x = sampling, y = RR_CV_mulog_C, color = treatment, group = treatment)) +
+      geom_point() +
+      geom_line() +
+      geom_smooth(se = F)+
+      facet_grid(~ treatment)+
+      labs(x = " ", y = "logRR(CV mulog)") + 
+      scale_color_manual(values = c("c" = "green4", "p" = "blue3", "w" = "red4", "wp" = "purple2"))+
+      geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
+      geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
+    
+    ggplot(flora_cv[flora_cv$treatment != "c", ], aes(x = sampling, y = RR_CV_sigmalog_C, color = treatment, group = treatment)) +
+      geom_point() +
+      geom_line() +
+      geom_smooth(se = F)+
+      facet_grid(~ treatment)+
+      labs(x = " ", y = "logRR(CV sigmalog)") + 
+      scale_color_manual(values = c("c" = "green4", "p" = "blue3", "w" = "red4", "wp" = "purple2"))+
+      geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
+      geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
+    
+    nrow=3, ncol=1)
   
   
 # LogRR (CV) Reference = w and p. Comparison with wp
 
 RR_cv_wp_ab <- pivot_longer(flora_cv, cols = c("RR_CV_abundance_W", "RR_CV_abundance_P"), 
                             names_to = "RR_ab_treatment", values_to = "RR_ab_values")
-RR_cv_wp_ab <- select(RR_cv_wp_ab, -all_of(grep("RR_richness", names(RR_cv_wp_ab), value = TRUE)))
 
 RR_cv_wp_rich <- pivot_longer(flora_cv, cols = c("RR_CV_richness_W", "RR_CV_richness_P"), 
                               names_to = "RR_rich_treatment", values_to = "RR_rich_values")
-RR_cv_wp_rich <- select(RR_cv_wp_rich, -all_of(grep("RR_abundance", names(RR_cv_wp_rich), value = TRUE)))
+
+RR_cv_wp_yzipf <- pivot_longer(flora_cv, cols = c("RR_CV_yzipf_W", "RR_CV_yzipf_P"), 
+                            names_to = "RR_yzipf_treatment", values_to = "RR_yzipf_values")
+
+RR_cv_wp_mulog <- pivot_longer(flora_cv, cols = c("RR_CV_mulog_W", "RR_CV_mulog_P"), 
+                            names_to = "RR_mulog_treatment", values_to = "RR_mulog_values")
+
+RR_cv_wp_sigmalog <- pivot_longer(flora_cv, cols = c("RR_CV_sigmalog_W", "RR_CV_sigmalog_P"), 
+                               names_to = "RR_sigmalog_treatment", values_to = "RR_sigmalog_values")
+
 
 ggRRcv_wp <- 
 ggarrange(
   ggplot(subset(RR_cv_wp_ab, treatment == "wp"), aes(x = sampling, y = RR_ab_values, color = RR_ab_treatment, group = RR_ab_treatment)) +
     geom_point() +
     geom_line() + 
+    geom_smooth(se = F) +
     labs(x = " ", y = "logRR(CV abundance)") +
     facet_grid(~ RR_ab_treatment) + 
     scale_color_manual(values = c("RR_CV_abundance_W" = "pink4", "RR_CV_abundance_P" = "seagreen4"))+
@@ -389,6 +548,7 @@ ggarrange(
   ggplot(subset(RR_cv_wp_rich, treatment == "wp"), aes(x = sampling, y = RR_rich_values, color = RR_rich_treatment, group = RR_rich_treatment)) +
     geom_point() +
     geom_line() +
+    geom_smooth(se = F) +
     labs(x = " ", y = "logRR(CV richness)") +
     facet_grid(~ RR_rich_treatment) + 
     scale_color_manual(values = c("RR_CV_richness_W" = "pink4", "RR_CV_richness_P" = "seagreen4"))+
@@ -397,21 +557,64 @@ ggarrange(
   
   nrow = 2, ncol = 1)
 
+ggRRcv_wp_evenness <- 
+  ggarrange(
+    ggplot(subset(RR_cv_wp_yzipf, treatment == "wp"), aes(x = sampling, y = RR_yzipf_values, color = RR_yzipf_treatment, group = RR_yzipf_treatment)) +
+      geom_point() +
+      geom_line() + 
+      geom_smooth(se = F) +
+      labs(x = " ", y = "logRR(CV yzipf)") +
+      facet_grid(~ RR_yzipf_treatment) + 
+      scale_color_manual(values = c("RR_CV_yzipf_W" = "pink4", "RR_CV_yzipf_P" = "seagreen4"))+
+      geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
+      geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
+    
+    ggplot(subset(RR_cv_wp_mulog, treatment == "wp"), aes(x = sampling, y = RR_mulog_values, color = RR_mulog_treatment, group = RR_mulog_treatment)) +
+      geom_point() +
+      geom_line() +
+      geom_smooth(se = F) +
+      labs(x = " ", y = "logRR(CV mulog)") +
+      facet_grid(~ RR_mulog_treatment) + 
+      scale_color_manual(values = c("RR_CV_mulog_W" = "pink4", "RR_CV_mulog_P" = "seagreen4"))+
+      geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
+      geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
+    
+    ggplot(subset(RR_cv_wp_sigmalog, treatment == "wp"), aes(x = sampling, y = RR_sigmalog_values, color = RR_sigmalog_treatment, group = RR_sigmalog_treatment)) +
+      geom_point() +
+      geom_line() +
+      geom_smooth(se = F) +
+      labs(x = " ", y = "logRR(CV sigmalog)") +
+      facet_grid(~ RR_sigmalog_treatment) + 
+      scale_color_manual(values = c("RR_CV_sigmalog_W" = "pink4", "RR_CV_sigmalog_P" = "seagreen4"))+
+      geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
+      geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
+    
+    
+    nrow = 3, ncol = 1)
+
 
 # ALL PLOTS ###############
 
 ggDynamics
-ggS0
+ggCVgrid
+ggDynamics_evenness
+ggCVgrid_evenness
 
+ggSO
 ggRRsampling0 
 
 ggRRcontrol
-ggRRcv_control
+ggRRcv
+ggRRcontrol_evenness
+ggRRcv_eveness
 
 ggRRwp
 ggRRcv_wp
+ggRRwp_evenness
+ggRRcv_wp_evenness
 
-ggCVgrid
+
+
 
 #tries that I would discard
 ggCVsameplot

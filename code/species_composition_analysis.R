@@ -25,12 +25,12 @@ species_code <- species_code %>%
 #Flora 0 are all species, even those that we have problem to identify
 #flora0 <- merge(flora, species_code, by = "code", all = TRUE)
 #View(subset(flora0, is.na(species)))
-unique((subset(flora0, is.na(species)))$code)
+#unique((subset(flora0, is.na(species)))$code)
 #terminar de revisar especies aqui
 
 # WE WORK WITH IDENTIFIED SPECIES!!
 
-flora <- merge(flora, species_code, by = "code")
+flora <- merge(flora, species_code, by = "code") # at this step, all species that are non identified in "species_code" are depleted
 rm(species_code)
 
 flora <- flora[!duplicated(flora), ] # we remove all duplicated coming from biomass measurements 
@@ -160,7 +160,18 @@ sp_wide_wp <- species_ab_wp %>%
   column_to_rownames(var = "sampling")
 
 
-#Control, por ejemplo
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

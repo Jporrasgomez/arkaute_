@@ -88,7 +88,7 @@ for(i in 1:length(unique(flora_no1$sampling))){
 # we have several replicates of the same species per plot due to the different morphological measuremens
 # for biomass. The mean of the same number is the same number. 
 
-#Plot 15 (t = p) del sampling 3 aparece como NA. Hacer individual dar valores de i = 5 y j = 7
+#Plot 15 (t = p) del sampling 2 aparece como NA. Hacer individual dar valores de i = 5 y j = 7
 # (*la posicion de los niveles no corresponde con el valor del muestreo o plot). Da valores de "inf". 
 
 
@@ -170,45 +170,5 @@ ggplot(radcoeff_df, aes(x = sampling, y = sigma_log, fill = treatment)) +
   scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
   geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
 nrow = 3, ncol = 1)
-
-
-# RR REFERENCE : CONTROL.#####
-
-RR_radcoeff <- radcoeff_df
-samps <- unique(RR_radcoeff$sampling)
-
-# Esto funciona, pero no sé introducirlo al loop
-#RR_radcoeff$RR_ref_ab[which(RR_radcoeff$sampling == "0")] <- 
-#(subset(RR_radcoeff, sampling == "0" & treatment == "c" ))$abundance
-
-# TREATMENTS VS CONTROL: Reference = control (RR_abundance_C and RR_richness_C)
-RR_radcoeff$RR_ref_Yzipf_C <- NA
-for (i in seq_along(samps)) {
-  subset_data <- subset(RR_radcoeff, sampling == samps[i] & treatment == "c")
-  yzipf_ref_C <- mean(subset_data$Y_zipf)
-  
-  RR_radcoeff$RR_ref_Yzipf_C[RR_radcoeff$sampling == samps[i]] <-
-    rep(yzipf_ref_C, length(which(RR_radcoeff$sampling == samps[i])))
-}
-
-RR_radcoeff$RR_Y_zipf_C <- round(log(RR_radcoeff$Y_zipf/RR_radcoeff$RR_ref_Yzipf_C), 2)
-
-RR_radcoeff$RR_ref_mulog_C <- NA
-for (i in samps) {
-  subset_data <- subset(RR_radcoeff, sampling == i & treatment == "c")
-  RR_radcoeff$RR_ref_mulog_C[RR_radcoeff$sampling == i] <-
-    rep(subset_data$mu_log, length(which(RR_radcoeff$sampling == i)))
-}
-
-RR_radcoeff$RR_mulog_C <- round(log(RR_radcoeff$mu_log/RR_radcoeff$RR_ref_mulog_C), 2)
-
-RR_radcoeff$RR_ref_sigmalog_C <- NA
-for (i in samps) {
-  subset_data <- subset(RR_radcoeff, sampling == i & treatment == "c")
-  RR_radcoeff$RR_ref_sigmalog_C[RR_radcoeff$sampling == i] <-
-    rep(subset_data$sigma_log, length(which(RR_radcoeff$sampling == i)))
-}
-
-RR_radcoeff$RR_sigmalog_C <- round(log(RR_radcoeff$sigma_log/RR_radcoeff$RR_ref_sigmalog_C), 2)
 
 
