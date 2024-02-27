@@ -30,12 +30,13 @@ sampling_dates <- read.csv("data/sampling_dates.csv")
 sampling_dates$sampling <- factor(sampling_dates$sampling)
 
 sampling_dates$datenew <-  ymd(sampling_dates$date)
-sampling_dates$month <- month(sampling_dates$datenew)
-sampling_dates$date <- NULL
+sampling_dates$month <- month(sampling_dates$datenew, label = TRUE)
+sampling_dates$day <- day(sampling_dates$datenew)
+sampling_dates$year <- year(sampling_dates$datenew)
+sampling_dates$date <- sampling_dates$datenew
 sampling_dates$micro.sampling <- NULL
 sampling_dates$N.micro <- NULL
-sampling_dates$date <- sampling_dates$datenew
-sampling_dates <- select(sampling_dates, -datenew)
+
 
 sampling_dates <- sampling_dates %>%
   mutate(across(where(is.character), as.factor))
@@ -101,6 +102,23 @@ flora <- flora %>%
   mutate(n_species = if_else(is.na(species), NA, n())) %>% #adding number of species per plot and sampling
   ungroup()
 
+
+species_code <- read.csv("data/species_code.csv")
+
+flora$code <- flora$species
+flora <- select(flora, date, month, sampling, plot, treatment, code, abundance, biomass, n_species)
+
+species_code <- select(species_code, species, code, family, genus_level, species_level)
+species_code <- species_code %>%
+  mutate(across(where(is.character), as.factor))
+
+
+# WE WORK WITH IDENTIFIED SPECIES!!
+
+flora <- merge(flora, species_code, by = "code") # at this step, all species that are non identified in "species_code" are depleted !!!!!
+rm(species_code)
+
+ 
 
 #flora %>% write.csv("data/flora_db.csv")
 

@@ -51,9 +51,9 @@ radcoeff_df$sampling <- factor(radcoeff_df$sampling, levels = c("0", "1", "2", "
   
 flora_samplings <- merge(flora_samplings, radcoeff_df)                                                              
 
-hist(flora_samplings$n_species)
-hist(flora_samplings$abundance)
-hist(flora_samplings$biomass)
+#hist(flora_samplings$n_species)
+#hist(flora_samplings$abundance)
+#hist(flora_samplings$biomass)
 
 
 #Hacer comprobaciones de los datos en esta base de datos
@@ -71,20 +71,21 @@ flora_treatments <-  flora_samplings %>%
 # Other way with facet_grid
 
 theme_set(theme_bw()+ theme(legend.position = "NULL"))
+
 ggDynamics <- 
 ggarrange(
-  
-ggplot(flora_samplings, aes(x = sampling, y = n_species, fill = treatment)) +
-  geom_boxplot() +
-  labs(x = " ", y = "Richness") +
-  facet_grid(~ treatment)  + 
-  scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
-  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
 
 ggplot(flora_samplings, aes(x = sampling, y = abundance, fill = treatment)) +
   geom_boxplot() +
   labs(x = " ", y = "Abundance") +
   facet_grid(~ treatment) + 
+  scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
+  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
+
+ggplot(flora_samplings, aes(x = sampling, y = n_species, fill = treatment)) +
+  geom_boxplot() +
+  labs(x = " ", y = "Richness") +
+  facet_grid(~ treatment)  + 
   scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
   geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
 
@@ -116,6 +117,40 @@ ggDynamics_evenness <-
       geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
     
     nrow=3, ncol=1)
+
+
+# Sampling 0
+
+ggS0 <- 
+ggarrange(
+ggplot(subset(flora_samplings, sampling == "0"), aes(x = treatment, y = n_species, fill = treatment)) +
+  geom_boxplot() +
+  labs(x = " ", y = "Richness") +
+  scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple")),
+
+ggplot(subset(flora_samplings, sampling == "0"), aes(x = treatment, y = abundance, fill = treatment)) +
+  geom_boxplot() +
+  labs(x = " ", y = "Abundance") +
+  scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple")),
+
+ggplot(subset(flora_samplings, sampling == "0"), aes(x = treatment, y = Y_zipf, fill = treatment)) +
+  geom_boxplot() +
+  labs(x = " ", y = "Y_zipf") +
+  scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple")),
+
+ggplot(subset(flora_samplings, sampling == "0"), aes(x = treatment, y = mu_log, fill = treatment)) +
+  geom_boxplot() +
+  labs(x = " ", y = "mu_log") +
+  scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple")),
+
+ggplot(subset(flora_samplings, sampling == "0"), aes(x = treatment, y = sigma_log, fill = treatment)) +
+  geom_boxplot() +
+  labs(x = " ", y = "sigma_log") +
+  scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple")),
+
+nrow = 1, ncol = 5)
+
+
 
 
 ##### RESPONSE RATIO  Log(RR); RR = variable at point i / variable at point reference #######################
@@ -330,12 +365,12 @@ flora_cv <- summarise(group_by(flora_samplings, sampling, treatment),
                                mean_sigmalog = mean(sigma_log, na.rm = T), 
                                sd_sigmalog = sd(sigma_log, na.rm = T))
 
-flora_cv$CV_biomass <- round(flora_cv$mean_biomass/flora_cv$sd_biomass, 2) 
-flora_cv$CV_richness <- round(flora_cv$mean_richness/flora_cv$sd_richness, 2)
-flora_cv$CV_abundance <- round(flora_cv$mean_abundance/flora_cv$sd_abundance, 2)
-flora_cv$CV_yzipf <- round(flora_cv$mean_yzipf/flora_cv$sd_yzipf, 2)
-flora_cv$CV_mulog <- round(flora_cv$mean_mulog/flora_cv$sd_mulog, 2)
-flora_cv$CV_sigmalog <- round(flora_cv$mean_sigmalog/flora_cv$sd_sigmalog, 2)
+flora_cv$CV_biomass <- round(flora_cv$sd_biomass/flora_cv$mean_biomass, 2) 
+flora_cv$CV_richness <- round(flora_cv$sd_richness/flora_cv$mean_richness, 2)
+flora_cv$CV_abundance <- round(flora_cv$sd_abundance/flora_cv$mean_abundance, 2)
+flora_cv$CV_yzipf <- round(flora_cv$sd_yzipf/flora_cv$mean_yzipf, 2)
+flora_cv$CV_mulog <- round(flora_cv$sd_mulog/flora_cv$mean_mulog, 2)
+flora_cv$CV_sigmalog <- round(flora_cv$sd_sigmalog/flora_cv$mean_sigmalog, 2)
 
 
 ggCVgrid <- 
@@ -460,7 +495,7 @@ ggarrange(
   ggplot(flora_cv[flora_cv$treatment != "c", ], aes(x = sampling, y = RR_CV_abundance_C, color = treatment, group = treatment)) +
     geom_point() +
     geom_line() +
-    geom_smooth(se = F)+
+    geom_smooth(se = F)+ #use method = "loess" by default
     facet_grid(~ treatment)+
     labs(x = " ", y = "logRR(CV abundance)") + 
     scale_color_manual(values = c("c" = "green4", "p" = "blue3", "w" = "red4", "wp" = "purple2"))+
@@ -595,30 +630,25 @@ ggRRcv_wp_evenness <-
 
 # ALL PLOTS ###############
 
-ggDynamics
-ggCVgrid
-ggDynamics_evenness
-ggCVgrid_evenness
+#ggDynamics
+#ggCVgrid
+#ggDynamics_evenness
+#ggCVgrid_evenness
 
-ggSO
-ggRRsampling0 
+#ggSO
 
-ggRRcontrol
-ggRRcv
-ggRRcontrol_evenness
-ggRRcv_eveness
+#ggRRcontrol
+#ggRRcv # Calentamiento incrementa la impredecibilidad en la riqueza
+#ggRRcontrol_evenness
+#ggRRcv_eveness
 
-ggRRwp
-ggRRcv_wp
-ggRRwp_evenness
-ggRRcv_wp_evenness
-
+#ggRRwp
+#ggRRcv_wp
+#ggRRwp_evenness
+#ggRRcv_wp_evenness
 
 
 
-#tries that I would discard
-ggCVsameplot
-ggRRcv_try
 
 
 
