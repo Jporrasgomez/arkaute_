@@ -1,5 +1,8 @@
 
 
+# Usamos amaranthus? Outliers? el que??
+# ni species?
+
 library(lubridate)
 library(dplyr)
 library(reshape2)
@@ -9,7 +12,7 @@ library(tidyverse)
 
 flora_raw <- read.csv("data/flora_db_raw.csv") # Opening and transforming data(opening_floradata.R) ####
 
-flora_raw <- flora_raw %>%
+ flora_raw <- flora_raw %>%
   mutate(across(where(is.character), as.factor))
 
 flora_raw$plot <- factor(flora_raw$plot)
@@ -27,7 +30,7 @@ flora_raw <- select(flora_raw, -date)
 
 # Adding dates
 sampling_dates <- read.csv("data/sampling_dates.csv")
-sampling_dates$sampling <- factor(sampling_dates$sampling)
+  sampling_dates$sampling <- factor(sampling_dates$sampling)
 
 sampling_dates$datenew <-  ymd(sampling_dates$date)
 sampling_dates$month <- month(sampling_dates$datenew, label = TRUE)
@@ -36,7 +39,7 @@ sampling_dates$year <- year(sampling_dates$datenew)
 sampling_dates$date <- sampling_dates$datenew
 sampling_dates$micro.sampling <- NULL
 sampling_dates$N.micro <- NULL
-
+  
 
 sampling_dates <- sampling_dates %>%
   mutate(across(where(is.character), as.factor))
@@ -45,8 +48,8 @@ flora_raw <- right_join(flora_raw, sampling_dates, by = join_by(sampling))
 
 
 flora <- flora_raw %>% select(sampling, plot, treatment, species, abundance, height, Cb, Db, Cm, Dm, date, month)
-flora <- flora[flora$species != "am", ] # Taking out super extreme outlier
-flora <- flora[!apply(is.na(flora), 1, all), ]# removing NA full lines 
+#flora <- flora[flora$species != "am", ] # Taking out super extreme outlier
+#flora <- flora[!apply(is.na(flora), 1, all), ]# removing NA full lines 
 
 
 anyNA(flora_raw)
@@ -69,6 +72,9 @@ flora <- flora %>%
 #Sumar 0.01 cm a los diámetros por el error del calibre con el que medimos
 flora$Dm <- flora$Dm + 0.01
 flora$Db <- flora$Db + 0.01
+
+
+
 
 # Ecuación biomasa####                 
 #Transforming diameters into circumferences
@@ -97,33 +103,52 @@ flora <- flora %>%
 #flora1$biomass <- ifelse(flora1$biomass == 0, NA, flora1$biomass)
 
 
-flora <- flora %>%
-  group_by(plot, sampling) %>%
-  mutate(n_species = if_else(is.na(species), NA, n())) %>% #adding number of species per plot and sampling
-  ungroup()
+
+# RICHNESSS
+flora_n_species <- summarise(group_by(flora, plot, sampling),
+                            n_species = n_distinct(species, na.rm = T)) ##adding number of species
+
+flora <- merge(flora, flora_n_species)
+  
+#Correction of abundance and biomass for poaceae and asteraceae.These families put together several species with different values of abundance. 
+  
+flora <- summarise(group_by(flora, sampling, plot, date, month, treatment, species, n_species), 
+                   abundance = sum(abundance, na.rm = T), #La abundancia total de las especies que forman poaceae y asteraceae 
+                   biomass = mean(biomass, na.rm = T))    #la biomasa media de las especies que conformaban poaceae y asteraceae. No se suma, se hace la media para ser consistente con la forma de calcular biomasa
 
 
+#Adding species information
 species_code <- read.csv("data/species_code.csv")
-
-flora$code <- flora$species
-flora <- select(flora, date, month, sampling, plot, treatment, code, abundance, biomass, n_species)
-
 species_code <- select(species_code, species, code, family, genus_level, species_level)
 species_code <- species_code %>%
   mutate(across(where(is.character), as.factor))
 
 
+
+
 # WE WORK WITH IDENTIFIED SPECIES!!
+flora <- flora %>% rename(code = species)
 
-flora <- merge(flora, species_code, by = "code") # at this step, all species that are non identified in "species_code" are depleted !!!!!
+flora <- merge(flora, species_code, by = "code") 
+
+
+##dummy_rows <- anti_join(flora, flora0)
+#dummy_rows$species <- NA
+#dummy_rows$family <- NA
+#dummy_rows$genus_level <- NA
+#dummy_rows$species_level <- NA
+#flora <- rbind(flora0, dummy_rows) #addind "dummy rows" which are 8 rows. For sampling 1 treatment wp and p, where we have no data but we need them to be present for some analysis
+
+
+#flora %>% write.csv("data/flora_db.csv", row.names  = F)
+
 rm(species_code)
-
- 
-
-#flora %>% write.csv("data/flora_db.csv")
-
 rm(flora_raw)
 rm(sampling_dates)
 rm(desired_order)
 rm(desired_order_treat)
-
+rm(flora_n_species)
+rm(dummy_rows)
+rm(flora0)
+rm(d)
+rm(z)

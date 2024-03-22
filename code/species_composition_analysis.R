@@ -14,6 +14,7 @@ library(eulerr) # calculate Venn and Euler diagrams
 library(ggplot2)
 library(ggthemes)
 library(ggpubr)
+library(ggforce)
 
 theme_set(theme_bw()+ theme(legend.position = "NULL"))
 
@@ -24,7 +25,7 @@ source("code/first_script.R")
 
 #Calcular, para cada especie, su abundancia media por tratamiento y muestreo 
 species_ab <-  summarise(group_by(flora, date, month, code, sampling, treatment, species, family,  genus_level, species_level),
-                              abundance = (sum(abundance, na.rm = T)/4)) #mean abundance by treatment and sampling in a square meter (?)
+                              abundance = (sum(abundance, na.rm = T)/4)) #mean abundance by treatment and sampling in a square meter (mean abundance of 4 plots) (?)
 totals_df <- summarise(group_by(species_ab, sampling, treatment), #adding number of species per treatment and sampling to species_ab
                           n_species = n_distinct(code),
                           total_abundance = sum(abundance))
@@ -90,219 +91,78 @@ ggturnover <-
 
 #ABUNDANCE-BASED ANALYSIS. Package "vegan" #####
 
-species_ab_c <- subset(species_ab, treatment == "c")
-species_ab_w <- subset(species_ab, treatment == "w")
-species_ab_p <- subset(species_ab, treatment == "p")
-species_ab_wp <- subset(species_ab, treatment == "wp")
+treats <- unique(flora$treatment)
+list1 <- list()
+gglist1 <- list()
+count = 0
 
 
-
-sp_wide_c <- species_ab_c %>%
-  pivot_wider(id_cols = sampling,
-              names_from = code,
-              values_from = abundance,
-              values_fill = list(abundance = 0)) %>% 
-  column_to_rownames(var = "sampling") %>% 
-  arrange(as.numeric(rownames(.)))
-
-sp_wide_w <- species_ab_w %>%
-  pivot_wider(id_cols = sampling,
-              names_from = code,
-              values_from = abundance,
-              values_fill = list(abundance = 0)) %>% 
-  column_to_rownames(var = "sampling") %>% 
-  arrange(as.numeric(rownames(.)))
-
-sp_wide_p <- species_ab_p %>%
-  pivot_wider(id_cols = sampling,
-              names_from = code,
-              values_from = abundance,
-              values_fill = list(abundance = 0)) %>% 
-  column_to_rownames(var = "sampling") %>% 
-  arrange(as.numeric(rownames(.)))
-
-sp_wide_wp <- species_ab_wp %>%
-  pivot_wider(id_cols = sampling,
-              names_from = code,
-              values_from = abundance,
-              values_fill = list(abundance = 0)) %>% 
-  column_to_rownames(var = "sampling") %>% 
-  arrange(as.numeric(rownames(.)))
-
-
-#HELLINGER
-
-pcoa_hell_c <- sp_wide_c %>% 
-  na.omit() %>% 
-  vegan::vegdist(method = "hellinger") %>%  # we use Hellinger because it works better with double 0's
-  cmdscale(eig = T) 
-var_exp_hell_c <- pcoa_hell_c$eig[1:2]/sum(pcoa_hell_c$eig[pcoa_hell_c$eig > 0])
-
-pcoa_samplings_hell_c <- pcoa_hell_c$points %>% 
-  as.data.frame() 
-pcoa_species_hell_c <- cor(sp_wide_c, pcoa_samplings_hell_c) %>% 
-  as.data.frame()
-
-
-pcoa_hell_w <- sp_wide_w %>% 
-  na.omit() %>% 
-  vegan::vegdist(method = "hellinger") %>%
-  cmdscale(eig = T) 
-var_exp_hell_w <- pcoa_hell_w$eig[1:2]/sum(pcoa_hell_w$eig[pcoa_hell_w$eig > 0])
-pcoa_samplings_hell_w <- pcoa_hell_w$points %>% 
-  as.data.frame() 
-pcoa_species_hell_w <- cor(sp_wide_w, pcoa_samplings_hell_w) %>% 
-  as.data.frame()
-
-pcoa_hell_p <- sp_wide_p %>% 
-  na.omit() %>% 
-  vegan::vegdist(method = "hellinger") %>%
-  cmdscale(eig = T) 
-var_exp_hell_p <- pcoa_hell_p$eig[1:2]/sum(pcoa_hell_p$eig[pcoa_hell_p$eig > 0])
-pcoa_samplings_hell_p <- pcoa_hell_p$points %>% 
-  as.data.frame() 
-pcoa_species_hell_p <- cor(sp_wide_p, pcoa_samplings_hell_p) %>% 
-  as.data.frame()
-
-pcoa_hell_wp <- sp_wide_wp %>% 
-  na.omit() %>% 
-  vegan::vegdist(method = "hellinger") %>%
-  cmdscale(eig = T) 
-var_exp_hell_wp <- pcoa_hell_wp$eig[1:2]/sum(pcoa_hell_wp$eig[pcoa_hell_wp$eig > 0])
-pcoa_samplings_hell_wp <- pcoa_hell_wp$points %>% 
-  as.data.frame() 
-pcoa_species_hell_wp <- cor(sp_wide_wp, pcoa_samplings_hell_wp) %>% 
-  as.data.frame()
+for(i in 1: length(treats)){
+  
+  count = count + 1
+  
+  list1[[count]] <- subset(species_ab, treatment == treats[i])
+  
+  
+  sp_wide <- list1[[count]] %>%
+    pivot_wider(id_cols = sampling,
+                names_from = code,
+                values_from = abundance,
+                values_fill = list(abundance = 0)) %>% 
+    column_to_rownames(var = "sampling") %>% 
+    arrange(as.numeric(rownames(.)))
+  
+  pcoa_hell <- sp_wide %>% 
+    na.omit() %>% 
+    vegan::vegdist(method = "hellinger") %>%  # we use Hellinger because it works better with double 0's
+    cmdscale(eig = T) 
+  var_exp_hell <- pcoa_hell$eig[1:2]/sum(pcoa_hell$eig[pcoa_hell$eig > 0])
+  
+  pcoa_samplings_hell<- pcoa_hell$points %>% 
+    as.data.frame() 
+  pcoa_species_hell<- cor(sp_wide, pcoa_samplings_hell) %>% 
+    as.data.frame()
+  
+  
+  gglist1[[count]] <-
+    ggplot() +
+    #geom_segment(data = pcoa_species_hell_c %>% 
+    # rownames_to_column(var = "sp"),
+    #aes(x = 0, y = 0, xend = V1, yend = V2),
+    #color = "grey",
+    #arrow = arrow()) +
+    geom_text_repel(data = pcoa_species_hell %>% 
+                      rownames_to_column(var = "sp"),
+                    aes(x = V1, y = V2, label = sp),
+                    color = "grey",
+                    max.overlaps = 30) +
+    geom_point(data = pcoa_samplings_hell %>% 
+                 rownames_to_column(var = "sampling"),
+               aes(x = V1, y = V2),
+               size = 2) +
+    geom_text_repel(data = pcoa_samplings_hell %>% 
+                      rownames_to_column(var = "sampling"),
+                    aes(x = V1, y = V2, label = sampling),
+                    max.overlaps = 13) +
+    geom_path(data = pcoa_samplings_hell %>% 
+                rownames_to_column(var = "sampling"),
+              aes(x = V1, y = V2)) +
+    geom_hline(aes(yintercept = 0), color = "red", linetype = "dashed") +
+    geom_vline(aes(xintercept = 0), color = "red", linetype = "dashed") +
+    labs(title = paste("PCoA using Hellinger distance:", treats[i], sep = " "),
+         subtitle = paste0("Variance explained = ", round(sum(var_exp_hell)*100), "%"),
+         x = paste0(round(var_exp_hell[1]*100), "% var"),
+         y = paste0(round(var_exp_hell[2]*100), "% var"))
+  
+}
 
 
-gg_hell_c <-
-  ggplot() +
-  #geom_segment(data = pcoa_species_hell_c %>% 
-                # rownames_to_column(var = "sp"),
-               #aes(x = 0, y = 0, xend = V1, yend = V2),
-               #color = "grey",
-               #arrow = arrow()) +
-  geom_text_repel(data = pcoa_species_hell_c %>% 
-                    rownames_to_column(var = "sp"),
-                  aes(x = V1, y = V2, label = sp),
-                  color = "grey",
-                  max.overlaps = 30) +
-  geom_point(data = pcoa_samplings_hell_c %>% 
-               rownames_to_column(var = "sampling"),
-             aes(x = V1, y = V2),
-             size = 2) +
-  geom_text_repel(data = pcoa_samplings_hell_c %>% 
-                    rownames_to_column(var = "sampling"),
-                  aes(x = V1, y = V2, label = sampling),
-                  max.overlaps = 13) +
-  geom_path(data = pcoa_samplings_hell_c %>% 
-              rownames_to_column(var = "sampling"),
-            aes(x = V1, y = V2)) +
-  geom_hline(aes(yintercept = 0), color = "red", linetype = "dashed") +
-  geom_vline(aes(xintercept = 0), color = "red", linetype = "dashed") +
-  labs(title = "PCoA using Hellinger distance: control",
-       subtitle = paste0("Variance explained = ", round(sum(var_exp_hell_c)*100), "%"),
-       x = paste0(round(var_exp_hell_c[1]*100), "% var"),
-       y = paste0(round(var_exp_hell_c[2]*100), "% var"))
+ggpcoa_hell <-
+ggarrange(
+  gglist1[[2]], gglist1[[3]], gglist1[[1]], gglist1[[4]],
+  ncol = 2, nrow = 2)
 
 
-gg_hell_w <-
-  ggplot() +
-  #geom_segment(data = pcoa_species_hell_c %>% 
-  # rownames_to_column(var = "sp"),
-  #aes(x = 0, y = 0, xend = V1, yend = V2),
-  #color = "grey",
-  #arrow = arrow()) +
-  geom_text_repel(data = pcoa_species_hell_w %>% 
-                    rownames_to_column(var = "sp"),
-                  aes(x = V1, y = V2, label = sp),
-                  color = "grey",
-                  max.overlaps = 30) +
-  geom_point(data = pcoa_samplings_hell_w %>% 
-               rownames_to_column(var = "sampling"),
-             aes(x = V1, y = V2),
-             size = 2) +
-  geom_text_repel(data = pcoa_samplings_hell_w %>% 
-                    rownames_to_column(var = "sampling"),
-                  aes(x = V1, y = V2, label = sampling),
-                  max.overlaps = 13) +
-  geom_path(data = pcoa_samplings_hell_w %>% 
-              rownames_to_column(var = "sampling"),
-            aes(x = V1, y = V2)) +
-  geom_hline(aes(yintercept = 0), color = "red", linetype = "dashed") +
-  geom_vline(aes(xintercept = 0), color = "red", linetype = "dashed") +
-  labs(title = "PCoA using Hellinger distance: warming",
-       subtitle = paste0("Variance explained = ", round(sum(var_exp_hell_w)*100), "%"),
-       x = paste0(round(var_exp_hell_w[1]*100), "% var"),
-       y = paste0(round(var_exp_hell_w[2]*100), "% var"))
-
-
-
-
-gg_hell_p <-
-  ggplot() +
-  #geom_segment(data = pcoa_species_hell_c %>% 
-  # rownames_to_column(var = "sp"),
-  #aes(x = 0, y = 0, xend = V1, yend = V2),
-  #color = "grey",
-  #arrow = arrow()) +
-  geom_text_repel(data = pcoa_species_hell_p %>% 
-                    rownames_to_column(var = "sp"),
-                  aes(x = V1, y = V2, label = sp),
-                  color = "grey",
-                  max.overlaps = 30) +
-  geom_point(data = pcoa_samplings_hell_p %>% 
-               rownames_to_column(var = "sampling"),
-             aes(x = V1, y = V2),
-             size = 2) +
-  geom_text_repel(data = pcoa_samplings_hell_p %>% 
-                    rownames_to_column(var = "sampling"),
-                  aes(x = V1, y = V2, label = sampling),
-                  max.overlaps = 13) +
-  geom_path(data = pcoa_samplings_hell_p %>% 
-              rownames_to_column(var = "sampling"),
-            aes(x = V1, y = V2)) +
-  geom_hline(aes(yintercept = 0), color = "red", linetype = "dashed") +
-  geom_vline(aes(xintercept = 0), color = "red", linetype = "dashed") +
-  labs(title = "PCoA using Hellinger distance: perturbation",
-       subtitle = paste0("Variance explained = ", round(sum(var_exp_hell_p)*100), "%"),
-       x = paste0(round(var_exp_hell_p[1]*100), "% var"),
-       y = paste0(round(var_exp_hell_p[2]*100), "% var"))
-
-
-gg_hell_wp <-
-  ggplot() +
-  #geom_segment(data = pcoa_species_hell_c %>% 
-  # rownames_to_column(var = "sp"),
-  #aes(x = 0, y = 0, xend = V1, yend = V2),
-  #color = "grey",
-  #arrow = arrow()) +
-  geom_text_repel(data = pcoa_species_hell_wp %>% 
-                    rownames_to_column(var = "sp"),
-                  aes(x = V1, y = V2, label = sp),
-                  color = "grey",
-                  max.overlaps = 30) +
-  geom_point(data = pcoa_samplings_hell_wp %>% 
-               rownames_to_column(var = "sampling"),
-             aes(x = V1, y = V2),
-             size = 2) +
-  geom_text_repel(data = pcoa_samplings_hell_wp %>% 
-                    rownames_to_column(var = "sampling"),
-                  aes(x = V1, y = V2, label = sampling),
-                  max.overlaps = 13) +
-  geom_path(data = pcoa_samplings_hell_wp %>% 
-              rownames_to_column(var = "sampling"),
-            aes(x = V1, y = V2)) +
-  geom_hline(aes(yintercept = 0), color = "red", linetype = "dashed") +
-  geom_vline(aes(xintercept = 0), color = "red", linetype = "dashed") +
-  labs(title = "PCoA using Hellinger distance: warming&perturbation",
-       subtitle = paste0("Variance explained = ", round(sum(var_exp_hell_wp)*100), "%"),
-       x = paste0(round(var_exp_hell_wp[1]*100), "% var"),
-       y = paste0(round(var_exp_hell_wp[2]*100), "% var"))
-
-
-ggpcoa_hell <- ggarrange(gg_hell_c, gg_hell_w, gg_hell_p, gg_hell_wp, 
-                         ncol = 2, nrow = 2)
 
 
 
@@ -334,19 +194,18 @@ pcoa_df <- data.frame(
   treatment = sp_wide$treatment, #Cómo sabe R donde meter los niveles?
   sampling = sp_wide$sampling #Cómo sabe R donde meter los niveles?
 )
+pcoa_df <- pcoa_df %>% arrange(sampling)
 
 
-
-#ggpcoa_hell_alltreatments<- 
+ggpcoa_hell_alltreatments<- 
   
 ggplot(pcoa_df, aes(x = PC1, y = PC2, color = treatment)) +
-  geom_point(size = 1.5) +
+  geom_point(size = 2) +
   geom_text_repel(aes(x = PC1, y = PC2, label = sampling), max.overlaps = 100) +
-  #geom_path()+ #no  funciona
-  geom_hline(aes(yintercept = 0), color = "red2", linetype = "dashed") +
-  geom_vline(aes(xintercept = 0), color = "red2", linetype = "dashed") +
+  geom_path()+ #no  funciona
+  geom_hline(aes(yintercept = 0), color = "black", linetype = "dashed") +
+  geom_vline(aes(xintercept = 0), color = "black", linetype = "dashed") +
   scale_color_manual(values = c("c" = "darkolivegreen4", "p" = "#1C86EE", "w" = "red3", "wp" = "purple"))+
-  theme_minimal() +
   labs(title = "PCoA using Hellinger distance",
        subtitle = paste0("Variance explained = ", round(sum(var_exp_hell)*100), "%"),
        x = paste0(round(var_exp_hell[1]*100), "% var"),
@@ -356,24 +215,186 @@ ggplot(pcoa_df, aes(x = PC1, y = PC2, color = treatment)) +
 
 
 
-#A PCoA per SAMPLING
 
-spab0 <- subset(flora, sampling == "0")
 
-spab0_wide<- spab0 %>%
-  pivot_wider(id_cols = c(plot, treatment),
+
+#4 treatments but without sampling differentiation. CLoud of dots. 4 dots per sampling x 12 samplings = 48 dots per cloud. 
+
+sp_wide_treat <- flora %>%
+  pivot_wider(id_cols = c(plot, treatment, sampling),
               names_from = code,
               values_from = abundance,
-              values_fill = list(abundance = 0))# o no.. esto no se puede hacer porque hay especies para el mismo plot y muestreo
-# con varios datos de abundancia. Son errores de trasncripción de datos... :( vamos a tener que revisar todos estos errores. 
+              values_fill = list(abundance = 0))
 
+# create a distance matrix using Hellinger distances
+abundance_data_treat <- sp_wide_treat %>% select(-treatment, -sampling, -plot)
+distance_matrix_treat <- abundance_data_treat %>% 
+  na.omit() %>% 
+  vegan::vegdist(method = "hellinger") 
+pcoa_result_treat <- cmdscale(distance_matrix_treat)
+
+pcoa_hell_treat <- cmdscale(distance_matrix_treat, eig = T)
+var_exp_hell_treat <- pcoa_hell_treat$eig[1:2]/sum(pcoa_hell_treat$eig[pcoa_hell_treat$eig > 0])
+
+
+pcoa_df_treat <- data.frame(
+  V1 = pcoa_result_treat[, 1],
+  V2 = pcoa_result_treat[, 2],
+  treatment = sp_wide_treat$treatment #Cómo sabe R donde meter los niveles?
+)
+
+
+ggpcoa_clouds <- 
+    ggplot(pcoa_df_treat, aes(x = V1, y = V2, color = treatment, fill = treatment)) +
+    geom_point(size = 2) +
+    stat_ellipse(geom = "polygon", aes(fill = treatment),
+                 alpha = 0.2,
+                 show.legend = FALSE,
+                 level = 0.99) +
+    geom_hline(aes(yintercept = 0), color = "black", linetype = "dashed") +
+    geom_vline(aes(xintercept = 0), color = "black", linetype = "dashed") +
+    scale_color_manual(values = c("c" = "darkolivegreen4", "p" = "#1C86EE", "w" = "red3", "wp" = "purple"))+
+    scale_fill_manual(values = c("c" = "darkolivegreen4", "p" = "#1C86EE", "w" = "red3", "wp" = "purple"))+
+    labs(title = "PCoA, Hellinger",
+         subtitle = paste0("Variance explained = ", round(sum(var_exp_hell_treat)*100), "%"),
+         x = paste0(round(var_exp_hell_treat[1]*100), "% var"),
+         y = paste0(round(var_exp_hell_treat[2]*100), "% var")) 
+
+
+
+
+
+
+
+#A PCoA per SAMPLING
+
+samps <- unique(flora$sampling)
+list2 <- list()
+gglist2 <- list()
+count = 0
+
+for (i in 1:length(samps)){
+  
+  count = count + 1
+  
+  list2[[count]] <-  subset(flora, sampling == samps[i]) %>%
+    pivot_wider(id_cols = c(plot, treatment, sampling),
+                names_from = code,
+                values_from = abundance,
+                values_fill = list(abundance = 0))
+  
+  
+  abundance_data <- list2[[count]] %>% select(-treatment, -plot, -sampling)
+  distance_matrix <- abundance_data %>% 
+    na.omit() %>% 
+    vegan::vegdist(method = "hellinger") 
+  pcoa_result <- cmdscale(distance_matrix)
+  
+  pcoa_hell <- cmdscale(distance_matrix, eig = T)
+  pcoa_plots_hell <- pcoa_hell$points %>% 
+    as.data.frame() 
+  pcoa_species_hell<- cor(abundance_data, pcoa_plots_hell) %>% 
+    as.data.frame()
+  
+  var_exp_hell <- pcoa_hell$eig[1:2]/sum(pcoa_hell$eig[pcoa_hell$eig > 0])
+  
+  pcoa_df <- data.frame(
+    V1 = pcoa_result[, 1],
+    V2 = pcoa_result[, 2],
+    treatment = list2[[count]]$treatment #Cómo sabe R donde meter los niveles?
+  )
+  
+  
+  gglist2[[count]] <- 
+  ggplot(pcoa_df, aes(x = V1, y = V2, color = treatment, fill = treatment)) +
+    geom_point(size = 2) +
+    #geom_polygon(alpha = 0.3) + #crossing edges!
+    stat_ellipse(geom = "polygon", aes(fill = treatment),
+                 alpha = 0.2,
+                 show.legend = FALSE,
+                 level = 0.95) +
+    geom_hline(aes(yintercept = 0), color = "black", linetype = "dashed") +
+    geom_vline(aes(xintercept = 0), color = "black", linetype = "dashed") +
+    scale_color_manual(values = c("c" = "darkolivegreen4", "p" = "#1C86EE", "w" = "red3", "wp" = "purple"))+
+    scale_fill_manual(values = c("c" = "darkolivegreen4", "p" = "#1C86EE", "w" = "red3", "wp" = "purple"))+
+    labs(title = paste("PCoA, Hellinger: sampling", list2[[count]]$sampling, sep = " "),
+         subtitle = paste0("Variance explained = ", round(sum(var_exp_hell)*100), "%"),
+         x = paste0(round(var_exp_hell[1]*100), "% var"),
+         y = paste0(round(var_exp_hell[2]*100), "% var")) 
+  
+  
+  
+}
+
+#ggarrange(
+#  gglist2[[11]], gglist2[[10]], gglist2[[9]], gglist2[[4]], 
+#  nrow = 2, ncol =2)
+#
+#ggarrange(
+#gglist2[[1]], gglist2[[2]], gglist2[[3]], gglist2[[5]], 
+#nrow = 2, ncol =2)
+#
+#
+#ggarrange(
+#  gglist2[[6]], gglist2[[8]], gglist2[[7]], gglist2[[12]],
+#nrow = 2, ncol = 2)
+
+
+
+
+
+
+## trying with one element of the list: 
+
+
+try <- list2[[12]]
+
+
+abundance_data <- try %>% select(-treatment, -plot, -sampling)
+distance_matrix <- abundance_data %>% 
+  na.omit() %>% 
+  vegan::vegdist(method = "hellinger") 
+pcoa_result <- cmdscale(distance_matrix)
+
+pcoa_hell <- cmdscale(distance_matrix, eig = T)
+pcoa_plots_hell <- pcoa_hell$points %>% 
+  as.data.frame() 
+pcoa_species_hell<- cor(abundance_data, pcoa_plots_hell) %>% 
+  as.data.frame()
+
+var_exp_hell <- pcoa_hell$eig[1:2]/sum(pcoa_hell$eig[pcoa_hell$eig > 0])
+
+pcoa_df <- data.frame(
+  V1 = pcoa_result[, 1],
+  V2 = pcoa_result[, 2],
+  treatment = try$treatment #Cómo sabe R donde meter los niveles?
+)
+
+
+ggtry <- 
+  ggplot(pcoa_df, aes(x = V1, y = V2, color = treatment, fill = treatment)) +
+  geom_point(size = 2) +
+    stat_ellipse(geom = "polygon", aes(fill = treatment),
+                 alpha = 0.2,
+                 show.legend = FALSE,
+                 level = 0.95) +
+  geom_hline(aes(yintercept = 0), color = "black", linetype = "dashed") +
+  geom_vline(aes(xintercept = 0), color = "black", linetype = "dashed") +
+  scale_color_manual(values = c("c" = "darkolivegreen4", "p" = "#1C86EE", "w" = "red3", "wp" = "purple"))+
+  scale_fill_manual(values = c("c" = "darkolivegreen4", "p" = "#1C86EE", "w" = "red3", "wp" = "purple"))+
+  labs(title = paste("PCoA, Hellinger: sampling", try$sampling, sep = " "),
+       subtitle = paste0("Variance explained = ", round(sum(var_exp_hell)*100), "%"),
+       x = paste0(round(var_exp_hell[1]*100), "% var"),
+       y = paste0(round(var_exp_hell[2]*100), "% var"))
 
 #Plots : 
 
-ggturnover
-ggpcoa_hell
-ggpcoa_hell_alltreatments
+#ggturnover
+#ggpcoa_hell
+#ggpcoa_hell_alltreatments
+#ggpcoa_clouds 
 
+rm(ggtry)
 
 
 
