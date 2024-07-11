@@ -4,16 +4,16 @@ library(vegan)
 library(ggpubr)
 
 #load database
-source("code/first_script.R")
+#source("code/first_script.R")
 #subset df sampling (do not run if the whole database is needed)
 #flora <- flora[which(flora$sampling == "sampling 2"),]
 
 #reshape df (species as columns, treatments as rows)
-flora <- flora %>% select(plot,sampling, treatment, species, abundance)
+flora_rad <- flora %>% select(plot,sampling, treatment, species, abundance)
 
 #We've detected that "radfit" does not like decimals. THe only decimal numbers that we have in the
 #database are between 0 and 1. So we round these numbers to 1. 
-flora <- mutate(flora, abundance = ifelse(abundance < 1, 1, abundance))
+flora_rad <- mutate(flora_rad, abundance = ifelse(abundance < 1, 1, abundance))
 
 
 # Which model we are going to use for the entire dataset? #########
@@ -21,40 +21,42 @@ flora <- mutate(flora, abundance = ifelse(abundance < 1, 1, abundance))
 #We have to delete sampling = 1 because there are no species at treatment p and wp. If i delete only s = 1 for t = p and wp
 # and I leave t= c and w, the loop doesn't work
 
-flora_no1 <- flora[flora$sampling != "1", ]
+flora_no1 <- flora_rad[flora_rad$sampling != "1", ]
 #Sampling 1 gives problems since there are no species for p and wp
 
-rad_dfplot <- matrix(nrow = (length(unique(flora_no1$sampling))*length(unique(flora_no1$plot))), ncol = 6)
-colnames(rad_dfplot) <- c("sampling", "plot", "AIC_pree", "AIC_log", "AIC_zipf", "AIC_man")
-rad_dfplot <-  as.data.frame(rad_dfplot)
+### Comprobación del AIC para cada valor ###########
 
-count <- 0
-for (i in 1:length(unique(flora_no1$sampling))){
-  for (j in 1:length(unique(flora_no1$plot))){
-    
-    count <- count + 1
-    subset_data <- subset(flora_no1, sampling == unique(flora_no1$sampling)[i] & plot == unique(flora_no1$plot)[j])
-    subrad <- summarise(group_by(subset_data, species),
-                        abundance = round(mean(abundance), 0))
-    subrad <- pivot_wider(subrad, names_from = species, values_from = abundance, values_fill = 0)
-    subrad <- as.data.frame(subrad)
-    rad_sub <- radfit(subrad)
-    
-    rad_dfplot$sampling[count] <- unique(flora_no1$sampling)[i]
-    rad_dfplot$plot[count] <- unique(flora_no1$plot)[j]
-    rad_dfplot$AIC_pree[count] <- rad_sub$models$Preemption$aic
-    rad_dfplot$AIC_log[count] <- rad_sub$models$Lognormal$aic
-    rad_dfplot$AIC_zipf[count] <- rad_sub$models$Zipf$aic
-    rad_dfplot$AIC_man[count] <- rad_sub$models$Mandelbrot$aic
-    
-  }
-}
-
-rad_dfplot <- pivot_longer(rad_dfplot, cols = c("AIC_pree", "AIC_log","AIC_zipf","AIC_man"), 
-                           names_to = "model", values_to = "AIC")
-ggplot(rad_dfplot, aes(x = model, y = AIC))+
-  geom_boxplot()
-
+#rad_dfplot <- matrix(nrow = (length(unique(flora_no1$sampling))*length(unique(flora_no1$plot))), ncol = 6)
+#colnames(rad_dfplot) <- c("sampling", "plot", "AIC_pree", "AIC_log", "AIC_zipf", "AIC_man")
+#rad_dfplot <-  as.data.frame(rad_dfplot)
+#
+#count <- 0
+#for (i in 1:length(unique(flora_no1$sampling))){
+#  for (j in 1:length(unique(flora_no1$plot))){
+#    
+#    count <- count + 1
+#    subset_data <- subset(flora_no1, sampling == unique(flora_no1$sampling)[i] & plot == unique(flora_no1$plot)[j])
+#    subrad <- summarise(group_by(subset_data, species),
+#                        abundance = round(mean(abundance), 0))
+#    subrad <- pivot_wider(subrad, names_from = species, values_from = abundance, values_fill = 0)
+#    subrad <- as.data.frame(subrad)
+#    rad_sub <- radfit(subrad)
+#    
+#    rad_dfplot$sampling[count] <- unique(flora_no1$sampling)[i]
+#    rad_dfplot$plot[count] <- unique(flora_no1$plot)[j]
+#    rad_dfplot$AIC_pree[count] <- rad_sub$models$Preemption$aic
+#    rad_dfplot$AIC_log[count] <- rad_sub$models$Lognormal$aic
+#    rad_dfplot$AIC_zipf[count] <- rad_sub$models$Zipf$aic
+#    rad_dfplot$AIC_man[count] <- rad_sub$models$Mandelbrot$aic
+#    
+#  }
+#}
+#
+#rad_dfplot <- pivot_longer(rad_dfplot, cols = c("AIC_pree", "AIC_log","AIC_zipf","AIC_man"), 
+#                           names_to = "model", values_to = "AIC")
+#ggplot(rad_dfplot, aes(x = model, y = AIC))+
+#  geom_boxplot()
+#
 # No differences. We decide to use zipf because it only has one explanatory coefficient of the curve (gamma)
 
 
@@ -81,6 +83,10 @@ for(i in 1:length(unique(flora_no1$sampling))){
     radcoeff_df$Y_zipf[count] <- rad_sub$models$Zipf$coefficients[2]
     radcoeff_df$mu_log[count] <- rad_sub$models$Lognormal$coefficients[1]
     radcoeff_df$sigma_log[count] <- rad_sub$models$Lognormal$coefficients[2]
+    
+    rm(subrad)
+    rm(subset_data)
+    rm(rad_sub)
   }
 }
 
@@ -107,7 +113,7 @@ radcoeff_df <- merge(radcoeff_df, plots, by = "plot")
 
 # Adding by hand sampling == 1 and treatments w and c. ######
 
-flora_s1cw <- flora[(flora$sampling == 1 & (flora$treatment == "c" | flora$treatment == "w")), ]
+flora_s1cw <- flora_rad[(flora_rad$sampling == 1 & (flora_rad$treatment == "c" | flora_rad$treatment == "w")), ]
 
 radcoeff_s1cw <- matrix(nrow = (length(unique(flora_s1cw$sampling))*length(unique(flora_s1cw$plot))), ncol = 5)
 colnames(radcoeff_s1cw) <- c("plot", "sampling", "Y_zipf", "mu_log", "sigma_log")
@@ -128,6 +134,10 @@ for(i in 1:length(unique(flora_s1cw$plot))){
   radcoeff_s1cw$Y_zipf[count] <- rad_sub$models$Zipf$coefficients[2]
   radcoeff_s1cw$mu_log[count] <- rad_sub$models$Lognormal$coefficients[1]
   radcoeff_s1cw$sigma_log[count] <- rad_sub$models$Lognormal$coefficients[2]
+  
+  rm(subrad)
+  rm(subset_data)
+  rm(rad_sub)
 }
 
 #15 warnings due to plot 1. But it works
@@ -143,9 +153,18 @@ radcoeff_s1cw <- merge(radcoeff_s1cw, plots, by = "plot")
 radcoeff_df <- rbind(radcoeff_df, radcoeff_s1cw)
 radcoeff_df$treatment <- as.factor(radcoeff_df$treatment)
 
+radcoeff_df$plot <- factor(radcoeff_df$plot, levels = sort(unique(radcoeff_df$plot)))
+radcoeff_df$treatment <- as.factor(radcoeff_df$treatment) 
+radcoeff_df$treatment <- factor(radcoeff_df$treatment, levels = c("c", "w", "p", "wp"))
+radcoeff_df$sampling <- factor(radcoeff_df$sampling, levels = sort(unique(radcoeff_df$sampling)))  #Sort from lowest to highest
 
-radcoeff_df %>% write.csv("data/radcoeff_df.csv")
+#radcoeff_df %>% write.csv("data/radcoeff_df.csv")
 
+rm(flora_rad)
+rm(flora_no1)
+rm(flora_s1cw)
+rm(plots)
+rm(radcoeff_s1cw)
 
 
 

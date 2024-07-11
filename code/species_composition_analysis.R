@@ -326,18 +326,18 @@ for (i in 1:length(samps)){
   
 }
 
-#ggarrange(
-#  gglist2[[11]], gglist2[[10]], gglist2[[9]], gglist2[[4]], 
-#  nrow = 2, ncol =2)
-#
-#ggarrange(
-#gglist2[[1]], gglist2[[2]], gglist2[[3]], gglist2[[5]], 
-#nrow = 2, ncol =2)
-#
-#
-#ggarrange(
-#  gglist2[[6]], gglist2[[8]], gglist2[[7]], gglist2[[12]],
-#nrow = 2, ncol = 2)
+ggarrange(
+  gglist2[[11]], gglist2[[10]], gglist2[[9]], gglist2[[4]], 
+  nrow = 2, ncol =2)
+
+ggarrange(
+gglist2[[1]], gglist2[[2]], gglist2[[3]], gglist2[[5]], 
+nrow = 2, ncol =2)
+
+
+ggarrange(
+  gglist2[[6]], gglist2[[8]], gglist2[[7]], gglist2[[12]],
+nrow = 2, ncol = 2)
 
 
 
@@ -347,45 +347,8 @@ for (i in 1:length(samps)){
 ## trying with one element of the list: 
 
 
-try <- list2[[12]]
 
 
-abundance_data <- try %>% select(-treatment, -plot, -sampling)
-distance_matrix <- abundance_data %>% 
-  na.omit() %>% 
-  vegan::vegdist(method = "hellinger") 
-pcoa_result <- cmdscale(distance_matrix)
-
-pcoa_hell <- cmdscale(distance_matrix, eig = T)
-pcoa_plots_hell <- pcoa_hell$points %>% 
-  as.data.frame() 
-pcoa_species_hell<- cor(abundance_data, pcoa_plots_hell) %>% 
-  as.data.frame()
-
-var_exp_hell <- pcoa_hell$eig[1:2]/sum(pcoa_hell$eig[pcoa_hell$eig > 0])
-
-pcoa_df <- data.frame(
-  V1 = pcoa_result[, 1],
-  V2 = pcoa_result[, 2],
-  treatment = try$treatment #Cómo sabe R donde meter los niveles?
-)
-
-
-ggtry <- 
-  ggplot(pcoa_df, aes(x = V1, y = V2, color = treatment, fill = treatment)) +
-  geom_point(size = 2) +
-    stat_ellipse(geom = "polygon", aes(fill = treatment),
-                 alpha = 0.2,
-                 show.legend = FALSE,
-                 level = 0.95) +
-  geom_hline(aes(yintercept = 0), color = "black", linetype = "dashed") +
-  geom_vline(aes(xintercept = 0), color = "black", linetype = "dashed") +
-  scale_color_manual(values = c("c" = "darkolivegreen4", "p" = "#1C86EE", "w" = "red3", "wp" = "purple"))+
-  scale_fill_manual(values = c("c" = "darkolivegreen4", "p" = "#1C86EE", "w" = "red3", "wp" = "purple"))+
-  labs(title = paste("PCoA, Hellinger: sampling", try$sampling, sep = " "),
-       subtitle = paste0("Variance explained = ", round(sum(var_exp_hell)*100), "%"),
-       x = paste0(round(var_exp_hell[1]*100), "% var"),
-       y = paste0(round(var_exp_hell[2]*100), "% var"))
 
 #Plots : 
 

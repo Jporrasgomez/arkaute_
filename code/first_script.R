@@ -10,7 +10,7 @@ library(tidyverse)
 
 
 
-flora_raw <- read.csv("data/flora_db_raw.csv") # Opening and transforming data(opening_floradata.R) ####
+ flora_raw <- read.csv("data/flora_db_raw.csv") # Opening and transforming data(opening_floradata.R) ####
 
  flora_raw <- flora_raw %>%
   mutate(across(where(is.character), as.factor))
@@ -18,14 +18,11 @@ flora_raw <- read.csv("data/flora_db_raw.csv") # Opening and transforming data(o
 flora_raw$plot <- factor(flora_raw$plot)
 
 
-desired_order <- c("0", "1", "2", "3", "4", "5", "6",   #Sort from lowest to highest
-                   "7", "8", "9", "10", "11")
-desired_order_treat <- c("c", "w", "p", "wp")           #Sort from lowest to highest
+flora_raw$sampling <- factor(flora_raw$sampling, levels = sort(unique(flora_raw$sampling)))
+flora_raw$treatment <- factor(flora_raw$treatment, levels =  c("c", "w", "p", "wp") )
+flora_raw$plot <- factor(flora_raw$plot, levels = sort(unique(flora_raw$plot)))
 
-
-flora_raw$sampling <- factor(flora_raw$sampling, levels = desired_order)
-flora_raw$treatment <- factor(flora_raw$treatment, levels = desired_order_treat)
-flora_raw <- select(flora_raw, -date)
+flora_raw <- select(flora_raw, -date, -category, -OBS, -ni.agrupado, -familia, -species_old)
 
 
 # Adding dates
@@ -132,7 +129,7 @@ flora <- flora %>% rename(code = species)
 flora <- merge(flora, species_code, by = "code") 
 
 
-##dummy_rows <- anti_join(flora, flora0)
+#dummy_rows <- anti_join(flora, flora0)
 #dummy_rows$species <- NA
 #dummy_rows$family <- NA
 #dummy_rows$genus_level <- NA

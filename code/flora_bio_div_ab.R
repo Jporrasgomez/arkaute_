@@ -13,8 +13,11 @@ library(ggpubr)
 library(tidyverse)
 library(gridExtra)
 
+
+#Scripts 
 source('code/tools/basicFun.R')
 source("code/first_script.R")
+source("code/RADmodel.R")
 
 
 
@@ -40,14 +43,9 @@ flora_samplings <-  flora %>%
           abundance = sum(abundance, na.rm = T)) %>% # total coverage of plot
   distinct(sampling, date, month, plot, treatment, biomass, n_species, abundance)
 
-radcoeff_df <- read.csv("data/radcoeff_df.csv") %>%
-  select(-X) 
 
-radcoeff_df$plot <- as.factor(radcoeff_df$plot)
-radcoeff_df$sampling <- as.factor(radcoeff_df$sampling)
-radcoeff_df$treatment <- as.factor(radcoeff_df$treatment) 
-radcoeff_df$treatment <- factor(radcoeff_df$treatment, levels = c("c", "w", "p", "wp"))
-radcoeff_df$sampling <- factor(radcoeff_df$sampling, levels = c("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"))  #Sort from lowest to highest
+
+
   
 flora_samplings <- merge(flora_samplings, radcoeff_df)                                                              
 

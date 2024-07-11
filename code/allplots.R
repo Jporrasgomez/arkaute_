@@ -29,23 +29,23 @@ theme_set(theme_bw()+ theme(legend.position = "NULL"))
 
 ggDynamics
 ggCVgrid
-ggCVgrid_sqrt
+ggCVgrid_squared
 ggDynamics_evenness
 ggCVgrid_evenness
-ggCVgrid_evenness_sqrt
+ggCVgrid_evenness_squared
 ggS0
 ggRRcontrol
 ggRRcv
-ggRRcv_sqrt
+ggRRcv_squared
 ggRRcontrol_evenness
 ggRRcv_eveness
-ggRRcv_eveness_sqrt
+ggRRcv_eveness_squared
 ggRRwp
 ggRRcv_wp
-ggRRcv_wp_sqrt
+ggRRcv_wp_squared
 ggRRwp_evenness
 ggRRcv_wp_evenness
-ggRRcv_wp_evenness_sqrt
+ggRRcv_wp_evenness_squared
 
 ggturnover
 ggpcoa_hell

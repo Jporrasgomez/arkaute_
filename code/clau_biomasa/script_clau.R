@@ -31,19 +31,16 @@ plots <- sort(unique(datos$plot))
 samps <- sort(unique(datos$sampling))
 datos$total_biomass <- NA   #El espacio de almacenamiento donde vamos a guardar los resutlados del loop
 
+
 for (i in 1:length(plots)){
   for(j in 1:length(samps)){
     
     subset_ij <- subset(datos, plot == plots[i] & sampling == samps[j])
-    
-    subset_totalb <- summarize(group_by(subset_ij, plot, sampling),
-                               total_biomass = sum(biomass, na.rm = T))
-    
-    datos[which(datos$plot == plots[i] & datos$sampling == samps[j]), ]$total_biomass <- subset_totalb$total_biomass
+    subset_totalb <- sum(subset_ij$biomass, na.rm = T)
+    datos[which(datos$plot == plots[i] & datos$sampling == samps[j]), ]$total_biomass <- subset_totalb
     
   }
 }
-
 
 # Loop design para los ggplots
 
@@ -128,6 +125,10 @@ ggplot(datos_sampling, aes(x = sampling, y = total_biomass, fill = treatment)) +
         axis.text.y = element_text(size = 6),
         legend.title = element_text(size = 8),  # Tamaño del título de la leyenda
         legend.text = element_text(size = 6))  # Tamaño del texto de la leyenda# Tamaño del texto del eje y
+
+
+
+
 
 
 
