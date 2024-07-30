@@ -125,7 +125,8 @@ ncol = 1, nrow = 3)
 
 
 ######### SIN AGREGAR POR RÉPLICAS #############
-
+#Es decir en vez de tener 4 puntos por muestreo, tenemos todos los datos de biomasa  (y sus datos morfológicos)
+# de todas las especies muestreadas en cada muestreo por TRATAMIENTO. Cuando agregamos, calculamos la 
 # Biomasa
 
 RRatio_nonaggr <- flora_biomass
