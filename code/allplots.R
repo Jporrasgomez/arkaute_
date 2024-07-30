@@ -1,5 +1,6 @@
 
-
+rm(list = ls(all.names = TRUE))
+pacman::p_unload(pacman::p_loaded(), character.only = TRUE)
 
 
 
@@ -51,6 +52,7 @@ ggturnover
 ggpcoa_hell
 ggpcoa_hell_alltreatments
 ggpcoa_clouds 
+ggpcoa_cloudspersampling
 
 
 

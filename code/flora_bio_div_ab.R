@@ -37,10 +37,9 @@ source("code/RADmodel.R")
 
 flora_samplings <-  flora %>%
   group_by(sampling, date, month, treatment, plot) %>%
-  reframe(biomass = sum(biomass, na.rm = T),
-          #total abundance per plot (m2) (replicate of treatment)
+  reframe(biomass =  biomass_total,#total abundance per plot (m2) (replicate of treatment)
           n_species = n_species,  #total number of species per plot
-          abundance = sum(abundance, na.rm = T)) %>% # total coverage of plot
+          abundance = abundance_total) %>% # total coverage of plot
   distinct(sampling, date, month, plot, treatment, biomass, n_species, abundance)
 
 
@@ -897,25 +896,25 @@ ggRRcv_wp_evenness_squared <-
 
 # ALL PLOTS ###############
 
-ggDynamics
-ggCVgrid
-ggCVgrid_squared
-ggDynamics_evenness
-ggCVgrid_evenness
-ggCVgrid_evenness_squared
-ggS0
-ggRRcontrol
-ggRRcv
-ggRRcv_squared
-ggRRcontrol_evenness
-ggRRcv_eveness
-ggRRcv_eveness_squared
-ggRRwp
-ggRRcv_wp
-ggRRcv_wp_squared
-ggRRwp_evenness
-ggRRcv_wp_evenness
-ggRRcv_wp_evenness_squared
+#ggDynamics
+#ggCVgrid
+#ggCVgrid_squared
+#ggDynamics_evenness
+#ggCVgrid_evenness
+#ggCVgrid_evenness_squared
+#ggS0
+#ggRRcontrol
+#ggRRcv
+#ggRRcv_squared
+#ggRRcontrol_evenness
+#ggRRcv_eveness
+#ggRRcv_eveness_squared
+#ggRRwp
+#ggRRcv_wp
+#ggRRcv_wp_squared
+#ggRRwp_evenness
+#ggRRcv_wp_evenness
+#ggRRcv_wp_evenness_squared
 
 
 

@@ -1,8 +1,9 @@
 
-rm(list = ls(all.names = TRUE))
-pacman::p_unload(pacman::p_loaded(), character.only = TRUE)
-pacman::p_load(dplyr,ggplot2,tidyverse)
-
+#GRÁFICOS DEL CRECIMIENTO DE ESPECIES POR PLOT
+library(ggplot2)
+library(tidyverse)
+library(dplyr)
+library(ggpubr)
 
 #Cosas que hacer####
 # Biomasa está pendiente. Depende del dato que estamos cogiendo en el campo
@@ -31,7 +32,6 @@ plots <- sort(unique(datos$plot))
 samps <- sort(unique(datos$sampling))
 datos$total_biomass <- NA   #El espacio de almacenamiento donde vamos a guardar los resutlados del loop
 
-
 for (i in 1:length(plots)){
   for(j in 1:length(samps)){
     
@@ -54,9 +54,14 @@ for(i in 1:length(plots)){
   plot_i <- subset(datos, plot == plots[i])
   
  gglist[[count]] <- ggplot(plot_i)+ 
-    geom_smooth(se = T,level = 0.5, aes(x = sampling, y = log(biomass), fill = code, color = code, group = code)) +
-    geom_smooth(se = F, aes(x = sampling, y = log(total_biomass), group = 1), color = "black", size = 0.8, linetype = "dotdash") +
-   labs( x = "Sampling", y = "log(Biomass)", title = paste("Plot", plot_i$plot, ",", "Treatment", plot_i$treatment, sep = " "))
+    geom_line(aes(x = sampling, y = log(biomass), group = code, color = code)) +
+    geom_line(aes(x = sampling, y = log(total_biomass), group = 1), color = "black", size = 0.8, linetype = "dotdash") +
+   labs( x = "Muestreo", y = "log Biomasa", title = paste("Plot", plot_i$plot, ",", "Tratamiento", plot_i$treatment, sep = " ")) +
+   
+ theme(
+   legend.text = element_text(size = 7),   # Ajusta el tamaño del texto de la leyenda
+   legend.title = element_text(size = 9)  # Ajusta el tamaño del título de la leyenda
+ )
   
 }
 
@@ -68,7 +73,7 @@ gglist[[4]]
 gglist[[5]]
 gglist[[6]]
 gglist[[7]] #Revisar total biomass de Plot9 
-gglist[[8]] 
+gglist[[8]] #Revisar la línea rosa para que no aparezca por encima de la biomasa total
 gglist[[9]]
 gglist[[10]]
 gglist[[11]] #Revisar total biomass de Plot8
@@ -77,31 +82,37 @@ gglist[[13]]
 gglist[[14]]
 gglist[[15]]
 gglist[[16]]
-#Revisar loess
 
-library(ggpubr)
-ggarrange( gglist[[1]], gglist[[8]], gglist[[9]], gglist[[16]],
+
+#para utilizar arrange pero no puedo 
+install.packages("vctrs")
+packageVersion("vctrs")
+
+install.packages("ggpubr")
+
+install.packages("gridExtra")
+library(gridExtra)
+
+#voy a usar grid.arrange que entiendo que hace lo mismo que arrange
+
+grid.arrange( gglist[[1]], gglist[[8]], gglist[[9]], gglist[[16]],
            
-           ncol = 2, nrow = 2)
+           ncol = 2, nrow = 2) #Tratamiento warming 
 
-#Improving the graphs: 
+grid.arrange( gglist[[3]], gglist[[6]], gglist[[10]], gglist[[15]],
+              
+              ncol = 2, nrow = 2) #Tratamiento perturbación
 
-ggplot(subset(datos, plot == "4")) +
-  geom_smooth( se = T,level = 0.5, aes(x = sampling, y = log(biomass), fill = code, color = code, group = code))+
-  geom_smooth(se = F, aes(x = sampling, y = log(total_biomass), group = 1), color = "black", size = 0.8, linetype = "dotdash")
+grid.arrange( gglist[[2]], gglist[[7]], gglist[[11]], gglist[[14]],
+              
+              ncol = 2, nrow = 2) #Tratamiento control
 
-#VS
-
-ggplot(subset(datos, plot == "4")) +
-  geom_point(aes(x = sampling, y = log(biomass), group = code, color = code))+
-  geom_smooth( se = T,level = 0.5, aes(x = sampling, y = log(biomass), fill = code, color = code, group = code))+
-  geom_line(aes(x = sampling, y = log(total_biomass), group = 1), color = "black", size = 0.8, linetype = "dotdash")
-
-#Creo que es mejor sin los puntos. Se pierden las espedcies que solo aparecen una vez en el tiempo. Pero lo importante de estos gráficos no es eso. 
+grid.arrange( gglist[[4]], gglist[[5]], gglist[[12]], gglist[[13]],
+              
+              ncol = 2, nrow = 2) #Tratamiento térmico y perturbación
 
 
-
-
+## Trayectorias de biomasa por tratamiento 
 
 
 datos_sampling <- summarise(group_by(datos, treatment, sampling, plot),
@@ -125,11 +136,51 @@ ggplot(datos_sampling, aes(x = sampling, y = total_biomass, fill = treatment)) +
         axis.text.y = element_text(size = 6),
         legend.title = element_text(size = 8),  # Tamaño del título de la leyenda
         legend.text = element_text(size = 6))  # Tamaño del texto de la leyenda# Tamaño del texto del eje y
+View(datos_sampling)
 
 
 
 
 
 
+#Reponse ratio respecto al control####
 
 
+#Primero voy a hacer la media del control en un dataframe nuevo (tengo que usar tidyverse pero ya está instalado)
+
+# Crear un nuevo dataframe con la media de total_biomass agrupando por sampling solo para el tratamiento control
+datos_control <- datos_sampling %>%
+  filter(treatment == "c") %>%
+  group_by(sampling) %>%
+  summarize(mean_biomass = mean(total_biomass, na.rm = TRUE))
+
+#voy a unir los dos dataframes x la columna sampling con la función merge
+combined_data <- merge(datos_sampling, datos_control, by = "sampling")
+
+#ahora hago una nueva columna (biomasa relativa) 
+combined_data$relative_biomass <- log(combined_data$total_biomass / combined_data$mean_biomass) ##Aquí falta el log
+
+
+
+
+# creo un nuevo dataframe para filtrar los datos y omitir el control
+filtered_data <- combined_data %>%
+  filter(treatment != "c")
+
+# gráfico de cajas y bigotes (boxplot)
+ggplot(filtered_data, aes(x = sampling, y = relative_biomass, fill = treatment)) +
+  geom_boxplot() +
+  facet_wrap(~ treatment) +
+  labs(title = "Trayectorias de recuperación",
+       x = "Muestreo",
+       y = "Biomasa relativa total",
+       fill = "Tratamiento") +
+  theme_minimal() +
+  scale_fill_manual(values = c("w" = "indianred2", "wp" = "purple", "p" = "skyblue2")) +
+  theme(plot.title = element_text(size = 10, hjust = 0.5),
+        axis.title.x = element_text(size = 8),
+        axis.title.y = element_text(size = 8),
+        axis.text.x = element_text(size = 6),
+        axis.text.y = element_text(size = 6),
+        legend.title = element_text(size = 8),
+        legend.text = element_text(size = 6))

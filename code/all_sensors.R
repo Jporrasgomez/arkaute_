@@ -1,7 +1,6 @@
 
 ##TO DO's :------------------
 #T ground tiene aguos datos missing EN ggtdailtdiff
-#LA HORA DE LOS SENSORES ESTÁ RETRASADA 2 HORAS!! (EN VERANO) 
 #No hay datos de plot 10
 #Mirar qué pasa con los histogramas
 #Mirar qué pasa con los boxplot
@@ -40,7 +39,7 @@ source("code/tools/basicFun.R")
 # Organising sensors/plots names --------------
 plots <- read.csv("data/plots.csv")
 #IMPORTANT! Change the value of the DATE everytime a new set of data is opened.It depends on the day you took the data from the sensors. 
-plots$file_code <- paste0("data_", plots$sensor_code, "_2023_11_23_0.csv")
+plots$file_code <- paste0("data_", plots$sensor_code, "_2024_04_30_0.csv")
 
 
 
@@ -75,10 +74,12 @@ for (i in seq_along(plots_list)) {
   
   item$datetimenew <- 
     lubridate::parse_date_time(stringr::str_replace(item$date_time, "\\.", "/"), orders = "%Y/%m/%d %H:%M")
-  item$date <- format(as.Date(item$date_time, format = "%Y.%m.%d %H:%M"), "%Y/%m/%d")
+  item$datetimenew <- item$datetimenew + 3600  #Adding 1 hour because sensors come with 1 hour difference, 2 for summer. Still will be 1 hour difference for summer
+ 
+  item$date <- format(as.Date(item$datetimenew), "%Y/%m/%d")
   item$month <- month(item$date, label = TRUE)
   item$day <- day(item$date)
-  item$time <- format(as.POSIXct(item$date_time, format = "%Y.%m.%d %H:%M"), "%H:%M")
+  item$time <- format(as.POSIXct(item$datetimenew), "%H:%M")
   
   item <- subset(item, date >= "2023/01/01")
   
@@ -91,6 +92,7 @@ for (i in seq_along(plots_list)) {
 }
 
 rm(item)
+
 #View(plots_list[[2]])
 #View(plots_list[[4]])
 
@@ -154,6 +156,7 @@ for (i in seq_along(w_list)) {
 }
 
 all_plots <- merge(controls, ws, all = TRUE)
+all_plots$ttreat <- as.factor(all_plots$ttreat)
 
 
 
@@ -178,7 +181,7 @@ dailygraph_list <- lapply(plots_list, function(item) {
 })
 
 # AVISO: tarda mucho en cargar!!
-#grid.arrange(grobs = dailygraph_list, ncol = 4)
+grid.arrange(grobs = dailygraph_list, ncol = 4)
 
 
 #Temperature with mean values
@@ -259,7 +262,7 @@ eachplot <- function(item) {
 }
 
 #Para correr el código:
-#lapply(plots_list, eachplot)
+lapply(plots_list, eachplot)
 
 
 
@@ -435,7 +438,7 @@ allplots_day <- allplots_day %>%
   select(date, starts_with("day_"))
 colnames(allplots_day) <- c("date", "t_top_c", "t_top_w", "t_bottom_c", "t_bottom_w", "t_ground_c", "t_ground_w",
                       "sm_c", "sm_w")
-str(allplots_day)
+#str(allplots_day)
 
 ggttopday <- ggplot(allplots_day, aes(x = date)) + 
   geom_line(aes(y = t_top_w), color = "darkred", group = 1) +
@@ -509,7 +512,7 @@ ggtboxplot <- ggplot(allplotsbp,
   theme_minimal()+
   ggtitle("All plots")
 
-#ggtboxplot
+ggtboxplot
 
 ggtboxplot_meant <- ggplot(allplotsbp,
                      aes(x = ttreat,
@@ -521,7 +524,7 @@ ggtboxplot_meant <- ggplot(allplotsbp,
   theme_minimal()+
   ggtitle("Temperature, all plots")
 
-#ggtboxplot_meant
+ggtboxplot_meant
 
 
 

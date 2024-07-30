@@ -1,7 +1,8 @@
 # to do's
-# quitar flechas de los plots
+
 # Elegimos Bray-curtis porque funciona mejor con los "dobles 0s". Esto es, cuando una especie no está presente 
 # entre tratamientos
+# Al gráfico de turnover, añadire un ratio encima appearance/disappearance
 
 
 library(tidyverse) # manage data
@@ -268,7 +269,7 @@ ggpcoa_clouds <-
 
 #A PCoA per SAMPLING
 
-samps <- unique(flora$sampling)
+samps <- sort(unique(flora$sampling))
 list2 <- list()
 gglist2 <- list()
 count = 0
@@ -326,22 +327,15 @@ for (i in 1:length(samps)){
   
 }
 
-ggarrange(
-  gglist2[[11]], gglist2[[10]], gglist2[[9]], gglist2[[4]], 
-  nrow = 2, ncol =2)
-
-ggarrange(
-gglist2[[1]], gglist2[[2]], gglist2[[3]], gglist2[[5]], 
-nrow = 2, ncol =2)
 
 
-ggarrange(
-  gglist2[[6]], gglist2[[8]], gglist2[[7]], gglist2[[12]],
-nrow = 2, ncol = 2)
-
-
-
-
+ggpcoa_cloudspersampling <- ggarrange(
+  gglist2[[1]], gglist2[[2]], gglist2[[3]], gglist2[[4]], 
+  gglist2[[5]], gglist2[[6]], gglist2[[7]], gglist2[[8]], 
+  gglist2[[9]], gglist2[[10]], gglist2[[11]], gglist2[[12]],
+  gglist2[[13]], gglist2[[14]], gglist2[[15]], gglist2[[16]],
+  gglist2[[17]], gglist2[[18]],
+  nrow = 5, ncol = 4)
 
 
 ## trying with one element of the list: 
@@ -356,6 +350,7 @@ nrow = 2, ncol = 2)
 #ggpcoa_hell
 #ggpcoa_hell_alltreatments
 #ggpcoa_clouds 
+#ggpcoa_cloudspersampling
 
 rm(ggtry)
 

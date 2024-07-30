@@ -5,8 +5,8 @@ rm(list = ls(all.names = TRUE))
 pacman::p_unload(pacman::p_loaded(), character.only = TRUE)
 pacman::p_load(dplyr,ggplot2,tidyverse)
 
-
-datos <- read.csv("data/flora_db.csv")
+source("code/first_script.R")
+datos <- flora
 
 datos$plot <- as.factor(datos$plot)
 datos$sampling <- as.factor(datos$sampling)
@@ -50,6 +50,7 @@ ggplot(RRatio, aes(x = sampling, y = logRR_biomass, fill = treatment)) +
   facet_grid(~ treatment) + 
   scale_fill_manual(values = c("w" = "#EE6363", "p" = "skyblue2", "wp" = "purple"))+
   geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8) 
+
 
 
 
