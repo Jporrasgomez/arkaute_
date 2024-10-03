@@ -1,6 +1,6 @@
 
 # Cosas que hacer ####
-#Hacer comprobaciones de los datos cada vez que se transformen las bases de datos
+# MODIFICAR TODA LA BASE DE DATOS EN BASE A BIOMASS (cambiar la estética de los gráficos)
 
 
 #Packages   ####
@@ -12,7 +12,7 @@ library(readr)
 library(ggpubr)
 library(tidyverse)
 library(gridExtra)
-
+library(MetBrewer)
 
 #Scripts 
 source('code/tools/basicFun.R')
@@ -35,33 +35,40 @@ source("code/RADmodel.R")
 #Aquí se aplica, para biomasa, el siguiente criterio: se estima la biomasa de cada especie multiplicando su abundancia por 
 #la masa promedio de los individuos medidos para dicha especie. 
 
-flora_samplings <-  flora %>%
+ab_rich_dynamics <-  flora %>%
   group_by(sampling, date, month, treatment, plot) %>%
   reframe(biomass =  biomass_total,#total abundance per plot (m2) (replicate of treatment)
-          n_species = n_species,  #total number of species per plot
+          richness = richness,  #total number of species per plot
           abundance = abundance_total) %>% # total coverage of plot
-  distinct(sampling, date, month, plot, treatment, biomass, n_species, abundance)
-
-
-
+  distinct(sampling, date, month, plot, treatment, biomass, richness, abundance)
 
   
-flora_samplings <- merge(flora_samplings, radcoeff_df)                                                              
+ab_rich_dynamics <- merge(ab_rich_dynamics, radcoeff_df)   
 
-hist(flora_samplings$n_species)
-hist(flora_samplings$abundance)
-hist(flora_samplings$biomass)
+mean_sd_abrich_dynamics<- ab_rich_dynamics %>%
+  group_by(treatment, sampling) %>%
+  summarize(mean_richness = mean(richness),
+            sd_richness = sd(richness),
+            mean_abundance = mean(abundance),
+            sd_abundance = sd(abundance),
+            mean_yzipf = mean(Y_zipf),
+            sd_yzipf = sd(Y_zipf),
+            mean_mulog = mean(mu_log),
+            sd_mulog = sd(mu_log),
+            mean_sigmalog = mean(sigma_log),
+            sd_sigmalog = sd(sigma_log))
+
+mean_sd_abrich_dynamics$cv_richness <- mean_sd_abrich_dynamics$sd_richness /mean_sd_abrich_dynamics$mean_richness
 
 
-#Hacer comprobaciones de los datos en esta base de datos
 
 
-flora_treatments <-  flora_samplings %>%
-  group_by(treatment) %>%
-  reframe(biomass = mean(biomass, na.rm = T), 
-          n_species = mean(n_species, na.rm = T), 
-          abundance = mean(abundance, na.rm = T)) %>%
-  distinct(treatment, biomass, n_species, abundance)                                  
+
+hist(ab_rich_dynamics$richness)
+hist(ab_rich_dynamics$abundance)
+hist(ab_rich_dynamics$biomass)
+
+
 
 # Gráficos por muestreo y tratamiento####
 
@@ -69,78 +76,98 @@ flora_treatments <-  flora_samplings %>%
 
 theme_set(theme_bw()+ theme(legend.position = "NULL"))
 
-ggDynamics <- 
-ggarrange(
 
-ggplot(flora_samplings, aes(x = sampling, y = abundance, fill = treatment)) +
-  geom_boxplot() +
-  labs(x = " ", y = "Abundance") +
-  facet_grid(~ treatment) + 
-  scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
-  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
 
-ggplot(flora_samplings, aes(x = sampling, y = n_species, fill = treatment)) +
-  geom_boxplot() +
+treatment_labs_dynamics <- c("Control", "Warming", "Perturbation", "Warming and perturbation")
+names(treatment_labs_dynamics) <- c("c","w", "p", "wp")
+
+##Hacer los gráficos con un loop y guardarlos en una lista
+
+
+ggplot(mean_sd_abrich_dynamics, aes(x = as.factor(sampling), y = mean_richness, group = sampling)) +
+  facet_grid(~ treatment, labeller = labeller(treatment = treatment_labs_dynamics)) +
+  geom_errorbar(aes(ymin = mean_richness - sd_richness, ymax = mean_richness + sd_richness,
+                    color = treatment, alpha = 0.5),
+                position = position_dodge(width = 0.5), width = 0.25, size = 0.75, alpha = 0.4) +
+  geom_point(data = ab_rich_dynamics, aes(x = as.factor(sampling), y = richness, color = treatment),
+             position = position_dodge(width = 0.5), size = 1.5, alpha = 0.2) +
+  geom_path(group = 1, aes(color = treatment), linewidth = 0.7)+
+  geom_point(aes(color = treatment), fill = "white", position = position_dodge(width = 0.5), size = 2.25, shape = 21) +
+  #scale_colour_manual(values = met.brewer("VanGogh3",4)) +
+  scale_colour_manual(values = c("c" = "green4", "p" = "blue4", "w" = "red3", "wp" = "purple2")) +
+  scale_x_discrete(breaks = levels(as.factor(mean_sd_abrich_dynamics$sampling))[seq(1, length(levels(as.factor(mean_sd_abrich_dynamics$sampling))), by = 2)]) +
   labs(x = " ", y = "Richness") +
-  facet_grid(~ treatment)  + 
-  scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
-  geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
+  theme_bw() + theme(legend.position = "none",
+                     panel.grid = element_blank(),
+                     strip.background = element_blank(),
+                     strip.text = element_text(face = "bold"),
+                     text = element_text(size = 11))
 
-nrow=2, ncol=1)
+ggplot(mean_sd_abrich_dynamics, aes(x = as.factor(sampling), y = mean_abundance, group = sampling)) +
+  facet_grid(~ treatment, labeller = labeller(treatment = treatment_labs_dynamics)) +
+  geom_errorbar(aes(ymin = mean_abundance - sd_abundance, ymax = mean_abundance + sd_abundance,
+                    color = treatment, alpha = 0.5),
+                position = position_dodge(width = 0.5), width = 0.25, size = 0.75, alpha = 0.4) +
+  geom_point(data = ab_rich_dynamics, aes(x = as.factor(sampling), y = abundance, color = treatment),
+             position = position_dodge(width = 0.5), size = 1.5, alpha = 0.2) +
+  geom_path(group = 1, aes(color = treatment), linewidth = 0.7)+
+  geom_point(aes(color = treatment), fill = "white", position = position_dodge(width = 0.5), size = 2.25, shape = 21) +
+  #scale_colour_manual(values = met.brewer("VanGogh3",4)) +
+  scale_colour_manual(values = c("c" = "green4", "p" = "blue4", "w" = "red3", "wp" = "purple2")) +
+  scale_x_discrete(breaks = levels(as.factor(mean_sd_abrich_dynamics$sampling))[seq(1, length(levels(as.factor(mean_sd_abrich_dynamics$sampling))), by = 2)]) +
+  labs(x = " ", y = "Abundance") +
+  theme_bw() + theme(legend.position = "none",
+                     panel.grid = element_blank(),
+                     strip.background = element_blank(),
+                     strip.text = element_text(face = "bold"),
+                     text = element_text(size = 11))
 
-# !! Eliminar plot 13 sampling 2 para coeficientes de evenness, o revisar. 
-ggDynamics_evenness <- 
-  ggarrange(
-    
-    ggplot(flora_samplings, aes(x = sampling, y = Y_zipf, fill = treatment)) +
-      geom_boxplot() +
-      labs(x = " ", y = "Y_zipf") +
-      facet_grid(~ treatment)  + 
-      scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
-      geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
-    
-    ggplot(flora_samplings, aes(x = sampling, y = mu_log, fill = treatment)) +
-      geom_boxplot() +
-      labs(x = " ", y = "mu_log") +
-      facet_grid(~ treatment) + 
-      scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
-      geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
-    
-    ggplot(flora_samplings, aes(x = sampling, y = sigma_log, fill = treatment)) +
-      geom_boxplot() +
-      labs(x = " ", y = "sigma_log") +
-      facet_grid(~ treatment) + 
-      scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple"))+
-      geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8),
-    
-    nrow=3, ncol=1)
+ggplot(mean_sd_abrich_dynamics, aes(x = as.factor(sampling), y = mean_yzipf, group = sampling)) +
+  facet_grid(~ treatment, labeller = labeller(treatment = treatment_labs_dynamics)) +
+  geom_errorbar(aes(ymin = mean_yzipf - sd_yzipf, ymax = mean_yzipf + sd_yzipf,
+                    color = treatment, alpha = 0.5),
+                position = position_dodge(width = 0.5), width = 0.25, size = 0.75, alpha = 0.4) +
+  geom_point(data = ab_rich_dynamics, aes(x = as.factor(sampling), y = Y_zipf, color = treatment),
+             position = position_dodge(width = 0.5), size = 1.5, alpha = 0.2) +
+  geom_path(group = 1, aes(color = treatment), linewidth = 0.7)+
+  geom_point(aes(color = treatment), fill = "white", position = position_dodge(width = 0.5), size = 2.25, shape = 21) +
+  #scale_colour_manual(values = met.brewer("VanGogh3",4)) +
+  scale_colour_manual(values = c("c" = "green4", "p" = "blue4", "w" = "red3", "wp" = "purple2")) +
+  scale_x_discrete(breaks = levels(as.factor(mean_sd_abrich_dynamics$sampling))[seq(1, length(levels(as.factor(mean_sd_abrich_dynamics$sampling))), by = 2)]) +
+  labs(x = " ", y = "yzipf") +
+  theme_bw() + theme(legend.position = "none",
+                     panel.grid = element_blank(),
+                     strip.background = element_blank(),
+                     strip.text = element_text(face = "bold"),
+                     text = element_text(size = 11))
+
 
 
 # Sampling 0
 
 ggS0 <- 
 ggarrange(
-ggplot(subset(flora_samplings, sampling == "0"), aes(x = treatment, y = n_species, fill = treatment)) +
+ggplot(subset(ab_rich_dynamics, sampling == "0"), aes(x = treatment, y = richness, fill = treatment)) +
   geom_boxplot() +
   labs(x = " ", y = "Richness") +
   scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple")),
 
-ggplot(subset(flora_samplings, sampling == "0"), aes(x = treatment, y = abundance, fill = treatment)) +
+ggplot(subset(ab_rich_dynamics, sampling == "0"), aes(x = treatment, y = abundance, fill = treatment)) +
   geom_boxplot() +
   labs(x = " ", y = "Abundance") +
   scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple")),
 
-ggplot(subset(flora_samplings, sampling == "0"), aes(x = treatment, y = Y_zipf, fill = treatment)) +
+ggplot(subset(ab_rich_dynamics, sampling == "0"), aes(x = treatment, y = Y_zipf, fill = treatment)) +
   geom_boxplot() +
   labs(x = " ", y = "Y_zipf") +
   scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple")),
 
-ggplot(subset(flora_samplings, sampling == "0"), aes(x = treatment, y = mu_log, fill = treatment)) +
+ggplot(subset(ab_rich_dynamics, sampling == "0"), aes(x = treatment, y = mu_log, fill = treatment)) +
   geom_boxplot() +
   labs(x = " ", y = "mu_log") +
   scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple")),
 
-ggplot(subset(flora_samplings, sampling == "0"), aes(x = treatment, y = sigma_log, fill = treatment)) +
+ggplot(subset(ab_rich_dynamics, sampling == "0"), aes(x = treatment, y = sigma_log, fill = treatment)) +
   geom_boxplot() +
   labs(x = " ", y = "sigma_log") +
   scale_fill_manual(values = c("c" = "darkolivegreen2", "p" = "#1C86EE", "w" = "#EE6363", "wp" = "purple")),
@@ -151,85 +178,197 @@ nrow = 1, ncol = 5)
 
 
 ##### RESPONSE RATIO  Log(RR); RR = variable at point i / variable at point reference #######################
+# Hacer esto como lo he hecho en abundance
 
-
-RR_treatments <- flora_samplings
-samps <- unique(RR_treatments$sampling)
+RR_ab_rich <- ab_rich_dynamics
+samps <- unique(RR_ab_rich$sampling)
 
 #Sampling 2 has several plots with very few species, which generates problems at RADs
 # At plot 15, we have only 1 species so there is no RAD
 # At plot 13, we have 2 species, so the RAD values are not reliable. Im deleting this data by hand: 
-RR_treatments$Y_zipf[RR_treatments$sampling == "2" & RR_treatments$plot == "13"] <- NA
-RR_treatments$mu_log[RR_treatments$sampling == "2" & RR_treatments$plot == "13"] <- NA
-RR_treatments$sigma_log[RR_treatments$sampling == "2" & RR_treatments$plot == "13"] <- NA
+RR_ab_rich$Y_zipf[RR_ab_rich$sampling == "2" & RR_ab_rich$plot == "13"] <- NA
+RR_ab_rich$mu_log[RR_ab_rich$sampling == "2" & RR_ab_rich$plot == "13"] <- NA
+RR_ab_rich$sigma_log[RR_ab_rich$sampling == "2" & RR_ab_rich$plot == "13"] <- NA
 
 #100% puedo reducir todas las lineas de código al incluir un vector que incluya las variabes. Tipo:
-# variables <- c(colnames(flora_samplings[, 7:11])) investigar si eso
+# variables <- c(colnames(ab_rich_dynamics[, 7:11])) investigar si eso
 
 for (i in 1:length(samps)) {
-  subset_c <- subset(RR_treatments, sampling == samps[i] & treatment == "c")
-  subset_w <- subset(RR_treatments, sampling == samps[i] & treatment == "w")
-  subset_p <- subset(RR_treatments, sampling == samps[i] & treatment == "p")
-  subset_wp <- subset(RR_treatments, sampling == samps[i] & treatment == "wp")
-  RR_treatments$RR_abundance_C[RR_treatments$sampling == samps[i]] <-
-    round(log(RR_treatments$abundance[RR_treatments$sampling == samps[i]] /mean(subset_c$abundance)),2)  # we take reference values as the mean of the 4 replicates
-  RR_treatments$RR_abundance_W[RR_treatments$sampling == samps[i]] <-
-    round(log(RR_treatments$abundance[RR_treatments$sampling == samps[i]]/mean(subset_w$abundance)),2)
-  RR_treatments$RR_abundance_P[RR_treatments$sampling == samps[i]] <-
-    round(log(RR_treatments$abundance[RR_treatments$sampling == samps[i]]/mean(subset_p$abundance)),2)
-  RR_treatments$RR_abundance_WP[RR_treatments$sampling == samps[i]] <-
-    round(log(RR_treatments$abundance[RR_treatments$sampling == samps[i]]/mean(subset_wp$abundance)),2)
+  subset_c <- subset(RR_ab_rich, sampling == samps[i] & treatment == "c")
+  RR_ab_rich$ref_c_mean_richness[RR_ab_rich$sampling == samps[i]] <- mean(subset_c$richness)
+  RR_ab_rich$ref_c_mean_abundance[RR_ab_rich$sampling == samps[i]] <- mean(subset_c$abundance)
+  RR_ab_rich$ref_c_mean_yzipf[RR_ab_rich$sampling == samps[i]] <- mean(subset_c$Y_zipf)
+  RR_ab_rich$ref_c_mean_mulog[RR_ab_rich$sampling == samps[i]] <- mean(subset_c$mu_log)
+  RR_ab_rich$ref_c_mean_sigmalog[RR_ab_rich$sampling == samps[i]] <- mean(subset_c$sigma_log)
+  
+  
+  subset_w <- subset(RR_ab_rich, sampling == samps[i] & treatment == "w")
+  RR_ab_rich$ref_w_mean_richness[RR_ab_rich$sampling == samps[i]] <- mean(subset_w$richness)
+  RR_ab_rich$ref_w_mean_abundance[RR_ab_rich$sampling == samps[i]] <- mean(subset_w$abundance)
+  RR_ab_rich$ref_w_mean_yzipf[RR_ab_rich$sampling == samps[i]] <- mean(subset_w$Y_zipf)
+  RR_ab_rich$ref_w_mean_mulog[RR_ab_rich$sampling == samps[i]] <- mean(subset_w$mu_log)
+  RR_ab_rich$ref_w_mean_sigmalog[RR_ab_rich$sampling == samps[i]] <- mean(subset_w$sigma_log)
+  
+  
+  subset_p <- subset(RR_ab_rich, sampling == samps[i] & treatment == "p")
+  RR_ab_rich$ref_p_mean_richness[RR_ab_rich$sampling == samps[i]] <- mean(subset_p$richness)
+  RR_ab_rich$ref_p_mean_abundance[RR_ab_rich$sampling == samps[i]] <- mean(subset_p$abundance)
+  RR_ab_rich$ref_p_mean_yzipf[RR_ab_rich$sampling == samps[i]] <- mean(subset_p$Y_zipf)
+  RR_ab_rich$ref_p_mean_mulog[RR_ab_rich$sampling == samps[i]] <- mean(subset_p$mu_log)
+  RR_ab_rich$ref_p_mean_sigmalog[RR_ab_rich$sampling == samps[i]] <- mean(subset_p$sigma_log)
 
-  RR_treatments$RR_richness_C[RR_treatments$sampling == samps[i]] <-
-    round(log(RR_treatments$n_species[RR_treatments$sampling == samps[i]]/mean(subset_c$n_species)),2)
-  RR_treatments$RR_richness_W[RR_treatments$sampling == samps[i]] <-
-    round(log(RR_treatments$n_species[RR_treatments$sampling == samps[i]]/mean(subset_w$n_species)),2)
-  RR_treatments$RR_richness_P[RR_treatments$sampling == samps[i]] <-
-    round(log(RR_treatments$n_species[RR_treatments$sampling == samps[i]]/mean(subset_p$n_species)),2)
-  RR_treatments$RR_richness_WP[RR_treatments$sampling == samps[i]] <-
-    round(log(RR_treatments$n_species[RR_treatments$sampling == samps[i]]/mean(subset_wp$n_species)),2)
-  
-  RR_treatments$RR_yzipf_C[RR_treatments$sampling == samps[i]] <-
-    round(log(RR_treatments$Y_zipf[RR_treatments$sampling == samps[i]] /mean(subset_c$Y_zipf)),2)
-  RR_treatments$RR_yzipf_W[RR_treatments$sampling == samps[i]] <-
-    round(log(RR_treatments$Y_zipf[RR_treatments$sampling == samps[i]] /mean(subset_w$Y_zipf)),2)
-  RR_treatments$RR_yzipf_P[RR_treatments$sampling == samps[i]] <-
-    round(log(RR_treatments$Y_zipf[RR_treatments$sampling == samps[i]] /mean(subset_p$Y_zipf)),2)
-  RR_treatments$RR_yzipf_WP[RR_treatments$sampling == samps[i]] <-
-    round(log(RR_treatments$Y_zipf[RR_treatments$sampling == samps[i]] /mean(subset_wp$Y_zipf)),2)
-  
-  RR_treatments$RR_mulog_C[RR_treatments$sampling == samps[i]] <-
-    round(log(RR_treatments$mu_log[RR_treatments$sampling == samps[i]] /mean(subset_c$mu_log)),2)
-  RR_treatments$RR_mulog_W[RR_treatments$sampling == samps[i]] <-
-    round(log(RR_treatments$mu_log[RR_treatments$sampling == samps[i]] /mean(subset_w$mu_log)),2)
-  RR_treatments$RR_mulog_P[RR_treatments$sampling == samps[i]] <-
-    round(log(RR_treatments$mu_log[RR_treatments$sampling == samps[i]] /mean(subset_p$mu_log)),2)
-  RR_treatments$RR_mulog_WP[RR_treatments$sampling == samps[i]] <-
-    round(log(RR_treatments$mu_log[RR_treatments$sampling == samps[i]] /mean(subset_wp$mu_log)),2)
-  
-  RR_treatments$RR_sigmalog_C[RR_treatments$sampling == samps[i]] <-
-    round(log(RR_treatments$sigma_log[RR_treatments$sampling == samps[i]] /mean(subset_c$sigma_log)),2)
-  RR_treatments$RR_sigmalog_W[RR_treatments$sampling == samps[i]] <-
-    round(log(RR_treatments$sigma_log[RR_treatments$sampling == samps[i]] /mean(subset_w$sigma_log)),2)
-  RR_treatments$RR_sigmalog_P[RR_treatments$sampling == samps[i]] <-
-    round(log(RR_treatments$sigma_log[RR_treatments$sampling == samps[i]] /mean(subset_p$sigma_log)),2)
-  RR_treatments$RR_sigmalog_WP[RR_treatments$sampling == samps[i]] <-
-    round(log(RR_treatments$sigma_log[RR_treatments$sampling == samps[i]] /mean(subset_wp$sigma_log)),2)
-  
   
   
   rm(subset_c)
   rm(subset_w)
   rm(subset_p)
-  rm(subset_wp)
+
 }
+
+
+## Hacer con un loop las bases de datos y los ggplots?
+
+treatment.labs <- c("Warming", "Perturbation", "Warming and perturbation")
+names(treatment.labs) <- c("w", "p", "wp")
+
+
+
+RR_ref_c <- RR_ab_rich %>%
+  filter(!treatment %in% "c")
+RR_ref_c$logRR_abundance <- round(log(RR_ref_c$abundance / RR_ref_c$ref_c_mean_abundance), 2)
+RR_ref_c$logRR_richness <- round(log(RR_ref_c$richness / RR_ref_c$ref_c_mean_richness), 2)
+RR_ref_c$logRR_yzipf <- round(log(RR_ref_c$Y_zipf / RR_ref_c$ref_c_mean_yzipf), 2)
+RR_ref_c$logRR_mulog <- round(log(RR_ref_c$mu_log / RR_ref_c$ref_c_mean_mulog), 2)
+RR_ref_c$logRR_sigmalog <- round(log(RR_ref_c$sigma_log / RR_ref_c$ref_c_mean_sigmalog), 2)
+
+mean_sd_data_ref_c <- RR_ref_c %>%
+  group_by(treatment, sampling) %>%
+  summarize(mean_abundance = mean(logRR_abundance),
+            sd_abundance = sd(logRR_abundance),
+            mean_richness = mean(logRR_richness),
+            sd_richness = sd(logRR_richness),
+            mean_yzipf = mean(logRR_yzipf),
+            sd_yzipf = sd(logRR_yzipf),
+            mean_mulog = mean(logRR_mulog),
+            sd_mulog = sd(logRR_mulog),
+            mean_sigmalog= mean(logRR_sigmalog),
+            sd_sigmalog = sd(logRR_sigmalog))
+
+ggplot(mean_sd_data_ref_c, aes(x = as.factor(sampling), y = mean_richness, group = sampling)) +
+  facet_grid(~ treatment, labeller = labeller(treatment = treatment.labs)) +
+  geom_errorbar(aes(ymin = mean_richness - sd_richness, ymax = mean_richness + sd_richness,
+                    color = treatment, alpha = 0.5),
+                position = position_dodge(width = 0.5), width = 0.25, size = 0.75) +
+  geom_point(data = RR_ref_c, aes(x = as.factor(sampling), y = logRR_richness, color = treatment),
+             position = position_dodge(width = 0.5), size = 2, alpha = 0.4) +
+  geom_path(group = 1, aes(color = treatment), linewidth = 0.8)+
+  geom_point(aes(color = treatment), fill = "white", position = position_dodge(width = 0.5), size = 2.25, shape = 21) +
+  geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.7) +
+  #scale_colour_manual(values = met.brewer("VanGogh2", 3)) +
+  scale_colour_manual(values = c("p" = "blue4", "w" = "red3", "wp" = "purple2")) +
+  scale_x_discrete(breaks = levels(as.factor(mean_sd_data_ref_c$sampling))[seq(1, length(levels(as.factor(mean_sd_data_ref_c$sampling))), by = 2)]) +
+  labs(x = "Sampling time", y = "Richness (log response ratio)") +
+  theme_bw() + theme(legend.position = "none",
+                     panel.grid = element_blank(),
+                     strip.background = element_blank(),
+                     strip.text = element_text(face = "bold"),
+                     text = element_text(size = 12))
+
+
+
+
+
+RR_ref_w <- RR_ab_rich %>%
+  filter(!treatment %in% c( "w", "c", "p"))
+RR_ref_w$logRR_abundance <- round(log(RR_ref_w$abundance / RR_ref_w$ref_w_mean_abundance), 2)
+RR_ref_w$logRR_richness <- round(log(RR_ref_w$richness / RR_ref_w$ref_w_mean_richness), 2)
+RR_ref_w$logRR_yzipf <- round(log(RR_ref_w$Y_zipf / RR_ref_w$ref_w_mean_yzipf), 2)
+RR_ref_w$logRR_mulog <- round(log(RR_ref_w$mu_log / RR_ref_w$ref_w_mean_mulog), 2)
+RR_ref_w$logRR_sigmalog <- round(log(RR_ref_w$sigma_log / RR_ref_w$ref_w_mean_sigmalog), 2)
+
+mean_sd_data_ref_w <- RR_ref_w %>%
+  group_by(treatment, sampling) %>%
+  summarize(mean_abundance = mean(logRR_abundance),
+            sd_abundance = sd(logRR_abundance),
+            mean_richness = mean(logRR_richness),
+            sd_richness = sd(logRR_richness),
+            mean_yzipf = mean(logRR_yzipf),
+            sd_yzipf = sd(logRR_yzipf),
+            mean_mulog = mean(logRR_mulog),
+            sd_mulog = sd(logRR_mulog),
+            mean_abundance = mean(logRR_abundance),
+            sd_sigmalog = sd(logRR_sigmalog))
+
+gglogrr_richness_wp_w <-  
+ ggplot(mean_sd_data_ref_w, aes(x = as.factor(sampling), y = mean_richness, group = sampling)) +
+  facet_grid(~ treatment, labeller = labeller(treatment = treatment.labs)) +
+  geom_errorbar(aes(ymin = mean_richness - sd_richness, ymax = mean_richness + sd_richness,
+                    color = treatment, alpha = 0.5),
+                position = position_dodge(width = 0.5), width = 0.25, size = 0.75) +
+  geom_point(data = RR_ref_w, aes(x = as.factor(sampling), y = logRR_richness, color = treatment),
+             position = position_dodge(width = 0.5), size = 2, alpha = 0.4) +
+  geom_path(group = 1, aes(color = treatment), linewidth = 0.6) +
+  geom_point(aes(color = treatment), fill = "white", position = position_dodge(width = 0.5), size = 2.25, shape = 21) +
+  geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.7) +
+  scale_colour_manual(values = met.brewer("VanGogh2", 3)) +
+  labs(x = "Sampling time", y = "Species richness (log response ratio (wp/w))") +
+  theme_bw() + theme(legend.position = "none",
+                     panel.grid = element_blank(),
+                     strip.background = element_blank(),
+                     strip.text = element_text(face = "bold"),
+                     text = element_text(size = 12))
+
+RR_ref_p <- RR_ab_rich %>%
+  filter(!treatment %in% c( "p", "c", "w"))
+RR_ref_p$logRR_abundance <- round(log(RR_ref_p$abundance / RR_ref_p$ref_p_mean_abundance), 2)
+RR_ref_p$logRR_richness <- round(log(RR_ref_p$richness / RR_ref_p$ref_p_mean_richness), 2)
+RR_ref_p$logRR_yzipf <- round(log(RR_ref_p$Y_zipf / RR_ref_p$ref_p_mean_yzipf), 2)
+RR_ref_p$logRR_mulog <- round(log(RR_ref_p$mu_log / RR_ref_p$ref_p_mean_mulog), 2)
+RR_ref_p$logRR_sigmalog <- round(log(RR_ref_p$sigma_log / RR_ref_p$ref_p_mean_sigmalog), 2)
+
+mean_sd_data_ref_p <- RR_ref_p %>%
+  group_by(treatment, sampling) %>%
+  summarize(mean_abundance = mean(logRR_abundance),
+            sd_abundance = sd(logRR_abundance),
+            mean_richness = mean(logRR_richness),
+            sd_richness = sd(logRR_richness),
+            mean_yzipf = mean(logRR_yzipf),
+            sd_yzipf = sd(logRR_yzipf),
+            mean_mulog = mean(logRR_mulog),
+            sd_mulog = sd(logRR_mulog),
+            mean_abundance = mean(logRR_abundance),
+            sd_sigmalog = sd(logRR_sigmalog))
+
+gglogrr_richness_wp_p <- 
+
+ggplot(mean_sd_data_ref_p, aes(x = as.factor(sampling), y = mean_richness, group = sampling)) +
+  facet_grid(~ treatment, labeller = labeller(treatment = treatment.labs)) +
+  geom_errorbar(aes(ymin = mean_richness - sd_richness, ymax = mean_richness + sd_richness,
+                    color = treatment, alpha = 0.5),
+                position = position_dodge(width = 0.5), width = 0.25, size = 0.75) +
+  geom_point(data = RR_ref_p, aes(x = as.factor(sampling), y = logRR_richness, color = treatment),
+             position = position_dodge(width = 0.5), size = 2, alpha = 0.4) +
+  geom_path(group = 1, aes(color = treatment), linewidth = 0.6) +
+  geom_point(aes(color = treatment), fill = "white", position = position_dodge(width = 0.5), size = 2.25, shape = 21) +
+  geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.7) +
+  scale_colour_manual(values = met.brewer("VanGogh2", 3)) +
+  labs(x = "Sampling time", y = "Species richness (log response ratio (wp/p))") +
+  theme_bw() + theme(legend.position = "none",
+                     panel.grid = element_blank(),
+                     strip.background = element_blank(),
+                     strip.text = element_text(face = "bold"),
+                     text = element_text(size = 12))
+
+ggarrange( gglogrr_richness_wp_w, gglogrr_richness_wp_p, nrow = 1, ncol = 2, labels = c("A", "B"))
+
+
 
 
 # RR: Control as reference of W, P and WP
 
 ggRRcontrol<- 
 ggarrange(
-  ggplot(RR_treatments[RR_treatments$treatment != "c", ], aes(x = sampling, y = RR_abundance_C, fill = treatment)) +
+  ggplot(RR_ab_rich[RR_ab_rich$treatment != "c", ], aes(x = sampling, y = RR_abundance_C, fill = treatment)) +
     geom_boxplot() +
     labs(x = " ", y = "logRR(abundance)") +
     facet_grid(~ treatment) + 
@@ -237,7 +376,7 @@ ggarrange(
     geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
     geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
   
-  ggplot(RR_treatments[RR_treatments$treatment != "c", ], aes(x = sampling, y = RR_richness_C, fill = treatment)) +
+  ggplot(RR_ab_rich[RR_ab_rich$treatment != "c", ], aes(x = sampling, y = RR_richness_C, fill = treatment)) +
     geom_boxplot() +
     labs(x = " ", y = "logRR(richness)") +
     facet_grid(~ treatment) + 
@@ -250,7 +389,7 @@ ggarrange(
 
 ggRRcontrol_evenness<- 
   ggarrange(
-    ggplot(RR_treatments[RR_treatments$treatment != "c", ], aes(x = sampling, y = RR_yzipf_C, fill = treatment)) +
+    ggplot(RR_ab_rich[RR_ab_rich$treatment != "c", ], aes(x = sampling, y = RR_yzipf_C, fill = treatment)) +
       geom_boxplot() +
       labs(x = " ", y = "logRR(Y)") +
       facet_grid(~ treatment) + 
@@ -258,7 +397,7 @@ ggRRcontrol_evenness<-
       geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
       geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
     
-    ggplot(RR_treatments[RR_treatments$treatment != "c", ], aes(x = sampling, y = RR_mulog_C, fill = treatment)) +
+    ggplot(RR_ab_rich[RR_ab_rich$treatment != "c", ], aes(x = sampling, y = RR_mulog_C, fill = treatment)) +
       geom_boxplot() +
       labs(x = " ", y = "logRR(mu)") +
       facet_grid(~ treatment) + 
@@ -266,7 +405,7 @@ ggRRcontrol_evenness<-
       geom_vline(xintercept = 1.5, linetype = "dotted", color = "maroon", size = 0.8) +
       geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.8),
     
-    ggplot(RR_treatments[RR_treatments$treatment != "c", ], aes(x = sampling, y = RR_sigmalog_C, fill = treatment)) +
+    ggplot(RR_ab_rich[RR_ab_rich$treatment != "c", ], aes(x = sampling, y = RR_sigmalog_C, fill = treatment)) +
       geom_boxplot() +
       labs(x = " ", y = "logRR(sigma)") +
       facet_grid(~ treatment) + 
@@ -279,19 +418,19 @@ ggRRcontrol_evenness<-
 
 # P and W as references of WP. 
 
-RR_wp_ab <- pivot_longer(RR_treatments, cols = c("RR_abundance_W", "RR_abundance_P"), 
+RR_wp_ab <- pivot_longer(RR_ab_rich, cols = c("RR_abundance_W", "RR_abundance_P"), 
                          names_to = "RR_ab_treatment", values_to = "RR_ab_values")
 
-RR_wp_rich <- pivot_longer(RR_treatments, cols = c("RR_richness_W", "RR_richness_P"), 
+RR_wp_rich <- pivot_longer(RR_ab_rich, cols = c("RR_richness_W", "RR_richness_P"), 
                            names_to = "RR_rich_treatment", values_to = "RR_rich_values")
 
-RR_wp_yzipf <- pivot_longer(RR_treatments, cols = c("RR_yzipf_W", "RR_yzipf_P"), 
+RR_wp_yzipf <- pivot_longer(RR_ab_rich, cols = c("RR_yzipf_W", "RR_yzipf_P"), 
                            names_to = "RR_yzipf_treatment", values_to = "RR_yzipf_values")
 
-RR_wp_mulog <- pivot_longer(RR_treatments, cols = c("RR_mulog_W", "RR_mulog_P"), 
+RR_wp_mulog <- pivot_longer(RR_ab_rich, cols = c("RR_mulog_W", "RR_mulog_P"), 
                             names_to = "RR_mulog_treatment", values_to = "RR_mulog_values")
 
-RR_wp_sigmalog <- pivot_longer(RR_treatments, cols = c("RR_sigmalog_W", "RR_sigmalog_P"), 
+RR_wp_sigmalog <- pivot_longer(RR_ab_rich, cols = c("RR_sigmalog_W", "RR_sigmalog_P"), 
                             names_to = "RR_sigmalog_treatment", values_to = "RR_sigmalog_values")
 
 
@@ -348,11 +487,46 @@ ggRRwp_evenness <-
 
 # COEFFICIENT OF VARIATION: CV = Standard deviation(x) / mean(x) ##########
 
-flora_cv <- summarise(group_by(flora_samplings, sampling, treatment),
+
+
+for (i in 1:length(samps)) {
+  subset_c <- subset(mean_sd_abrich_dynamics, sampling == samps[i] & treatment == "c")
+  mean_sd_abrich_dynamics$ref_c_cv[mean_sd_abrich_dynamics$sampling == samps[i]] <- mean(subset_c$cv_richness)
+  
+}
+
+
+RR_ref_c_cv <- mean_sd_abrich_dynamics %>%
+  filter(!treatment %in% "c")
+RR_ref_c_cv$logRR_cv <- round(log(RR_ref_c_cv$cv_richness / RR_ref_c_cv$ref_c_cv), 2)
+
+treatment.labs <- c("Warming", "Perturbation", "Warming and perturbation")
+names(treatment.labs) <- c("w", "p", "wp")
+
+ggplot(RR_ref_c_cv, aes(x = as.factor(sampling), y = logRR_cv, group = treatment)) +
+  facet_grid(~ treatment, labeller = labeller(treatment = treatment.labs)) +
+  geom_path(group = 1, aes(color = treatment), linewidth = 0.8, alpha = 0.5)+
+  geom_point(aes(color = treatment), fill = "white", position = position_dodge(width = 0.5),
+             size = 2.25, shape = 21, alpha = 0.5) +
+  geom_smooth(se = F, aes(color = treatment, fill = treatment)) +
+  geom_hline(yintercept = 0, linetype = "dotted", color = "black", size = 0.7) +
+  #scale_colour_manual(values = met.brewer("VanGogh2", 3)) +
+  scale_colour_manual(values = c("p" = "blue4", "w" = "red3", "wp" = "purple2")) +
+  labs(x = "Sampling time", y = "CV richness (log response ratio)") +
+  theme_bw() + theme(legend.position = "none",
+                     panel.grid = element_blank(),
+                     strip.background = element_blank(),
+                     strip.text = element_text(face = "bold"),
+                     text = element_text(size = 12))
+
+
+
+
+flora_cv <- summarise(group_by(ab_rich_dynamics, sampling, treatment),
                                mean_biomass = mean(biomass, na.rm = T),
                                sd_biomass = sd(biomass, na.rm = T),
-                               mean_richness = mean(n_species, na.rm = T),
-                               sd_richness = sd(n_species, na.rm = T),
+                               mean_richness = mean(richness, na.rm = T),
+                               sd_richness = sd(richness, na.rm = T),
                                mean_abundance = mean(abundance, na.rm = T), 
                                sd_abundance = sd(abundance, na.rm = T), 
                                mean_yzipf = mean(Y_zipf, na.rm = T), 

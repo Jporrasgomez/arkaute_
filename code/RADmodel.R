@@ -4,12 +4,12 @@ library(vegan)
 library(ggpubr)
 
 #load database
-#source("code/first_script.R")
+source("code/first_script.R")
 #subset df sampling (do not run if the whole database is needed)
 #flora <- flora[which(flora$sampling == "sampling 2"),]
 
 #reshape df (species as columns, treatments as rows)
-flora_rad <- flora %>% select(plot,sampling, treatment, species, abundance)
+flora_rad <- flora %>% select(plot,sampling, treatment, code, abundance)
 
 #We've detected that "radfit" does not like decimals. THe only decimal numbers that we have in the
 #database are between 0 and 1. So we round these numbers to 1. 
@@ -72,9 +72,9 @@ for(i in 1:length(unique(flora_no1$sampling))){
     
     count <- count + 1
     subset_data <- subset(flora_no1, sampling == unique(flora_no1$sampling)[i] & plot == unique(flora_no1$plot)[j])
-    subrad <- summarise(group_by(subset_data, species),
+    subrad <- summarise(group_by(subset_data, code),
                         abundance = round(mean(abundance), 0)) 
-    subrad <- pivot_wider(subrad, names_from = species, values_from = abundance, values_fill = 0)
+    subrad <- pivot_wider(subrad, names_from = code, values_from = abundance, values_fill = 0)
     subrad <- as.data.frame(subrad)
     rad_sub <- radfit(subrad)
     
@@ -105,8 +105,7 @@ radcoeff_df$plot <- as.factor(radcoeff_df$plot )
 radcoeff_df$sampling <- as.factor(radcoeff_df$sampling)
 
 plots <- read.csv("data/plots.csv") %>%
-  select(nplot, treatment_code)
-colnames(plots) <- c("plot", "treatment")
+  select(plot, treatment)
 
 
 radcoeff_df <- merge(radcoeff_df, plots, by = "plot")
@@ -123,9 +122,9 @@ count = 0
 for(i in 1:length(unique(flora_s1cw$plot))){
   count <- count + 1
   subset_data <- subset(flora_s1cw, sampling == "1" & plot == unique(flora_s1cw$plot)[i])
-  subrad <- summarise(group_by(subset_data, species),
+  subrad <- summarise(group_by(subset_data, code),
                       abundance = round(mean(abundance), 0))
-  subrad <- pivot_wider(subrad, names_from = species, values_from = abundance, values_fill = 0)
+  subrad <- pivot_wider(subrad, names_from = code, values_from = abundance, values_fill = 0)
   subrad <- as.data.frame(subrad)
   rad_sub <- radfit(subrad)
   

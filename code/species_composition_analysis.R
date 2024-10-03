@@ -25,7 +25,7 @@ source("code/first_script.R")
 
 
 #Calcular, para cada especie, su abundancia media por tratamiento y muestreo 
-species_ab <-  summarise(group_by(flora, date, month, code, sampling, treatment, species, family,  genus_level, species_level),
+species_ab <-  summarise(group_by(flora, date, month, code, sampling, treatment, family,  genus_level, species_level),
                               abundance = (sum(abundance, na.rm = T)/4)) #mean abundance by treatment and sampling in a square meter (mean abundance of 4 plots) (?)
 totals_df <- summarise(group_by(species_ab, sampling, treatment), #adding number of species per treatment and sampling to species_ab
                           n_species = n_distinct(code),
@@ -79,7 +79,7 @@ ggturnover <-
   geom_point(data = sp_total_turnover, aes(y = total)) +
   geom_line(data = sp_total_turnover, aes(y = total)) +
   scale_fill_viridis_d(begin = 0.5) +
-  scale_x_continuous(breaks = function(x) seq(ceiling(x[1]), floor(x[2]), by = 1)) + 
+  scale_x_continuous(breaks = function(x) seq(ceiling(x[1]), floor(x[2]), by = 2)) + 
   ylim(0,1) + 
   labs(title = "Community turnover relative to the preceding sampling",
        x = "Sampling",
@@ -352,8 +352,10 @@ ggpcoa_cloudspersampling <- ggarrange(
 #ggpcoa_clouds 
 #ggpcoa_cloudspersampling
 
-rm(ggtry)
 
+#Removing all elements from the environment but the ggplots
+
+rm(list = setdiff(ls(), grep("gg", ls(), value = TRUE)))
 
 
 

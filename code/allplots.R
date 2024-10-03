@@ -1,52 +1,44 @@
 
-rm(list = ls(all.names = TRUE))
-pacman::p_unload(pacman::p_loaded(), character.only = TRUE)
+
+rm(list = ls(all.names = TRUE))  #Se limpia el environment
+pacman::p_unload(pacman::p_loaded(), character.only = TRUE) #se quitan todos los paquetes (limpiamos R)
 
 
-
-library(tidyverse) # manage data
-library(DT) # visualise tables in html
-library(viridis) # use color-blind friendly palettes
-library(ggrepel) # avoid overlapping texts in the figures
-library(codyn) # calculate community dynamics metrics
-library(vegan) # calculate community ecology metrics
-library(ggpubr)
-library(stringr)
-library(ggplot2)
-library(dplyr)
-library(reshape2)
-library(readr)
-library(ggpubr)
-library(tidyverse)
-library(gridExtra)
-
-
-
-source("code/flora_bio_div_ab.R")
+source("code/flora_code.R")
 source("code/species_composition_analysis.R")
 
-theme_set(theme_bw()+ theme(legend.position = "NULL"))
+#theme_set(theme_bw()+ theme(legend.position = "NULL"))
 
 
-ggDynamics
-ggCVgrid
-ggCVgrid_squared
-ggDynamics_evenness
-ggCVgrid_evenness
-ggCVgrid_evenness_squared
-ggS0
-ggRRcontrol
-ggRRcv
-ggRRcv_squared
-ggRRcontrol_evenness
-ggRRcv_eveness
-ggRRcv_eveness_squared
-ggRRwp
-ggRRcv_wp
-ggRRcv_wp_squared
-ggRRwp_evenness
-ggRRcv_wp_evenness
-ggRRcv_wp_evenness_squared
+ggdynamics_abundance
+ggdynamics_biomass
+ggdynamics_mulog
+ggdynamics_richness
+ggdynamics_sigmalog
+ggdynamics_yzipf
+
+gglogRR_abundance
+gglogRR_biomass
+gglogRR_mulog
+gglogRR_richness
+gglogRR_sigmalog
+gglogRR_yzipf
+
+ggcv_abundance
+ggcv_biomass
+ggcv_mulog
+ggcv_richness
+ggcv_sigmalog
+ggcv_yzipf
+
+
+gglogRRcv_abundance
+gglogRRcv_biomass
+gglogRRcv_mulog
+gglogRRcv_richness
+gglogRRcv_sigmalog
+gglogRRcv_yzipf
+
 
 ggturnover
 ggpcoa_hell

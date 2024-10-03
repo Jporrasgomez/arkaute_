@@ -21,6 +21,10 @@
 #En los datos, no sé si está bien comparar los datos de las 24h de los plots (medias de las medias) con los datos de los puntos
 #Incluir en los datos, las medias para all otcs y all controls
 
+
+rm(list = ls(all.names = TRUE))  #Se limpia el environment
+pacman::p_unload(pacman::p_loaded(), character.only = TRUE) #se quitan todos los paquetes (limpiamos R)
+
 #Packages-----------------
 library(lubridate)
 library(stringr)
@@ -74,9 +78,10 @@ for (i in seq_along(plots_list)) {
   
   item$datetimenew <- 
     lubridate::parse_date_time(stringr::str_replace(item$date_time, "\\.", "/"), orders = "%Y/%m/%d %H:%M")
-  item$datetimenew <- item$datetimenew + 3600  #Adding 1 hour because sensors come with 1 hour difference, 2 for summer. Still will be 1 hour difference for summer
+  item$datetimenew <- item$datetimenew + 3600  #Adding 1 hour because sensors come with 1 hour difference, 2 for summer. So it will still be 1 hour difference for summer but none for winter. 
  
   item$date <- format(as.Date(item$datetimenew), "%Y/%m/%d")
+  item$year <- year(item$date)
   item$month <- month(item$date, label = TRUE)
   item$day <- day(item$date)
   item$time <- format(as.POSIXct(item$datetimenew), "%H:%M")
@@ -159,6 +164,7 @@ all_plots <- merge(controls, ws, all = TRUE)
 all_plots$ttreat <- as.factor(all_plots$ttreat)
 
 
+all_plots_sum <- subset(all_plots, month %in% c("Apr", "May", "Jun", "Jul", "Aug", "Sep"))
 
 # Visualization individual plots------------
 
@@ -270,46 +276,143 @@ lapply(plots_list, eachplot)
 
 # CONTROL vs WARMING: Temperature difference in 24 h
 
-allplots_temp_24h_diff <-  summarise(group_by(all_plots, time, ttreat),
-                               t_top_mean = round(mean(T_top, na.rm = T), 2), 
-                               t_bottom_mean = round(mean (T_bottom, na.rm = T), 2), 
-                               t_ground_mean = round(mean(T_ground, na.rm = T), 2))
 
+
+allplots_temp_24h_diff <-  summarise(group_by(all_plots, time, ttreat),
+                               t_top_mean = round(mean(T_top, na.rm = T), 2),
+                               t_top_sd = round(sd(T_top, na.rm = T), 2), 
+                               t_bottom_mean = round(mean (T_bottom, na.rm = T), 2),
+                               t_bottom_sd = round(sd(T_bottom, na.rm = T), 2), 
+                               t_ground_mean = round(mean(T_ground, na.rm = T), 2),
+                               t_ground_sd = round(sd(T_ground, na.rm = T), 2))
+
+allplots_temp_24h_diff_sum <-  summarise(group_by(all_plots_sum, time, ttreat),
+                                     t_top_mean = round(mean(T_top, na.rm = T), 2),
+                                     t_top_sd = round(sd(T_top, na.rm = T), 2), 
+                                     t_bottom_mean = round(mean (T_bottom, na.rm = T), 2),
+                                     t_bottom_sd = round(sd(T_bottom, na.rm = T), 2), 
+                                     t_ground_mean = round(mean(T_ground, na.rm = T), 2),
+                                     t_ground_sd = round(sd(T_ground, na.rm = T), 2))
 
 
 allplots_temp_24h_diff <- allplots_temp_24h_diff %>%
   pivot_wider(names_from = ttreat,
-              values_from = c(t_top_mean, t_bottom_mean, t_ground_mean),
+              values_from = c(t_top_mean, t_top_sd, t_bottom_mean, t_bottom_sd, t_ground_mean, t_ground_sd),
               names_prefix = "") %>%
   select(time, starts_with("t_"))
 
+allplots_temp_24h_diff_sum <- allplots_temp_24h_diff_sum %>%
+  pivot_wider(names_from = ttreat,
+              values_from = c(t_top_mean, t_top_sd, t_bottom_mean, t_bottom_sd, t_ground_mean, t_ground_sd),
+              names_prefix = "") %>%
+  select(time, starts_with("t_"))
+
+
+n <- as.numeric(as.Date(max(all_plots$date)) - as.Date(min(all_plots$date))) #n es sample size (numero de dias medidos en nuestro caso)
+
+
 allplots_temp_24h_diff <- summarise(group_by(allplots_temp_24h_diff, time),
-                                t_top_diff = t_top_mean_w - t_top_mean_c,
-                                t_bottom_diff = t_bottom_mean_w - t_bottom_mean_c,
-                                t_ground_diff = t_ground_mean_w - t_ground_mean_c)
+                                t_top_mean_diff = t_top_mean_w - t_top_mean_c,
+                                t_top_sd_diff = sqrt((t_top_sd_w^2 / n) + (t_top_sd_c^2 / n)),  ## formula para calcular diferencias entre sd. 
+                                t_bottom_mean_diff = t_bottom_mean_w - t_bottom_mean_c,
+                                t_bottom_sd_diff = sqrt((t_bottom_sd_w^2 / n) + (t_bottom_sd_c^2 / n)),
+                                t_ground_mean_diff = t_ground_mean_w - t_ground_mean_c,
+                                t_ground_sd_diff = sqrt((t_ground_sd_w^2 / n) + (t_ground_sd_c^2 / n)))
 
-allplots_temp_24h_diff <- allplots_temp_24h_diff %>% slice(1:(nrow(allplots_temp_24h_diff) - 1))
+allplots_temp_24h_diff_sum <- summarise(group_by(allplots_temp_24h_diff_sum, time),
+                                    t_top_mean_diff = t_top_mean_w - t_top_mean_c,
+                                    t_top_sd_diff = sqrt((t_top_sd_w^2 / n) + (t_top_sd_c^2 / n)),  ## formula para calcular diferencias entre sd. 
+                                    t_bottom_mean_diff = t_bottom_mean_w - t_bottom_mean_c,
+                                    t_bottom_sd_diff = sqrt((t_bottom_sd_w^2 / n) + (t_bottom_sd_c^2 / n)),
+                                    t_ground_mean_diff = t_ground_mean_w - t_ground_mean_c,
+                                    t_ground_sd_diff = sqrt((t_ground_sd_w^2 / n) + (t_ground_sd_c^2 / n)))
+
+#allplots_temp_24h_diff <- allplots_temp_24h_diff %>% slice(1:(nrow(allplots_temp_24h_diff) - 1))
+
+mean(allplots_temp_24h_diff$t_top_mean_diff, na.rm = T)
+sd(allplots_temp_24h_diff$t_top_mean_diff, na.rm = T)
+
+mean(allplots_temp_24h_diff$t_bottom_mean_diff, na.rm = T)
+sd(allplots_temp_24h_diff$t_bottom_mean_diff, na.rm = T)
+
+mean(allplots_temp_24h_diff$t_ground_mean_diff, na.rm = T)
+sd(allplots_temp_24h_diff$t_ground_mean_diff, na.rm = T)
+
+mean(allplots_temp_24h_diff_sum$t_top_mean_diff, na.rm = T)
+sd(allplots_temp_24h_diff_sum$t_top_mean_diff, na.rm = T)
+
+mean(allplots_temp_24h_diff_sum$t_bottom_mean_diff, na.rm = T)
+sd(allplots_temp_24h_diff_sum$t_bottom_mean_diff, na.rm = T)
+
+mean(allplots_temp_24h_diff_sum$t_ground_mean_diff, na.rm = T)
+sd(allplots_temp_24h_diff_sum$t_ground_mean_diff, na.rm = T)
 
 
-
-ggt24h_diff <- ggplot(allplots_temp_24h_diff) +
-  geom_line(aes(x = time, y = t_top_diff, group = 1, color = "Top"), linetype = "solid") +
-  geom_line(aes(x = time, y = t_bottom_diff, group = 1, color = "Bottom"), linetype = "solid") +
-  geom_line(aes(x = time, y = t_ground_diff, group = 1, color = "Ground"), linetype = "solid") +
-  labs(x = "24 hours (January - July)", y = "Temperature difference (warming-control) ºC") +
+#gt24h_diff <- 
+ggplot(allplots_temp_24h_diff) +
+  geom_line(aes(x = time, y = t_top_mean_diff, group = 1, color = "Top"), linetype = "solid", linewidth = 1) +
+  geom_line(aes(x = time, y = t_top_mean_diff + t_top_sd_diff, group = 1, color = "Top"), linetype = "dashed") +
+  geom_line(aes(x = time, y = t_top_mean_diff - t_top_sd_diff, group = 1, color = "Top"), linetype = "dashed")+
+  
+  geom_line(aes(x = time, y = t_bottom_mean_diff, group = 1, color = "Bottom"), linetype = "solid", linewidth = 1) +
+  geom_line(aes(x = time, y = t_bottom_mean_diff + t_bottom_sd_diff, group = 1, color = "Bottom"), linetype = "dashed") +
+  geom_line(aes(x = time, y = t_bottom_mean_diff - t_bottom_sd_diff, group = 1, color = "Bottom"), linetype = "dashed")+
+  
+  geom_line(aes(x = time, y = t_ground_mean_diff, group = 1, color = "Ground"), linetype = "solid", linewidth = 1) +
+  geom_line(aes(x = time, y = t_ground_mean_diff + t_ground_sd_diff, group = 1, color = "Ground"), linetype = "dashed") +
+  geom_line(aes(x = time, y = t_ground_mean_diff - t_ground_sd_diff, group = 1, color = "Ground"), linetype = "dashed")+
+  
+  labs(x = "24 hours (January 2023 - May 2024)", y = "Temperature difference (warming-control) ºC") +
   geom_hline(yintercept = 0, linetype = "dotted", color = "black") +
   scale_x_discrete(breaks = allplots_temp_24h_diff$time[c(1, seq(24, length(allplots_temp_24h_diff$time), length.out = 5))]) +
-  scale_color_manual(values = c("Top" = "red", "Bottom" = "blue", "Ground" = "green"),
+  scale_color_manual(values = c("Top" = "red2", "Bottom" = "blue3", "Ground" = "green3"),
                      name = "Temperature type") +
-  theme_bw()
+  theme_bw()+
+  theme(legend.position = "NULL")
+
+ggplot(allplots_temp_24h_diff_sum) +
+  geom_line(aes(x = time, y = t_top_mean_diff, group = 1, color = "Top"), linetype = "solid", linewidth = 1) +
+  geom_line(aes(x = time, y = t_top_mean_diff + t_top_sd_diff, group = 1, color = "Top"), linetype = "dashed") +
+  geom_line(aes(x = time, y = t_top_mean_diff - t_top_sd_diff, group = 1, color = "Top"), linetype = "dashed")+
+  
+  geom_line(aes(x = time, y = t_bottom_mean_diff, group = 1, color = "Bottom"), linetype = "solid", linewidth = 1) +
+  geom_line(aes(x = time, y = t_bottom_mean_diff + t_bottom_sd_diff, group = 1, color = "Bottom"), linetype = "dashed") +
+  geom_line(aes(x = time, y = t_bottom_mean_diff - t_bottom_sd_diff, group = 1, color = "Bottom"), linetype = "dashed")+
+  
+  geom_line(aes(x = time, y = t_ground_mean_diff, group = 1, color = "Ground"), linetype = "solid", linewidth = 1) +
+  geom_line(aes(x = time, y = t_ground_mean_diff + t_ground_sd_diff, group = 1, color = "Ground"), linetype = "dashed") +
+  geom_line(aes(x = time, y = t_ground_mean_diff - t_ground_sd_diff, group = 1, color = "Ground"), linetype = "dashed")+
+  
+  labs(x = "24 hours (April-Sept 2023 & April-May 2024)", y = "Temperature difference (warming-control) ºC") +
+  geom_hline(yintercept = 0, linetype = "dotted", color = "black") +
+  scale_x_discrete(breaks = allplots_temp_24h_diff$time[c(1, seq(24, length(allplots_temp_24h_diff$time), length.out = 5))]) +
+  scale_color_manual(values = c("Top" = "red2", "Bottom" = "blue3", "Ground" = "green3"),
+                     name = "Temperature type") +
+  theme_bw()+
+  theme(legend.position = "NULL")
+
 
 
 ggt24h_diff_justtop <- ggplot(allplots_temp_24h_diff) +
-  geom_line(aes(x = time, y = t_top_diff, group = 1, color = "red"), linetype = "solid") +
-  labs(x = "24 hours (January - July)", y = "Temperature difference (warming-control) ºC") +
+  geom_line(aes(x = time, y = t_top_mean_diff, group = 1, color = "red2"), linetype = "solid", linewidth = 1) +
+  geom_line(aes(x = time, y = t_top_mean_diff + t_top_sd_diff, group = 1, color = "red2"), linetype = "dashed") +
+  geom_line(aes(x = time, y = t_top_mean_diff - t_top_sd_diff, group = 1, color = "red2"), linetype = "dashed")+
   geom_hline(yintercept = 0, linetype = "dotted", color = "black") +
+  labs(x = "24 hours (January 2023 - May 2024)", y = "Temperature difference (warming-control) ºC") +
   scale_x_discrete(breaks = allplots_temp_24h_diff$time[c(1, seq(24, length(allplots_temp_24h_diff$time), length.out = 5))]) +
-  theme_bw()
+  theme_bw() +
+  theme(legend.position = "NULL")
+
+
+ggt24h_diff_justtop_sum <- ggplot(allplots_temp_24h_diff_sum) +
+  geom_line(aes(x = time, y = t_top_mean_diff, group = 1, color = "red2"), linetype = "solid", linewidth = 1) +
+  geom_line(aes(x = time, y = t_top_mean_diff + t_top_sd_diff, group = 1, color = "red2"), linetype = "dashed") +
+  geom_line(aes(x = time, y = t_top_mean_diff - t_top_sd_diff, group = 1, color = "red2"), linetype = "dashed")+
+  geom_hline(yintercept = 0, linetype = "dotted", color = "black") +
+  labs(x = "24 hours (January 2023 - May 2024)", y = "Temperature difference (warming-control) ºC") +
+  scale_x_discrete(breaks = allplots_temp_24h_diff$time[c(1, seq(24, length(allplots_temp_24h_diff$time), length.out = 5))]) +
+  theme_bw() +
+  theme(legend.position = "NULL")
 
 
 
@@ -352,12 +455,25 @@ gg24hdiff <- ggarrange(ggt24h_diff, ggsm24h_diff,
 
 #CONTROL vs WARMING: temperature daily difference throughout the year
 
-allplots_temp_day_diff <-  summarise(group_by(all_plots, datetimenew, ttreat),
+allplots_temp_day_mean <-  summarise(group_by(all_plots, datetimenew, ttreat),
                                 t_top_mean = round(mean(T_top, na.rm = T), 2), 
                                 t_bottom_mean = round(mean (T_bottom, na.rm = T), 2), 
                                 t_ground_mean = round(mean(T_ground, na.rm = T), 2))
 
-allplots_temp_day_diff <- allplots_temp_day_diff %>%
+allplots_temp_day_mean_sum <-  summarise(group_by(all_plots_sum, datetimenew, ttreat),
+                                     t_top_mean = round(mean(T_top, na.rm = T), 2), 
+                                     t_bottom_mean = round(mean (T_bottom, na.rm = T), 2), 
+                                     t_ground_mean = round(mean(T_ground, na.rm = T), 2))
+
+
+allplots_temp_day_diff <- allplots_temp_day_mean %>%
+  pivot_wider(names_from = ttreat,
+              values_from = c(t_top_mean, t_bottom_mean, t_ground_mean),
+              names_prefix = "") %>%
+  select(datetimenew, starts_with("t_"))
+
+
+allplots_temp_day_diff_sum <- allplots_temp_day_mean_sum %>%
   pivot_wider(names_from = ttreat,
               values_from = c(t_top_mean, t_bottom_mean, t_ground_mean),
               names_prefix = "") %>%
@@ -368,26 +484,38 @@ allplots_temp_day_diff <- summarise(group_by(allplots_temp_day_diff, datetimenew
                                t_bottom_diff = t_bottom_mean_w - t_bottom_mean_c,
                                t_ground_diff = t_ground_mean_w - t_ground_mean_c)
 
+allplots_temp_day_diff_sum <- summarise(group_by(allplots_temp_day_diff_sum, datetimenew),
+                                    t_top_diff = t_top_mean_w - t_top_mean_c,
+                                    t_bottom_diff = t_bottom_mean_w - t_bottom_mean_c,
+                                    t_ground_diff = t_ground_mean_w - t_ground_mean_c)
+
+
+mean(allplots_temp_day_diff$t_top_diff, na.rm = T)
+sd(allplots_temp_day_diff$t_top_diff, na.rm = T)
+
 
 ggtdailydiff_top <- ggplot(allplots_temp_day_diff, aes(x = datetimenew)) +
-  geom_line(aes(y = t_top_diff), color = "red") +
-  labs(x = NULL, y = "TTop diff") +
+  geom_point(aes(y = t_top_diff), size = 0.5, alpha = 0.2, color = "red2")+
+  geom_smooth(aes(y = t_top_diff), color = "red2", fill = "red2") +
+  labs(x = NULL, y = "Temperature difference (ºC) ") +
   geom_hline(yintercept = 0, linetype = "dotted", color = "black") +
-  scale_x_datetime(breaks = scales::date_breaks("3 weeks"), labels = scales::date_format("%Y-%m-%d")) +
+  scale_x_datetime(breaks = scales::date_breaks("10 weeks"), labels = scales::date_format("%Y-%m-%d")) +
   theme_bw()
 
 ggtdailydiff_ground <- ggplot(allplots_temp_day_diff, aes(x = datetimenew)) +
-  geom_line(aes(y = t_ground_diff), color = "green") +
+  geom_point(aes(y = t_ground_diff), , size = 0.5, alpha = 0.2, color = "green") +
+  geom_smooth(aes(y = t_ground_diff), color = "green3", fill = "green3") +
   labs(x = "January - May", y = "Tground diff" ) +
   geom_hline(yintercept = 0, linetype = "dotted", color = "black") +
-  scale_x_datetime(breaks = scales::date_breaks("3 weeks"), labels = scales::date_format("%Y-%m-%d")) +
+  scale_x_datetime(breaks = scales::date_breaks("10 weeks"), labels = scales::date_format("%Y-%m-%d")) +
   theme_bw()
 
 ggtdailydiff_bottom <- ggplot(allplots_temp_day_diff, aes(x = datetimenew)) +
-  geom_line(aes(y = t_bottom_diff), color = "blue") +
+  geom_point(aes(y = t_bottom_diff), , size = 0.5, alpha = 0.2, color = "blue2") +
+  geom_smooth(aes(y = t_bottom_diff), color = "blue2", fill = "blue2") +
   labs(x = NULL, y = "TBottom diff") +
   geom_hline(yintercept = 0, linetype = "dotted", color = "black") +
-  scale_x_datetime(breaks = scales::date_breaks("3 weeks"), labels = scales::date_format("%Y-%m-%d")) +
+  scale_x_datetime(breaks = scales::date_breaks("10 weeks"), labels = scales::date_format("%Y-%m-%d")) +
   theme_bw()
 
 
@@ -395,6 +523,39 @@ ggtdailydiff_bottom <- ggplot(allplots_temp_day_diff, aes(x = datetimenew)) +
 ggtdailtdiff <- ggarrange(ggtdailydiff_top, ggtdailydiff_bottom, ggtdailydiff_ground, 
                          labels = c("A", "B", "C"),
                          ncol = 1, nrow =3 )
+
+
+
+ggtdailydiff_top_sum <- ggplot(allplots_temp_day_diff_sum, aes(x = datetimenew)) +
+  geom_point(aes(y = t_top_diff), size = 0.5, alpha = 0.2, color = "red2")+
+  geom_smooth(aes(y = t_top_diff), color = "red2", fill = "red2") +
+  labs(x = NULL, y = "Temperature difference (ºC) ") +
+  geom_hline(yintercept = 0, linetype = "dotted", color = "black") +
+  scale_x_datetime(breaks = scales::date_breaks("10 weeks"), labels = scales::date_format("%Y-%m-%d")) +
+  theme_bw()
+
+ggtdailydiff_ground_sum <- ggplot(allplots_temp_day_diff_sum, aes(x = datetimenew)) +
+  geom_point(aes(y = t_ground_diff), , size = 0.5, alpha = 0.2, color = "green") +
+  geom_smooth(aes(y = t_ground_diff), color = "green3", fill = "green3") +
+  labs(x = "January - May", y = "Tground diff" ) +
+  geom_hline(yintercept = 0, linetype = "dotted", color = "black") +
+  scale_x_datetime(breaks = scales::date_breaks("10 weeks"), labels = scales::date_format("%Y-%m-%d")) +
+  theme_bw()
+
+ggtdailydiff_bottom_sum <- ggplot(allplots_temp_day_diff_sum, aes(x = datetimenew)) +
+  geom_point(aes(y = t_bottom_diff), , size = 0.5, alpha = 0.2, color = "blue2") +
+  geom_smooth(aes(y = t_bottom_diff), color = "blue2", fill = "blue2") +
+  labs(x = NULL, y = "TBottom diff") +
+  geom_hline(yintercept = 0, linetype = "dotted", color = "black") +
+  scale_x_datetime(breaks = scales::date_breaks("10 weeks"), labels = scales::date_format("%Y-%m-%d")) +
+  theme_bw()
+
+
+
+ggtdailtdiff <- ggarrange(ggtdailydiff_top_sum, ggtdailydiff_bottom_sum, ggtdailydiff_ground_sum, 
+                          labels = c("A", "B", "C"),
+                          ncol = 1, nrow =3 )
+
 
 
 
@@ -601,17 +762,17 @@ ggboxplots
 # AVERAGE DATA:  -----------
 
 
-wttop <- paste(round(mean(ws$T_top),2), "±", round(s.err(ws$T_top),2))
-wtbottom <- paste(round(mean(ws$T_bottom),2), "±", round(s.err(ws$T_bottom),2))
-wtground <- paste(round(mean(ws$T_ground),2), "±", round(s.err(ws$T_ground),2))
+wttop <- paste(round(mean(ws$T_top),2), "±", round(sd(ws$T_top),2))
+wtbottom <- paste(round(mean(ws$T_bottom),2), "±", round(sd(ws$T_bottom),2))
+wtground <- paste(round(mean(ws$T_ground),2), "±", round(sd(ws$T_ground),2))
 
-cttop <- paste(round(mean(controls$T_top),2), "±", round(s.err(controls$T_top),2))
-ctbottom <- paste(round(mean(controls$T_bottom),2), "±", round(s.err(controls$T_bottom),2))
-ctground <- paste(round(mean(controls$T_ground),2), "±", round(s.err(controls$T_ground),2))
+cttop <- paste(round(mean(controls$T_top),2), "±", round(sd(controls$T_top),2))
+ctbottom <- paste(round(mean(controls$T_bottom),2), "±", round(sd(controls$T_bottom),2))
+ctground <- paste(round(mean(controls$T_ground),2), "±", round(sd(controls$T_ground),2))
 
-ttopdiff <- paste(round(mean(allplots_temp_day_diff$t_top_diff),2), "±", round(s.err(allplots_temp_day_diff$t_top_diff),2))
-tbottomdiff <- paste(round(mean(allplots_temp_day_diff$t_bottom_diff),2), "±", round(s.err(allplots_temp_day_diff$t_bottom_diff),2))
-tgrounddiff <- paste(round(mean(allplots_temp_day_diff$t_ground_diff),2), "±", round(s.err(allplots_temp_day_diff$t_ground_diff),2))
+ttopdiff <- paste(round(mean(allplots_temp_day_diff$t_top_diff, na.rm = T),2), "±", round(sd(allplots_temp_day_diff$t_top_diff, na.rm = T),2))
+tbottomdiff <- paste(round(mean(allplots_temp_day_diff$t_bottom_diff,na.rm = T),2), "±", round(sd(allplots_temp_day_diff$t_bottom_diff, na.rm = T),2))
+tgrounddiff <- paste(round(mean(allplots_temp_day_diff$t_ground_diff, na.rm = T),2), "±", round(sd(allplots_temp_day_diff$t_ground_diff, na.rm = T),2))
 
 wsm <- paste(round(mean(ws$soil_moisture),2), "±", round(s.err(ws$soil_moisture),2))
 controlsm <- paste(round(mean(controls$soil_moisture),2), "±", round(s.err(controls$soil_moisture),2))
@@ -628,6 +789,7 @@ colnames(average_values) <- c("Top temperature (ºC)", "Bottom temperature (ºC)
 
 average_values %>% write.csv("results/average_values.csv")
 
+avg_values <- read.csv("results/average_values.csv")
 
 # Statistical test #####
 

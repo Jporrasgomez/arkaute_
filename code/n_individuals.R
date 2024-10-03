@@ -4,15 +4,14 @@ library(dplyr)
 library(ggplot2)
 library(broom)
 
+
 nind <- read.csv("data/n_individuals.csv")
 source("code/first_script_old.R")
-
 
 nind$code <- as.factor(nind$code)
 
 nind <- select(nind, sampling, plot, code, nind_m2, abundance)
 flora_nind <-  flora %>% select(code, family) %>% distinct(code, .keep_all = TRUE)
-
 
 nind <- nind %>%
   group_by(sampling, plot, code) %>%
@@ -42,12 +41,10 @@ nind <- bind_rows(nind, n_individuals_old_data)
 
  
 #ESTOS DATOS SE USARÁN PARA EL TFM DE CLAUDIA. Es estima, para cada especie, un numero promedio de individuos por metro cuadrado y se multiplicará por la biomasa
-# promedio por individuo. 
+#### promedio por individuo. 
 nind_mean <- nind %>%
-  group_by(code) %>%
-  summarize(mean_nind_m2 = mean(nind_m2)) 
-
-
+ group_by(code) %>%
+ summarize(mean_nind_m2 = mean(nind_m2)) 
 species_NAnind <- anti_join(flora_nind, nind_mean) #Especies para las cuales no tenemos datos
 
 
@@ -55,9 +52,11 @@ species_NAnind <- anti_join(flora_nind, nind_mean) #Especies para las cuales no 
 
 ### Regresión lineal. 
 
+#Se podría considerar para la tesis ajustar distintos modelos para algunas especies
 
 
-flora$code <- as.character(flora$code)
+
+flora_nind$code <- as.character(flora_nind$code)
 nind$code <- as.character(nind$code)
 
 code_levels <- unique(nind$code)
@@ -109,7 +108,7 @@ for (i in 1: length(code_levels)) {
 }
 
 
-#print(gglist[1:length(code_levels)])
+print(gglist[1:length(code_levels)])
 
 #Checking species with low info: 
 
@@ -128,8 +127,11 @@ gglist[[which(code_levels == "rucr")]]
 #There are some intercepts that are negative. Lets transform these into 0. 
 
 nind_lm_data <- nind_lm_data %>%
-  mutate(intercept = ifelse(intercept < 0, 0, intercept),  #Cuando la abundancia sea 0, el numero de individuos no puede ser negativo. 
-         slope = ifelse(is.na(slope), 0, slope))
+  mutate(slope = ifelse(is.na(slope), 0, slope))
+
+hist(nind_lm_data$slope, 20)
+hist(nind_lm_data$r_squared, 20)
+hist(nind_lm_data$n_observations, 20)
 
 
 nind_lm_data %>% write.csv("data/nind_lm_data.csv", row.names = FALSE)

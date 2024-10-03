@@ -33,8 +33,8 @@ sampling_dates$month <- month(sampling_dates$datenew, label = TRUE)
 sampling_dates$day <- day(sampling_dates$datenew)
 sampling_dates$year <- year(sampling_dates$datenew)
 sampling_dates$date <- sampling_dates$datenew
-sampling_dates$micro.sampling <- NULL
-sampling_dates$N.micro <- NULL
+sampling_dates$micro_sampling <- NULL
+sampling_dates$label_micro <- NULL
 
 
 sampling_dates <- sampling_dates %>%
@@ -86,10 +86,10 @@ flora <- flora %>%
 
 
 # RICHNESSS
-flora_n_species <- summarise(group_by(flora, plot, sampling),
-                             n_species = n_distinct(code, na.rm = T)) ##adding number of species
+flora_richness <- summarise(group_by(flora, plot, sampling),
+                             richness = n_distinct(code, na.rm = T)) ##adding number of species
 
-flora <- merge(flora, flora_n_species)
+flora <- merge(flora, flora_richness)
 
 # ABUNDANCE
 
@@ -128,6 +128,9 @@ nind_lm_data <- read.csv("data/nind_lm_data.csv")
 flora <- merge(flora, nind_lm_data, by = "code")
 
 flora$nind_m2 <- flora$intercept + flora$abundance * flora$slope
+flora <- flora %>%
+  mutate(nind_m2 = ifelse(nind_m2 < 0, 0.1, nind_m2))
+
 flora$biomass <- flora$biomass_i *flora$nind_m2
 
 
@@ -141,10 +144,10 @@ flora <- merge(flora, flora_biomass_total)
 
 
 
-flora_complete <- flora %>% select(sampling, date, month, treatment, plot, abundance, code, family, genus_level, species_level, height, Ah, Ab, biomass_i, nind_m2, intercept, slope, r_squared, p_value, biomass, n_species, abundance_total, biomass_total)
+flora_complete <- flora %>% select(sampling, date, month, treatment, plot, abundance, code, family, genus_level, species_level, height, Ah, Ab, biomass_i, nind_m2, intercept, slope, r_squared, p_value, biomass, richness, abundance_total, biomass_total)
 
 
-flora <- flora %>% select(sampling, date, month, treatment, plot, abundance, code, family, genus_level, species_level, n_species, abundance_total, biomass_total)
+flora <- flora %>% select(sampling, date, month, treatment, plot, abundance, code, family, genus_level, species_level, richness, abundance_total, biomass_total)
   
 #Mirar si la distribución de los datos de biomasa tienen sentido una vez aplicada la estimacion en base a la abundancia
 
@@ -158,7 +161,7 @@ flora <- flora %>% select(sampling, date, month, treatment, plot, abundance, cod
 rm(species_code)
 rm(flora_raw)
 rm(sampling_dates)
-rm(flora_n_species)
+rm(flora_richness)
 rm(flora_abundance)
 rm(flora_biomass_total)
 rm(d)
